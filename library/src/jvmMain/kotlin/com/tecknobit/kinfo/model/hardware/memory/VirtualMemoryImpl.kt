@@ -2,23 +2,47 @@ package com.tecknobit.kinfo.model.hardware.memory
 
 import com.tecknobit.kinfo.model.desktop.hardware.memory.VirtualMemory
 
-class VirtualMemoryImpl(private val virtualMemory: oshi.hardware.VirtualMemory) : VirtualMemory {
+/**
+ * Implementation of the `VirtualMemory` interface.
+ * This class provides details about the virtual memory statistics of the system,
+ * including swap memory usage, virtual memory limits, and the number of swap pages.
+ *
+ * @param virtualMemory The source object containing virtual memory information from the hardware.
+ *
+ * @see VirtualMemory
+ */
+class VirtualMemoryImpl(
+    virtualMemory: oshi.hardware.VirtualMemory
+) : VirtualMemory {
 
-    override val swapTotal: Long
-        get() = virtualMemory.swapTotal
+    /**
+     * `swapTotal` The total amount of swap space available in the system (in bytes)
+     */
+    override val swapTotal: Long = virtualMemory.swapTotal
 
-    override val swapUsed: Long
-        get() = virtualMemory.swapUsed
+    /**
+     * `swapUsed` The amount of swap space currently being used (in bytes)
+     */
+    override val swapUsed: Long = virtualMemory.swapUsed
 
-    override val virtualMax: Long
-        get() = virtualMemory.virtualMax
+    /**
+     * `virtualMax` The maximum amount of virtual memory that the system can use (in bytes)
+     */
+    override val virtualMax: Long = virtualMemory.virtualMax
 
-    override val virtualInUse: Long
-        get() = virtualMemory.virtualInUse
+    /**
+     * `virtualInUse` The amount of virtual memory currently in use (in bytes)
+     */
+    override val virtualInUse: Long = virtualMemory.virtualInUse
 
-    override val swapPagesIn: Long
-        get() = virtualMemory.swapPagesIn
+    /**
+     * `swapPagesIn` The number of pages that have been swapped in from disk into memory
+     */
+    override val swapPagesIn: Long = virtualMemory.swapPagesIn
 
-    override val swapPagesOut: Long
-        get() = virtualMemory.swapPagesOut
+    /**
+     * `swapPagesOut` The number of pages that have been swapped out from memory to disk
+     */
+    override val swapPagesOut: Long = virtualMemory.swapPagesOut
+
 }

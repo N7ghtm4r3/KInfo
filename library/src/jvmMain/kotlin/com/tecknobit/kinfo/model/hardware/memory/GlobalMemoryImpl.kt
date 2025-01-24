@@ -4,28 +4,62 @@ import com.tecknobit.kinfo.model.desktop.hardware.memory.GlobalMemory
 import com.tecknobit.kinfo.model.desktop.hardware.memory.PhysicalMemory
 import com.tecknobit.kinfo.model.desktop.hardware.memory.VirtualMemory
 
-class GlobalMemoryImpl(private val globalMemory: oshi.hardware.GlobalMemory) : GlobalMemory {
+/**
+ * Implementation of the `GlobalMemory` interface.
+ * This class provides detailed information about the system's global memory, including the total memory, available memory,
+ * page size, virtual memory, and physical memory modules.
+ *
+ * @param globalMemory The source of the global memory information, provided by the `oshi.hardware.GlobalMemory` class.
+ *
+ * @author N7ghtm4r3
+ *
+ * @see GlobalMemory
+ */
+class GlobalMemoryImpl(
+    private val globalMemory: oshi.hardware.GlobalMemory
+) : GlobalMemory {
 
-    private val virtualMemoryImpl by lazy {
-        VirtualMemoryImpl(virtualMemory = globalMemory.virtualMemory)
+    /**
+     * `total` The total amount of memory in the system (in bytes)
+     */
+    override val total: Long = globalMemory.total
+
+    /**
+     * `available` The amount of available memory in the system (in bytes)
+     */
+    override val available: Long = globalMemory.available
+
+    /**
+     * `pageSize` The system's memory page size (in bytes)
+     */
+    override val pageSize: Long = globalMemory.pageSize
+
+    /**
+     * `virtualMemory` The virtual memory information of the system, which includes swap space and memory limits
+     */
+    override val virtualMemory: VirtualMemory by lazy {
+        VirtualMemoryImpl(
+            virtualMemory = globalMemory.virtualMemory
+        )
     }
 
-    override val total: Long
-        get() = globalMemory.total
-
-    override val available: Long
-        get() = globalMemory.available
-
-    override val pageSize: Long
-        get() = globalMemory.pageSize
-
-    override val virtualMemory: VirtualMemory
-        get() = virtualMemoryImpl
-
+    /**
+     * `physicalMemory` A list of physical memory modules installed in the system, including details about each individual module
+     */
     override val physicalMemory: List<PhysicalMemory>
-        get() = loadPhysicalMemories(sourceList = globalMemory.physicalMemory)
+        get() = loadPhysicalMemories(
+            sourceList = globalMemory.physicalMemory
+        )
 
-    private fun loadPhysicalMemories(sourceList: List<oshi.hardware.PhysicalMemory>): List<PhysicalMemory> {
+    /**
+     * Loads the physical memory modules from the source list
+     *
+     * @param sourceList The source list of `oshi.hardware.PhysicalMemory` objects
+     * @return A list of `PhysicalMemory` objects encapsulating physical memory information
+     */
+    private fun loadPhysicalMemories(
+        sourceList: List<oshi.hardware.PhysicalMemory>
+    ): List<PhysicalMemory> {
         val result = mutableListOf<PhysicalMemory>()
         sourceList.forEach { physicalMemory ->
             result.add(
@@ -42,4 +76,5 @@ class GlobalMemoryImpl(private val globalMemory: oshi.hardware.GlobalMemory) : G
         }
         return result
     }
+
 }

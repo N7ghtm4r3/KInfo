@@ -2,14 +2,33 @@ package com.tecknobit.kinfo.model.hardware
 
 import com.tecknobit.kinfo.model.desktop.hardware.Sensors
 
-class SensorsImpl(private val sensorsInfo: oshi.hardware.Sensors) : Sensors {
+/**
+ * Implementation of the `Sensors` interface.
+ * This class provides access to sensor data for the computer system, including CPU temperature, fan speeds, and CPU voltage.
+ *
+ * @param sensorsInfo The raw sensor information provided by the hardware.
+ *
+ * @author N7ghtm4r3
+ *
+ * @see Sensors
+ */
+class SensorsImpl(
+    sensorsInfo: oshi.hardware.Sensors
+) : Sensors {
 
-    override val cpuTemperature: Double
-        get() = sensorsInfo.cpuTemperature
+    /**
+     * `cpuTemperature` The current temperature of the CPU in degrees Celsius
+     */
+    override val cpuTemperature: Double = sensorsInfo.cpuTemperature
 
-    override val fanSpeeds: IntArray
-        get() = sensorsInfo.fanSpeeds
+    /**
+     * `fanSpeeds` The speeds of the fans in the system, in RPM (Revolutions per Minute)
+     */
+    override val fanSpeeds: IntArray = sensorsInfo.fanSpeeds
 
-    override val cpuVoltage: Double
-        get() = sensorsInfo.cpuVoltage
+    /**
+     * `cpuVoltage` The current voltage supplied to the CPU, in volts
+     */
+    override val cpuVoltage: Double = sensorsInfo.cpuVoltage
+
 }

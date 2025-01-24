@@ -2,26 +2,75 @@ package com.tecknobit.kinfo.model.operatingsystem.protocols
 
 import com.tecknobit.kinfo.model.desktop.operatingsystem.protocols.*
 
+/**
+ * `InternetProtocolStatsImpl` Implements the `InternetProtocolStats` interface to provide details about
+ * the network protocol statistics, including TCP and UDP statistics for both IPv4 and IPv6,
+ * as well as active IP connections.
+ *
+ * @param internetProtocolStatsInfo The source object that contains the raw protocol stats.
+ *
+ * @author N7ghtm4r3
+ *
+ * @see InternetProtocolStats
+ */
 class InternetProtocolStatsImpl(
     private val internetProtocolStatsInfo: oshi.software.os.InternetProtocolStats,
 ) : InternetProtocolStats {
 
+    /**
+     * `tcpV4Stats` Returns the TCP statistics for the IPv4 protocol, including established, active,
+     * passive connections, and other metrics like sent/received segments.
+     */
     override val tcpV4Stats: TcpStats
-        get() = initTcpStats(source = internetProtocolStatsInfo.tcPv4Stats)
+        get() = initTcpStats(
+            source = internetProtocolStatsInfo.tcPv4Stats
+        )
 
+    /**
+     * `tcpV6Stats` Returns the TCP statistics for the IPv6 protocol, including established, active,
+     * passive connections, and other metrics like sent/received segments.
+     */
     override val tcpV6Stats: TcpStats
-        get() = initTcpStats(source = internetProtocolStatsInfo.tcPv6Stats)
+        get() = initTcpStats(
+            source = internetProtocolStatsInfo.tcPv6Stats
+        )
 
+    /**
+     * `udpV4Stats` Returns the UDP statistics for the IPv4 protocol, including sent/received datagrams,
+     * and other related metrics.
+     */
     override val udpV4Stats: UdpStats
-        get() = initUdpStats(source = internetProtocolStatsInfo.udPv4Stats)
+        get() = initUdpStats(
+            source = internetProtocolStatsInfo.udPv4Stats
+        )
 
+    /**
+     * `udpV6Stats` Returns the UDP statistics for the IPv6 protocol, including sent/received datagrams,
+     * and other related metrics.
+     */
     override val udpV6Stats: UdpStats
-        get() = initUdpStats(source = internetProtocolStatsInfo.udPv6Stats)
+        get() = initUdpStats(
+            source = internetProtocolStatsInfo.udPv6Stats
+        )
 
+    /**
+     * `ipConnections` A list of active IP connections, including local and foreign addresses, ports,
+     * and their respective states.
+     */
     override val ipConnections: List<IPConnection>
-        get() = loadIpConnections(sourceList = internetProtocolStatsInfo.connections)
+        get() = loadIpConnections(
+            sourceList = internetProtocolStatsInfo.connections
+        )
 
-    private fun initTcpStats(source: oshi.software.os.InternetProtocolStats.TcpStats): TcpStats {
+    /**
+     * Initializes the TCP statistics from the raw source data.
+     *
+     * @param source The raw TCP stats data from the source.
+     * @return A [TcpStats] object containing the processed TCP stats.
+     */
+    private fun initTcpStats(
+        source: oshi.software.os.InternetProtocolStats.TcpStats
+    ): TcpStats {
         return TcpStatsImpl(
             connectionsEstablished = source.connectionsEstablished,
             connectionsActive = source.connectionsActive,
@@ -36,7 +85,15 @@ class InternetProtocolStatsImpl(
         )
     }
 
-    private fun initUdpStats(source: oshi.software.os.InternetProtocolStats.UdpStats): UdpStats {
+    /**
+     * Initializes the UDP statistics from the raw source data.
+     *
+     * @param source The raw UDP stats data from the source.
+     * @return A [UdpStats] object containing the processed UDP stats.
+     */
+    private fun initUdpStats(
+        source: oshi.software.os.InternetProtocolStats.UdpStats
+    ): UdpStats {
         return UdpStatsImpl(
             datagramsSent = source.datagramsSent,
             datagramsReceived = source.datagramsReceived,
@@ -45,7 +102,15 @@ class InternetProtocolStatsImpl(
         )
     }
 
-    private fun loadIpConnections(sourceList: List<oshi.software.os.InternetProtocolStats.IPConnection>): List<IPConnection> {
+    /**
+     * Loads the IP connections from the raw source list.
+     *
+     * @param sourceList The raw list of IP connections.
+     * @return A list of [IPConnection] objects representing the active IP connections.
+     */
+    private fun loadIpConnections(
+        sourceList: List<oshi.software.os.InternetProtocolStats.IPConnection>
+    ): List<IPConnection> {
         val result = mutableListOf<IPConnection>()
         sourceList.forEach { connection ->
             result.add(

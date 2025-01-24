@@ -176,6 +176,3 @@ tasks.dokkaHtml {
 configurations.all {
     exclude("io.github.n7ghtm4r3", "Equinox-Compose-android")
 }
-dependencies {
-    implementation(libs.androidx.navigation.common.ktx)
-}

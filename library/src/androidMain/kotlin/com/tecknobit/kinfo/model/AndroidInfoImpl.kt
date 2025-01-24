@@ -9,6 +9,7 @@ import androidx.core.app.LocaleManagerCompat
 import androidx.core.content.pm.PackageInfoCompat
 import com.tecknobit.equinoxcompose.utilities.context.AppContext
 import com.tecknobit.kinfo.BuildConfig
+import com.tecknobit.kinfo.UNKNOWN
 import com.tecknobit.kinfo.model.android.AndroidInfo
 import com.tecknobit.kinfo.model.android.DisplayMetrics
 import com.tecknobit.kinfo.model.android.Version

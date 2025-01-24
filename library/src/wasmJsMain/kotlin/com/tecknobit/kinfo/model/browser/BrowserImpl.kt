@@ -2,14 +2,32 @@ package com.tecknobit.kinfo.model.browser
 
 import com.tecknobit.kinfo.model.web.browser.Browser
 
+/**
+ * Implements the `Browser` interface, providing concrete values for the browser's name and version.
+ *
+ * This class extracts the browser's name and version from the provided `com.tecknobit.kinfo.model.Browser` object,
+ * ensuring null-safe values are used via the `safeValue()` method from the `WebInfoItem` interface.
+ *
+ * @param parsedBrowser The `Browser` object containing the parsed browser information, used to extract the name and version.
+ *
+ * @see Browser
+ *
+ * @author N7ghtm4r3
+ */
 class BrowserImpl(
-    private val parsedBrowser: com.tecknobit.kinfo.model.Browser
+    parsedBrowser: com.tecknobit.kinfo.model.Browser
 ) : Browser {
 
-    override val name: String
-        get() = parsedBrowser.name.safeValue()
+    /**
+     * The name of the browser.
+     * This value is safely extracted from the provided `parsedBrowser` object.
+     */
+    override val name: String = parsedBrowser.name.safeValue()
 
-    override val version: String
-        get() = parsedBrowser.version.safeValue()
+    /**
+     * The version of the browser.
+     * This value is safely extracted from the provided `parsedBrowser` object.
+     */
+    override val version: String = parsedBrowser.version.safeValue()
 
 }

@@ -1,74 +1,170 @@
 package com.tecknobit.kinfo.model.hardware.centralprocessor
 
 import com.tecknobit.kinfo.model.desktop.hardware.centralprocessor.*
+import comtecknobitkinfomodeldesktophardwarecentralprocessor.CentralProcessor
 
+/**
+ * `CentralProcessorImpl` provides an implementation of the [CentralProcessor] interface.
+ * This class retrieves information about the system's central processing unit (CPU),
+ * including its features, load, and performance metrics, leveraging the OSHI library.
+ *
+ * @param centralProcessorInfo The [oshi.hardware.CentralProcessor] instance used to fetch CPU details.
+ *
+ * @author N7ghtm4r3
+ *
+ * @see CentralProcessor
+ */
 class CentralProcessorImpl(
     private val centralProcessorInfo: oshi.hardware.CentralProcessor,
 ) : CentralProcessor {
 
-    private val processorIdentifierImpl by lazy {
-        ProcessorIdentifierImpl(processorIdentifierInfo = centralProcessorInfo.processorIdentifier)
+    /**
+     * `processorIdentifier` provides detailed information about the processor,
+     * such as vendor, name, stepping, and model.
+     */
+    override val processorIdentifier: ProcessorIdentifier by lazy {
+        ProcessorIdentifierImpl(
+            processorIdentifierInfo = centralProcessorInfo.processorIdentifier
+        )
     }
 
-    override val processorIdentifier: ProcessorIdentifier
-        get() = processorIdentifierImpl
+    /**
+     * `maxFreq` represents the maximum frequency of the processor in hertz.
+     */
+    override val maxFreq: Long = centralProcessorInfo.maxFreq
 
-    override val maxFreq: Long
-        get() = centralProcessorInfo.maxFreq
+    /**
+     * `currentFreq` contains an array of current frequencies for each logical processor in hertz.
+     */
+    override val currentFreq: LongArray = centralProcessorInfo.currentFreq
 
-    override val currentFreq: LongArray
-        get() = centralProcessorInfo.currentFreq
-
+    /**
+     * `logicalProcessors` returns a list of logical processors,
+     * each representing a core or a thread.
+     */
     override val logicalProcessors: List<LogicalProcessor>
-        get() = loadLogicalProcessors(sourceList = centralProcessorInfo.logicalProcessors)
+        get() = loadLogicalProcessors(
+            sourceList = centralProcessorInfo.logicalProcessors
+        )
 
+    /**
+     * `physicalProcessors` provides a list of physical processors,
+     * representing the physical cores in the system.
+     */
     override val physicalProcessors: List<PhysicalProcessor>
-        get() = loadPhysicalProcessors(sourceList = centralProcessorInfo.physicalProcessors)
+        get() = loadPhysicalProcessors(
+            sourceList = centralProcessorInfo.physicalProcessors
+        )
 
+    /**
+     * `processorCaches` returns a list of processor caches,
+     * detailing cache levels, sizes, and types.
+     */
     override val processorCaches: List<ProcessorCache>
-        get() = loadProcessorCache(sourceList = centralProcessorInfo.processorCaches)
+        get() = loadProcessorCache(
+            sourceList = centralProcessorInfo.processorCaches
+        )
 
-    override val featureFlags: List<String>
-        get() = centralProcessorInfo.featureFlags
+    /**
+     * `featureFlags` lists the CPU's supported features, such as instruction sets and extensions.
+     */
+    override val featureFlags: List<String> = centralProcessorInfo.featureFlags
 
-    override val systemCpuLoadTicks: LongArray
-        get() = centralProcessorInfo.systemCpuLoadTicks
+    /**
+     * `systemCpuLoadTicks` contains an array of tick counters representing system-wide CPU load.
+     */
+    override val systemCpuLoadTicks: LongArray = centralProcessorInfo.systemCpuLoadTicks
 
-    override val processorCpuLoadTicks: Array<LongArray>
-        get() = centralProcessorInfo.processorCpuLoadTicks
+    /**
+     * `processorCpuLoadTicks` contains an array of tick counters for each logical processor,
+     * representing the CPU load distribution.
+     */
+    override val processorCpuLoadTicks: Array<LongArray> = centralProcessorInfo.processorCpuLoadTicks
 
-    override val logicalProcessorCount: Int
-        get() = centralProcessorInfo.logicalProcessorCount
+    /**
+     * `logicalProcessorCount` provides the number of logical processors in the system.
+     */
+    override val logicalProcessorCount: Int = centralProcessorInfo.logicalProcessorCount
 
-    override val physicalProcessorCount: Int
-        get() = centralProcessorInfo.physicalProcessorCount
+    /**
+     * `physicalProcessorCount` provides the number of physical processors (cores) in the system.
+     */
+    override val physicalProcessorCount: Int = centralProcessorInfo.physicalProcessorCount
 
-    override val physicalPackageCount: Int
-        get() = centralProcessorInfo.physicalPackageCount
+    /**
+     * `physicalPackageCount` returns the number of physical processor packages in the system.
+     */
+    override val physicalPackageCount: Int = centralProcessorInfo.physicalPackageCount
 
-    override val contextSwitches: Long
-        get() = centralProcessorInfo.contextSwitches
+    /**
+     * `contextSwitches` contains the total number of context switches that have occurred.
+     */
+    override val contextSwitches: Long = centralProcessorInfo.contextSwitches
 
-    override val interrupts: Long
-        get() = centralProcessorInfo.interrupts
+    /**
+     * `interrupts` contains the total number of interrupts that have occurred.
+     */
+    override val interrupts: Long = centralProcessorInfo.interrupts
 
-    override fun getSystemCpuLoadBetweenTicks(oldTickets: LongArray): Double {
+    /**
+     * `getSystemCpuLoadBetweenTicks` calculates the system's CPU load as a percentage,
+     * based on the difference between old and current tick counters.
+     *
+     * @param oldTickets Array of previous tick counters for calculation
+     * @return The calculated CPU load as a percentage
+     */
+    override fun getSystemCpuLoadBetweenTicks(
+        oldTickets: LongArray
+    ): Double {
         return centralProcessorInfo.getSystemCpuLoadBetweenTicks(oldTickets)
     }
 
-    override fun getSystemLoadAverage(nelem: Int): DoubleArray {
+    /**
+     * `getSystemLoadAverage` retrieves the system's load average over a specified number of intervals.
+     *
+     * @param nelem The number of intervals to retrieve load averages for
+     * @return An array of load average values
+     */
+    override fun getSystemLoadAverage(
+        nelem: Int
+    ): DoubleArray {
         return centralProcessorInfo.getSystemLoadAverage(nelem)
     }
 
-    override fun getSystemCpuLoad(delay: Long): Double {
+    /**
+     * `getSystemCpuLoad` calculates the CPU load for the system over a specified delay.
+     *
+     * @param delay The delay in milliseconds over which the CPU load is measured
+     * @return The calculated CPU load as a percentage
+     */
+    override fun getSystemCpuLoad(
+        delay: Long
+    ): Double {
         return centralProcessorInfo.getSystemCpuLoad(delay)
     }
 
-    override fun getProcessorCpuLoadBetweenTicks(oldTickets: Array<LongArray>): DoubleArray {
+    /**
+     * `getProcessorCpuLoadBetweenTicks` calculates the CPU load for each logical processor,
+     * based on the difference between old and current tick counters.
+     *
+     * @param oldTickets Array of previous tick counters for each logical processor
+     * @return An array of calculated CPU loads for each logical processor
+     */
+    override fun getProcessorCpuLoadBetweenTicks(
+        oldTickets: Array<LongArray>
+    ): DoubleArray {
         return centralProcessorInfo.getProcessorCpuLoadBetweenTicks(oldTickets)
     }
 
-    private fun loadLogicalProcessors(sourceList: List<oshi.hardware.CentralProcessor.LogicalProcessor>): List<LogicalProcessor> {
+    /**
+     * Loads a list of logical processors with their detailed attributes.
+     *
+     * @param sourceList The source list of logical processors from OSHI
+     * @return A list of [LogicalProcessor] instances
+     */
+    private fun loadLogicalProcessors(
+        sourceList: List<oshi.hardware.CentralProcessor.LogicalProcessor>
+    ): List<LogicalProcessor> {
         val result = mutableListOf<LogicalProcessor>()
         sourceList.forEach { processor ->
             result.add(
@@ -84,7 +180,15 @@ class CentralProcessorImpl(
         return result
     }
 
-    private fun loadPhysicalProcessors(sourceList: List<oshi.hardware.CentralProcessor.PhysicalProcessor>): List<PhysicalProcessor> {
+    /**
+     * Loads a list of physical processors with their detailed attributes.
+     *
+     * @param sourceList The source list of physical processors from OSHI
+     * @return A list of [PhysicalProcessor] instances
+     */
+    private fun loadPhysicalProcessors(
+        sourceList: List<oshi.hardware.CentralProcessor.PhysicalProcessor>
+    ): List<PhysicalProcessor> {
         val result = mutableListOf<PhysicalProcessor>()
         sourceList.forEach { processor ->
             result.add(
@@ -99,7 +203,15 @@ class CentralProcessorImpl(
         return result
     }
 
-    private fun loadProcessorCache(sourceList: List<oshi.hardware.CentralProcessor.ProcessorCache>): List<ProcessorCache> {
+    /**
+     * Loads a list of processor caches with their attributes such as size and type.
+     *
+     * @param sourceList The source list of processor caches from OSHI
+     * @return A list of [ProcessorCache] instances
+     */
+    private fun loadProcessorCache(
+        sourceList: List<oshi.hardware.CentralProcessor.ProcessorCache>
+    ): List<ProcessorCache> {
         val result = mutableListOf<ProcessorCache>()
         sourceList.forEach { cache ->
             result.add(
@@ -109,10 +221,10 @@ class CentralProcessorImpl(
                     lineSize = cache.lineSize,
                     cacheSize = cache.cacheSize,
                     type = CacheType.valueOf(cache.type.name)
-
                 )
             )
         }
         return result
     }
+
 }
