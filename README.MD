@@ -1,13 +1,13 @@
-<h1 align="center">KDeviceInfo</h1>
+<h1 align="center">KInfo</h1>
 
-KDeviceInfo is Kotlin Multiplatform Library - allows to access the device details of android and
+KInfo is Kotlin Multiplatform Library - allows to access the device details of android and
 ios devices without writing expect actual boilerplate code.
 
 <p align="center">
-<a href="https://github.com/swapnil-musale/KDeviceInfo"><img alt="Android" src="https://img.shields.io/badge/Platform-Android-Blue?style=for-the-badge"/></a>
-<a href="https://github.com/swapnil-musale/KDeviceInfo"><img alt="Ios" src="https://img.shields.io/badge/Platform-Ios-Blue?style=for-the-badge"/></a>
-<a href="https://github.com/swapnil-musale/KDeviceInfo"><img alt="Maven Central" src="https://img.shields.io/maven-central/v/io.github.swapnil-musale/KDeviceInfo?style=for-the-badge"/></a>
-<a href="https://github.com/swapnil-musale/KDeviceInfo"><img alt="CI Status" src="https://img.shields.io/github/actions/workflow/status/swapnil-musale/KDeviceInfo/build.yml?style=for-the-badge"/></a>
+<a href="https://github.com/swapnil-musale/KInfo"><img alt="Android" src="https://img.shields.io/badge/Platform-Android-Blue?style=for-the-badge"/></a>
+<a href="https://github.com/swapnil-musale/KInfo"><img alt="Ios" src="https://img.shields.io/badge/Platform-Ios-Blue?style=for-the-badge"/></a>
+<a href="https://github.com/swapnil-musale/KInfo"><img alt="Maven Central" src="https://img.shields.io/maven-central/v/io.github.swapnil-musale/KInfo?style=for-the-badge"/></a>
+<a href="https://github.com/swapnil-musale/KInfo"><img alt="CI Status" src="https://img.shields.io/github/actions/workflow/status/swapnil-musale/KInfo/build.yml?style=for-the-badge"/></a>
 
 # Demo ❤️
 
@@ -18,8 +18,8 @@ ios devices without writing expect actual boilerplate code.
     <th>Ios</th> 
   </tr>
   <tr>
-    <td><img src = "https://github.com/swapnil-musale/KDeviceInfo/assets/15209914/230a0983-ca7b-4983-a17d-e90cc639add5" width=250 alt="android"/></td> 
-    <td><img src = "https://github.com/swapnil-musale/KDeviceInfo/assets/15209914/2024b962-e3ea-4e3f-beef-81561ca8371e" width=250 alt="ios"/></td>
+    <td><img src = "https://github.com/swapnil-musale/KInfo/assets/15209914/230a0983-ca7b-4983-a17d-e90cc639add5" width=250 alt="android"/></td> 
+    <td><img src = "https://github.com/swapnil-musale/KInfo/assets/15209914/2024b962-e3ea-4e3f-beef-81561ca8371e" width=250 alt="ios"/></td>
   </tr>
 </table>
 
@@ -46,7 +46,7 @@ Add the library dependency in ```shared``` module (```build.gradle.kts```)
 ```
 commonMain.dependencies {
     ...
-    api or implementation("io.github.swapnil-musale:KDeviceInfo:0.0.7")
+    api or implementation("io.github.swapnil-musale:KInfo:0.0.7")
 }
 ```
 
@@ -57,20 +57,20 @@ Add the library dependency in ```composeApp``` module (```build.gradle.kts```)
 ```
 commonMain.dependencies {
     ...
-    implementation("io.github.swapnil-musale:KDeviceInfo:0.0.7")
+    implementation("io.github.swapnil-musale:KInfo:0.0.7")
 }
 ```
 
 # Usage
 
-Implementation of **KDeviceInfo** is pretty straightforward. Simply import the **DeviceInfoXState**
+Implementation of **KInfo** is pretty straightforward. Simply import the **KInfoState**
 and start accessing device information in your Compose Multiplatform project.
 
 ```
 @Composable
 fun DeviceInfoExample() {
 
-    val deviceInfoXState: DeviceInfoXState = rememberDeviceInfoXState()
+    val deviceInfoXState: KInfoState = rememberKInfoState()
     
     Column(modifier = Modifier.fillMaxSize()) {
         if (deviceInfoXState.isAndroid) {
@@ -117,7 +117,7 @@ To access the device details outside the Composable function you can make use of
 ```
 class AppViewModel {
 
-    private val deviceInfoXState: DeviceInfoXState = DeviceInfoXState()
+    private val deviceInfoXState: KInfoState = KInfoState()
 
     init {
         if (deviceInfoXState.isAndroid) {
@@ -157,7 +157,7 @@ Compose Multiplatform project check out [Sample App][0].
 
 # Contributions
 
-Contributions to KDeviceInfo are super welcome checkout [Contributions Guidelines][4]. If you encounter any issues or have suggestions for
+Contributions to KInfo are super welcome checkout [Contributions Guidelines][4]. If you encounter any issues or have suggestions for
 improvements, please feel free to open an issue or submit a pull request on GitHub.
 
 ## Connect with me
@@ -167,11 +167,11 @@ improvements, please feel free to open an issue or submit a pull request on GitH
 [![Twitter](https://skillicons.dev/icons?i=twitter)][3]
 
 
-[0]: https://github.com/swapnil-musale/KDeviceInfo/blob/master/sampleApp/composeApp/src/commonMain/kotlin/com/devx/kdeviceinfo/sample/App.kt
+[0]: https://github.com/swapnil-musale/KInfo/blob/master/sampleApp/composeApp/src/commonMain/kotlin/com/devx/kdeviceinfo/sample/App.kt
 [1]: https://github.com/swapnil-musale
 [2]: https://linkedin.com/in/swapnil-musale
 [3]: https://twitter.com/swapnil_musale
-[4]: https://github.com/swapnil-musale/KDeviceInfo/blob/master/CONTRIBUTING.MD
+[4]: https://github.com/swapnil-musale/KInfo/blob/master/CONTRIBUTING.MD
 
 # Licence
 

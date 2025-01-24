@@ -1,16 +1,14 @@
 *.iml
 .gradle
 .idea
-.kotlin
 .DS_Store
 build
-*/build
 captures
 .externalNativeBuild
 .cxx
 local.properties
-xcuserdata/
-Pods/
-*.jks
-*yarn.lock
-ToDo.txt
+xcuserdata
+.kotlin
+#So we don't accidentally commit our private keys
+*.gpg
+gradle.properties

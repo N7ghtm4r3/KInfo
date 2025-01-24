@@ -1,22 +1,19 @@
-enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
-
 pluginManagement {
     repositories {
         google()
-        gradlePluginPortal()
-        mavenLocal()
         mavenCentral()
+        gradlePluginPortal()
     }
 }
 
 dependencyResolutionManagement {
     repositories {
         google()
-        mavenLocal()
         mavenCentral()
+        maven("https://jitpack.io")
+        maven("https://repo.clojars.org")
     }
 }
 
-rootProject.name = "KMP-DeviceInfo"
-include(":KDeviceInfo")
-include("sampleApp:composeApp")
+rootProject.name = "KInfo"
+include(":library")
