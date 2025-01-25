@@ -131,6 +131,17 @@ onPlatform(
 )
 ```
 
+## Information available
+
+Take a look to related documentation about the information available for each platform
+
+- [Android](documd/AndroidInfo.md)
+- [Ios](documd/IosInfo.md)
+- [Desktop](documd/DesktopInfo.md)
+- [Web](documd/WebInfo.md)
+
+Will be gradually added new information for each platform 
+
 ## Support
 
 If you need help using the library or encounter any problems or bugs, please contact us via the
