@@ -9,7 +9,7 @@
 
 **v1.0.0**
 
-KInfo is Compose Multiplatform Library - allows to access the device details of android, ios, desktop e web devices 
+KInfo is Compose Multiplatform Library allows to access the device details of android, ios, desktop e web devices 
 
 ## Integration
 
