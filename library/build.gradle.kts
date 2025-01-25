@@ -125,7 +125,7 @@ mavenPublishing {
     )
     pom {
         name.set("KInfo")
-        description.set("Compose Multiplatform ") // TODO: TO SET
+        description.set("KInfo is Compose Multiplatform Library allows to access the device details of android, ios, desktop e web devices")
         inceptionYear.set("2025")
         url.set("https://github.com/N7ghtm4r3/KInfo")
 
