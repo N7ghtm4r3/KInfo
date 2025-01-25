@@ -1,177 +1,169 @@
-<h1 align="center">KDeviceInfo</h1>
+# KInfo
 
-KDeviceInfo is Kotlin Multiplatform Library - allows to access the device details of android and
-ios devices without writing expect actual boilerplate code.
+![Maven Central](https://img.shields.io/maven-central/v/io.github.n7ghtm4r3/KInfo.svg?label=Maven%20Central)
 
-<p align="center">
-<a href="https://github.com/swapnil-musale/KDeviceInfo"><img alt="Android" src="https://img.shields.io/badge/Platform-Android-Blue?style=for-the-badge"/></a>
-<a href="https://github.com/swapnil-musale/KDeviceInfo"><img alt="Ios" src="https://img.shields.io/badge/Platform-Ios-Blue?style=for-the-badge"/></a>
-<a href="https://github.com/swapnil-musale/KDeviceInfo"><img alt="Maven Central" src="https://img.shields.io/maven-central/v/io.github.swapnil-musale/KDeviceInfo?style=for-the-badge"/></a>
-<a href="https://github.com/swapnil-musale/KDeviceInfo"><img alt="CI Status" src="https://img.shields.io/github/actions/workflow/status/swapnil-musale/KDeviceInfo/build.yml?style=for-the-badge"/></a>
+![Static Badge](https://img.shields.io/badge/android-4280511051?link=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.tecknobit.ametista)
+![Static Badge](https://img.shields.io/badge/ios-445E91?link=https%3A%2F%2Fimg.shields.io%2Fbadge%2Fandroid-4280511051)
+![Static Badge](https://img.shields.io/badge/desktop-006874?link=https%3A%2F%2Fimg.shields.io%2Fbadge%2Fandroid-4280511051)
+![Static Badge](https://img.shields.io/badge/wasmjs-834C74?link=https%3A%2F%2Fimg.shields.io%2Fbadge%2Fandroid-4280511051)
 
-# Demo ❤️
+**v1.0.0**
 
+KInfo is Compose Multiplatform Library allows to access the device details of android, ios, desktop e web devices 
 
-<table style="width:100%">
-  <tr>
-    <th>Android</th>
-    <th>Ios</th> 
-  </tr>
-  <tr>
-    <td><img src = "https://github.com/swapnil-musale/KDeviceInfo/assets/15209914/230a0983-ca7b-4983-a17d-e90cc639add5" width=250 alt="android"/></td> 
-    <td><img src = "https://github.com/swapnil-musale/KDeviceInfo/assets/15209914/2024b962-e3ea-4e3f-beef-81561ca8371e" width=250 alt="ios"/></td>
-  </tr>
-</table>
+## Integration
 
-> **IMPORTANT:**
+### Implementation
 
-> The project is in the experimental phase. All APIs can change incompatibly or be dropped without the deprecation cycle!
+#### Version catalog
 
+```gradle
+[versions]
+kinfo = "1.0.0"
 
-# Installation
-
-This library is available on mavenCentral. To use it in your project add following block of code
-in ```settings.gradle.kts``` file if not available.
-
-```
-repositories { 
-    ...
-    mavenCentral()
-}
+[libraries]
+kinfo = { module = "io.github.n7ghtm4r3:KInfo", version.ref = "kinfo" } 
 ```
 
-### 1. Kotlin Multiplatform
-Add the library dependency in ```shared``` module (```build.gradle.kts```)
+#### Gradle
 
-```
-commonMain.dependencies {
-    ...
-    api or implementation("io.github.swapnil-musale:KDeviceInfo:0.0.7")
-}
-```
+Add the JitPack repository to your build file
 
-### 2. Compose Multiplatform
+- Add it in your root build.gradle at the end of repositories
 
-Add the library dependency in ```composeApp``` module (```build.gradle.kts```)
-
-```
-commonMain.dependencies {
-    ...
-    implementation("io.github.swapnil-musale:KDeviceInfo:0.0.7")
-}
-```
-
-# Usage
-
-Implementation of **KDeviceInfo** is pretty straightforward. Simply import the **DeviceInfoXState**
-and start accessing device information in your Compose Multiplatform project.
-
-```
-@Composable
-fun DeviceInfoExample() {
-
-    val deviceInfoXState: DeviceInfoXState = rememberDeviceInfoXState()
-    
-    Column(modifier = Modifier.fillMaxSize()) {
-        if (deviceInfoXState.isAndroid) {
-            val androidInfo = deviceInfoXState.androidInfo
-            Text(text = "App Name : ${androidInfo.appName}")
-            Text(text = "SdkInt : ${androidInfo.version.sdkInt}")
-            Text(text = "PackageName : ${androidInfo.packageName}")
-        } else if(deviceInfoXState.isIos) {
-            val iosInfo = deviceInfoXState.iosInfo
-            Text(text = "SystemName : ${iosInfo.systemName}")
-            Text(text = "SystemVersion : ${iosInfo.systemVersion}")
-            Text(text = "IsPhysicalDevice : ${iosInfo.isPhysicalDevice}")
-        } else if(deviceInfoXState.isDesktop) {
-            Text(text = "Welcome to Desktop App")
-        }
+    ```gradle
+    repositories {
+        ...
+        maven { url 'https://jitpack.io' }
     }
-}
-```
+    ```
 
-**OR** Use helper function to access device information
+  #### Gradle (Kotlin)
 
-```
-@Composable
-fun DeviceInfoExample() {
-    Column(modifier = Modifier.fillMaxSize()) {
-        OnPlatform(
-            onAndroid = { androidInfo ->
-                Text(text = "App Name : ${androidInfo.appName}")
-                Text(text = "SdkInt : ${androidInfo.version.sdkInt}")
-                Text(text = "PackageName : ${androidInfo.packageName}")
-            },
-            onIos = { iosInfo ->
-                Text(text = "SystemName : ${iosInfo.systemName}")
-                Text(text = "SystemVersion : ${iosInfo.systemVersion}")
-                Text(text = "IsPhysicalDevice : ${iosInfo.isPhysicalDevice}")
-            }
+    ```gradle
+    repositories {
+        ...
+        maven("https://jitpack.io")
+    }
+    ```
+
+- Add the dependency
+
+    ```gradle
+    dependencies {
+        implementation 'io.github.n7ghtm4r3:Kinfo:1.0.0'
+    }
+    ```
+
+  #### Gradle (Kotlin)
+
+    ```gradle
+    dependencies {
+        implementation("io.github.n7ghtm4r3:Kinfo:1.0.0")
+    }
+    ```
+
+  #### Gradle (version catalog)
+
+    ```gradle
+    dependencies {
+        implementation(libs.kinfo)
+    }
+    ```
+  
+## Usage
+
+### Composable invocation
+
+```kotlin
+OnPlatform(
+    onAndroid = { androidInfo ->
+        // uses the Android information retrieved
+        Text(
+            text = androidInfo.model
+        )
+    },
+    onIos = { iosInfo ->
+        // uses the iOs information retrieved
+        Text(
+            text = iosInfo.model
+        )
+    },
+    onDesktop = { desktopInfo ->
+        // uses the desktop information retrieved
+        Text(
+            text = desktopInfo.hardware.computerSystem.model // hardware information
+        )
+        Text(
+            text = desktopInfo.operatingSystem.versionInfo.codeName // operating system information
+        )
+    },
+    onWeb = { webInfo: WebInfo ->
+        // uses the web information retrieved
+        Text(
+            text = webInfo.browser.name
         )
     }
-}
+)
 ```
 
-To access the device details outside the Composable function you can make use of **DeviceInfoState** as below
+### Non-composable invocation
 
-```
-class AppViewModel {
-
-    private val deviceInfoXState: DeviceInfoXState = DeviceInfoXState()
-
-    init {
-        if (deviceInfoXState.isAndroid) {
-            val androidInfo: AndroidInfo = deviceInfoXState.androidInfo
-            println("DeviceInfoX - App Name : ${androidInfo.appName}")
-            println("DeviceInfoX - Version Name : ${androidInfo.versionName}")
-        } else else if (deviceInfoXState.isIos) {
-            val iosInfo: IosInfo = deviceInfoXState.iosInfo
-            println("DeviceInfoX - App Name : ${iosInfo.appName}")
-            println("DeviceInfoX - App Version : ${iosInfo.appVersion}")
-        }
+```kotlin
+onPlatform(
+    onAndroid = { androidInfo ->
+        // uses the Android information retrieved
+        println(androidInfo.model)
+    },
+    onIos = { iosInfo ->
+        // uses the iOs information retrieved
+        println(iosInfo.model)
+    },
+    onDesktop = { desktopInfo ->
+        // uses the desktop information retrieved
+        println(desktopInfo.hardware.computerSystem.model) // hardware information
+        println(desktopInfo.operatingSystem.versionInfo.codeName) // operating system information
+    },
+    onWeb = { webInfo: WebInfo ->
+        // uses the web information retrieved
+        println(webInfo.browser.name)
     }
-}
+)
 ```
 
-**OR** Use helper function to access device information
+## Information available
 
-```
-class AppViewModel {
-    init {
-        onPlatform(
-            onAndroid = { androidInfo ->
-                println("DeviceInfoX - App Name : ${androidInfo.appName}")
-                println("DeviceInfoX - Version Name : ${androidInfo.versionName}")
-            },
-            onIos = { iosInfo ->
-                println("DeviceInfoX - App Name : ${iosInfo.appName}")
-                println("DeviceInfoX - App Version : ${iosInfo.appVersion}")
-            }
-        )
-    }
-}
-```
+Take a look to related documentation about the information available for each platform
 
-You can access more info using this **State** API, for more information about API usage in your
-Compose Multiplatform project check out [Sample App][0].
+- [Android](documd/AndroidInfo.md)
+- [Ios](documd/IosInfo.md)
+- [Desktop](documd/DesktopInfo.md)
+- [Web](documd/WebInfo.md)
 
-# Contributions
+Will be gradually added new information for each platform 
 
-Contributions to KDeviceInfo are super welcome checkout [Contributions Guidelines][4]. If you encounter any issues or have suggestions for
-improvements, please feel free to open an issue or submit a pull request on GitHub.
+## Support
 
-## Connect with me
+If you need help using the library or encounter any problems or bugs, please contact us via the
+following links:
 
-[![Github Profile](https://skillicons.dev/icons?i=github)][1]
-[![LinkedIn](https://skillicons.dev/icons?i=linkedin)][2]
-[![Twitter](https://skillicons.dev/icons?i=twitter)][3]
+- Support via <a href="mailto:infotecknobitcompany@gmail.com">email</a>
+- Support via <a href="https://github.com/N7ghtm4r3/KInfo/issues/new">GitHub</a>
 
+Thank you for your help!
 
-[0]: https://github.com/swapnil-musale/KDeviceInfo/blob/master/sampleApp/composeApp/src/commonMain/kotlin/com/devx/kdeviceinfo/sample/App.kt
-[1]: https://github.com/swapnil-musale
-[2]: https://linkedin.com/in/swapnil-musale
-[3]: https://twitter.com/swapnil_musale
-[4]: https://github.com/swapnil-musale/KDeviceInfo/blob/master/CONTRIBUTING.MD
+## Donations
+
+If you want support project and developer
+
+| Crypto                                                                                              | Address                                          | Network  |
+|-----------------------------------------------------------------------------------------------------|--------------------------------------------------|----------|
+| ![](https://img.shields.io/badge/Bitcoin-000000?style=for-the-badge&logo=bitcoin&logoColor=white)   | **3H3jyCzcRmnxroHthuXh22GXXSmizin2yp**           | Bitcoin  |
+| ![](https://img.shields.io/badge/Ethereum-3C3C3D?style=for-the-badge&logo=Ethereum&logoColor=white) | **0x1b45bc41efeb3ed655b078f95086f25fc83345c4**   | Ethereum |
+| ![](https://img.shields.io/badge/Solana-000?style=for-the-badge&logo=Solana&logoColor=9945FF)       | **AtPjUnxYFHw3a6Si9HinQtyPTqsdbfdKX3dJ1xiDjbrL** | Solana   |
+
+If you want support project and developer
+with <a href="https://www.paypal.com/donate/?hosted_button_id=5QMN5UQH7LDT4">PayPal</a>
 
 # Licence
 
@@ -198,3 +190,5 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ```
+
+Copyright © 2025 Tecknobit

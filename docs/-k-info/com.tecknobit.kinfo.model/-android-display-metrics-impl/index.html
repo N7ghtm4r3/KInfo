@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>AndroidDisplayMetricsImpl</title>
+    <link href="../../../images/logo-icon.svg" rel="icon" type="image/svg">
+    <script>var pathToRoot = "../../../";</script>
+    <script>document.documentElement.classList.replace("no-js","js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="https://unpkg.com/kotlin-playground@1/dist/playground.min.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async="async"></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<link href="../../../styles/font-jb-sans-auto.css" rel="Stylesheet">
+<link href="../../../ui-kit/ui-kit.min.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/clipboard.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer="defer"></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async="async"></script>
+<script type="text/javascript" src="../../../ui-kit/ui-kit.min.js" defer="defer"></script>
+<script type="text/javascript" src="../../../scripts/symbol-parameters-wrapper_deferred.js" defer="defer"></script>
+</head>
+<body>
+    <div class="root">
+    <nav class="navigation theme-dark" id="navigation-wrapper">
+            <a class="library-name--link" href="../../../index.html">
+                    KInfo
+            </a>
+        <button class="navigation-controls--btn navigation-controls--btn_toc ui-kit_mobile-only" id="toc-toggle"
+                type="button">Toggle table of contents
+        </button>
+        <div class="navigation-controls--break ui-kit_mobile-only"></div>
+        <div class="library-version" id="library-version">
+1.0.0        </div>
+        <div class="navigation-controls">
+        <div class="filter-section filter-section_loading" id="filter-section">
+                <button class="platform-tag platform-selector jvm-like" data-active=""
+                        data-filter=":library:dokkaHtml/androidMain">android</button>
+            <div class="dropdown filter-section--dropdown" data-role="dropdown" id="filter-section-dropdown">
+                <button class="button button_dropdown filter-section--dropdown-toggle" role="combobox"
+                        data-role="dropdown-toggle"
+                        aria-controls="platform-tags-listbox"
+                        aria-haspopup="listbox"
+                        aria-expanded="false"
+                        aria-label="Toggle source sets"
+                ></button>
+                <ul role="listbox" id="platform-tags-listbox" class="dropdown--list" data-role="dropdown-listbox">
+                    <div class="dropdown--header"><span>Platform filter</span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close platform filter">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                        <li role="option" class="dropdown--option platform-selector-option jvm-like" tabindex="0">
+                            <label class="checkbox">
+                                <input type="checkbox" class="checkbox--input" id=":library:dokkaHtml/androidMain"
+                                       data-filter=":library:dokkaHtml/androidMain"/>
+                                <span class="checkbox--icon"></span>
+                                android
+                            </label>
+                        </li>
+                </ul>
+                <div class="dropdown--overlay"></div>
+            </div>
+        </div>
+            <button class="navigation-controls--btn navigation-controls--btn_theme" id="theme-toggle-button"
+                    type="button">Switch theme
+            </button>
+            <div class="navigation-controls--btn navigation-controls--btn_search" id="searchBar" role="button">Search in
+                API
+            </div>
+        </div>
+    </nav>
+        <div id="container">
+            <div class="sidebar" id="leftColumn">
+                <div class="dropdown theme-dark_mobile" data-role="dropdown" id="toc-dropdown">
+                    <ul role="listbox" id="toc-listbox" class="dropdown--list dropdown--list_toc-list"
+                        data-role="dropdown-listbox">
+                        <div class="dropdown--header">
+                            <span>
+                                    KInfo
+                            </span>
+                            <button class="button" data-role="dropdown-toggle" aria-label="Close table of contents">
+                                <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                            </button>
+                        </div>
+                        <div class="sidebar--inner" id="sideMenu"></div>
+                    </ul>
+                    <div class="dropdown--overlay"></div>
+                </div>
+            </div>
+            <div id="main">
+<div class="main-content" data-page-type="classlike" id="content" pageIds="KInfo::com.tecknobit.kinfo.model/AndroidDisplayMetricsImpl///PointingToDeclaration//-1608724257">
+  <div class="breadcrumbs"><a href="../../../index.html">KInfo</a><span class="delimiter">/</span><a href="../index.html">com.tecknobit.kinfo.model</a><span class="delimiter">/</span><span class="current">AndroidDisplayMetricsImpl</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>Android</span><wbr></wbr><span>Display</span><wbr></wbr><span>Metrics</span><wbr></wbr><span><span>Impl</span></span></h1>
+    <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+      <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":library:dokkaHtml/androidMain" data-filterable-set=":library:dokkaHtml/androidMain" data-active="" data-toggle=":library:dokkaHtml/androidMain">android</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":library:dokkaHtml/androidMain"><div class="symbol monospace"><span class="token keyword">internal </span><span class="token keyword">class </span><a href="index.html">AndroidDisplayMetricsImpl</a> : <a href="../../com.tecknobit.kinfo.model.android/-display-metrics/index.html">DisplayMetrics</a></div><p class="paragraph"><code class="lang-kotlin">AndroidDisplayMetricsImpl</code> class provides the implementation for the <code class="lang-kotlin">DisplayMetrics</code> interface. This class retrieves and calculates the display metrics of an Android device, such as screen width, height, and DPI (dots per inch) values for both horizontal and vertical axes.</p><p class="paragraph">It uses the system's <code class="lang-kotlin">DisplayMetrics</code> to get the raw pixel values and then calculates the screen dimensions in inches based on the DPI values.</p><span class="kdoc-tag"><h4 class="">Author</h4><p class="paragraph">Swapnil Musale</p></span><h4 class="">See also</h4><div class="table"><div class="table-row" data-filterable-current=":library:dokkaHtml/androidMain" data-filterable-set=":library:dokkaHtml/androidMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="../../com.tecknobit.kinfo.model.android/-display-metrics/index.html"><span>Display</span><wbr></wbr><span><span>Metrics</span></span></a></div></span></div><div></div></div></div></div></div>    </div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="CONSTRUCTOR">
+        <h2 class="">Constructors</h2>
+        <div class="table"><a data-name="1483660303%2FConstructors%2F-1608724257" anchor-label="AndroidDisplayMetricsImpl" id="1483660303%2FConstructors%2F-1608724257" data-filterable-set=":library:dokkaHtml/androidMain"></a>
+          <div class="table-row" data-togglable="CONSTRUCTOR" data-filterable-current=":library:dokkaHtml/androidMain" data-filterable-set=":library:dokkaHtml/androidMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-android-display-metrics-impl.html"><span>Android</span><wbr></wbr><span>Display</span><wbr></wbr><span>Metrics</span><wbr></wbr><span><span>Impl</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1483660303%2FConstructors%2F-1608724257"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":library:dokkaHtml/androidMain" data-filterable-set=":library:dokkaHtml/androidMain" data-active="" data-toggle=":library:dokkaHtml/androidMain">android</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":library:dokkaHtml/androidMain"><div class="symbol monospace"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="PROPERTY">
+        <h2 class="">Properties</h2>
+        <div class="table"><a data-name="779245594%2FProperties%2F-1608724257" anchor-label="displayMetrics" id="779245594%2FProperties%2F-1608724257" data-filterable-set=":library:dokkaHtml/androidMain"></a>
+          <div class="table-row" data-filterable-current=":library:dokkaHtml/androidMain" data-filterable-set=":library:dokkaHtml/androidMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="display-metrics.html"><span>display</span><wbr></wbr><span><span>Metrics</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="779245594%2FProperties%2F-1608724257"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":library:dokkaHtml/androidMain" data-filterable-set=":library:dokkaHtml/androidMain" data-active="" data-toggle=":library:dokkaHtml/androidMain">android</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":library:dokkaHtml/androidMain"><div class="symbol monospace"><span class="token keyword">private </span><span class="token keyword">val </span><a href="display-metrics.html">displayMetrics</a><span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/android/util/DisplayMetrics.html">DisplayMetrics</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph"><code class="lang-kotlin">displayMetrics</code> holds the system's display metrics, which includes data like screen width, height, and DPI</p></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1389331580%2FProperties%2F-1608724257" anchor-label="heightInches" id="1389331580%2FProperties%2F-1608724257" data-filterable-set=":library:dokkaHtml/androidMain"></a>
+          <div class="table-row" data-filterable-current=":library:dokkaHtml/androidMain" data-filterable-set=":library:dokkaHtml/androidMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="height-inches.html"><span>height</span><wbr></wbr><span><span>Inches</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1389331580%2FProperties%2F-1608724257"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":library:dokkaHtml/androidMain" data-filterable-set=":library:dokkaHtml/androidMain" data-active="" data-toggle=":library:dokkaHtml/androidMain">android</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":library:dokkaHtml/androidMain"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">val </span><a href="height-inches.html">heightInches</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-double/index.html">Double</a></div><div class="brief "><p class="paragraph"><code class="lang-kotlin">heightInches</code> the height of the display in inches This value is calculated using the pixel height and vertical DPI</p></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-203140500%2FProperties%2F-1608724257" anchor-label="heightPx" id="-203140500%2FProperties%2F-1608724257" data-filterable-set=":library:dokkaHtml/androidMain"></a>
+          <div class="table-row" data-filterable-current=":library:dokkaHtml/androidMain" data-filterable-set=":library:dokkaHtml/androidMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="height-px.html"><span>height</span><wbr></wbr><span><span>Px</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-203140500%2FProperties%2F-1608724257"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":library:dokkaHtml/androidMain" data-filterable-set=":library:dokkaHtml/androidMain" data-active="" data-toggle=":library:dokkaHtml/androidMain">android</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":library:dokkaHtml/androidMain"><div class="symbol monospace"><span class="token keyword">private </span><span class="token keyword">val </span><a href="height-px.html">heightPx</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-double/index.html">Double</a></div><div class="brief "><p class="paragraph"><code class="lang-kotlin">heightPx</code> the height of the display in pixels</p></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1698460545%2FProperties%2F-1608724257" anchor-label="widthInches" id="1698460545%2FProperties%2F-1608724257" data-filterable-set=":library:dokkaHtml/androidMain"></a>
+          <div class="table-row" data-filterable-current=":library:dokkaHtml/androidMain" data-filterable-set=":library:dokkaHtml/androidMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="width-inches.html"><span>width</span><wbr></wbr><span><span>Inches</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1698460545%2FProperties%2F-1608724257"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":library:dokkaHtml/androidMain" data-filterable-set=":library:dokkaHtml/androidMain" data-active="" data-toggle=":library:dokkaHtml/androidMain">android</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":library:dokkaHtml/androidMain"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">val </span><a href="width-inches.html">widthInches</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-double/index.html">Double</a></div><div class="brief "><p class="paragraph"><code class="lang-kotlin">widthInches</code> the width of the display in inches This value is calculated using the pixel width and horizontal DPI</p></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1555854351%2FProperties%2F-1608724257" anchor-label="widthPx" id="-1555854351%2FProperties%2F-1608724257" data-filterable-set=":library:dokkaHtml/androidMain"></a>
+          <div class="table-row" data-filterable-current=":library:dokkaHtml/androidMain" data-filterable-set=":library:dokkaHtml/androidMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="width-px.html"><span>width</span><wbr></wbr><span><span>Px</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1555854351%2FProperties%2F-1608724257"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":library:dokkaHtml/androidMain" data-filterable-set=":library:dokkaHtml/androidMain" data-active="" data-toggle=":library:dokkaHtml/androidMain">android</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":library:dokkaHtml/androidMain"><div class="symbol monospace"><span class="token keyword">private </span><span class="token keyword">val </span><a href="width-px.html">widthPx</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-double/index.html">Double</a></div><div class="brief "><p class="paragraph"><code class="lang-kotlin">widthPx</code> the width of the display in pixels</p></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1939869174%2FProperties%2F-1608724257" anchor-label="xDpi" id="1939869174%2FProperties%2F-1608724257" data-filterable-set=":library:dokkaHtml/androidMain"></a>
+          <div class="table-row" data-filterable-current=":library:dokkaHtml/androidMain" data-filterable-set=":library:dokkaHtml/androidMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="x-dpi.html"><span>x</span><wbr></wbr><span><span>Dpi</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1939869174%2FProperties%2F-1608724257"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":library:dokkaHtml/androidMain" data-filterable-set=":library:dokkaHtml/androidMain" data-active="" data-toggle=":library:dokkaHtml/androidMain">android</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":library:dokkaHtml/androidMain"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">val </span><a href="x-dpi.html">xDpi</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-double/index.html">Double</a></div><div class="brief "><p class="paragraph"><code class="lang-kotlin">xDpi</code> the horizontal density of the display in dots per inch (DPI)</p></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1661996425%2FProperties%2F-1608724257" anchor-label="yDpi" id="-1661996425%2FProperties%2F-1608724257" data-filterable-set=":library:dokkaHtml/androidMain"></a>
+          <div class="table-row" data-filterable-current=":library:dokkaHtml/androidMain" data-filterable-set=":library:dokkaHtml/androidMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="y-dpi.html"><span>y</span><wbr></wbr><span><span>Dpi</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1661996425%2FProperties%2F-1608724257"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":library:dokkaHtml/androidMain" data-filterable-set=":library:dokkaHtml/androidMain" data-active="" data-toggle=":library:dokkaHtml/androidMain">android</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":library:dokkaHtml/androidMain"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">val </span><a href="y-dpi.html">yDpi</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-double/index.html">Double</a></div><div class="brief "><p class="paragraph"><code class="lang-kotlin">yDpi</code> the vertical density of the display in dots per inch (DPI)</p></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="footer">
+        <a href="#content" id="go-to-top-link" class="footer--button footer--button_go-to-top"></a>
+        <span>(c) 2025 Tecknobit</span>
+        <span class="pull-right">
+            <span>Generated by </span>
+            <a class="footer--link footer--link_external" href="https://github.com/Kotlin/dokka">
+                <span>dokka</span>
+            </a>
+        </span>
+    </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

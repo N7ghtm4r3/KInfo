@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>CentralProcessor</title>
+    <link href="../../../images/logo-icon.svg" rel="icon" type="image/svg">
+    <script>var pathToRoot = "../../../";</script>
+    <script>document.documentElement.classList.replace("no-js","js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="https://unpkg.com/kotlin-playground@1/dist/playground.min.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async="async"></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<link href="../../../styles/font-jb-sans-auto.css" rel="Stylesheet">
+<link href="../../../ui-kit/ui-kit.min.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/clipboard.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer="defer"></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async="async"></script>
+<script type="text/javascript" src="../../../ui-kit/ui-kit.min.js" defer="defer"></script>
+<script type="text/javascript" src="../../../scripts/symbol-parameters-wrapper_deferred.js" defer="defer"></script>
+</head>
+<body>
+    <div class="root">
+    <nav class="navigation theme-dark" id="navigation-wrapper">
+            <a class="library-name--link" href="../../../index.html">
+                    KInfo
+            </a>
+        <button class="navigation-controls--btn navigation-controls--btn_toc ui-kit_mobile-only" id="toc-toggle"
+                type="button">Toggle table of contents
+        </button>
+        <div class="navigation-controls--break ui-kit_mobile-only"></div>
+        <div class="library-version" id="library-version">
+1.0.0        </div>
+        <div class="navigation-controls">
+        <div class="filter-section filter-section_loading" id="filter-section">
+                <button class="platform-tag platform-selector common-like" data-active=""
+                        data-filter=":library:dokkaHtml/commonMain">common</button>
+            <div class="dropdown filter-section--dropdown" data-role="dropdown" id="filter-section-dropdown">
+                <button class="button button_dropdown filter-section--dropdown-toggle" role="combobox"
+                        data-role="dropdown-toggle"
+                        aria-controls="platform-tags-listbox"
+                        aria-haspopup="listbox"
+                        aria-expanded="false"
+                        aria-label="Toggle source sets"
+                ></button>
+                <ul role="listbox" id="platform-tags-listbox" class="dropdown--list" data-role="dropdown-listbox">
+                    <div class="dropdown--header"><span>Platform filter</span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close platform filter">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                        <li role="option" class="dropdown--option platform-selector-option common-like" tabindex="0">
+                            <label class="checkbox">
+                                <input type="checkbox" class="checkbox--input" id=":library:dokkaHtml/commonMain"
+                                       data-filter=":library:dokkaHtml/commonMain"/>
+                                <span class="checkbox--icon"></span>
+                                common
+                            </label>
+                        </li>
+                </ul>
+                <div class="dropdown--overlay"></div>
+            </div>
+        </div>
+            <button class="navigation-controls--btn navigation-controls--btn_theme" id="theme-toggle-button"
+                    type="button">Switch theme
+            </button>
+            <div class="navigation-controls--btn navigation-controls--btn_search" id="searchBar" role="button">Search in
+                API
+            </div>
+        </div>
+    </nav>
+        <div id="container">
+            <div class="sidebar" id="leftColumn">
+                <div class="dropdown theme-dark_mobile" data-role="dropdown" id="toc-dropdown">
+                    <ul role="listbox" id="toc-listbox" class="dropdown--list dropdown--list_toc-list"
+                        data-role="dropdown-listbox">
+                        <div class="dropdown--header">
+                            <span>
+                                    KInfo
+                            </span>
+                            <button class="button" data-role="dropdown-toggle" aria-label="Close table of contents">
+                                <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                            </button>
+                        </div>
+                        <div class="sidebar--inner" id="sideMenu"></div>
+                    </ul>
+                    <div class="dropdown--overlay"></div>
+                </div>
+            </div>
+            <div id="main">
+<div class="main-content" data-page-type="classlike" id="content" pageIds="KInfo::comtecknobitkinfomodeldesktophardwarecentralprocessor/CentralProcessor///PointingToDeclaration//1327329691">
+  <div class="breadcrumbs"><a href="../../../index.html">KInfo</a><span class="delimiter">/</span><a href="../index.html">comtecknobitkinfomodeldesktophardwarecentralprocessor</a><span class="delimiter">/</span><span class="current">CentralProcessor</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>Central</span><wbr></wbr><span><span>Processor</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":library:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">interface </span><a href="index.html">CentralProcessor</a></div><p class="paragraph"><code class="lang-kotlin">CentralProcessor</code> interface provides detailed information and metrics about the central processor of a system It includes properties to retrieve processor specifications, performance data, and load statistics</p><p class="paragraph">This interface is intended to be implemented by platform-specific classes to provide processor details and performance metrics across different systems</p><span class="kdoc-tag"><h4 class="">Author</h4><p class="paragraph">N7ghtm4r3</p></span><h4 class="">Inheritors</h4><div class="table"><div class="table-row" data-filterable-current=":library:dokkaHtml/commonMain" data-filterable-set=":library:dokkaHtml/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><span data-unresolved-link="com.tecknobit.kinfo.model.hardware.centralprocessor/CentralProcessorImpl///PointingToDeclaration/">CentralProcessorImpl</span></div></span></div><div></div></div></div></div></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="PROPERTY">
+        <h2 class="">Properties</h2>
+        <div class="table"><a data-name="1489861550%2FProperties%2F1327329691" anchor-label="contextSwitches" id="1489861550%2FProperties%2F1327329691" data-filterable-set=":library:dokkaHtml/commonMain"></a>
+          <div class="table-row" data-filterable-current=":library:dokkaHtml/commonMain" data-filterable-set=":library:dokkaHtml/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="context-switches.html"><span>context</span><wbr></wbr><span><span>Switches</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1489861550%2FProperties%2F1327329691"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":library:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">val </span><a href="context-switches.html">contextSwitches</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-long/index.html">Long</a></div><div class="brief "><p class="paragraph"><code class="lang-kotlin">contextSwitches</code> the number of context switches performed by the processor</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="569722574%2FProperties%2F1327329691" anchor-label="currentFreq" id="569722574%2FProperties%2F1327329691" data-filterable-set=":library:dokkaHtml/commonMain"></a>
+          <div class="table-row" data-filterable-current=":library:dokkaHtml/commonMain" data-filterable-set=":library:dokkaHtml/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="current-freq.html"><span>current</span><wbr></wbr><span><span>Freq</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="569722574%2FProperties%2F1327329691"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":library:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">val </span><a href="current-freq.html">currentFreq</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-long-array/index.html">LongArray</a></div><div class="brief "><p class="paragraph"><code class="lang-kotlin">currentFreq</code> an array representing the current frequency of each logical processor in Hz</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-482845078%2FProperties%2F1327329691" anchor-label="featureFlags" id="-482845078%2FProperties%2F1327329691" data-filterable-set=":library:dokkaHtml/commonMain"></a>
+          <div class="table-row" data-filterable-current=":library:dokkaHtml/commonMain" data-filterable-set=":library:dokkaHtml/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="feature-flags.html"><span>feature</span><wbr></wbr><span><span>Flags</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-482845078%2FProperties%2F1327329691"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":library:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">val </span><a href="feature-flags.html">featureFlags</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph"><code class="lang-kotlin">featureFlags</code> a list of supported processor features (eg, virtualization, specific instruction sets)</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-2103060085%2FProperties%2F1327329691" anchor-label="interrupts" id="-2103060085%2FProperties%2F1327329691" data-filterable-set=":library:dokkaHtml/commonMain"></a>
+          <div class="table-row" data-filterable-current=":library:dokkaHtml/commonMain" data-filterable-set=":library:dokkaHtml/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="interrupts.html"><span><span>interrupts</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2103060085%2FProperties%2F1327329691"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":library:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">val </span><a href="interrupts.html">interrupts</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-long/index.html">Long</a></div><div class="brief "><p class="paragraph"><code class="lang-kotlin">interrupts</code> the number of interrupts processed by the processor</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="988375417%2FProperties%2F1327329691" anchor-label="logicalProcessorCount" id="988375417%2FProperties%2F1327329691" data-filterable-set=":library:dokkaHtml/commonMain"></a>
+          <div class="table-row" data-filterable-current=":library:dokkaHtml/commonMain" data-filterable-set=":library:dokkaHtml/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="logical-processor-count.html"><span>logical</span><wbr></wbr><span>Processor</span><wbr></wbr><span><span>Count</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="988375417%2FProperties%2F1327329691"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":library:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">val </span><a href="logical-processor-count.html">logicalProcessorCount</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></div><div class="brief "><p class="paragraph"><code class="lang-kotlin">logicalProcessorCount</code> the total number of logical processors in the system</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="343483381%2FProperties%2F1327329691" anchor-label="logicalProcessors" id="343483381%2FProperties%2F1327329691" data-filterable-set=":library:dokkaHtml/commonMain"></a>
+          <div class="table-row" data-filterable-current=":library:dokkaHtml/commonMain" data-filterable-set=":library:dokkaHtml/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="logical-processors.html"><span>logical</span><wbr></wbr><span><span>Processors</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="343483381%2FProperties%2F1327329691"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":library:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">val </span><a href="logical-processors.html">logicalProcessors</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="../../com.tecknobit.kinfo.model.desktop.hardware.centralprocessor/-logical-processor/index.html">LogicalProcessor</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph"><code class="lang-kotlin">logicalProcessors</code> a list of logical processors available in the system</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="483875779%2FProperties%2F1327329691" anchor-label="maxFreq" id="483875779%2FProperties%2F1327329691" data-filterable-set=":library:dokkaHtml/commonMain"></a>
+          <div class="table-row" data-filterable-current=":library:dokkaHtml/commonMain" data-filterable-set=":library:dokkaHtml/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="max-freq.html"><span>max</span><wbr></wbr><span><span>Freq</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="483875779%2FProperties%2F1327329691"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":library:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">val </span><a href="max-freq.html">maxFreq</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-long/index.html">Long</a></div><div class="brief "><p class="paragraph"><code class="lang-kotlin">maxFreq</code> the maximum frequency of the processor in Hz</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-2133684837%2FProperties%2F1327329691" anchor-label="physicalPackageCount" id="-2133684837%2FProperties%2F1327329691" data-filterable-set=":library:dokkaHtml/commonMain"></a>
+          <div class="table-row" data-filterable-current=":library:dokkaHtml/commonMain" data-filterable-set=":library:dokkaHtml/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="physical-package-count.html"><span>physical</span><wbr></wbr><span>Package</span><wbr></wbr><span><span>Count</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2133684837%2FProperties%2F1327329691"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":library:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">val </span><a href="physical-package-count.html">physicalPackageCount</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></div><div class="brief "><p class="paragraph"><code class="lang-kotlin">physicalPackageCount</code> the total number of physical processor packages in the system</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-544724185%2FProperties%2F1327329691" anchor-label="physicalProcessorCount" id="-544724185%2FProperties%2F1327329691" data-filterable-set=":library:dokkaHtml/commonMain"></a>
+          <div class="table-row" data-filterable-current=":library:dokkaHtml/commonMain" data-filterable-set=":library:dokkaHtml/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="physical-processor-count.html"><span>physical</span><wbr></wbr><span>Processor</span><wbr></wbr><span><span>Count</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-544724185%2FProperties%2F1327329691"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":library:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">val </span><a href="physical-processor-count.html">physicalProcessorCount</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></div><div class="brief "><p class="paragraph"><code class="lang-kotlin">physicalProcessorCount</code> the total number of physical processors (cores) in the system</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="875031715%2FProperties%2F1327329691" anchor-label="physicalProcessors" id="875031715%2FProperties%2F1327329691" data-filterable-set=":library:dokkaHtml/commonMain"></a>
+          <div class="table-row" data-filterable-current=":library:dokkaHtml/commonMain" data-filterable-set=":library:dokkaHtml/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="physical-processors.html"><span>physical</span><wbr></wbr><span><span>Processors</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="875031715%2FProperties%2F1327329691"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":library:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">val </span><a href="physical-processors.html">physicalProcessors</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="../../com.tecknobit.kinfo.model.desktop.hardware.centralprocessor/-physical-processor/index.html">PhysicalProcessor</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph"><code class="lang-kotlin">physicalProcessors</code> a list of physical processors (cores) available in the system</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-412056260%2FProperties%2F1327329691" anchor-label="processorCaches" id="-412056260%2FProperties%2F1327329691" data-filterable-set=":library:dokkaHtml/commonMain"></a>
+          <div class="table-row" data-filterable-current=":library:dokkaHtml/commonMain" data-filterable-set=":library:dokkaHtml/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="processor-caches.html"><span>processor</span><wbr></wbr><span><span>Caches</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-412056260%2FProperties%2F1327329691"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":library:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">val </span><a href="processor-caches.html">processorCaches</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="../../com.tecknobit.kinfo.model.desktop.hardware.centralprocessor/-processor-cache/index.html">ProcessorCache</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph"><code class="lang-kotlin">processorCaches</code> a list of caches associated with the processor</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-537932315%2FProperties%2F1327329691" anchor-label="processorCpuLoadTicks" id="-537932315%2FProperties%2F1327329691" data-filterable-set=":library:dokkaHtml/commonMain"></a>
+          <div class="table-row" data-filterable-current=":library:dokkaHtml/commonMain" data-filterable-set=":library:dokkaHtml/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="processor-cpu-load-ticks.html"><span>processor</span><wbr></wbr><span>Cpu</span><wbr></wbr><span>Load</span><wbr></wbr><span><span>Ticks</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-537932315%2FProperties%2F1327329691"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":library:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">val </span><a href="processor-cpu-load-ticks.html">processorCpuLoadTicks</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-array/index.html">Array</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-long-array/index.html">LongArray</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph"><code class="lang-kotlin">processorCpuLoadTicks</code> an array of arrays representing CPU load ticks for each logical processor</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-258791228%2FProperties%2F1327329691" anchor-label="processorIdentifier" id="-258791228%2FProperties%2F1327329691" data-filterable-set=":library:dokkaHtml/commonMain"></a>
+          <div class="table-row" data-filterable-current=":library:dokkaHtml/commonMain" data-filterable-set=":library:dokkaHtml/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="processor-identifier.html"><span>processor</span><wbr></wbr><span><span>Identifier</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-258791228%2FProperties%2F1327329691"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":library:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">val </span><a href="processor-identifier.html">processorIdentifier</a><span class="token operator">: </span><a href="../../com.tecknobit.kinfo.model.desktop.hardware.centralprocessor/-processor-identifier/index.html">ProcessorIdentifier</a></div><div class="brief "><p class="paragraph"><code class="lang-kotlin">processorIdentifier</code> the identifier of the processor, providing details like name and architecture</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1311647836%2FProperties%2F1327329691" anchor-label="systemCpuLoadTicks" id="-1311647836%2FProperties%2F1327329691" data-filterable-set=":library:dokkaHtml/commonMain"></a>
+          <div class="table-row" data-filterable-current=":library:dokkaHtml/commonMain" data-filterable-set=":library:dokkaHtml/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="system-cpu-load-ticks.html"><span>system</span><wbr></wbr><span>Cpu</span><wbr></wbr><span>Load</span><wbr></wbr><span><span>Ticks</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1311647836%2FProperties%2F1327329691"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":library:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">val </span><a href="system-cpu-load-ticks.html">systemCpuLoadTicks</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-long-array/index.html">LongArray</a></div><div class="brief "><p class="paragraph"><code class="lang-kotlin">systemCpuLoadTicks</code> an array representing CPU load ticks for the entire system</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="FUNCTION">
+        <h2 class="">Functions</h2>
+        <div class="table"><a data-name="-1286679199%2FFunctions%2F1327329691" anchor-label="getProcessorCpuLoadBetweenTicks" id="-1286679199%2FFunctions%2F1327329691" data-filterable-set=":library:dokkaHtml/commonMain"></a>
+          <div class="table-row" data-filterable-current=":library:dokkaHtml/commonMain" data-filterable-set=":library:dokkaHtml/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-processor-cpu-load-between-ticks.html"><span>get</span><wbr></wbr><span>Processor</span><wbr></wbr><span>Cpu</span><wbr></wbr><span>Load</span><wbr></wbr><span>Between</span><wbr></wbr><span><span>Ticks</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1286679199%2FFunctions%2F1327329691"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":library:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">fun </span><a href="get-processor-cpu-load-between-ticks.html"><span class="token function">getProcessorCpuLoadBetweenTicks</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">oldTickets<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-array/index.html">Array</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-long-array/index.html">LongArray</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-double-array/index.html">DoubleArray</a></div><div class="brief "><p class="paragraph">Retrieves the processor CPU load as a percentage between the current ticks and the specified <code class="lang-kotlin">oldTickets</code></p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-172371417%2FFunctions%2F1327329691" anchor-label="getSystemCpuLoad" id="-172371417%2FFunctions%2F1327329691" data-filterable-set=":library:dokkaHtml/commonMain"></a>
+          <div class="table-row" data-filterable-current=":library:dokkaHtml/commonMain" data-filterable-set=":library:dokkaHtml/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-system-cpu-load.html"><span>get</span><wbr></wbr><span>System</span><wbr></wbr><span>Cpu</span><wbr></wbr><span><span>Load</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-172371417%2FFunctions%2F1327329691"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":library:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">fun </span><a href="get-system-cpu-load.html"><span class="token function">getSystemCpuLoad</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">delay<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-long/index.html">Long</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-double/index.html">Double</a></div><div class="brief "><p class="paragraph">Calculates the system CPU load over a specified delay period</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1781455308%2FFunctions%2F1327329691" anchor-label="getSystemCpuLoadBetweenTicks" id="-1781455308%2FFunctions%2F1327329691" data-filterable-set=":library:dokkaHtml/commonMain"></a>
+          <div class="table-row" data-filterable-current=":library:dokkaHtml/commonMain" data-filterable-set=":library:dokkaHtml/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-system-cpu-load-between-ticks.html"><span>get</span><wbr></wbr><span>System</span><wbr></wbr><span>Cpu</span><wbr></wbr><span>Load</span><wbr></wbr><span>Between</span><wbr></wbr><span><span>Ticks</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1781455308%2FFunctions%2F1327329691"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":library:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">fun </span><a href="get-system-cpu-load-between-ticks.html"><span class="token function">getSystemCpuLoadBetweenTicks</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">oldTickets<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-long-array/index.html">LongArray</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-double/index.html">Double</a></div><div class="brief "><p class="paragraph">Retrieves the system CPU load as a percentage between the current ticks and the specified <code class="lang-kotlin">oldTickets</code></p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="365825831%2FFunctions%2F1327329691" anchor-label="getSystemLoadAverage" id="365825831%2FFunctions%2F1327329691" data-filterable-set=":library:dokkaHtml/commonMain"></a>
+          <div class="table-row" data-filterable-current=":library:dokkaHtml/commonMain" data-filterable-set=":library:dokkaHtml/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-system-load-average.html"><span>get</span><wbr></wbr><span>System</span><wbr></wbr><span>Load</span><wbr></wbr><span><span>Average</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="365825831%2FFunctions%2F1327329691"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":library:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">fun </span><a href="get-system-load-average.html"><span class="token function">getSystemLoadAverage</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">nelem<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-double-array/index.html">DoubleArray</a></div><div class="brief "><p class="paragraph">Retrieves the system load average for the last <code class="lang-kotlin">nelem</code> intervals</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="footer">
+        <a href="#content" id="go-to-top-link" class="footer--button footer--button_go-to-top"></a>
+        <span>(c) 2025 Tecknobit</span>
+        <span class="pull-right">
+            <span>Generated by </span>
+            <a class="footer--link footer--link_external" href="https://github.com/Kotlin/dokka">
+                <span>dokka</span>
+            </a>
+        </span>
+    </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
