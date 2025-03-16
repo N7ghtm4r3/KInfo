@@ -24,32 +24,32 @@ import com.tecknobit.kinfo.model.web.operatingsystem.Os
 interface WebInfo : WebInfoItem {
 
     /**
-     * `userAgent` The user agent string that represents the client's web browser and system.
+     * `userAgent` The user agent string that represents the client's web browser and system
      */
     val userAgent: String
 
     /**
-     * `browser` The browser information, including the browser's name and version.
+     * `browser` The browser information, including the browser's name and version
      */
     val browser: Browser
 
     /**
-     * `cpu` The CPU architecture information (e.g., x86, ARM).
+     * `cpu` The CPU architecture information (e.g., x86, ARM)
      */
     val cpu: CPU
 
     /**
-     * `device` The device information, including the model, type, and vendor.
+     * `device` The device information, including the model, type, and vendor
      */
     val device: Device
 
     /**
-     * `engine` The engine information, including the engine's name and version (e.g., Blink, WebKit).
+     * `engine` The engine information, including the engine's name and version (e.g., Blink, WebKit)
      */
     val engine: Engine
 
     /**
-     * `os` The operating system information, including the name and version (e.g., Windows, Linux, macOS).
+     * `os` The operating system information, including the name and version (e.g., Windows, Linux, macOS)
      */
     val os: Os
 
