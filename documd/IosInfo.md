@@ -4,24 +4,24 @@
 
 ### Retrievable Information from `IosInfo`
 
-| **Category**    | **Property**                                 | **Description**                                                                           | **Source**                                                            |
-|-----------------|----------------------------------------------|-------------------------------------------------------------------------------------------|-----------------------------------------------------------------------|
-| **Device Info** | `name`                                       | The name of the current iOS device (e.g., "iPhone 12").                                   | `UIDevice.currentDevice.name`                                         |
-|                 | `systemName`                                 | The name of the iOS operating system (e.g., "iOS").                                       | `UIDevice.currentDevice.systemName`                                   |
-|                 | `systemVersion`                              | The version of the iOS operating system (e.g., "14.4").                                   | `UIDevice.currentDevice.systemVersion`                                |
-|                 | `model`                                      | The model identifier of the current iOS device (e.g., "iPhone12,1").                      | `UIDevice.currentDevice.model`                                        |
-|                 | `localizedModel`                             | The localized model name of the current iOS device (e.g., "iPhone").                      | `UIDevice.currentDevice.localizedModel`                               |
-|                 | `identifierForVendor`                        | The unique identifier for the vendor associated with the app (e.g., "E123456789").        | `UIDevice.currentDevice.identifierForVendor.UUIDString`               |
-|                 | `isPhysicalDevice`                           | Indicates whether the current device is physical or a simulator.                          | `NSProcessInfo.processInfo.environment`                               |
-|                 | `isMultitaskingSupported`                    | Indicates whether the current iOS device supports multitasking.                           | `UIDevice.currentDevice.isMultitaskingSupported()`                    |
-|                 | `isGeneratingDeviceOrientationNotifications` | Indicates whether the current device is generating notifications for orientation changes. | `UIDevice.currentDevice.isGeneratingDeviceOrientationNotifications()` |
-|                 | `deviceOrientation`                          | Provides the current orientation of the iOS device.                                       | `IosDeviceOrientationImpl`                                            |
-| **App Info**    | `appName`                                    | The name of the app (e.g., "MyApp").                                                      | `NSBundle.mainBundle.infoDictionary`                                  |
-|                 | `bundleId`                                   | The unique identifier for the app bundle (e.g., "com.example.myapp").                     | `NSBundle.mainBundle.bundleIdentifier`                                |
-|                 | `appVersion`                                 | The version of the app (e.g., "1.0.0").                                                   | `NSBundle.mainBundle.infoDictionary`                                  |
-|                 | `appShortVersion`                            | The short version of the app (e.g., "1.0").                                               | `NSBundle.mainBundle.infoDictionary`                                  |
-|                 | `isDebug`                                    | Indicates whether the app is running in debug mode.                                       | `Platform.isDebugBinary`                                              |
-| **Locale**      | `locale`                                     | Represents the current language and region of the device.                                 | `NSLocale.currentLocale`                                              |
+| **Category**    | **Property**                                 | **Description**                                                                          | **Source**                                                            |
+|-----------------|----------------------------------------------|------------------------------------------------------------------------------------------|-----------------------------------------------------------------------|
+| **Device Info** | `name`                                       | The name of the current iOS device (e.g., "iPhone 12")                                   | `UIDevice.currentDevice.name`                                         |
+|                 | `systemName`                                 | The name of the iOS operating system (e.g., "iOS")                                       | `UIDevice.currentDevice.systemName`                                   |
+|                 | `systemVersion`                              | The version of the iOS operating system (e.g., "14.4")                                   | `UIDevice.currentDevice.systemVersion`                                |
+|                 | `model`                                      | The model identifier of the current iOS device (e.g., "iPhone12,1")                      | `UIDevice.currentDevice.model`                                        |
+|                 | `localizedModel`                             | The localized model name of the current iOS device (e.g., "iPhone")                      | `UIDevice.currentDevice.localizedModel`                               |
+|                 | `identifierForVendor`                        | The unique identifier for the vendor associated with the app (e.g., "E123456789")        | `UIDevice.currentDevice.identifierForVendor.UUIDString`               |
+|                 | `isPhysicalDevice`                           | Indicates whether the current device is physical or a simulator                          | `NSProcessInfo.processInfo.environment`                               |
+|                 | `isMultitaskingSupported`                    | Indicates whether the current iOS device supports multitasking                           | `UIDevice.currentDevice.isMultitaskingSupported()`                    |
+|                 | `isGeneratingDeviceOrientationNotifications` | Indicates whether the current device is generating notifications for orientation changes | `UIDevice.currentDevice.isGeneratingDeviceOrientationNotifications()` |
+|                 | `deviceOrientation`                          | Provides the current orientation of the iOS device                                       | `IosDeviceOrientationImpl`                                            |
+| **App Info**    | `appName`                                    | The name of the app (e.g., "MyApp")                                                      | `NSBundle.mainBundle.infoDictionary`                                  |
+|                 | `bundleId`                                   | The unique identifier for the app bundle (e.g., "com.example.myapp")                     | `NSBundle.mainBundle.bundleIdentifier`                                |
+|                 | `appVersion`                                 | The version of the app (e.g., "1.0.0")                                                   | `NSBundle.mainBundle.infoDictionary`                                  |
+|                 | `appShortVersion`                            | The short version of the app (e.g., "1.0")                                               | `NSBundle.mainBundle.infoDictionary`                                  |
+|                 | `isDebug`                                    | Indicates whether the app is running in debug mode                                       | `Platform.isDebugBinary`                                              |
+| **Locale**      | `locale`                                     | Represents the current language and region of the device                                 | `NSLocale.currentLocale`                                              |
 
 ## Support
 

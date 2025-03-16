@@ -1,16 +1,15 @@
 [versions]
 kotlin = "2.1.0"
 android-minSdk = "24"
-android-compileSdk = "34"
+android-compileSdk = "35"
 androidGradlePlugin = "8.6.1"
 jetbrainsCompose = "1.7.3"
 dokka = "2.0.0"
 annotation = "1.9.1"
-oshiCore = "6.6.5"
+oshiCore = "6.7.1"
 startupRuntime = "1.2.0"
 androidXCore = "1.15.0"
-equinox = "1.0.6"
-navigationCommonKtx = "2.8.5"
+equinox = "1.0.9"
 
 [libraries]
 dokka-base = { module = "org.jetbrains.dokka:dokka-base", version.ref = "dokka" }
@@ -23,7 +22,6 @@ compose-runtime = { module = "org.jetbrains.compose.runtime:runtime", version.re
 x_cdn-jsdelivr-net_npm_ua-parser-js = { module = "https://cdn.jsdelivr.net/npm/ua-parser-js" }
 equinox-compose = { module = "io.github.n7ghtm4r3:equinox-compose", version.ref = "equinox" }
 equinox-core = { module = "io.github.n7ghtm4r3:equinox-core", version.ref = "equinox" }
-androidx-navigation-common-ktx = { group = "androidx.navigation", name = "navigation-common-ktx", version.ref = "navigationCommonKtx" }
 
 [plugins]
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
