@@ -33,38 +33,44 @@ import kotlinx.browser.window
 class WebInfoImpl : WebInfo {
 
     /**
-     * `userAgent` The user agent string that represents the client's web browser and system.
-     * This value is obtained from `window.navigator.userAgent`.
+     * `userAgent` The user agent string that represents the client's web browser and system
+     *
+     * This value is obtained from `window.navigator.userAgent`
      */
     override val userAgent: String = window.navigator.userAgent
 
     /**
-     * `browser` The browser information, including the browser's name and version.
-     * This value is extracted by parsing the user agent string.
+     * `browser` The browser information, including the browser's name and version
+     *
+     * This value is extracted by parsing the user agent string
      */
     override val browser: Browser
 
     /**
-     * `cpu` The CPU architecture information (e.g., x86, ARM).
-     * This value is extracted by parsing the user agent string.
+     * `cpu` The CPU architecture information (e.g., x86, ARM)
+     *
+     * This value is extracted by parsing the user agent string
      */
     override val cpu: CPU
 
     /**
-     * `device` The device information, including the model, type, and vendor.
-     * This value is extracted by parsing the user agent string.
+     * `device` The device information, including the model, type, and vendor
+     *
+     * This value is extracted by parsing the user agent string
      */
     override val device: Device
 
     /**
-     * `engine` The engine information, including the engine's name and version (e.g., Blink, WebKit).
-     * This value is extracted by parsing the user agent string.
+     * `engine` The engine information, including the engine's name and version (e.g., Blink, WebKit)
+     *
+     * This value is extracted by parsing the user agent string
      */
     override val engine: Engine
 
     /**
-     * `os` The operating system information, including the name and version (e.g., Windows, Linux, macOS).
-     * This value is extracted by parsing the user agent string.
+     * `os` The operating system information, including the name and version (e.g., Windows, Linux, macOS)
+     *
+     * This value is extracted by parsing the user agent string
      */
     override val os: Os
 

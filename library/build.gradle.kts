@@ -18,7 +18,7 @@ plugins {
 }
 
 group = "com.teknobit.kinfo"
-version = "1.0.0"
+version = "1.0.1"
 
 kotlin {
     jvm {
@@ -121,7 +121,7 @@ mavenPublishing {
     coordinates(
         groupId = "io.github.n7ghtm4r3",
         artifactId = "KInfo",
-        version = "1.0.0"
+        version = "1.0.1"
     )
     pom {
         name.set("KInfo")

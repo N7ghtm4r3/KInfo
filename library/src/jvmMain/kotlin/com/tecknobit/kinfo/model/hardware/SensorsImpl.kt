@@ -6,7 +6,7 @@ import com.tecknobit.kinfo.model.desktop.hardware.Sensors
  * Implementation of the `Sensors` interface.
  * This class provides access to sensor data for the computer system, including CPU temperature, fan speeds, and CPU voltage.
  *
- * @param sensorsInfo The raw sensor information provided by the hardware.
+ * @param sensorsInfo The raw sensor information provided by the hardware
  *
  * @author N7ghtm4r3
  *

@@ -1,7 +1,7 @@
 package com.tecknobit.kinfo.model.hardware.centralprocessor
 
 import com.tecknobit.kinfo.model.desktop.hardware.centralprocessor.*
-import comtecknobitkinfomodeldesktophardwarecentralprocessor.CentralProcessor
+import com.tecknobit.kinfo.model.desktop.hardware.centralprocessor.CentralProcessor
 
 /**
  * `CentralProcessorImpl` provides an implementation of the [CentralProcessor] interface.

@@ -4,10 +4,12 @@ import android.annotation.SuppressLint
 import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
 import android.os.Build
+import android.os.Build.VERSION.SDK_INT
+import android.os.Build.VERSION_CODES.*
 import android.provider.Settings
 import androidx.core.app.LocaleManagerCompat
 import androidx.core.content.pm.PackageInfoCompat
-import com.tecknobit.equinoxcompose.utilities.context.AppContext
+import com.tecknobit.equinoxcore.utilities.AppContext
 import com.tecknobit.kinfo.BuildConfig
 import com.tecknobit.kinfo.UNKNOWN
 import com.tecknobit.kinfo.model.android.AndroidInfo
@@ -79,6 +81,111 @@ internal class AndroidInfoImpl : AndroidInfo {
          */
         const val PRODUCT_EMULATOR = "emulator"
 
+        /**
+         * `BASE` -> "BASE" Android operating system name
+         */
+        const val BASE = "Base"
+
+        /**
+         * `CUPCAKE` -> "CUPCAKE" Android operating system name
+         */
+        const val CUPCAKE = "Cupcake"
+
+        /**
+         * `DONUT` -> "DONUT" Android operating system name
+         */
+        const val DONUT = "Donut"
+
+        /**
+         * `ECLAIR` -> "Éclair" Android operating system name
+         */
+        const val ECLAIR = "Eclair"
+
+        /**
+         * `FROYO` -> "Froyo" Android operating system name
+         */
+        const val FROYO = "Froyo"
+
+        /**
+         * `GINGERBREAD` -> "Gingerbread" Android operating system name
+         */
+        const val GINGERBREAD = "Gingerbread"
+
+        /**
+         * `HONEYCOMB` -> "Honeycomb" Android operating system name
+         */
+        const val HONEYCOMB = "Honeycomb"
+
+        /**
+         * `ICE_CREAM_SANDWICH` -> "Ice cream Sandwich" Android operating system name
+         */
+        const val ICE_CREAM_SANDWICH = "Ice cream Sandwich"
+
+        /**
+         * `JELLY_BEAN` -> "Jellybean" Android operating system name
+         */
+        const val JELLY_BEAN = "Jellybean"
+
+        /**
+         * `KITKAT` -> "Kitkat" Android operating system name
+         */
+        const val KITKAT = "Kitkat"
+
+        /**
+         * `LOLLIPOP` -> "Lollipop" Android operating system name
+         */
+        const val LOLLIPOP = "Lollipop"
+
+        /**
+         * `MARSHMALLOW` -> "Marshmallow" Android operating system name
+         */
+        const val MARSHMALLOW = "Marshmallow"
+
+        /**
+         * `NOUGAT` -> "Nougat" Android operating system name
+         */
+        const val NOUGAT = "Nougat"
+
+        /**
+         * `OREO` -> "Oreo" Android operating system name
+         */
+        const val OREO = "Oreo"
+
+        /**
+         * `PIE` -> "Pie" Android operating system name
+         */
+        const val PIE = "Pie"
+
+        /**
+         * `ANDROID_10` -> "Android 10" Android operating system name
+         */
+        const val ANDROID_10 = "Android 10"
+
+        /**
+         * `RED_VELVET_CAKE` -> "Red Velvet Cake" Android operating system name
+         */
+        const val RED_VELVET_CAKE = "Red Velvet Cake"
+
+        /**
+         * `SNOW_CONE` -> "Snow Cone" Android operating system name
+         */
+        const val SNOW_CONE = "Snow Cone"
+
+        /**
+         * `TIRAMISU` -> "Tiramisu" Android operating system name
+         */
+        const val TIRAMISU = "Tiramisu"
+
+        /**
+         * `UPSIDE_DOWN_CAKE` -> "Upside down cake" Android operating system name
+         */
+        const val UPSIDE_DOWN_CAKE = "Upside down cake"
+
+        /**
+         * `VANILLA_ICE_CREAM` -> "Vanilla icecream" Android operating system name
+         */
+        const val VANILLA_ICE_CREAM = "Vanilla ice cream"
+        
     }
 
     /**
@@ -196,6 +303,11 @@ internal class AndroidInfoImpl : AndroidInfo {
     override val model: String = Build.MODEL
 
     /**
+     * `brand` the brand name of the device (e.g., "Samsung, Xiaomi")
+     */
+    override val brand: String = Build.BRAND
+
+    /**
      * `product` the product name of the device
      */
     override val product: String = Build.PRODUCT
@@ -243,7 +355,7 @@ internal class AndroidInfoImpl : AndroidInfo {
     /**
      * `versionName` the version name of the application or system
      */
-    override val versionName: String = packageInfo.versionName
+    override val versionName: String? = packageInfo.versionName
 
     /**
      * `versionCode` the version code of the application or system
@@ -283,6 +395,12 @@ internal class AndroidInfoImpl : AndroidInfo {
     override val isDebug: Boolean = BuildConfig.DEBUG
 
     /**
+     * `androidCodename` is the codename of the Android OS version,
+     * following the [official list](https://developer.android.com/reference/android/os/Build.VERSION_CODES)
+     */
+    override val androidCodename: String = retrieveAndroidCodename()
+
+    /**
      * Method to determine whether the device is physical or an emulator
      *
      * @return whether the device is physical or an emulator as [Boolean]
@@ -314,6 +432,38 @@ internal class AndroidInfoImpl : AndroidInfo {
             }.map {
                 it.name
             }
+    }
+
+    /**
+     * Method used to retrieve the codename of the current Android OS version based on the [SDK_INT]
+     *
+     * @return the codename as [String]
+     */
+    private fun retrieveAndroidCodename() : String {
+        val osVersion = SDK_INT
+        return when (osVersion) {
+            Build.VERSION_CODES.CUPCAKE -> CUPCAKE
+            Build.VERSION_CODES.DONUT -> DONUT
+            in Build.VERSION_CODES.ECLAIR..ECLAIR_MR1 -> ECLAIR
+            Build.VERSION_CODES.FROYO -> FROYO
+            in Build.VERSION_CODES.GINGERBREAD..GINGERBREAD_MR1 -> GINGERBREAD
+            in Build.VERSION_CODES.HONEYCOMB..HONEYCOMB_MR2 -> HONEYCOMB
+            in Build.VERSION_CODES.ICE_CREAM_SANDWICH..ICE_CREAM_SANDWICH_MR1 -> ICE_CREAM_SANDWICH
+            in Build.VERSION_CODES.JELLY_BEAN..JELLY_BEAN_MR2 -> JELLY_BEAN
+            in Build.VERSION_CODES.KITKAT..KITKAT_WATCH -> KITKAT
+            in Build.VERSION_CODES.LOLLIPOP..LOLLIPOP_MR1 -> LOLLIPOP
+            M -> MARSHMALLOW
+            in N..N_MR1 -> NOUGAT
+            in O..O_MR1 -> OREO
+            P -> PIE
+            Q -> ANDROID_10
+            R -> RED_VELVET_CAKE
+            in S..S_V2 -> SNOW_CONE
+            Build.VERSION_CODES.TIRAMISU -> TIRAMISU
+            Build.VERSION_CODES.UPSIDE_DOWN_CAKE -> UPSIDE_DOWN_CAKE
+            Build.VERSION_CODES.VANILLA_ICE_CREAM -> VANILLA_ICE_CREAM
+            else -> BASE
+        }
     }
     
 }

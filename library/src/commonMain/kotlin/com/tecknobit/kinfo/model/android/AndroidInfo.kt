@@ -78,6 +78,11 @@ interface AndroidInfo {
     val model: String
 
     /**
+     * `brand` the brand name of the device (e.g., "Samsung, Xiaomi")
+     */
+    val brand: String
+
+    /**
      * `product` the product name of the device (e.g., "hammerhead")
      */
     val product: String
@@ -125,7 +130,7 @@ interface AndroidInfo {
     /**
      * `versionName` the version name of the application or system (e.g., "1.0.0")
      */
-    val versionName: String
+    val versionName: String?
 
     /**
      * `versionCode` the version code of the application or system, represented as a `Long`
@@ -151,5 +156,11 @@ interface AndroidInfo {
      * `isDebug` indicates whether the application is running in debug mode
      */
     val isDebug: Boolean
+
+    /**
+     * `androidCodename` is the codename of the Android OS version,
+     * following the [official list](https://developer.android.com/reference/android/os/Build.VERSION_CODES)
+     */
+    val androidCodename: String
 
 }

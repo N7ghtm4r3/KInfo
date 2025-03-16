@@ -16,13 +16,23 @@ import com.tecknobit.kinfo.model.web.WebInfoItem
 interface Browser : WebInfoItem {
 
     /**
-     * `name` The name of the browser (e.g., Chrome, Firefox).
+     * `name` The name of the browser (e.g., Chrome, Firefox)
      */
     val name: String
 
     /**
-     * `version` The version of the browser.
+     * `version` The version of the browser
      */
     val version: String
+
+    /**
+     * `major` Major number derived from the first number in [version]
+     */
+    val major: String
+
+    /**
+     * `type` Type of current browser (email, inapp, crawler)
+     */
+    val type: String
 
 }

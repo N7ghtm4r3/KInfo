@@ -1,7 +1,7 @@
 package com.tecknobit.kinfo.model
 
 import android.content.res.Configuration
-import com.tecknobit.equinoxcompose.utilities.context.AppContext
+import com.tecknobit.equinoxcore.utilities.AppContext
 import com.tecknobit.kinfo.UNKNOWN
 import com.tecknobit.kinfo.model.common.DeviceOrientation
 import com.tecknobit.kinfo.model.common.DeviceOrientation.Companion.LANDSCAPE

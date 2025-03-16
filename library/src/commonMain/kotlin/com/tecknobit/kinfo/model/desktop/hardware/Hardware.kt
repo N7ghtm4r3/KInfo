@@ -4,7 +4,7 @@ import com.tecknobit.kinfo.model.desktop.hardware.computersystem.ComputerSystem
 import com.tecknobit.kinfo.model.desktop.hardware.memory.GlobalMemory
 import com.tecknobit.kinfo.model.desktop.hardware.storage.HWDiskStore
 import com.tecknobit.kinfo.model.desktop.hardware.storage.LogicalVolumeGroup
-import comtecknobitkinfomodeldesktophardwarecentralprocessor.CentralProcessor
+import com.tecknobit.kinfo.model.desktop.hardware.centralprocessor.CentralProcessor
 
 /**
  * The `Hardware` interface represents the hardware components of a system.

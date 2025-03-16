@@ -3,10 +3,12 @@ $dokka.linkExtension:html
 $dokka.location:com.tecknobit.kinfo.model.android////PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.android/index.html
 $dokka.location:com.tecknobit.kinfo.model.android/AndroidInfo///PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.android/-android-info/index.html
 $dokka.location:com.tecknobit.kinfo.model.android/AndroidInfo/VERSION_CODES/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.android/-android-info/-v-e-r-s-i-o-n_-c-o-d-e-s.html
+$dokka.location:com.tecknobit.kinfo.model.android/AndroidInfo/androidCodename/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.android/-android-info/android-codename.html
 $dokka.location:com.tecknobit.kinfo.model.android/AndroidInfo/androidId/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.android/-android-info/android-id.html
 $dokka.location:com.tecknobit.kinfo.model.android/AndroidInfo/appName/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.android/-android-info/app-name.html
 $dokka.location:com.tecknobit.kinfo.model.android/AndroidInfo/board/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.android/-android-info/board.html
 $dokka.location:com.tecknobit.kinfo.model.android/AndroidInfo/bootloader/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.android/-android-info/bootloader.html
+$dokka.location:com.tecknobit.kinfo.model.android/AndroidInfo/brand/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.android/-android-info/brand.html
 $dokka.location:com.tecknobit.kinfo.model.android/AndroidInfo/device/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.android/-android-info/device.html
 $dokka.location:com.tecknobit.kinfo.model.android/AndroidInfo/deviceOrientation/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.android/-android-info/device-orientation.html
 $dokka.location:com.tecknobit.kinfo.model.android/AndroidInfo/display/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.android/-android-info/display.html
@@ -67,7 +69,9 @@ $dokka.location:com.tecknobit.kinfo.model.android/VersionCode/UPSIDE_DOWN_CAKE/#
 $dokka.location:com.tecknobit.kinfo.model.browser////PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.browser/index.html
 $dokka.location:com.tecknobit.kinfo.model.browser/BrowserImpl///PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.browser/-browser-impl/index.html
 $dokka.location:com.tecknobit.kinfo.model.browser/BrowserImpl/BrowserImpl/#com.tecknobit.kinfo.model.Browser/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.browser/-browser-impl/-browser-impl.html
+$dokka.location:com.tecknobit.kinfo.model.browser/BrowserImpl/major/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.browser/-browser-impl/major.html
 $dokka.location:com.tecknobit.kinfo.model.browser/BrowserImpl/name/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.browser/-browser-impl/name.html
+$dokka.location:com.tecknobit.kinfo.model.browser/BrowserImpl/type/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.browser/-browser-impl/type.html
 $dokka.location:com.tecknobit.kinfo.model.browser/BrowserImpl/version/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.browser/-browser-impl/version.html
 $dokka.location:com.tecknobit.kinfo.model.common////PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.common/index.html
 $dokka.location:com.tecknobit.kinfo.model.common/DeviceOrientation.Companion///PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.common/-device-orientation/-companion/index.html
@@ -96,6 +100,25 @@ $dokka.location:com.tecknobit.kinfo.model.desktop.hardware.centralprocessor/Cach
 $dokka.location:com.tecknobit.kinfo.model.desktop.hardware.centralprocessor/CacheType/toString/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.desktop.hardware.centralprocessor/-cache-type/to-string.html
 $dokka.location:com.tecknobit.kinfo.model.desktop.hardware.centralprocessor/CacheType/valueOf/#kotlin.String/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.desktop.hardware.centralprocessor/-cache-type/value-of.html
 $dokka.location:com.tecknobit.kinfo.model.desktop.hardware.centralprocessor/CacheType/values/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.desktop.hardware.centralprocessor/-cache-type/values.html
+$dokka.location:com.tecknobit.kinfo.model.desktop.hardware.centralprocessor/CentralProcessor///PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.desktop.hardware.centralprocessor/-central-processor/index.html
+$dokka.location:com.tecknobit.kinfo.model.desktop.hardware.centralprocessor/CentralProcessor/contextSwitches/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.desktop.hardware.centralprocessor/-central-processor/context-switches.html
+$dokka.location:com.tecknobit.kinfo.model.desktop.hardware.centralprocessor/CentralProcessor/currentFreq/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.desktop.hardware.centralprocessor/-central-processor/current-freq.html
+$dokka.location:com.tecknobit.kinfo.model.desktop.hardware.centralprocessor/CentralProcessor/featureFlags/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.desktop.hardware.centralprocessor/-central-processor/feature-flags.html
+$dokka.location:com.tecknobit.kinfo.model.desktop.hardware.centralprocessor/CentralProcessor/getProcessorCpuLoadBetweenTicks/#kotlin.Array[kotlin.LongArray]/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.desktop.hardware.centralprocessor/-central-processor/get-processor-cpu-load-between-ticks.html
+$dokka.location:com.tecknobit.kinfo.model.desktop.hardware.centralprocessor/CentralProcessor/getSystemCpuLoad/#kotlin.Long/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.desktop.hardware.centralprocessor/-central-processor/get-system-cpu-load.html
+$dokka.location:com.tecknobit.kinfo.model.desktop.hardware.centralprocessor/CentralProcessor/getSystemCpuLoadBetweenTicks/#kotlin.LongArray/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.desktop.hardware.centralprocessor/-central-processor/get-system-cpu-load-between-ticks.html
+$dokka.location:com.tecknobit.kinfo.model.desktop.hardware.centralprocessor/CentralProcessor/getSystemLoadAverage/#kotlin.Int/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.desktop.hardware.centralprocessor/-central-processor/get-system-load-average.html
+$dokka.location:com.tecknobit.kinfo.model.desktop.hardware.centralprocessor/CentralProcessor/interrupts/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.desktop.hardware.centralprocessor/-central-processor/interrupts.html
+$dokka.location:com.tecknobit.kinfo.model.desktop.hardware.centralprocessor/CentralProcessor/logicalProcessorCount/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.desktop.hardware.centralprocessor/-central-processor/logical-processor-count.html
+$dokka.location:com.tecknobit.kinfo.model.desktop.hardware.centralprocessor/CentralProcessor/logicalProcessors/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.desktop.hardware.centralprocessor/-central-processor/logical-processors.html
+$dokka.location:com.tecknobit.kinfo.model.desktop.hardware.centralprocessor/CentralProcessor/maxFreq/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.desktop.hardware.centralprocessor/-central-processor/max-freq.html
+$dokka.location:com.tecknobit.kinfo.model.desktop.hardware.centralprocessor/CentralProcessor/physicalPackageCount/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.desktop.hardware.centralprocessor/-central-processor/physical-package-count.html
+$dokka.location:com.tecknobit.kinfo.model.desktop.hardware.centralprocessor/CentralProcessor/physicalProcessorCount/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.desktop.hardware.centralprocessor/-central-processor/physical-processor-count.html
+$dokka.location:com.tecknobit.kinfo.model.desktop.hardware.centralprocessor/CentralProcessor/physicalProcessors/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.desktop.hardware.centralprocessor/-central-processor/physical-processors.html
+$dokka.location:com.tecknobit.kinfo.model.desktop.hardware.centralprocessor/CentralProcessor/processorCaches/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.desktop.hardware.centralprocessor/-central-processor/processor-caches.html
+$dokka.location:com.tecknobit.kinfo.model.desktop.hardware.centralprocessor/CentralProcessor/processorCpuLoadTicks/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.desktop.hardware.centralprocessor/-central-processor/processor-cpu-load-ticks.html
+$dokka.location:com.tecknobit.kinfo.model.desktop.hardware.centralprocessor/CentralProcessor/processorIdentifier/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.desktop.hardware.centralprocessor/-central-processor/processor-identifier.html
+$dokka.location:com.tecknobit.kinfo.model.desktop.hardware.centralprocessor/CentralProcessor/systemCpuLoadTicks/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.desktop.hardware.centralprocessor/-central-processor/system-cpu-load-ticks.html
 $dokka.location:com.tecknobit.kinfo.model.desktop.hardware.centralprocessor/LogicalProcessor///PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.desktop.hardware.centralprocessor/-logical-processor/index.html
 $dokka.location:com.tecknobit.kinfo.model.desktop.hardware.centralprocessor/LogicalProcessor/numaNode/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.desktop.hardware.centralprocessor/-logical-processor/numa-node.html
 $dokka.location:com.tecknobit.kinfo.model.desktop.hardware.centralprocessor/LogicalProcessor/physicalPackageNumber/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.desktop.hardware.centralprocessor/-logical-processor/physical-package-number.html
@@ -973,7 +996,9 @@ $dokka.location:com.tecknobit.kinfo.model.operatingsystem/OsImpl/name/#/Pointing
 $dokka.location:com.tecknobit.kinfo.model.operatingsystem/OsImpl/version/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.operatingsystem/-os-impl/version.html
 $dokka.location:com.tecknobit.kinfo.model.web.browser////PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.web.browser/index.html
 $dokka.location:com.tecknobit.kinfo.model.web.browser/Browser///PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.web.browser/-browser/index.html
+$dokka.location:com.tecknobit.kinfo.model.web.browser/Browser/major/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.web.browser/-browser/major.html
 $dokka.location:com.tecknobit.kinfo.model.web.browser/Browser/name/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.web.browser/-browser/name.html
+$dokka.location:com.tecknobit.kinfo.model.web.browser/Browser/type/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.web.browser/-browser/type.html
 $dokka.location:com.tecknobit.kinfo.model.web.browser/Browser/version/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.web.browser/-browser/version.html
 $dokka.location:com.tecknobit.kinfo.model.web.cpu////PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.web.cpu/index.html
 $dokka.location:com.tecknobit.kinfo.model.web.cpu/CPU///PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.web.cpu/-c-p-u/index.html
@@ -1019,19 +1044,41 @@ $dokka.location:com.tecknobit.kinfo.model/AndroidDisplayMetricsImpl/widthPx/#/Po
 $dokka.location:com.tecknobit.kinfo.model/AndroidDisplayMetricsImpl/xDpi/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model/-android-display-metrics-impl/x-dpi.html
 $dokka.location:com.tecknobit.kinfo.model/AndroidDisplayMetricsImpl/yDpi/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model/-android-display-metrics-impl/y-dpi.html
 $dokka.location:com.tecknobit.kinfo.model/AndroidInfoImpl.Companion///PointingToDeclaration/-k-info/com.tecknobit.kinfo.model/-android-info-impl/-companion/index.html
+$dokka.location:com.tecknobit.kinfo.model/AndroidInfoImpl.Companion/ANDROID_10/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model/-android-info-impl/-companion/-a-n-d-r-o-i-d_10.html
+$dokka.location:com.tecknobit.kinfo.model/AndroidInfoImpl.Companion/BASE/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model/-android-info-impl/-companion/-b-a-s-e.html
+$dokka.location:com.tecknobit.kinfo.model/AndroidInfoImpl.Companion/CUPCAKE/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model/-android-info-impl/-companion/-c-u-p-c-a-k-e.html
+$dokka.location:com.tecknobit.kinfo.model/AndroidInfoImpl.Companion/DONUT/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model/-android-info-impl/-companion/-d-o-n-u-t.html
+$dokka.location:com.tecknobit.kinfo.model/AndroidInfoImpl.Companion/ECLAIR/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model/-android-info-impl/-companion/-e-c-l-a-i-r.html
+$dokka.location:com.tecknobit.kinfo.model/AndroidInfoImpl.Companion/FROYO/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model/-android-info-impl/-companion/-f-r-o-y-o.html
+$dokka.location:com.tecknobit.kinfo.model/AndroidInfoImpl.Companion/GINGERBREAD/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model/-android-info-impl/-companion/-g-i-n-g-e-r-b-r-e-a-d.html
 $dokka.location:com.tecknobit.kinfo.model/AndroidInfoImpl.Companion/HARDWARE_GENERIC/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model/-android-info-impl/-companion/-h-a-r-d-w-a-r-e_-g-e-n-e-r-i-c.html
 $dokka.location:com.tecknobit.kinfo.model/AndroidInfoImpl.Companion/HARDWARE_GOLDFISH/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model/-android-info-impl/-companion/-h-a-r-d-w-a-r-e_-g-o-l-d-f-i-s-h.html
 $dokka.location:com.tecknobit.kinfo.model/AndroidInfoImpl.Companion/HARDWARE_RANCHU/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model/-android-info-impl/-companion/-h-a-r-d-w-a-r-e_-r-a-n-c-h-u.html
+$dokka.location:com.tecknobit.kinfo.model/AndroidInfoImpl.Companion/HONEYCOMB/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model/-android-info-impl/-companion/-h-o-n-e-y-c-o-m-b.html
+$dokka.location:com.tecknobit.kinfo.model/AndroidInfoImpl.Companion/ICE_CREAM_SANDWICH/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model/-android-info-impl/-companion/-i-c-e_-c-r-e-a-m_-s-a-n-d-w-i-c-h.html
+$dokka.location:com.tecknobit.kinfo.model/AndroidInfoImpl.Companion/JELLY_BEAN/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model/-android-info-impl/-companion/-j-e-l-l-y_-b-e-a-n.html
+$dokka.location:com.tecknobit.kinfo.model/AndroidInfoImpl.Companion/KITKAT/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model/-android-info-impl/-companion/-k-i-t-k-a-t.html
+$dokka.location:com.tecknobit.kinfo.model/AndroidInfoImpl.Companion/LOLLIPOP/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model/-android-info-impl/-companion/-l-o-l-l-i-p-o-p.html
 $dokka.location:com.tecknobit.kinfo.model/AndroidInfoImpl.Companion/MANUFACTURER_GENYMOTION/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model/-android-info-impl/-companion/-m-a-n-u-f-a-c-t-u-r-e-r_-g-e-n-y-m-o-t-i-o-n.html
+$dokka.location:com.tecknobit.kinfo.model/AndroidInfoImpl.Companion/MARSHMALLOW/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model/-android-info-impl/-companion/-m-a-r-s-h-m-a-l-l-o-w.html
 $dokka.location:com.tecknobit.kinfo.model/AndroidInfoImpl.Companion/MODEL_ANDROID_SDK_X86/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model/-android-info-impl/-companion/-m-o-d-e-l_-a-n-d-r-o-i-d_-s-d-k_-x86.html
 $dokka.location:com.tecknobit.kinfo.model/AndroidInfoImpl.Companion/MODEL_EMULATOR/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model/-android-info-impl/-companion/-m-o-d-e-l_-e-m-u-l-a-t-o-r.html
 $dokka.location:com.tecknobit.kinfo.model/AndroidInfoImpl.Companion/MODEL_GOOGLE_SDK/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model/-android-info-impl/-companion/-m-o-d-e-l_-g-o-o-g-l-e_-s-d-k.html
+$dokka.location:com.tecknobit.kinfo.model/AndroidInfoImpl.Companion/NOUGAT/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model/-android-info-impl/-companion/-n-o-u-g-a-t.html
+$dokka.location:com.tecknobit.kinfo.model/AndroidInfoImpl.Companion/OREO/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model/-android-info-impl/-companion/-o-r-e-o.html
+$dokka.location:com.tecknobit.kinfo.model/AndroidInfoImpl.Companion/PIE/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model/-android-info-impl/-companion/-p-i-e.html
 $dokka.location:com.tecknobit.kinfo.model/AndroidInfoImpl.Companion/PRODUCT_EMULATOR/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model/-android-info-impl/-companion/-p-r-o-d-u-c-t_-e-m-u-l-a-t-o-r.html
 $dokka.location:com.tecknobit.kinfo.model/AndroidInfoImpl.Companion/PRODUCT_SDK/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model/-android-info-impl/-companion/-p-r-o-d-u-c-t_-s-d-k.html
 $dokka.location:com.tecknobit.kinfo.model/AndroidInfoImpl.Companion/PRODUCT_VBOX86P/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model/-android-info-impl/-companion/-p-r-o-d-u-c-t_-v-b-o-x86-p.html
+$dokka.location:com.tecknobit.kinfo.model/AndroidInfoImpl.Companion/RED_VELVET_CAKE/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model/-android-info-impl/-companion/-r-e-d_-v-e-l-v-e-t_-c-a-k-e.html
+$dokka.location:com.tecknobit.kinfo.model/AndroidInfoImpl.Companion/SNOW_CONE/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model/-android-info-impl/-companion/-s-n-o-w_-c-o-n-e.html
+$dokka.location:com.tecknobit.kinfo.model/AndroidInfoImpl.Companion/TIRAMISU/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model/-android-info-impl/-companion/-t-i-r-a-m-i-s-u.html
+$dokka.location:com.tecknobit.kinfo.model/AndroidInfoImpl.Companion/UPSIDE_DOWN_CAKE/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model/-android-info-impl/-companion/-u-p-s-i-d-e_-d-o-w-n_-c-a-k-e.html
+$dokka.location:com.tecknobit.kinfo.model/AndroidInfoImpl.Companion/VANILLA_ICE_CREAM/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model/-android-info-impl/-companion/-v-a-n-i-l-l-a_-i-c-e_-c-r-e-a-m.html
 $dokka.location:com.tecknobit.kinfo.model/AndroidInfoImpl///PointingToDeclaration/-k-info/com.tecknobit.kinfo.model/-android-info-impl/index.html
 $dokka.location:com.tecknobit.kinfo.model/AndroidInfoImpl/AndroidInfoImpl/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model/-android-info-impl/-android-info-impl.html
 $dokka.location:com.tecknobit.kinfo.model/AndroidInfoImpl/VERSION_CODES/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model/-android-info-impl/-v-e-r-s-i-o-n_-c-o-d-e-s.html
+$dokka.location:com.tecknobit.kinfo.model/AndroidInfoImpl/androidCodename/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model/-android-info-impl/android-codename.html
 $dokka.location:com.tecknobit.kinfo.model/AndroidInfoImpl/androidDeviceOrientation/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model/-android-info-impl/android-device-orientation.html
 $dokka.location:com.tecknobit.kinfo.model/AndroidInfoImpl/androidDisplayMetrics/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model/-android-info-impl/android-display-metrics.html
 $dokka.location:com.tecknobit.kinfo.model/AndroidInfoImpl/androidId/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model/-android-info-impl/android-id.html
@@ -1041,6 +1088,7 @@ $dokka.location:com.tecknobit.kinfo.model/AndroidInfoImpl/appContext/#/PointingT
 $dokka.location:com.tecknobit.kinfo.model/AndroidInfoImpl/appName/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model/-android-info-impl/app-name.html
 $dokka.location:com.tecknobit.kinfo.model/AndroidInfoImpl/board/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model/-android-info-impl/board.html
 $dokka.location:com.tecknobit.kinfo.model/AndroidInfoImpl/bootloader/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model/-android-info-impl/bootloader.html
+$dokka.location:com.tecknobit.kinfo.model/AndroidInfoImpl/brand/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model/-android-info-impl/brand.html
 $dokka.location:com.tecknobit.kinfo.model/AndroidInfoImpl/device/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model/-android-info-impl/device.html
 $dokka.location:com.tecknobit.kinfo.model/AndroidInfoImpl/deviceOrientation/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model/-android-info-impl/device-orientation.html
 $dokka.location:com.tecknobit.kinfo.model/AndroidInfoImpl/display/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model/-android-info-impl/display.html
@@ -1060,6 +1108,7 @@ $dokka.location:com.tecknobit.kinfo.model/AndroidInfoImpl/packageInfo/#/Pointing
 $dokka.location:com.tecknobit.kinfo.model/AndroidInfoImpl/packageManager/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model/-android-info-impl/package-manager.html
 $dokka.location:com.tecknobit.kinfo.model/AndroidInfoImpl/packageName/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model/-android-info-impl/package-name.html
 $dokka.location:com.tecknobit.kinfo.model/AndroidInfoImpl/product/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model/-android-info-impl/product.html
+$dokka.location:com.tecknobit.kinfo.model/AndroidInfoImpl/retrieveAndroidCodename/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model/-android-info-impl/retrieve-android-codename.html
 $dokka.location:com.tecknobit.kinfo.model/AndroidInfoImpl/supported32BitAbis/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model/-android-info-impl/supported32-bit-abis.html
 $dokka.location:com.tecknobit.kinfo.model/AndroidInfoImpl/supported64BitAbis/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model/-android-info-impl/supported64-bit-abis.html
 $dokka.location:com.tecknobit.kinfo.model/AndroidInfoImpl/supportedAbis/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model/-android-info-impl/supported-abis.html
@@ -1100,7 +1149,9 @@ $dokka.location:com.tecknobit.kinfo.model/AndroidVersionImpl/releaseOrPreviewDis
 $dokka.location:com.tecknobit.kinfo.model/AndroidVersionImpl/sdkInt/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model/-android-version-impl/sdk-int.html
 $dokka.location:com.tecknobit.kinfo.model/AndroidVersionImpl/securityPatch/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model/-android-version-impl/security-patch.html
 $dokka.location:com.tecknobit.kinfo.model/Browser///PointingToDeclaration/-k-info/com.tecknobit.kinfo.model/-browser/index.html
+$dokka.location:com.tecknobit.kinfo.model/Browser/major/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model/-browser/major.html
 $dokka.location:com.tecknobit.kinfo.model/Browser/name/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model/-browser/name.html
+$dokka.location:com.tecknobit.kinfo.model/Browser/type/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model/-browser/type.html
 $dokka.location:com.tecknobit.kinfo.model/Browser/version/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model/-browser/version.html
 $dokka.location:com.tecknobit.kinfo.model/CPU///PointingToDeclaration/-k-info/com.tecknobit.kinfo.model/-c-p-u/index.html
 $dokka.location:com.tecknobit.kinfo.model/CPU/architecture/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model/-c-p-u/architecture.html
@@ -1182,26 +1233,6 @@ $dokka.location:com.tecknobit.kinfo/KInfoState/desktopInfo/#/PointingToDeclarati
 $dokka.location:com.tecknobit.kinfo/KInfoState/devicePlatform/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo/-k-info-state/device-platform.html
 $dokka.location:com.tecknobit.kinfo/KInfoState/iosInfo/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo/-k-info-state/ios-info.html
 $dokka.location:com.tecknobit.kinfo/KInfoState/webInfo/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo/-k-info-state/web-info.html
-$dokka.location:comtecknobitkinfomodeldesktophardwarecentralprocessor////PointingToDeclaration/-k-info/comtecknobitkinfomodeldesktophardwarecentralprocessor/index.html
-$dokka.location:comtecknobitkinfomodeldesktophardwarecentralprocessor/CentralProcessor///PointingToDeclaration/-k-info/comtecknobitkinfomodeldesktophardwarecentralprocessor/-central-processor/index.html
-$dokka.location:comtecknobitkinfomodeldesktophardwarecentralprocessor/CentralProcessor/contextSwitches/#/PointingToDeclaration/-k-info/comtecknobitkinfomodeldesktophardwarecentralprocessor/-central-processor/context-switches.html
-$dokka.location:comtecknobitkinfomodeldesktophardwarecentralprocessor/CentralProcessor/currentFreq/#/PointingToDeclaration/-k-info/comtecknobitkinfomodeldesktophardwarecentralprocessor/-central-processor/current-freq.html
-$dokka.location:comtecknobitkinfomodeldesktophardwarecentralprocessor/CentralProcessor/featureFlags/#/PointingToDeclaration/-k-info/comtecknobitkinfomodeldesktophardwarecentralprocessor/-central-processor/feature-flags.html
-$dokka.location:comtecknobitkinfomodeldesktophardwarecentralprocessor/CentralProcessor/getProcessorCpuLoadBetweenTicks/#kotlin.Array[kotlin.LongArray]/PointingToDeclaration/-k-info/comtecknobitkinfomodeldesktophardwarecentralprocessor/-central-processor/get-processor-cpu-load-between-ticks.html
-$dokka.location:comtecknobitkinfomodeldesktophardwarecentralprocessor/CentralProcessor/getSystemCpuLoad/#kotlin.Long/PointingToDeclaration/-k-info/comtecknobitkinfomodeldesktophardwarecentralprocessor/-central-processor/get-system-cpu-load.html
-$dokka.location:comtecknobitkinfomodeldesktophardwarecentralprocessor/CentralProcessor/getSystemCpuLoadBetweenTicks/#kotlin.LongArray/PointingToDeclaration/-k-info/comtecknobitkinfomodeldesktophardwarecentralprocessor/-central-processor/get-system-cpu-load-between-ticks.html
-$dokka.location:comtecknobitkinfomodeldesktophardwarecentralprocessor/CentralProcessor/getSystemLoadAverage/#kotlin.Int/PointingToDeclaration/-k-info/comtecknobitkinfomodeldesktophardwarecentralprocessor/-central-processor/get-system-load-average.html
-$dokka.location:comtecknobitkinfomodeldesktophardwarecentralprocessor/CentralProcessor/interrupts/#/PointingToDeclaration/-k-info/comtecknobitkinfomodeldesktophardwarecentralprocessor/-central-processor/interrupts.html
-$dokka.location:comtecknobitkinfomodeldesktophardwarecentralprocessor/CentralProcessor/logicalProcessorCount/#/PointingToDeclaration/-k-info/comtecknobitkinfomodeldesktophardwarecentralprocessor/-central-processor/logical-processor-count.html
-$dokka.location:comtecknobitkinfomodeldesktophardwarecentralprocessor/CentralProcessor/logicalProcessors/#/PointingToDeclaration/-k-info/comtecknobitkinfomodeldesktophardwarecentralprocessor/-central-processor/logical-processors.html
-$dokka.location:comtecknobitkinfomodeldesktophardwarecentralprocessor/CentralProcessor/maxFreq/#/PointingToDeclaration/-k-info/comtecknobitkinfomodeldesktophardwarecentralprocessor/-central-processor/max-freq.html
-$dokka.location:comtecknobitkinfomodeldesktophardwarecentralprocessor/CentralProcessor/physicalPackageCount/#/PointingToDeclaration/-k-info/comtecknobitkinfomodeldesktophardwarecentralprocessor/-central-processor/physical-package-count.html
-$dokka.location:comtecknobitkinfomodeldesktophardwarecentralprocessor/CentralProcessor/physicalProcessorCount/#/PointingToDeclaration/-k-info/comtecknobitkinfomodeldesktophardwarecentralprocessor/-central-processor/physical-processor-count.html
-$dokka.location:comtecknobitkinfomodeldesktophardwarecentralprocessor/CentralProcessor/physicalProcessors/#/PointingToDeclaration/-k-info/comtecknobitkinfomodeldesktophardwarecentralprocessor/-central-processor/physical-processors.html
-$dokka.location:comtecknobitkinfomodeldesktophardwarecentralprocessor/CentralProcessor/processorCaches/#/PointingToDeclaration/-k-info/comtecknobitkinfomodeldesktophardwarecentralprocessor/-central-processor/processor-caches.html
-$dokka.location:comtecknobitkinfomodeldesktophardwarecentralprocessor/CentralProcessor/processorCpuLoadTicks/#/PointingToDeclaration/-k-info/comtecknobitkinfomodeldesktophardwarecentralprocessor/-central-processor/processor-cpu-load-ticks.html
-$dokka.location:comtecknobitkinfomodeldesktophardwarecentralprocessor/CentralProcessor/processorIdentifier/#/PointingToDeclaration/-k-info/comtecknobitkinfomodeldesktophardwarecentralprocessor/-central-processor/processor-identifier.html
-$dokka.location:comtecknobitkinfomodeldesktophardwarecentralprocessor/CentralProcessor/systemCpuLoadTicks/#/PointingToDeclaration/-k-info/comtecknobitkinfomodeldesktophardwarecentralprocessor/-central-processor/system-cpu-load-ticks.html
 com.tecknobit.kinfo
 com.tecknobit.kinfo.model
 com.tecknobit.kinfo.model.android
@@ -1234,4 +1265,3 @@ com.tecknobit.kinfo.model.web.cpu
 com.tecknobit.kinfo.model.web.device
 com.tecknobit.kinfo.model.web.engine
 com.tecknobit.kinfo.model.web.operatingsystem
-comtecknobitkinfomodeldesktophardwarecentralprocessor
