@@ -1,9 +1,4 @@
-package comtecknobitkinfomodeldesktophardwarecentralprocessor
-
-import com.tecknobit.kinfo.model.desktop.hardware.centralprocessor.LogicalProcessor
-import com.tecknobit.kinfo.model.desktop.hardware.centralprocessor.PhysicalProcessor
-import com.tecknobit.kinfo.model.desktop.hardware.centralprocessor.ProcessorCache
-import com.tecknobit.kinfo.model.desktop.hardware.centralprocessor.ProcessorIdentifier
+package com.tecknobit.kinfo.model.desktop.hardware.centralprocessor
 
 /**
  * `CentralProcessor` interface provides detailed information and metrics about the central processor of a system

@@ -12,7 +12,7 @@ import com.tecknobit.kinfo.model.hardware.memory.GlobalMemoryImpl
 import com.tecknobit.kinfo.model.hardware.storage.HWDiskStoreImpl
 import com.tecknobit.kinfo.model.hardware.storage.HWPartitionImpl
 import com.tecknobit.kinfo.model.hardware.storage.LogicalVolumeGroupImpl
-import comtecknobitkinfomodeldesktophardwarecentralprocessor.CentralProcessor
+import com.tecknobit.kinfo.model.desktop.hardware.centralprocessor.CentralProcessor
 import oshi.SystemInfo
 
 /**

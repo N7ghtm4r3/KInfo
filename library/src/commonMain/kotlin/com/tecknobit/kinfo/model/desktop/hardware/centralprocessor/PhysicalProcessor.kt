@@ -10,24 +10,24 @@ package com.tecknobit.kinfo.model.desktop.hardware.centralprocessor
 interface PhysicalProcessor {
 
     /**
-     * The unique identifier for the physical CPU package this processor belongs to.
+     * The unique identifier for the physical CPU package this processor belongs to
      */
     val physicalPackageNumber: Int
 
     /**
-     * The unique identifier for the physical processor in the package.
+     * The unique identifier for the physical processor in the package
      */
     val physicalProcessorNumber: Int
 
     /**
      * The efficiency level of the physical processor.
-     * This value indicates how efficiently the processor operates.
+     * This value indicates how efficiently the processor operates
      */
     val efficiency: Int
 
     /**
      * A unique string identifier for this physical processor, often used to distinguish
-     * between different processors in the system.
+     * between different processors in the system
      */
     val idString: String
 
