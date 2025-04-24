@@ -3,7 +3,7 @@ package com.tecknobit.kinfo
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.platform.LocalConfiguration
-import com.tecknobit.kinfo.DevicePlatform.ANDROID
+import com.tecknobit.kinfo.enums.DevicePlatform.ANDROID
 import com.tecknobit.kinfo.model.AndroidInfoImpl
 import com.tecknobit.kinfo.model.android.AndroidInfo
 import com.tecknobit.kinfo.model.desktop.DesktopInfo

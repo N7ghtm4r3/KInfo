@@ -2,7 +2,8 @@ package com.tecknobit.kinfo
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
-import com.tecknobit.kinfo.DevicePlatform.DESKTOP
+import com.tecknobit.kinfo.enums.DevicePlatform
+import com.tecknobit.kinfo.enums.DevicePlatform.DESKTOP
 import com.tecknobit.kinfo.model.DesktopInfoImpl
 import com.tecknobit.kinfo.model.android.AndroidInfo
 import com.tecknobit.kinfo.model.desktop.DesktopInfo
