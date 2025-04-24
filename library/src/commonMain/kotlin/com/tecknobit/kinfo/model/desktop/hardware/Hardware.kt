@@ -1,10 +1,11 @@
 package com.tecknobit.kinfo.model.desktop.hardware
 
+import com.tecknobit.kinfo.annotations.Bridge
+import com.tecknobit.kinfo.model.desktop.hardware.centralprocessor.CentralProcessor
 import com.tecknobit.kinfo.model.desktop.hardware.computersystem.ComputerSystem
 import com.tecknobit.kinfo.model.desktop.hardware.memory.GlobalMemory
 import com.tecknobit.kinfo.model.desktop.hardware.storage.HWDiskStore
 import com.tecknobit.kinfo.model.desktop.hardware.storage.LogicalVolumeGroup
-import com.tecknobit.kinfo.model.desktop.hardware.centralprocessor.CentralProcessor
 
 /**
  * The `Hardware` interface represents the hardware components of a system.
@@ -77,6 +78,7 @@ interface Hardware {
      * @param includeLocalInterfaces Whether to include local network interfaces such as loopback interfaces.
      * @return A list of network interfaces on the system.
      */
+    @Bridge
     fun getNetworkIfs(
         includeLocalInterfaces: Boolean
     ): List<NetworkIF>
@@ -88,6 +90,7 @@ interface Hardware {
      * @param tree Whether to return the USB devices in a hierarchical tree structure.
      * @return A list of USB devices connected to the system.
      */
+    @Bridge
     fun getUsbDevices(
         tree: Boolean
     ): List<UsbDevice>

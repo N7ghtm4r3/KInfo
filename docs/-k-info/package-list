@@ -1,5 +1,17 @@
 $dokka.format:html-v1
 $dokka.linkExtension:html
+$dokka.location:com.tecknobit.kinfo.annotations////PointingToDeclaration/-k-info/com.tecknobit.kinfo.annotations/index.html
+$dokka.location:com.tecknobit.kinfo.annotations/Bridge///PointingToDeclaration/-k-info/com.tecknobit.kinfo.annotations/-bridge/index.html
+$dokka.location:com.tecknobit.kinfo.enums////PointingToDeclaration/-k-info/com.tecknobit.kinfo.enums/index.html
+$dokka.location:com.tecknobit.kinfo.enums/DevicePlatform.ANDROID///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}-k-info/com.tecknobit.kinfo.enums/-device-platform/-a-n-d-r-o-i-d/index.html
+$dokka.location:com.tecknobit.kinfo.enums/DevicePlatform.DESKTOP///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}-k-info/com.tecknobit.kinfo.enums/-device-platform/-d-e-s-k-t-o-p/index.html
+$dokka.location:com.tecknobit.kinfo.enums/DevicePlatform.IOS///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}-k-info/com.tecknobit.kinfo.enums/-device-platform/-i-o-s/index.html
+$dokka.location:com.tecknobit.kinfo.enums/DevicePlatform.WEB///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}-k-info/com.tecknobit.kinfo.enums/-device-platform/-w-e-b/index.html
+$dokka.location:com.tecknobit.kinfo.enums/DevicePlatform///PointingToDeclaration/-k-info/com.tecknobit.kinfo.enums/-device-platform/index.html
+$dokka.location:com.tecknobit.kinfo.enums/DevicePlatform/DevicePlatform/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.enums/-device-platform/-device-platform.html
+$dokka.location:com.tecknobit.kinfo.enums/DevicePlatform/entries/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.enums/-device-platform/entries.html
+$dokka.location:com.tecknobit.kinfo.enums/DevicePlatform/valueOf/#kotlin.String/PointingToDeclaration/-k-info/com.tecknobit.kinfo.enums/-device-platform/value-of.html
+$dokka.location:com.tecknobit.kinfo.enums/DevicePlatform/values/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.enums/-device-platform/values.html
 $dokka.location:com.tecknobit.kinfo.model.android////PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.android/index.html
 $dokka.location:com.tecknobit.kinfo.model.android/AndroidInfo///PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.android/-android-info/index.html
 $dokka.location:com.tecknobit.kinfo.model.android/AndroidInfo/VERSION_CODES/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.android/-android-info/-v-e-r-s-i-o-n_-c-o-d-e-s.html
@@ -449,6 +461,12 @@ $dokka.location:com.tecknobit.kinfo.model.desktop.operatingsystem.protocols/UdpS
 $dokka.location:com.tecknobit.kinfo.model.desktop.operatingsystem.protocols/UdpStats/datagramsReceivedErrors/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.desktop.operatingsystem.protocols/-udp-stats/datagrams-received-errors.html
 $dokka.location:com.tecknobit.kinfo.model.desktop.operatingsystem.protocols/UdpStats/datagramsSent/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.desktop.operatingsystem.protocols/-udp-stats/datagrams-sent.html
 $dokka.location:com.tecknobit.kinfo.model.desktop.operatingsystem////PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.desktop.operatingsystem/index.html
+$dokka.location:com.tecknobit.kinfo.model.desktop.operatingsystem/ApplicationInfo///PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.desktop.operatingsystem/-application-info/index.html
+$dokka.location:com.tecknobit.kinfo.model.desktop.operatingsystem/ApplicationInfo/additionalInfo/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.desktop.operatingsystem/-application-info/additional-info.html
+$dokka.location:com.tecknobit.kinfo.model.desktop.operatingsystem/ApplicationInfo/name/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.desktop.operatingsystem/-application-info/name.html
+$dokka.location:com.tecknobit.kinfo.model.desktop.operatingsystem/ApplicationInfo/timestamp/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.desktop.operatingsystem/-application-info/timestamp.html
+$dokka.location:com.tecknobit.kinfo.model.desktop.operatingsystem/ApplicationInfo/vendor/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.desktop.operatingsystem/-application-info/vendor.html
+$dokka.location:com.tecknobit.kinfo.model.desktop.operatingsystem/ApplicationInfo/version/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.desktop.operatingsystem/-application-info/version.html
 $dokka.location:com.tecknobit.kinfo.model.desktop.operatingsystem/FileSystem///PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.desktop.operatingsystem/-file-system/index.html
 $dokka.location:com.tecknobit.kinfo.model.desktop.operatingsystem/FileSystem/fileStores/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.desktop.operatingsystem/-file-system/file-stores.html
 $dokka.location:com.tecknobit.kinfo.model.desktop.operatingsystem/FileSystem/getFileStores/#kotlin.Boolean/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.desktop.operatingsystem/-file-system/get-file-stores.html
@@ -497,6 +515,8 @@ $dokka.location:com.tecknobit.kinfo.model.desktop.operatingsystem/OperatingSyste
 $dokka.location:com.tecknobit.kinfo.model.desktop.operatingsystem/OperatingSystem/currentThread/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.desktop.operatingsystem/-operating-system/current-thread.html
 $dokka.location:com.tecknobit.kinfo.model.desktop.operatingsystem/OperatingSystem/family/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.desktop.operatingsystem/-operating-system/family.html
 $dokka.location:com.tecknobit.kinfo.model.desktop.operatingsystem/OperatingSystem/fileSystem/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.desktop.operatingsystem/-operating-system/file-system.html
+$dokka.location:com.tecknobit.kinfo.model.desktop.operatingsystem/OperatingSystem/findInstalledApp/#kotlin.String/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.desktop.operatingsystem/-operating-system/find-installed-app.html
+$dokka.location:com.tecknobit.kinfo.model.desktop.operatingsystem/OperatingSystem/findInstalledApps/#kotlin.Function1[com.tecknobit.kinfo.model.desktop.operatingsystem.ApplicationInfo,kotlin.Boolean]/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.desktop.operatingsystem/-operating-system/find-installed-apps.html
 $dokka.location:com.tecknobit.kinfo.model.desktop.operatingsystem/OperatingSystem/getOSDesktopWindows/#kotlin.Boolean/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.desktop.operatingsystem/-operating-system/get-o-s-desktop-windows.html
 $dokka.location:com.tecknobit.kinfo.model.desktop.operatingsystem/OperatingSystem/getProcess/#kotlin.Int/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.desktop.operatingsystem/-operating-system/get-process.html
 $dokka.location:com.tecknobit.kinfo.model.desktop.operatingsystem/OperatingSystem/getProcesses/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.desktop.operatingsystem/-operating-system/get-processes.html
@@ -505,8 +525,11 @@ $dokka.location:com.tecknobit.kinfo.model.desktop.operatingsystem/OperatingSyste
 $dokka.location:com.tecknobit.kinfo.model.desktop.operatingsystem/OperatingSystem/isElevated/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.desktop.operatingsystem/-operating-system/is-elevated.html
 $dokka.location:com.tecknobit.kinfo.model.desktop.operatingsystem/OperatingSystem/manufacturer/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.desktop.operatingsystem/-operating-system/manufacturer.html
 $dokka.location:com.tecknobit.kinfo.model.desktop.operatingsystem/OperatingSystem/networkParams/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.desktop.operatingsystem/-operating-system/network-params.html
+$dokka.location:com.tecknobit.kinfo.model.desktop.operatingsystem/OperatingSystem/parseNestedStatistics/#kotlin.String#kotlin.Array[kotlin.String]/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.desktop.operatingsystem/-operating-system/parse-nested-statistics.html
+$dokka.location:com.tecknobit.kinfo.model.desktop.operatingsystem/OperatingSystem/parseStatistics/#kotlin.String#kotlin.text.Regex/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.desktop.operatingsystem/-operating-system/parse-statistics.html
 $dokka.location:com.tecknobit.kinfo.model.desktop.operatingsystem/OperatingSystem/processCount/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.desktop.operatingsystem/-operating-system/process-count.html
 $dokka.location:com.tecknobit.kinfo.model.desktop.operatingsystem/OperatingSystem/processId/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.desktop.operatingsystem/-operating-system/process-id.html
+$dokka.location:com.tecknobit.kinfo.model.desktop.operatingsystem/OperatingSystem/queryInstalledApps/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.desktop.operatingsystem/-operating-system/query-installed-apps.html
 $dokka.location:com.tecknobit.kinfo.model.desktop.operatingsystem/OperatingSystem/services/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.desktop.operatingsystem/-operating-system/services.html
 $dokka.location:com.tecknobit.kinfo.model.desktop.operatingsystem/OperatingSystem/sessions/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.desktop.operatingsystem/-operating-system/sessions.html
 $dokka.location:com.tecknobit.kinfo.model.desktop.operatingsystem/OperatingSystem/systemBootTime/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.desktop.operatingsystem/-operating-system/system-boot-time.html
@@ -523,6 +546,9 @@ $dokka.location:com.tecknobit.kinfo.model.desktop.operatingsystem/ServiceState/e
 $dokka.location:com.tecknobit.kinfo.model.desktop.operatingsystem/ServiceState/valueOf/#kotlin.String/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.desktop.operatingsystem/-service-state/value-of.html
 $dokka.location:com.tecknobit.kinfo.model.desktop.operatingsystem/ServiceState/values/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.desktop.operatingsystem/-service-state/values.html
 $dokka.location:com.tecknobit.kinfo.model.desktop////PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.desktop/index.html
+$dokka.location:com.tecknobit.kinfo.model.desktop/DesktopInfo.Companion///PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.desktop/-desktop-info/-companion/index.html
+$dokka.location:com.tecknobit.kinfo.model.desktop/DesktopInfo.Companion/isToBeFilledByOEM/kotlin.String#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.desktop/-desktop-info/-companion/is-to-be-filled-by-o-e-m.html
+$dokka.location:com.tecknobit.kinfo.model.desktop/DesktopInfo.Companion/whenIsToBeFilledByOEM/kotlin.String#kotlin.Function0[kotlin.String]/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.desktop/-desktop-info/-companion/when-is-to-be-filled-by-o-e-m.html
 $dokka.location:com.tecknobit.kinfo.model.desktop/DesktopInfo///PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.desktop/-desktop-info/index.html
 $dokka.location:com.tecknobit.kinfo.model.desktop/DesktopInfo/hardware/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.desktop/-desktop-info/hardware.html
 $dokka.location:com.tecknobit.kinfo.model.desktop/DesktopInfo/operatingSystem/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.desktop/-desktop-info/operating-system.html
@@ -908,6 +934,13 @@ $dokka.location:com.tecknobit.kinfo.model.operatingsystem.protocols/UdpStatsImpl
 $dokka.location:com.tecknobit.kinfo.model.operatingsystem.protocols/UdpStatsImpl/datagramsReceivedErrors/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.operatingsystem.protocols/-udp-stats-impl/datagrams-received-errors.html
 $dokka.location:com.tecknobit.kinfo.model.operatingsystem.protocols/UdpStatsImpl/datagramsSent/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.operatingsystem.protocols/-udp-stats-impl/datagrams-sent.html
 $dokka.location:com.tecknobit.kinfo.model.operatingsystem////PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.operatingsystem/index.html
+$dokka.location:com.tecknobit.kinfo.model.operatingsystem/ApplicationInfoImpl///PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.operatingsystem/-application-info-impl/index.html
+$dokka.location:com.tecknobit.kinfo.model.operatingsystem/ApplicationInfoImpl/ApplicationInfoImpl/#kotlin.String#kotlin.String#kotlin.String#kotlin.Long#kotlin.collections.Map[kotlin.String,kotlin.String]/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.operatingsystem/-application-info-impl/-application-info-impl.html
+$dokka.location:com.tecknobit.kinfo.model.operatingsystem/ApplicationInfoImpl/additionalInfo/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.operatingsystem/-application-info-impl/additional-info.html
+$dokka.location:com.tecknobit.kinfo.model.operatingsystem/ApplicationInfoImpl/name/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.operatingsystem/-application-info-impl/name.html
+$dokka.location:com.tecknobit.kinfo.model.operatingsystem/ApplicationInfoImpl/timestamp/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.operatingsystem/-application-info-impl/timestamp.html
+$dokka.location:com.tecknobit.kinfo.model.operatingsystem/ApplicationInfoImpl/vendor/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.operatingsystem/-application-info-impl/vendor.html
+$dokka.location:com.tecknobit.kinfo.model.operatingsystem/ApplicationInfoImpl/version/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.operatingsystem/-application-info-impl/version.html
 $dokka.location:com.tecknobit.kinfo.model.operatingsystem/FileSystemImpl///PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.operatingsystem/-file-system-impl/index.html
 $dokka.location:com.tecknobit.kinfo.model.operatingsystem/FileSystemImpl/FileSystemImpl/#oshi.software.os.FileSystem/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.operatingsystem/-file-system-impl/-file-system-impl.html
 $dokka.location:com.tecknobit.kinfo.model.operatingsystem/FileSystemImpl/fileStores/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.operatingsystem/-file-system-impl/file-stores.html
@@ -981,8 +1014,11 @@ $dokka.location:com.tecknobit.kinfo.model.operatingsystem/OperatingSystemImpl/lo
 $dokka.location:com.tecknobit.kinfo.model.operatingsystem/OperatingSystemImpl/loadOSThreads/#kotlin.collections.List[oshi.software.os.OSThread]/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.operatingsystem/-operating-system-impl/load-o-s-threads.html
 $dokka.location:com.tecknobit.kinfo.model.operatingsystem/OperatingSystemImpl/manufacturer/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.operatingsystem/-operating-system-impl/manufacturer.html
 $dokka.location:com.tecknobit.kinfo.model.operatingsystem/OperatingSystemImpl/networkParams/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.operatingsystem/-operating-system-impl/network-params.html
+$dokka.location:com.tecknobit.kinfo.model.operatingsystem/OperatingSystemImpl/parseNestedStatistics/#kotlin.String#kotlin.Array[kotlin.String]/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.operatingsystem/-operating-system-impl/parse-nested-statistics.html
+$dokka.location:com.tecknobit.kinfo.model.operatingsystem/OperatingSystemImpl/parseStatistics/#kotlin.String#kotlin.text.Regex/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.operatingsystem/-operating-system-impl/parse-statistics.html
 $dokka.location:com.tecknobit.kinfo.model.operatingsystem/OperatingSystemImpl/processCount/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.operatingsystem/-operating-system-impl/process-count.html
 $dokka.location:com.tecknobit.kinfo.model.operatingsystem/OperatingSystemImpl/processId/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.operatingsystem/-operating-system-impl/process-id.html
+$dokka.location:com.tecknobit.kinfo.model.operatingsystem/OperatingSystemImpl/queryInstalledApps/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.operatingsystem/-operating-system-impl/query-installed-apps.html
 $dokka.location:com.tecknobit.kinfo.model.operatingsystem/OperatingSystemImpl/services/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.operatingsystem/-operating-system-impl/services.html
 $dokka.location:com.tecknobit.kinfo.model.operatingsystem/OperatingSystemImpl/sessions/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.operatingsystem/-operating-system-impl/sessions.html
 $dokka.location:com.tecknobit.kinfo.model.operatingsystem/OperatingSystemImpl/systemBootTime/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model.operatingsystem/-operating-system-impl/system-boot-time.html
@@ -1214,6 +1250,7 @@ $dokka.location:com.tecknobit.kinfo.model/WebInfoImpl/os/#/PointingToDeclaration
 $dokka.location:com.tecknobit.kinfo.model/WebInfoImpl/userAgent/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model/-web-info-impl/user-agent.html
 $dokka.location:com.tecknobit.kinfo////PointingToDeclaration/-k-info/com.tecknobit.kinfo/index.html
 $dokka.location:com.tecknobit.kinfo//OnPlatform/#com.tecknobit.kinfo.KInfoState#kotlin.Function1[com.tecknobit.kinfo.model.android.AndroidInfo,kotlin.Unit]?#kotlin.Function1[com.tecknobit.kinfo.model.ios.IosInfo,kotlin.Unit]?#kotlin.Function1[com.tecknobit.kinfo.model.desktop.DesktopInfo,kotlin.Unit]?#kotlin.Function1[com.tecknobit.kinfo.model.web.WebInfo,kotlin.Unit]?/PointingToDeclaration/-k-info/com.tecknobit.kinfo/-on-platform.html
+$dokka.location:com.tecknobit.kinfo//TO_BE_FILLED_BY_OEM/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo/-t-o_-b-e_-f-i-l-l-e-d_-b-y_-o-e-m.html
 $dokka.location:com.tecknobit.kinfo//UNKNOWN/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo/-u-n-k-n-o-w-n.html
 $dokka.location:com.tecknobit.kinfo//onPlatform/#com.tecknobit.kinfo.KInfoState#kotlin.Function1[com.tecknobit.kinfo.model.android.AndroidInfo,kotlin.Unit]?#kotlin.Function1[com.tecknobit.kinfo.model.ios.IosInfo,kotlin.Unit]?#kotlin.Function1[com.tecknobit.kinfo.model.desktop.DesktopInfo,kotlin.Unit]?#kotlin.Function1[com.tecknobit.kinfo.model.web.WebInfo,kotlin.Unit]?/PointingToDeclaration/-k-info/com.tecknobit.kinfo/on-platform.html
 $dokka.location:com.tecknobit.kinfo//rememberKInfoState/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo/remember-k-info-state.html
@@ -1234,6 +1271,8 @@ $dokka.location:com.tecknobit.kinfo/KInfoState/devicePlatform/#/PointingToDeclar
 $dokka.location:com.tecknobit.kinfo/KInfoState/iosInfo/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo/-k-info-state/ios-info.html
 $dokka.location:com.tecknobit.kinfo/KInfoState/webInfo/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo/-k-info-state/web-info.html
 com.tecknobit.kinfo
+com.tecknobit.kinfo.annotations
+com.tecknobit.kinfo.enums
 com.tecknobit.kinfo.model
 com.tecknobit.kinfo.model.android
 com.tecknobit.kinfo.model.browser

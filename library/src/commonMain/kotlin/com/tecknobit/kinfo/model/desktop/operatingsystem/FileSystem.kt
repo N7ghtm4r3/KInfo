@@ -1,5 +1,7 @@
 package com.tecknobit.kinfo.model.desktop.operatingsystem
 
+import com.tecknobit.kinfo.annotations.Bridge
+
 /**
  * `FileSystem` Represents the file system details of an operating system, providing information about file stores,
  * file descriptors, and associated file system attributes.
@@ -41,6 +43,7 @@ interface FileSystem {
      * @param localOnly A flag to indicate whether to return only local file stores (`true`) or all file stores (`false`).
      * @return A list of file stores that match the provided criteria.
      */
+    @Bridge
     fun getFileStores(
         localOnly: Boolean
     ): List<OSFileStore>

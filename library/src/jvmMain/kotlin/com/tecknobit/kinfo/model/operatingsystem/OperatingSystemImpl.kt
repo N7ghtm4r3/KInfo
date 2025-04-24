@@ -1,5 +1,6 @@
 package com.tecknobit.kinfo.model.operatingsystem
 
+import com.tecknobit.kinfo.annotations.Bridge
 import com.tecknobit.kinfo.model.desktop.operatingsystem.*
 import com.tecknobit.kinfo.model.desktop.operatingsystem.processes.OSProcess
 import com.tecknobit.kinfo.model.desktop.operatingsystem.processes.OSThread
@@ -10,7 +11,12 @@ import com.tecknobit.kinfo.model.operatingsystem.processes.OSProcessImpl
 import com.tecknobit.kinfo.model.operatingsystem.processes.OSThreadImpl
 import com.tecknobit.kinfo.model.operatingsystem.protocols.InternetProtocolStatsImpl
 import com.tecknobit.kinfo.model.operatingsystem.protocols.NetworkParamsImpl
+import oshi.PlatformEnum.*
 import oshi.SystemInfo
+import oshi.software.os.linux.LinuxInstalledApps
+import oshi.software.os.mac.MacInstalledApps
+import oshi.software.os.windows.WindowsInstalledApps
+import oshi.util.ProcUtil
 
 /**
  * `OperatingSystemImpl` is the implementation of the `OperatingSystem` interface.
@@ -20,7 +26,7 @@ import oshi.SystemInfo
  * @param systemInfo The object containing general information about the operating system.
  */
 class OperatingSystemImpl(
-    systemInfo: SystemInfo
+    systemInfo: SystemInfo,
 ) : OperatingSystem {
 
     /**
@@ -156,6 +162,7 @@ class OperatingSystemImpl(
      *
      * @return A list of `OSProcess` objects representing the running processes.
      */
+    @Bridge
     override fun getProcesses(): List<OSProcess> {
         return loadOSProcesses(
             sourceList = fileSystemInfo.processes
@@ -168,8 +175,9 @@ class OperatingSystemImpl(
      * @param pids A collection of PIDs of the processes to retrieve.
      * @return A list of `OSProcess` objects for the specified processes.
      */
+    @Bridge
     override fun getProcesses(
-        pids: Collection<Int>
+        pids: Collection<Int>,
     ): List<OSProcess> {
         return loadOSProcesses(
             sourceList = fileSystemInfo.getProcesses(pids)
@@ -182,8 +190,9 @@ class OperatingSystemImpl(
      * @param pid The PID of the process to retrieve.
      * @return An `OSProcess` object representing the process with the given PID.
      */
+    @Bridge
     override fun getProcess(
-        pid: Int
+        pid: Int,
     ): OSProcess {
         return initOSProcess(
             source = fileSystemInfo.getProcess(pid)
@@ -196,8 +205,9 @@ class OperatingSystemImpl(
      * @param visibleOnly If `true`, only returns visible windows.
      * @return A list of desktop windows of the operating system.
      */
+    @Bridge
     override fun getOSDesktopWindows(
-        visibleOnly: Boolean
+        visibleOnly: Boolean,
     ): List<OSDesktopWindow> {
         return loadOSDesktopWindows(
             sourceList = fileSystemInfo.getDesktopWindows(visibleOnly)
@@ -211,7 +221,7 @@ class OperatingSystemImpl(
      * @return A list of `OSProcess` objects.
      */
     private fun loadOSProcesses(
-        sourceList: List<oshi.software.os.OSProcess>
+        sourceList: List<oshi.software.os.OSProcess>,
     ): List<OSProcess> {
         val result = mutableListOf<OSProcess>()
         sourceList.forEach { process ->
@@ -227,7 +237,7 @@ class OperatingSystemImpl(
      * @return A configured `OSProcess` object.
      */
     private fun initOSProcess(
-        source: oshi.software.os.OSProcess
+        source: oshi.software.os.OSProcess,
     ): OSProcess {
         return OSProcessImpl(
             name = source.name,
@@ -274,7 +284,7 @@ class OperatingSystemImpl(
      * @return A list of `OSThread` objects.
      */
     private fun loadOSThreads(
-        sourceList: List<oshi.software.os.OSThread>
+        sourceList: List<oshi.software.os.OSThread>,
     ): List<OSThread> {
         val result = mutableListOf<OSThread>()
         sourceList.forEach { thread ->
@@ -290,7 +300,7 @@ class OperatingSystemImpl(
      * @return A configured `OSThread` object.
      */
     private fun initOSThread(
-        source: oshi.software.os.OSThread
+        source: oshi.software.os.OSThread,
     ): OSThread {
         return OSThreadImpl(
             threadId = source.threadId,
@@ -319,7 +329,7 @@ class OperatingSystemImpl(
      * @return A list of `OSService` objects.
      */
     private fun loadOSServices(
-        sourceList: List<oshi.software.os.OSService>
+        sourceList: List<oshi.software.os.OSService>,
     ): List<OSService> {
         val result = mutableListOf<OSService>()
         sourceList.forEach { service ->
@@ -341,7 +351,7 @@ class OperatingSystemImpl(
      * @return A list of `OSSession` objects.
      */
     private fun loadOSSessions(
-        sourceList: List<oshi.software.os.OSSession>
+        sourceList: List<oshi.software.os.OSSession>,
     ): List<OSSession> {
         val result = mutableListOf<OSSession>()
         sourceList.forEach { session ->
@@ -368,7 +378,7 @@ class OperatingSystemImpl(
      * @return A list of `OSDesktopWindow` objects, representing the desktop windows.
      */
     private fun loadOSDesktopWindows(
-        sourceList: List<oshi.software.os.OSDesktopWindow>
+        sourceList: List<oshi.software.os.OSDesktopWindow>,
     ): List<OSDesktopWindow> {
         val result = mutableListOf<OSDesktopWindow>()
         sourceList.forEach { desktopWindow ->
@@ -384,6 +394,114 @@ class OperatingSystemImpl(
             )
         }
         return result
+    }
+
+    /**
+     * Parses `/proc` files with a given structure consisting of a keyed header line followed by a keyed value line.
+     *
+     * Examples of such files include `/proc/net/netstat` and `/proc/net/snmp`.
+     * The returned map has the structure:
+     *
+     * ```
+     * {
+     *     "TcpExt": {"SyncookiesSent": 0, "SyncookiesRecv": 4, "SyncookiesFailed": 0, ... },
+     *     "IpExt": {"InNoRoutes": 55, "InTruncatedPkts": 0, "InMcastPkts": 27786, "OutMcastPkts": 1435, ... },
+     *     "MPTcpExt": {"MPCapableSYNRX": 0, "MPCapableSYNTX": 0, "MPCapableSYNACKRX": 0, ... }
+     * }
+     * ```
+     *
+     * Example input file structure:
+     * ```
+     * TcpExt: SyncookiesSent SyncookiesRecv SyncookiesFailed ...
+     * TcpExt: 0 4 0 ...
+     * IpExt: InNoRoutes InTruncatedPkts InMcastPkts OutMcastPkts ...
+     * IpExt: 55 0 27786 1435 ...
+     * MPTcpExt: MPCapableSYNRX MPCapableSYNTX MPCapableSYNACKRX ...
+     * MPTcpExt: 0 0 0 ...
+     * ```
+     *
+     * @param procFile The file to process
+     * @param keys Optional array of keys to include in the outer map. If not provided, all keys found in the file will be returned
+     *
+     * @return map of keys to their corresponding stats
+     */
+    @Bridge
+    override fun parseNestedStatistics(
+        procFile: String,
+        vararg keys: String,
+    ): Map<String, Map<String, Long>> {
+        return ProcUtil.parseNestedStatistics(procFile, *keys)
+    }
+
+    /**
+     * Parses `/proc` files formatted as "statistic (long)value" to produce a simple mapping.
+     *
+     * An example file like `/proc/net/snmp6` might contain content in the following format:
+     *
+     * ```
+     * Ip6InReceives             8026
+     * Ip6InHdrErrors            0
+     * Icmp6InMsgs               2
+     * Icmp6InErrors             0
+     * Icmp6OutMsgs              424
+     * Udp6IgnoredMulti          5
+     * Udp6MemErrors             1
+     * UdpLite6InDatagrams       37
+     * UdpLite6NoPorts           1
+     * ```
+     *
+     * This would produce a mapping structure like:
+     *
+     * ```
+     * {
+     *     "Ip6InReceives": 8026,
+     *     "Ip6InHdrErrors": 0,
+     *     "Icmp6InMsgs": 2,
+     *     "Icmp6InErrors": 0,
+     *     ...
+     * }
+     * ```
+     *
+     * @param procFile The file to process
+     * @param separator A regular expression specifying the separator between the statistic name and its value
+     *
+     * @return A map of statistics and their associated values.
+     */
+    @Bridge
+    override fun parseStatistics(
+        procFile: String,
+        separator: Regex,
+    ): Map<String, Long> {
+        return ProcUtil.parseStatistics(procFile, separator.toPattern())
+    }
+
+    /**
+     * Method used to retrieve the current installed applications on the system
+     *
+     * @return the current applications installed on the system as [List] of [ApplicationInfo], the list will always be
+     * empty when the os platform is not yet supported by the original `oshi` API
+     */
+    @Bridge
+    override fun queryInstalledApps(): List<ApplicationInfo> {
+        val installedApps: List<oshi.software.os.ApplicationInfo> = when (SystemInfo.getCurrentPlatform()) {
+            WINDOWS -> WindowsInstalledApps.queryInstalledApps()
+            LINUX -> LinuxInstalledApps.queryInstalledApps()
+            MACOS -> MacInstalledApps.queryInstalledApps()
+            else -> emptyList()
+        }
+        val applications = mutableListOf<ApplicationInfoImpl>()
+        installedApps.forEach { application ->
+            applications.add(
+                ApplicationInfoImpl(
+                    name = application.name,
+                    version = application.version,
+                    vendor = application.vendor,
+                    timestamp = application.timestamp,
+                    additionalInfo = application.additionalInfo
+                )
+            )
+        }
+        return applications
     }
 
 }

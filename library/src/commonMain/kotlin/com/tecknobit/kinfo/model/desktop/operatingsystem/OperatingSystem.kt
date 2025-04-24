@@ -1,5 +1,6 @@
 package com.tecknobit.kinfo.model.desktop.operatingsystem
 
+import com.tecknobit.kinfo.annotations.Bridge
 import com.tecknobit.kinfo.model.desktop.operatingsystem.processes.OSProcess
 import com.tecknobit.kinfo.model.desktop.operatingsystem.processes.OSThread
 import com.tecknobit.kinfo.model.desktop.operatingsystem.protocols.InternetProtocolStats
@@ -112,6 +113,7 @@ interface OperatingSystem {
      *
      * @return A list of all `OSProcess` objects representing the running processes.
      */
+    @Bridge
     fun getProcesses(): List<OSProcess>
 
     /**
@@ -120,6 +122,7 @@ interface OperatingSystem {
      * @param pids A collection of process IDs to fetch the processes.
      * @return A list of `OSProcess` objects corresponding to the given process IDs.
      */
+    @Bridge
     fun getProcesses(
         pids: Collection<Int>
     ): List<OSProcess>
@@ -130,6 +133,7 @@ interface OperatingSystem {
      * @param pid The process ID of the process to retrieve.
      * @return The `OSProcess` object corresponding to the given process ID.
      */
+    @Bridge
     fun getProcess(
         pid: Int
     ): OSProcess
@@ -141,8 +145,121 @@ interface OperatingSystem {
      *                    or all desktop windows (`false`).
      * @return A list of `OSDesktopWindow` objects representing the desktop windows.
      */
+    @Bridge
     fun getOSDesktopWindows(
         visibleOnly: Boolean
     ): List<OSDesktopWindow>
+
+    /**
+     * Parses `/proc` files with a given structure consisting of a keyed header line followed by a keyed value line.
+     *
+     * Examples of such files include `/proc/net/netstat` and `/proc/net/snmp`.
+     * The returned map has the structure:
+     *
+     * ```
+     * {
+     *     "TcpExt": {"SyncookiesSent": 0, "SyncookiesRecv": 4, "SyncookiesFailed": 0, ... },
+     *     "IpExt": {"InNoRoutes": 55, "InTruncatedPkts": 0, "InMcastPkts": 27786, "OutMcastPkts": 1435, ... },
+     *     "MPTcpExt": {"MPCapableSYNRX": 0, "MPCapableSYNTX": 0, "MPCapableSYNACKRX": 0, ... }
+     * }
+     * ```
+     *
+     * Example input file structure:
+     * ```
+     * TcpExt: SyncookiesSent SyncookiesRecv SyncookiesFailed ...
+     * TcpExt: 0 4 0 ...
+     * IpExt: InNoRoutes InTruncatedPkts InMcastPkts OutMcastPkts ...
+     * IpExt: 55 0 27786 1435 ...
+     * MPTcpExt: MPCapableSYNRX MPCapableSYNTX MPCapableSYNACKRX ...
+     * MPTcpExt: 0 0 0 ...
+     * ```
+     *
+     * @param procFile The file to process.
+     * @param keys Optional array of keys to include in the outer map. If not provided, all keys found in the file will be returned
+     *
+     * @return map of keys to their corresponding stats
+     */
+    @Bridge
+    fun parseNestedStatistics(
+        procFile: String,
+        vararg keys: String
+    ): Map<String, Map<String, Long>>
+
+    /**
+     * Parses `/proc` files formatted as "statistic (long)value" to produce a simple mapping.
+     *
+     * An example file like `/proc/net/snmp6` might contain content in the following format:
+     *
+     * ```
+     * Ip6InReceives             8026
+     * Ip6InHdrErrors            0
+     * Icmp6InMsgs               2
+     * Icmp6InErrors             0
+     * Icmp6OutMsgs              424
+     * Udp6IgnoredMulti          5
+     * Udp6MemErrors             1
+     * UdpLite6InDatagrams       37
+     * UdpLite6NoPorts           1
+     * ```
+     *
+     * This would produce a mapping structure like:
+     *
+     * ```
+     * {
+     *     "Ip6InReceives": 8026,
+     *     "Ip6InHdrErrors": 0,
+     *     "Icmp6InMsgs": 2,
+     *     "Icmp6InErrors": 0,
+     *     ...
+     * }
+     * ```
+     *
+     * @param procFile The file to process
+     * @param separator A regular expression specifying the separator between the statistic name and its value
+     *
+     * @return A map of statistics and their associated values.
+     */
+    @Bridge
+    fun parseStatistics(
+        procFile: String,
+        separator: Regex = Regex("\\s+"),
+    ): Map<String, Long>
+
+    /**
+     * Method used to retrieve the current installed applications on the system
+     *
+     * @return the current applications installed on the system as [List] of [ApplicationInfo], the list will always be
+     * empty when the os platform is not yet supported by the original `oshi` API
+     */
+    @Bridge
+    fun queryInstalledApps() : List<ApplicationInfo>
+
+    /**
+     * Method used to find an installed application by name
+     *
+     * @param name The name of the application to find
+     *
+     * @return the installed application as [ApplicationInfo], `null` if not found
+     */
+    fun findInstalledApp(
+        name: String
+    ) : ApplicationInfo? {
+        val installedApps = queryInstalledApps()
+        return installedApps.firstOrNull { application -> application.name == name }
+    }
+
+    /**
+     * Method used to find an installed applications list by a filter condition
+     *
+     * @param applicationFilter The filter used to determine whether the application must be included in the retrieved list
+     *
+     * @return the list of the installed applications as [List] of [ApplicationInfo]
+     */
+    fun findInstalledApps(
+        applicationFilter: (ApplicationInfo) -> Boolean
+    ) : List<ApplicationInfo> {
+        val installedApps = queryInstalledApps()
+        return installedApps.filter(applicationFilter)
+    }
 
 }

@@ -2,12 +2,12 @@
 
 ![Maven Central](https://img.shields.io/maven-central/v/io.github.n7ghtm4r3/KInfo.svg?label=Maven%20Central)
 
-![Static Badge](https://img.shields.io/badge/android-4280511051?link=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.tecknobit.ametista)
-![Static Badge](https://img.shields.io/badge/ios-445E91?link=https%3A%2F%2Fimg.shields.io%2Fbadge%2Fandroid-4280511051)
-![Static Badge](https://img.shields.io/badge/desktop-006874?link=https%3A%2F%2Fimg.shields.io%2Fbadge%2Fandroid-4280511051)
-![Static Badge](https://img.shields.io/badge/wasmjs-834C74?link=https%3A%2F%2Fimg.shields.io%2Fbadge%2Fandroid-4280511051)
+![Static Badge](https://img.shields.io/badge/android-4280511051)
+![Static Badge](https://img.shields.io/badge/ios-445E91)
+![Static Badge](https://img.shields.io/badge/desktop-006874)
+![Static Badge](https://img.shields.io/badge/wasmjs-834C74)
 
-**v1.0.1**
+**v1.0.2**
 
 KInfo is Compose Multiplatform Library allows to access the device details of android, ios, desktop e web devices 
 
@@ -19,7 +19,7 @@ KInfo is Compose Multiplatform Library allows to access the device details of an
 
 ```gradle
 [versions]
-kinfo = "1.0.1"
+kinfo = "1.0.2"
 
 [libraries]
 kinfo = { module = "io.github.n7ghtm4r3:KInfo", version.ref = "kinfo" } 
@@ -51,7 +51,7 @@ Add the JitPack repository to your build file
 
     ```gradle
     dependencies {
-        implementation 'io.github.n7ghtm4r3:Kinfo:1.0.1'
+        implementation 'io.github.n7ghtm4r3:Kinfo:1.0.2'
     }
     ```
 
@@ -59,7 +59,7 @@ Add the JitPack repository to your build file
 
     ```gradle
     dependencies {
-        implementation("io.github.n7ghtm4r3:Kinfo:1.0.1")
+        implementation("io.github.n7ghtm4r3:Kinfo:1.0.2")
     }
     ```
 

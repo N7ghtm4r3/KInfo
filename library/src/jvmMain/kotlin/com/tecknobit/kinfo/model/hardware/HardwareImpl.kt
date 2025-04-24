@@ -1,6 +1,8 @@
 package com.tecknobit.kinfo.model.hardware
 
+import com.tecknobit.kinfo.annotations.Bridge
 import com.tecknobit.kinfo.model.desktop.hardware.*
+import com.tecknobit.kinfo.model.desktop.hardware.centralprocessor.CentralProcessor
 import com.tecknobit.kinfo.model.desktop.hardware.computersystem.ComputerSystem
 import com.tecknobit.kinfo.model.desktop.hardware.memory.GlobalMemory
 import com.tecknobit.kinfo.model.desktop.hardware.storage.HWDiskStore
@@ -12,7 +14,6 @@ import com.tecknobit.kinfo.model.hardware.memory.GlobalMemoryImpl
 import com.tecknobit.kinfo.model.hardware.storage.HWDiskStoreImpl
 import com.tecknobit.kinfo.model.hardware.storage.HWPartitionImpl
 import com.tecknobit.kinfo.model.hardware.storage.LogicalVolumeGroupImpl
-import com.tecknobit.kinfo.model.desktop.hardware.centralprocessor.CentralProcessor
 import oshi.SystemInfo
 
 /**
@@ -142,6 +143,7 @@ class HardwareImpl(
      * @param includeLocalInterfaces Whether to include local interfaces (such as loopback).
      * @return A list of `NetworkIF` objects representing the network interfaces.
      */
+    @Bridge
     override fun getNetworkIfs(
         includeLocalInterfaces: Boolean
     ): List<NetworkIF> {
@@ -156,6 +158,7 @@ class HardwareImpl(
      * @param tree Whether to return a tree structure of connected devices.
      * @return A list of `UsbDevice` objects representing the USB devices.
      */
+    @Bridge
     override fun getUsbDevices(
         tree: Boolean
     ): List<UsbDevice> {
