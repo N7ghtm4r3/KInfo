@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>InternetProtocolStatsImpl</title>
+    <link href="../../../images/logo-icon.svg" rel="icon" type="image/svg">
+    <script>var pathToRoot = "../../../";</script>
+    <script>document.documentElement.classList.replace("no-js","js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="https://unpkg.com/kotlin-playground@1/dist/playground.min.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async="async"></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<link href="../../../styles/font-jb-sans-auto.css" rel="Stylesheet">
+<link href="../../../ui-kit/ui-kit.min.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/clipboard.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer="defer"></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async="async"></script>
+<script type="text/javascript" src="../../../ui-kit/ui-kit.min.js" defer="defer"></script>
+<script type="text/javascript" src="../../../scripts/symbol-parameters-wrapper_deferred.js" defer="defer"></script>
+</head>
+<body>
+    <div class="root">
+    <nav class="navigation theme-dark" id="navigation-wrapper">
+            <a class="library-name--link" href="../../../index.html">
+                    KInfo
+            </a>
+        <button class="navigation-controls--btn navigation-controls--btn_toc ui-kit_mobile-only" id="toc-toggle"
+                type="button">Toggle table of contents
+        </button>
+        <div class="navigation-controls--break ui-kit_mobile-only"></div>
+        <div class="library-version" id="library-version">
+1.0.2        </div>
+        <div class="navigation-controls">
+        <div class="filter-section filter-section_loading" id="filter-section">
+                <button class="platform-tag platform-selector jvm-like" data-active=""
+                        data-filter=":library:dokkaHtml/jvmMain">jvm</button>
+            <div class="dropdown filter-section--dropdown" data-role="dropdown" id="filter-section-dropdown">
+                <button class="button button_dropdown filter-section--dropdown-toggle" role="combobox"
+                        data-role="dropdown-toggle"
+                        aria-controls="platform-tags-listbox"
+                        aria-haspopup="listbox"
+                        aria-expanded="false"
+                        aria-label="Toggle source sets"
+                ></button>
+                <ul role="listbox" id="platform-tags-listbox" class="dropdown--list" data-role="dropdown-listbox">
+                    <div class="dropdown--header"><span>Platform filter</span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close platform filter">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                        <li role="option" class="dropdown--option platform-selector-option jvm-like" tabindex="0">
+                            <label class="checkbox">
+                                <input type="checkbox" class="checkbox--input" id=":library:dokkaHtml/jvmMain"
+                                       data-filter=":library:dokkaHtml/jvmMain"/>
+                                <span class="checkbox--icon"></span>
+                                jvm
+                            </label>
+                        </li>
+                </ul>
+                <div class="dropdown--overlay"></div>
+            </div>
+        </div>
+            <button class="navigation-controls--btn navigation-controls--btn_theme" id="theme-toggle-button"
+                    type="button">Switch theme
+            </button>
+            <div class="navigation-controls--btn navigation-controls--btn_search" id="searchBar" role="button">Search in
+                API
+            </div>
+        </div>
+    </nav>
+        <div id="container">
+            <div class="sidebar" id="leftColumn">
+                <div class="dropdown theme-dark_mobile" data-role="dropdown" id="toc-dropdown">
+                    <ul role="listbox" id="toc-listbox" class="dropdown--list dropdown--list_toc-list"
+                        data-role="dropdown-listbox">
+                        <div class="dropdown--header">
+                            <span>
+                                    KInfo
+                            </span>
+                            <button class="button" data-role="dropdown-toggle" aria-label="Close table of contents">
+                                <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                            </button>
+                        </div>
+                        <div class="sidebar--inner" id="sideMenu"></div>
+                    </ul>
+                    <div class="dropdown--overlay"></div>
+                </div>
+            </div>
+            <div id="main">
+<div class="main-content" data-page-type="classlike" id="content" pageIds="KInfo::com.tecknobit.kinfo.model.operatingsystem.protocols/InternetProtocolStatsImpl///PointingToDeclaration//-1947558149">
+  <div class="breadcrumbs"><a href="../../../index.html">KInfo</a><span class="delimiter">/</span><a href="../index.html">com.tecknobit.kinfo.model.operatingsystem.protocols</a><span class="delimiter">/</span><span class="current">InternetProtocolStatsImpl</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>Internet</span><wbr></wbr><span>Protocol</span><wbr></wbr><span>Stats</span><wbr></wbr><span><span>Impl</span></span></h1>
+    <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+      <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":library:dokkaHtml/jvmMain" data-filterable-set=":library:dokkaHtml/jvmMain" data-active="" data-toggle=":library:dokkaHtml/jvmMain">jvm</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":library:dokkaHtml/jvmMain"><div class="symbol monospace"><span class="token keyword">class </span><a href="index.html">InternetProtocolStatsImpl</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>internetProtocolStatsInfo<span class="token operator">: </span><span data-unresolved-link="oshi.software.os/InternetProtocolStats///PointingToDeclaration/">InternetProtocolStats</span></span></span><span class="token punctuation">)</span> : <a href="../../com.tecknobit.kinfo.model.desktop.operatingsystem.protocols/-internet-protocol-stats/index.html">InternetProtocolStats</a></div><p class="paragraph"><code class="lang-kotlin">InternetProtocolStatsImpl</code> Implements the <code class="lang-kotlin">InternetProtocolStats</code> interface to provide details about the network protocol statistics, including TCP and UDP statistics for both IPv4 and IPv6, as well as active IP connections.</p><span class="kdoc-tag"><h4 class="">Author</h4><p class="paragraph">N7ghtm4r3</p></span><h4 class="">Parameters</h4><div class="table"><div class="table-row" data-filterable-current=":library:dokkaHtml/jvmMain" data-filterable-set=":library:dokkaHtml/jvmMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><u><span>internet</span><wbr></wbr><span>Protocol</span><wbr></wbr><span>Stats</span><wbr></wbr><span><span>Info</span></span></u></div></span></div><div><div class="title"><p class="paragraph">The source object that contains the raw protocol stats.</p></div></div></div></div></div><h4 class="">See also</h4><div class="table"><div class="table-row" data-filterable-current=":library:dokkaHtml/jvmMain" data-filterable-set=":library:dokkaHtml/jvmMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="../../com.tecknobit.kinfo.model.desktop.operatingsystem.protocols/-internet-protocol-stats/index.html"><span>Internet</span><wbr></wbr><span>Protocol</span><wbr></wbr><span><span>Stats</span></span></a></div></span></div><div></div></div></div></div></div>    </div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="CONSTRUCTOR">
+        <h2 class="">Constructors</h2>
+        <div class="table"><a data-name="888002234%2FConstructors%2F-1947558149" anchor-label="InternetProtocolStatsImpl" id="888002234%2FConstructors%2F-1947558149" data-filterable-set=":library:dokkaHtml/jvmMain"></a>
+          <div class="table-row" data-togglable="CONSTRUCTOR" data-filterable-current=":library:dokkaHtml/jvmMain" data-filterable-set=":library:dokkaHtml/jvmMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-internet-protocol-stats-impl.html"><span>Internet</span><wbr></wbr><span>Protocol</span><wbr></wbr><span>Stats</span><wbr></wbr><span><span>Impl</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="888002234%2FConstructors%2F-1947558149"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":library:dokkaHtml/jvmMain" data-filterable-set=":library:dokkaHtml/jvmMain" data-active="" data-toggle=":library:dokkaHtml/jvmMain">jvm</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":library:dokkaHtml/jvmMain"><div class="symbol monospace"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">internetProtocolStatsInfo<span class="token operator">: </span><span data-unresolved-link="oshi.software.os/InternetProtocolStats///PointingToDeclaration/">InternetProtocolStats</span></span></span><span class="token punctuation">)</span></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="PROPERTY">
+        <h2 class="">Properties</h2>
+        <div class="table"><a data-name="-919854490%2FProperties%2F-1947558149" anchor-label="internetProtocolStatsInfo" id="-919854490%2FProperties%2F-1947558149" data-filterable-set=":library:dokkaHtml/jvmMain"></a>
+          <div class="table-row" data-filterable-current=":library:dokkaHtml/jvmMain" data-filterable-set=":library:dokkaHtml/jvmMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="internet-protocol-stats-info.html"><span>internet</span><wbr></wbr><span>Protocol</span><wbr></wbr><span>Stats</span><wbr></wbr><span><span>Info</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-919854490%2FProperties%2F-1947558149"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":library:dokkaHtml/jvmMain" data-filterable-set=":library:dokkaHtml/jvmMain" data-active="" data-toggle=":library:dokkaHtml/jvmMain">jvm</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":library:dokkaHtml/jvmMain"><div class="symbol monospace"><span class="token keyword">private </span><span class="token keyword">val </span><a href="internet-protocol-stats-info.html">internetProtocolStatsInfo</a><span class="token operator">: </span><span data-unresolved-link="oshi.software.os/InternetProtocolStats///PointingToDeclaration/">InternetProtocolStats</span></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1741064596%2FProperties%2F-1947558149" anchor-label="ipConnections" id="-1741064596%2FProperties%2F-1947558149" data-filterable-set=":library:dokkaHtml/jvmMain"></a>
+          <div class="table-row" data-filterable-current=":library:dokkaHtml/jvmMain" data-filterable-set=":library:dokkaHtml/jvmMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="ip-connections.html"><span>ip</span><wbr></wbr><span><span>Connections</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1741064596%2FProperties%2F-1947558149"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":library:dokkaHtml/jvmMain" data-filterable-set=":library:dokkaHtml/jvmMain" data-active="" data-toggle=":library:dokkaHtml/jvmMain">jvm</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":library:dokkaHtml/jvmMain"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">val </span><a href="ip-connections.html">ipConnections</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="../../com.tecknobit.kinfo.model.desktop.operatingsystem.protocols/-i-p-connection/index.html">IPConnection</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph"><code class="lang-kotlin">ipConnections</code> A list of active IP connections, including local and foreign addresses, ports, and their respective states.</p></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1176894112%2FProperties%2F-1947558149" anchor-label="tcpV4Stats" id="1176894112%2FProperties%2F-1947558149" data-filterable-set=":library:dokkaHtml/jvmMain"></a>
+          <div class="table-row" data-filterable-current=":library:dokkaHtml/jvmMain" data-filterable-set=":library:dokkaHtml/jvmMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="tcp-v4-stats.html"><span>tcp</span><wbr></wbr><span><span>V4Stats</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1176894112%2FProperties%2F-1947558149"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":library:dokkaHtml/jvmMain" data-filterable-set=":library:dokkaHtml/jvmMain" data-active="" data-toggle=":library:dokkaHtml/jvmMain">jvm</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":library:dokkaHtml/jvmMain"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">val </span><a href="tcp-v4-stats.html">tcpV4Stats</a><span class="token operator">: </span><a href="../../com.tecknobit.kinfo.model.desktop.operatingsystem.protocols/-tcp-stats/index.html">TcpStats</a></div><div class="brief "><p class="paragraph"><code class="lang-kotlin">tcpV4Stats</code> Returns the TCP statistics for the IPv4 protocol, including established, active, passive connections, and other metrics like sent/received segments.</p></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1878493986%2FProperties%2F-1947558149" anchor-label="tcpV6Stats" id="1878493986%2FProperties%2F-1947558149" data-filterable-set=":library:dokkaHtml/jvmMain"></a>
+          <div class="table-row" data-filterable-current=":library:dokkaHtml/jvmMain" data-filterable-set=":library:dokkaHtml/jvmMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="tcp-v6-stats.html"><span>tcp</span><wbr></wbr><span><span>V6Stats</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1878493986%2FProperties%2F-1947558149"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":library:dokkaHtml/jvmMain" data-filterable-set=":library:dokkaHtml/jvmMain" data-active="" data-toggle=":library:dokkaHtml/jvmMain">jvm</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":library:dokkaHtml/jvmMain"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">val </span><a href="tcp-v6-stats.html">tcpV6Stats</a><span class="token operator">: </span><a href="../../com.tecknobit.kinfo.model.desktop.operatingsystem.protocols/-tcp-stats/index.html">TcpStats</a></div><div class="brief "><p class="paragraph"><code class="lang-kotlin">tcpV6Stats</code> Returns the TCP statistics for the IPv6 protocol, including established, active, passive connections, and other metrics like sent/received segments.</p></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-367100288%2FProperties%2F-1947558149" anchor-label="udpV4Stats" id="-367100288%2FProperties%2F-1947558149" data-filterable-set=":library:dokkaHtml/jvmMain"></a>
+          <div class="table-row" data-filterable-current=":library:dokkaHtml/jvmMain" data-filterable-set=":library:dokkaHtml/jvmMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="udp-v4-stats.html"><span>udp</span><wbr></wbr><span><span>V4Stats</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-367100288%2FProperties%2F-1947558149"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":library:dokkaHtml/jvmMain" data-filterable-set=":library:dokkaHtml/jvmMain" data-active="" data-toggle=":library:dokkaHtml/jvmMain">jvm</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":library:dokkaHtml/jvmMain"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">val </span><a href="udp-v4-stats.html">udpV4Stats</a><span class="token operator">: </span><a href="../../com.tecknobit.kinfo.model.desktop.operatingsystem.protocols/-udp-stats/index.html">UdpStats</a></div><div class="brief "><p class="paragraph"><code class="lang-kotlin">udpV4Stats</code> Returns the UDP statistics for the IPv4 protocol, including sent/received datagrams, and other related metrics.</p></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="334499586%2FProperties%2F-1947558149" anchor-label="udpV6Stats" id="334499586%2FProperties%2F-1947558149" data-filterable-set=":library:dokkaHtml/jvmMain"></a>
+          <div class="table-row" data-filterable-current=":library:dokkaHtml/jvmMain" data-filterable-set=":library:dokkaHtml/jvmMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="udp-v6-stats.html"><span>udp</span><wbr></wbr><span><span>V6Stats</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="334499586%2FProperties%2F-1947558149"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":library:dokkaHtml/jvmMain" data-filterable-set=":library:dokkaHtml/jvmMain" data-active="" data-toggle=":library:dokkaHtml/jvmMain">jvm</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":library:dokkaHtml/jvmMain"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">val </span><a href="udp-v6-stats.html">udpV6Stats</a><span class="token operator">: </span><a href="../../com.tecknobit.kinfo.model.desktop.operatingsystem.protocols/-udp-stats/index.html">UdpStats</a></div><div class="brief "><p class="paragraph"><code class="lang-kotlin">udpV6Stats</code> Returns the UDP statistics for the IPv6 protocol, including sent/received datagrams, and other related metrics.</p></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="FUNCTION">
+        <h2 class="">Functions</h2>
+        <div class="table"><a data-name="-1951258818%2FFunctions%2F-1947558149" anchor-label="initTcpStats" id="-1951258818%2FFunctions%2F-1947558149" data-filterable-set=":library:dokkaHtml/jvmMain"></a>
+          <div class="table-row" data-filterable-current=":library:dokkaHtml/jvmMain" data-filterable-set=":library:dokkaHtml/jvmMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="init-tcp-stats.html"><span>init</span><wbr></wbr><span>Tcp</span><wbr></wbr><span><span>Stats</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1951258818%2FFunctions%2F-1947558149"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":library:dokkaHtml/jvmMain" data-filterable-set=":library:dokkaHtml/jvmMain" data-active="" data-toggle=":library:dokkaHtml/jvmMain">jvm</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":library:dokkaHtml/jvmMain"><div class="symbol monospace"><span class="token keyword">private </span><span class="token keyword">fun </span><a href="init-tcp-stats.html"><span class="token function">initTcpStats</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">source<span class="token operator">: </span><span data-unresolved-link="oshi.software.os/InternetProtocolStats.TcpStats///PointingToDeclaration/">InternetProtocolStats.TcpStats</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../../com.tecknobit.kinfo.model.desktop.operatingsystem.protocols/-tcp-stats/index.html">TcpStats</a></div><div class="brief "><p class="paragraph">Initializes the TCP statistics from the raw source data.</p></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-2040274114%2FFunctions%2F-1947558149" anchor-label="initUdpStats" id="-2040274114%2FFunctions%2F-1947558149" data-filterable-set=":library:dokkaHtml/jvmMain"></a>
+          <div class="table-row" data-filterable-current=":library:dokkaHtml/jvmMain" data-filterable-set=":library:dokkaHtml/jvmMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="init-udp-stats.html"><span>init</span><wbr></wbr><span>Udp</span><wbr></wbr><span><span>Stats</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2040274114%2FFunctions%2F-1947558149"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":library:dokkaHtml/jvmMain" data-filterable-set=":library:dokkaHtml/jvmMain" data-active="" data-toggle=":library:dokkaHtml/jvmMain">jvm</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":library:dokkaHtml/jvmMain"><div class="symbol monospace"><span class="token keyword">private </span><span class="token keyword">fun </span><a href="init-udp-stats.html"><span class="token function">initUdpStats</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">source<span class="token operator">: </span><span data-unresolved-link="oshi.software.os/InternetProtocolStats.UdpStats///PointingToDeclaration/">InternetProtocolStats.UdpStats</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../../com.tecknobit.kinfo.model.desktop.operatingsystem.protocols/-udp-stats/index.html">UdpStats</a></div><div class="brief "><p class="paragraph">Initializes the UDP statistics from the raw source data.</p></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-918257097%2FFunctions%2F-1947558149" anchor-label="loadIpConnections" id="-918257097%2FFunctions%2F-1947558149" data-filterable-set=":library:dokkaHtml/jvmMain"></a>
+          <div class="table-row" data-filterable-current=":library:dokkaHtml/jvmMain" data-filterable-set=":library:dokkaHtml/jvmMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="load-ip-connections.html"><span>load</span><wbr></wbr><span>Ip</span><wbr></wbr><span><span>Connections</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-918257097%2FFunctions%2F-1947558149"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":library:dokkaHtml/jvmMain" data-filterable-set=":library:dokkaHtml/jvmMain" data-active="" data-toggle=":library:dokkaHtml/jvmMain">jvm</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":library:dokkaHtml/jvmMain"><div class="symbol monospace"><span class="token keyword">private </span><span class="token keyword">fun </span><a href="load-ip-connections.html"><span class="token function">loadIpConnections</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">sourceList<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span data-unresolved-link="oshi.software.os/InternetProtocolStats.IPConnection///PointingToDeclaration/">InternetProtocolStats.IPConnection</span><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="../../com.tecknobit.kinfo.model.desktop.operatingsystem.protocols/-i-p-connection/index.html">IPConnection</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Loads the IP connections from the raw source list.</p></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="footer">
+        <a href="#content" id="go-to-top-link" class="footer--button footer--button_go-to-top"></a>
+        <span>(c) 2025 Tecknobit</span>
+        <span class="pull-right">
+            <span>Generated by </span>
+            <a class="footer--link footer--link_external" href="https://github.com/Kotlin/dokka">
+                <span>dokka</span>
+            </a>
+        </span>
+    </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

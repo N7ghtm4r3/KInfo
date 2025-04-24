@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>Companion</title>
+    <link href="../../../../images/logo-icon.svg" rel="icon" type="image/svg">
+    <script>var pathToRoot = "../../../../";</script>
+    <script>document.documentElement.classList.replace("no-js","js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="https://unpkg.com/kotlin-playground@1/dist/playground.min.js" async="async"></script>
+<script type="text/javascript" src="../../../../scripts/sourceset_dependencies.js" async="async"></script>
+<link href="../../../../styles/style.css" rel="Stylesheet">
+<link href="../../../../styles/main.css" rel="Stylesheet">
+<link href="../../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../../styles/logo-styles.css" rel="Stylesheet">
+<link href="../../../../styles/font-jb-sans-auto.css" rel="Stylesheet">
+<link href="../../../../ui-kit/ui-kit.min.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../../scripts/clipboard.js" async="async"></script>
+<script type="text/javascript" src="../../../../scripts/navigation-loader.js" async="async"></script>
+<script type="text/javascript" src="../../../../scripts/platform-content-handler.js" async="async"></script>
+<script type="text/javascript" src="../../../../scripts/main.js" defer="defer"></script>
+<script type="text/javascript" src="../../../../scripts/prism.js" async="async"></script>
+<script type="text/javascript" src="../../../../ui-kit/ui-kit.min.js" defer="defer"></script>
+<script type="text/javascript" src="../../../../scripts/symbol-parameters-wrapper_deferred.js" defer="defer"></script>
+</head>
+<body>
+    <div class="root">
+    <nav class="navigation theme-dark" id="navigation-wrapper">
+            <a class="library-name--link" href="../../../../index.html">
+                    KInfo
+            </a>
+        <button class="navigation-controls--btn navigation-controls--btn_toc ui-kit_mobile-only" id="toc-toggle"
+                type="button">Toggle table of contents
+        </button>
+        <div class="navigation-controls--break ui-kit_mobile-only"></div>
+        <div class="library-version" id="library-version">
+1.0.2        </div>
+        <div class="navigation-controls">
+        <div class="filter-section filter-section_loading" id="filter-section">
+                <button class="platform-tag platform-selector jvm-like" data-active=""
+                        data-filter=":library:dokkaHtml/androidMain">android</button>
+            <div class="dropdown filter-section--dropdown" data-role="dropdown" id="filter-section-dropdown">
+                <button class="button button_dropdown filter-section--dropdown-toggle" role="combobox"
+                        data-role="dropdown-toggle"
+                        aria-controls="platform-tags-listbox"
+                        aria-haspopup="listbox"
+                        aria-expanded="false"
+                        aria-label="Toggle source sets"
+                ></button>
+                <ul role="listbox" id="platform-tags-listbox" class="dropdown--list" data-role="dropdown-listbox">
+                    <div class="dropdown--header"><span>Platform filter</span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close platform filter">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                        <li role="option" class="dropdown--option platform-selector-option jvm-like" tabindex="0">
+                            <label class="checkbox">
+                                <input type="checkbox" class="checkbox--input" id=":library:dokkaHtml/androidMain"
+                                       data-filter=":library:dokkaHtml/androidMain"/>
+                                <span class="checkbox--icon"></span>
+                                android
+                            </label>
+                        </li>
+                </ul>
+                <div class="dropdown--overlay"></div>
+            </div>
+        </div>
+            <button class="navigation-controls--btn navigation-controls--btn_theme" id="theme-toggle-button"
+                    type="button">Switch theme
+            </button>
+            <div class="navigation-controls--btn navigation-controls--btn_search" id="searchBar" role="button">Search in
+                API
+            </div>
+        </div>
+    </nav>
+        <div id="container">
+            <div class="sidebar" id="leftColumn">
+                <div class="dropdown theme-dark_mobile" data-role="dropdown" id="toc-dropdown">
+                    <ul role="listbox" id="toc-listbox" class="dropdown--list dropdown--list_toc-list"
+                        data-role="dropdown-listbox">
+                        <div class="dropdown--header">
+                            <span>
+                                    KInfo
+                            </span>
+                            <button class="button" data-role="dropdown-toggle" aria-label="Close table of contents">
+                                <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                            </button>
+                        </div>
+                        <div class="sidebar--inner" id="sideMenu"></div>
+                    </ul>
+                    <div class="dropdown--overlay"></div>
+                </div>
+            </div>
+            <div id="main">
+<div class="main-content" data-page-type="classlike" id="content" pageIds="KInfo::com.tecknobit.kinfo.model/AndroidInfoImpl.Companion///PointingToDeclaration//-1608724257">
+  <div class="breadcrumbs"><a href="../../../../index.html">KInfo</a><span class="delimiter">/</span><a href="../../index.html">com.tecknobit.kinfo.model</a><span class="delimiter">/</span><a href="../index.html">AndroidInfoImpl</a><span class="delimiter">/</span><span class="current">Companion</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span><span>Companion</span></span></h1>
+    <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+      <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":library:dokkaHtml/androidMain" data-filterable-set=":library:dokkaHtml/androidMain" data-active="" data-toggle=":library:dokkaHtml/androidMain">android</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":library:dokkaHtml/androidMain"><div class="symbol monospace"><span class="token keyword">internal </span><span class="token keyword">object </span><a href="index.html">Companion</a></div></div>    </div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="PROPERTY">
+        <h2 class="">Properties</h2>
+        <div class="table"><a data-name="869863031%2FProperties%2F-1608724257" anchor-label="ANDROID_10" id="869863031%2FProperties%2F-1608724257" data-filterable-set=":library:dokkaHtml/androidMain"></a>
+          <div class="table-row" data-filterable-current=":library:dokkaHtml/androidMain" data-filterable-set=":library:dokkaHtml/androidMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-a-n-d-r-o-i-d_10.html"><span>ANDROID_</span><wbr></wbr><span>10</span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="869863031%2FProperties%2F-1608724257"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":library:dokkaHtml/androidMain" data-filterable-set=":library:dokkaHtml/androidMain" data-active="" data-toggle=":library:dokkaHtml/androidMain">android</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":library:dokkaHtml/androidMain"><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-a-n-d-r-o-i-d_10.html">ANDROID_10</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div><div class="brief "><p class="paragraph"><code class="lang-kotlin">ANDROID_10</code> -> &quot;Android 10&quot; Android operating system name</p></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1817591115%2FProperties%2F-1608724257" anchor-label="BASE" id="-1817591115%2FProperties%2F-1608724257" data-filterable-set=":library:dokkaHtml/androidMain"></a>
+          <div class="table-row" data-filterable-current=":library:dokkaHtml/androidMain" data-filterable-set=":library:dokkaHtml/androidMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-b-a-s-e.html"><span><span>BASE</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1817591115%2FProperties%2F-1608724257"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":library:dokkaHtml/androidMain" data-filterable-set=":library:dokkaHtml/androidMain" data-active="" data-toggle=":library:dokkaHtml/androidMain">android</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":library:dokkaHtml/androidMain"><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-b-a-s-e.html">BASE</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div><div class="brief "><p class="paragraph"><code class="lang-kotlin">BASE</code> -> &quot;BASE&quot; Android operating system name</p></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1509542366%2FProperties%2F-1608724257" anchor-label="CUPCAKE" id="1509542366%2FProperties%2F-1608724257" data-filterable-set=":library:dokkaHtml/androidMain"></a>
+          <div class="table-row" data-filterable-current=":library:dokkaHtml/androidMain" data-filterable-set=":library:dokkaHtml/androidMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-c-u-p-c-a-k-e.html"><span><span>CUPCAKE</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1509542366%2FProperties%2F-1608724257"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":library:dokkaHtml/androidMain" data-filterable-set=":library:dokkaHtml/androidMain" data-active="" data-toggle=":library:dokkaHtml/androidMain">android</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":library:dokkaHtml/androidMain"><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-c-u-p-c-a-k-e.html">CUPCAKE</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div><div class="brief "><p class="paragraph"><code class="lang-kotlin">CUPCAKE</code> -> &quot;CUPCAKE&quot; Android operating system name</p></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="709650290%2FProperties%2F-1608724257" anchor-label="DONUT" id="709650290%2FProperties%2F-1608724257" data-filterable-set=":library:dokkaHtml/androidMain"></a>
+          <div class="table-row" data-filterable-current=":library:dokkaHtml/androidMain" data-filterable-set=":library:dokkaHtml/androidMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-d-o-n-u-t.html"><span><span>DONUT</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="709650290%2FProperties%2F-1608724257"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":library:dokkaHtml/androidMain" data-filterable-set=":library:dokkaHtml/androidMain" data-active="" data-toggle=":library:dokkaHtml/androidMain">android</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":library:dokkaHtml/androidMain"><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-d-o-n-u-t.html">DONUT</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div><div class="brief "><p class="paragraph"><code class="lang-kotlin">DONUT</code> -> &quot;DONUT&quot; Android operating system name</p></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1292329302%2FProperties%2F-1608724257" anchor-label="ECLAIR" id="-1292329302%2FProperties%2F-1608724257" data-filterable-set=":library:dokkaHtml/androidMain"></a>
+          <div class="table-row" data-filterable-current=":library:dokkaHtml/androidMain" data-filterable-set=":library:dokkaHtml/androidMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-e-c-l-a-i-r.html"><span><span>ECLAIR</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1292329302%2FProperties%2F-1608724257"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":library:dokkaHtml/androidMain" data-filterable-set=":library:dokkaHtml/androidMain" data-active="" data-toggle=":library:dokkaHtml/androidMain">android</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":library:dokkaHtml/androidMain"><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-e-c-l-a-i-r.html">ECLAIR</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div><div class="brief "><p class="paragraph"><code class="lang-kotlin">ECLAIR</code> -> &quot;Éclair&quot; Android operating system name</p></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1953240827%2FProperties%2F-1608724257" anchor-label="FROYO" id="1953240827%2FProperties%2F-1608724257" data-filterable-set=":library:dokkaHtml/androidMain"></a>
+          <div class="table-row" data-filterable-current=":library:dokkaHtml/androidMain" data-filterable-set=":library:dokkaHtml/androidMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-f-r-o-y-o.html"><span><span>FROYO</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1953240827%2FProperties%2F-1608724257"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":library:dokkaHtml/androidMain" data-filterable-set=":library:dokkaHtml/androidMain" data-active="" data-toggle=":library:dokkaHtml/androidMain">android</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":library:dokkaHtml/androidMain"><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-f-r-o-y-o.html">FROYO</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div><div class="brief "><p class="paragraph"><code class="lang-kotlin">FROYO</code> -> &quot;Froyo&quot; Android operating system name</p></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-292481244%2FProperties%2F-1608724257" anchor-label="GINGERBREAD" id="-292481244%2FProperties%2F-1608724257" data-filterable-set=":library:dokkaHtml/androidMain"></a>
+          <div class="table-row" data-filterable-current=":library:dokkaHtml/androidMain" data-filterable-set=":library:dokkaHtml/androidMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-g-i-n-g-e-r-b-r-e-a-d.html"><span><span>GINGERBREAD</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-292481244%2FProperties%2F-1608724257"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":library:dokkaHtml/androidMain" data-filterable-set=":library:dokkaHtml/androidMain" data-active="" data-toggle=":library:dokkaHtml/androidMain">android</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":library:dokkaHtml/androidMain"><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-g-i-n-g-e-r-b-r-e-a-d.html">GINGERBREAD</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div><div class="brief "><p class="paragraph"><code class="lang-kotlin">GINGERBREAD</code> -> &quot;Gingerbread&quot; Android operating system name</p></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-98422650%2FProperties%2F-1608724257" anchor-label="HARDWARE_GENERIC" id="-98422650%2FProperties%2F-1608724257" data-filterable-set=":library:dokkaHtml/androidMain"></a>
+          <div class="table-row" data-filterable-current=":library:dokkaHtml/androidMain" data-filterable-set=":library:dokkaHtml/androidMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-h-a-r-d-w-a-r-e_-g-e-n-e-r-i-c.html"><span>HARDWARE_</span><wbr></wbr><span>GENERIC</span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-98422650%2FProperties%2F-1608724257"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":library:dokkaHtml/androidMain" data-filterable-set=":library:dokkaHtml/androidMain" data-active="" data-toggle=":library:dokkaHtml/androidMain">android</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":library:dokkaHtml/androidMain"><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-h-a-r-d-w-a-r-e_-g-e-n-e-r-i-c.html">HARDWARE_GENERIC</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div><div class="brief "><p class="paragraph"><code class="lang-kotlin">HARDWARE_GENERIC</code> represents a &quot;generic&quot; hardware, typically used for emulators.</p></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="615819621%2FProperties%2F-1608724257" anchor-label="HARDWARE_GOLDFISH" id="615819621%2FProperties%2F-1608724257" data-filterable-set=":library:dokkaHtml/androidMain"></a>
+          <div class="table-row" data-filterable-current=":library:dokkaHtml/androidMain" data-filterable-set=":library:dokkaHtml/androidMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-h-a-r-d-w-a-r-e_-g-o-l-d-f-i-s-h.html"><span>HARDWARE_</span><wbr></wbr><span>GOLDFISH</span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="615819621%2FProperties%2F-1608724257"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":library:dokkaHtml/androidMain" data-filterable-set=":library:dokkaHtml/androidMain" data-active="" data-toggle=":library:dokkaHtml/androidMain">android</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":library:dokkaHtml/androidMain"><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-h-a-r-d-w-a-r-e_-g-o-l-d-f-i-s-h.html">HARDWARE_GOLDFISH</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div><div class="brief "><p class="paragraph"><code class="lang-kotlin">HARDWARE_GOLDFISH</code> represents a device with &quot;goldfish&quot; hardware, used in some emulators.</p></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-215953908%2FProperties%2F-1608724257" anchor-label="HARDWARE_RANCHU" id="-215953908%2FProperties%2F-1608724257" data-filterable-set=":library:dokkaHtml/androidMain"></a>
+          <div class="table-row" data-filterable-current=":library:dokkaHtml/androidMain" data-filterable-set=":library:dokkaHtml/androidMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-h-a-r-d-w-a-r-e_-r-a-n-c-h-u.html"><span>HARDWARE_</span><wbr></wbr><span>RANCHU</span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-215953908%2FProperties%2F-1608724257"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":library:dokkaHtml/androidMain" data-filterable-set=":library:dokkaHtml/androidMain" data-active="" data-toggle=":library:dokkaHtml/androidMain">android</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":library:dokkaHtml/androidMain"><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-h-a-r-d-w-a-r-e_-r-a-n-c-h-u.html">HARDWARE_RANCHU</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div><div class="brief "><p class="paragraph"><code class="lang-kotlin">HARDWARE_RANCHU</code> represents a device with &quot;ranchu&quot; hardware, used in some emulators.</p></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="391051160%2FProperties%2F-1608724257" anchor-label="HONEYCOMB" id="391051160%2FProperties%2F-1608724257" data-filterable-set=":library:dokkaHtml/androidMain"></a>
+          <div class="table-row" data-filterable-current=":library:dokkaHtml/androidMain" data-filterable-set=":library:dokkaHtml/androidMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-h-o-n-e-y-c-o-m-b.html"><span><span>HONEYCOMB</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="391051160%2FProperties%2F-1608724257"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":library:dokkaHtml/androidMain" data-filterable-set=":library:dokkaHtml/androidMain" data-active="" data-toggle=":library:dokkaHtml/androidMain">android</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":library:dokkaHtml/androidMain"><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-h-o-n-e-y-c-o-m-b.html">HONEYCOMB</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div><div class="brief "><p class="paragraph"><code class="lang-kotlin">HONEYCOMB</code> -> &quot;Honeycomb&quot; Android operating system name</p></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1709592230%2FProperties%2F-1608724257" anchor-label="ICE_CREAM_SANDWICH" id="-1709592230%2FProperties%2F-1608724257" data-filterable-set=":library:dokkaHtml/androidMain"></a>
+          <div class="table-row" data-filterable-current=":library:dokkaHtml/androidMain" data-filterable-set=":library:dokkaHtml/androidMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-i-c-e_-c-r-e-a-m_-s-a-n-d-w-i-c-h.html"><span>ICE_</span><wbr></wbr><span>CREAM_</span><wbr></wbr><span>SANDWICH</span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1709592230%2FProperties%2F-1608724257"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":library:dokkaHtml/androidMain" data-filterable-set=":library:dokkaHtml/androidMain" data-active="" data-toggle=":library:dokkaHtml/androidMain">android</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":library:dokkaHtml/androidMain"><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-i-c-e_-c-r-e-a-m_-s-a-n-d-w-i-c-h.html">ICE_CREAM_SANDWICH</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div><div class="brief "><p class="paragraph"><code class="lang-kotlin">ICE_CREAM_SANDWICH</code> -> &quot;Ice cream Sandwich&quot; Android operating system name</p></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1301486389%2FProperties%2F-1608724257" anchor-label="JELLY_BEAN" id="1301486389%2FProperties%2F-1608724257" data-filterable-set=":library:dokkaHtml/androidMain"></a>
+          <div class="table-row" data-filterable-current=":library:dokkaHtml/androidMain" data-filterable-set=":library:dokkaHtml/androidMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-j-e-l-l-y_-b-e-a-n.html"><span>JELLY_</span><wbr></wbr><span>BEAN</span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1301486389%2FProperties%2F-1608724257"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":library:dokkaHtml/androidMain" data-filterable-set=":library:dokkaHtml/androidMain" data-active="" data-toggle=":library:dokkaHtml/androidMain">android</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":library:dokkaHtml/androidMain"><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-j-e-l-l-y_-b-e-a-n.html">JELLY_BEAN</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div><div class="brief "><p class="paragraph"><code class="lang-kotlin">JELLY_BEAN</code> -> &quot;Jellybean&quot; Android operating system name</p></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="541909982%2FProperties%2F-1608724257" anchor-label="KITKAT" id="541909982%2FProperties%2F-1608724257" data-filterable-set=":library:dokkaHtml/androidMain"></a>
+          <div class="table-row" data-filterable-current=":library:dokkaHtml/androidMain" data-filterable-set=":library:dokkaHtml/androidMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-k-i-t-k-a-t.html"><span><span>KITKAT</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="541909982%2FProperties%2F-1608724257"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":library:dokkaHtml/androidMain" data-filterable-set=":library:dokkaHtml/androidMain" data-active="" data-toggle=":library:dokkaHtml/androidMain">android</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":library:dokkaHtml/androidMain"><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-k-i-t-k-a-t.html">KITKAT</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div><div class="brief "><p class="paragraph"><code class="lang-kotlin">KITKAT</code> -> &quot;Kitkat&quot; Android operating system name</p></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="730214459%2FProperties%2F-1608724257" anchor-label="LOLLIPOP" id="730214459%2FProperties%2F-1608724257" data-filterable-set=":library:dokkaHtml/androidMain"></a>
+          <div class="table-row" data-filterable-current=":library:dokkaHtml/androidMain" data-filterable-set=":library:dokkaHtml/androidMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-l-o-l-l-i-p-o-p.html"><span><span>LOLLIPOP</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="730214459%2FProperties%2F-1608724257"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":library:dokkaHtml/androidMain" data-filterable-set=":library:dokkaHtml/androidMain" data-active="" data-toggle=":library:dokkaHtml/androidMain">android</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":library:dokkaHtml/androidMain"><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-l-o-l-l-i-p-o-p.html">LOLLIPOP</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div><div class="brief "><p class="paragraph"><code class="lang-kotlin">LOLLIPOP</code> -> &quot;Lollipop&quot; Android operating system name</p></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-2035673145%2FProperties%2F-1608724257" anchor-label="MANUFACTURER_GENYMOTION" id="-2035673145%2FProperties%2F-1608724257" data-filterable-set=":library:dokkaHtml/androidMain"></a>
+          <div class="table-row" data-filterable-current=":library:dokkaHtml/androidMain" data-filterable-set=":library:dokkaHtml/androidMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-m-a-n-u-f-a-c-t-u-r-e-r_-g-e-n-y-m-o-t-i-o-n.html"><span>MANUFACTURER_</span><wbr></wbr><span>GENYMOTION</span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2035673145%2FProperties%2F-1608724257"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":library:dokkaHtml/androidMain" data-filterable-set=":library:dokkaHtml/androidMain" data-active="" data-toggle=":library:dokkaHtml/androidMain">android</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":library:dokkaHtml/androidMain"><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-m-a-n-u-f-a-c-t-u-r-e-r_-g-e-n-y-m-o-t-i-o-n.html">MANUFACTURER_GENYMOTION</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div><div class="brief "><p class="paragraph"><code class="lang-kotlin">MANUFACTURER_GENYMOTION</code> represents the manufacturer &quot;Genymotion&quot;, a platform used for emulation.</p></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1587700997%2FProperties%2F-1608724257" anchor-label="MARSHMALLOW" id="1587700997%2FProperties%2F-1608724257" data-filterable-set=":library:dokkaHtml/androidMain"></a>
+          <div class="table-row" data-filterable-current=":library:dokkaHtml/androidMain" data-filterable-set=":library:dokkaHtml/androidMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-m-a-r-s-h-m-a-l-l-o-w.html"><span><span>MARSHMALLOW</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1587700997%2FProperties%2F-1608724257"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":library:dokkaHtml/androidMain" data-filterable-set=":library:dokkaHtml/androidMain" data-active="" data-toggle=":library:dokkaHtml/androidMain">android</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":library:dokkaHtml/androidMain"><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-m-a-r-s-h-m-a-l-l-o-w.html">MARSHMALLOW</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div><div class="brief "><p class="paragraph"><code class="lang-kotlin">MARSHMALLOW</code> -> &quot;Marshmallow&quot; Android operating system name</p></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1312036873%2FProperties%2F-1608724257" anchor-label="MODEL_ANDROID_SDK_X86" id="1312036873%2FProperties%2F-1608724257" data-filterable-set=":library:dokkaHtml/androidMain"></a>
+          <div class="table-row" data-filterable-current=":library:dokkaHtml/androidMain" data-filterable-set=":library:dokkaHtml/androidMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-m-o-d-e-l_-a-n-d-r-o-i-d_-s-d-k_-x86.html"><span>MODEL_</span><wbr></wbr><span>ANDROID_</span><wbr></wbr><span>SDK_</span><wbr></wbr><span>X86</span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1312036873%2FProperties%2F-1608724257"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":library:dokkaHtml/androidMain" data-filterable-set=":library:dokkaHtml/androidMain" data-active="" data-toggle=":library:dokkaHtml/androidMain">android</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":library:dokkaHtml/androidMain"><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-m-o-d-e-l_-a-n-d-r-o-i-d_-s-d-k_-x86.html">MODEL_ANDROID_SDK_X86</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div><div class="brief "><p class="paragraph"><code class="lang-kotlin">MODEL_ANDROID_SDK_X86</code> represents a model &quot;Android SDK built for x86&quot;, used for x86 emulators.</p></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-717456389%2FProperties%2F-1608724257" anchor-label="MODEL_EMULATOR" id="-717456389%2FProperties%2F-1608724257" data-filterable-set=":library:dokkaHtml/androidMain"></a>
+          <div class="table-row" data-filterable-current=":library:dokkaHtml/androidMain" data-filterable-set=":library:dokkaHtml/androidMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-m-o-d-e-l_-e-m-u-l-a-t-o-r.html"><span>MODEL_</span><wbr></wbr><span>EMULATOR</span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-717456389%2FProperties%2F-1608724257"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":library:dokkaHtml/androidMain" data-filterable-set=":library:dokkaHtml/androidMain" data-active="" data-toggle=":library:dokkaHtml/androidMain">android</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":library:dokkaHtml/androidMain"><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-m-o-d-e-l_-e-m-u-l-a-t-o-r.html">MODEL_EMULATOR</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div><div class="brief "><p class="paragraph"><code class="lang-kotlin">MODEL_EMULATOR</code> represents a model &quot;Emulator&quot;, used to identify an emulator.</p></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1631481372%2FProperties%2F-1608724257" anchor-label="MODEL_GOOGLE_SDK" id="1631481372%2FProperties%2F-1608724257" data-filterable-set=":library:dokkaHtml/androidMain"></a>
+          <div class="table-row" data-filterable-current=":library:dokkaHtml/androidMain" data-filterable-set=":library:dokkaHtml/androidMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-m-o-d-e-l_-g-o-o-g-l-e_-s-d-k.html"><span>MODEL_</span><wbr></wbr><span>GOOGLE_</span><wbr></wbr><span>SDK</span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1631481372%2FProperties%2F-1608724257"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":library:dokkaHtml/androidMain" data-filterable-set=":library:dokkaHtml/androidMain" data-active="" data-toggle=":library:dokkaHtml/androidMain">android</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":library:dokkaHtml/androidMain"><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-m-o-d-e-l_-g-o-o-g-l-e_-s-d-k.html">MODEL_GOOGLE_SDK</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div><div class="brief "><p class="paragraph"><code class="lang-kotlin">MODEL_GOOGLE_SDK</code> represents a model &quot;google_sdk&quot;, used for Google's SDK devices.</p></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-920712864%2FProperties%2F-1608724257" anchor-label="NOUGAT" id="-920712864%2FProperties%2F-1608724257" data-filterable-set=":library:dokkaHtml/androidMain"></a>
+          <div class="table-row" data-filterable-current=":library:dokkaHtml/androidMain" data-filterable-set=":library:dokkaHtml/androidMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-n-o-u-g-a-t.html"><span><span>NOUGAT</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-920712864%2FProperties%2F-1608724257"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":library:dokkaHtml/androidMain" data-filterable-set=":library:dokkaHtml/androidMain" data-active="" data-toggle=":library:dokkaHtml/androidMain">android</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":library:dokkaHtml/androidMain"><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-n-o-u-g-a-t.html">NOUGAT</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div><div class="brief "><p class="paragraph"><code class="lang-kotlin">NOUGAT</code> -> &quot;Nougat&quot; Android operating system name</p></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1700253895%2FProperties%2F-1608724257" anchor-label="OREO" id="-1700253895%2FProperties%2F-1608724257" data-filterable-set=":library:dokkaHtml/androidMain"></a>
+          <div class="table-row" data-filterable-current=":library:dokkaHtml/androidMain" data-filterable-set=":library:dokkaHtml/androidMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-o-r-e-o.html"><span><span>OREO</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1700253895%2FProperties%2F-1608724257"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":library:dokkaHtml/androidMain" data-filterable-set=":library:dokkaHtml/androidMain" data-active="" data-toggle=":library:dokkaHtml/androidMain">android</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":library:dokkaHtml/androidMain"><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-o-r-e-o.html">OREO</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div><div class="brief "><p class="paragraph"><code class="lang-kotlin">OREO</code> -> &quot;Oreo&quot; Android operating system name</p></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-111581688%2FProperties%2F-1608724257" anchor-label="PIE" id="-111581688%2FProperties%2F-1608724257" data-filterable-set=":library:dokkaHtml/androidMain"></a>
+          <div class="table-row" data-filterable-current=":library:dokkaHtml/androidMain" data-filterable-set=":library:dokkaHtml/androidMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-p-i-e.html"><span><span>PIE</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-111581688%2FProperties%2F-1608724257"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":library:dokkaHtml/androidMain" data-filterable-set=":library:dokkaHtml/androidMain" data-active="" data-toggle=":library:dokkaHtml/androidMain">android</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":library:dokkaHtml/androidMain"><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-p-i-e.html">PIE</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div><div class="brief "><p class="paragraph"><code class="lang-kotlin">PIE</code> -> &quot;Pie&quot; Android operating system name</p></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-139974143%2FProperties%2F-1608724257" anchor-label="PRODUCT_EMULATOR" id="-139974143%2FProperties%2F-1608724257" data-filterable-set=":library:dokkaHtml/androidMain"></a>
+          <div class="table-row" data-filterable-current=":library:dokkaHtml/androidMain" data-filterable-set=":library:dokkaHtml/androidMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-p-r-o-d-u-c-t_-e-m-u-l-a-t-o-r.html"><span>PRODUCT_</span><wbr></wbr><span>EMULATOR</span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-139974143%2FProperties%2F-1608724257"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":library:dokkaHtml/androidMain" data-filterable-set=":library:dokkaHtml/androidMain" data-active="" data-toggle=":library:dokkaHtml/androidMain">android</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":library:dokkaHtml/androidMain"><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-p-r-o-d-u-c-t_-e-m-u-l-a-t-o-r.html">PRODUCT_EMULATOR</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div><div class="brief "><p class="paragraph"><code class="lang-kotlin">PRODUCT_EMULATOR</code> represents the product &quot;emulator&quot;, used to identify an emulator.</p></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1192809078%2FProperties%2F-1608724257" anchor-label="PRODUCT_SDK" id="-1192809078%2FProperties%2F-1608724257" data-filterable-set=":library:dokkaHtml/androidMain"></a>
+          <div class="table-row" data-filterable-current=":library:dokkaHtml/androidMain" data-filterable-set=":library:dokkaHtml/androidMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-p-r-o-d-u-c-t_-s-d-k.html"><span>PRODUCT_</span><wbr></wbr><span>SDK</span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1192809078%2FProperties%2F-1608724257"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":library:dokkaHtml/androidMain" data-filterable-set=":library:dokkaHtml/androidMain" data-active="" data-toggle=":library:dokkaHtml/androidMain">android</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":library:dokkaHtml/androidMain"><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-p-r-o-d-u-c-t_-s-d-k.html">PRODUCT_SDK</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div><div class="brief "><p class="paragraph"><code class="lang-kotlin">PRODUCT_SDK</code> represents the product &quot;sdk&quot;, used to identify an SDK emulator.</p></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="753469479%2FProperties%2F-1608724257" anchor-label="PRODUCT_VBOX86P" id="753469479%2FProperties%2F-1608724257" data-filterable-set=":library:dokkaHtml/androidMain"></a>
+          <div class="table-row" data-filterable-current=":library:dokkaHtml/androidMain" data-filterable-set=":library:dokkaHtml/androidMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-p-r-o-d-u-c-t_-v-b-o-x86-p.html"><span>PRODUCT_</span><wbr></wbr><span>VBOX86P</span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="753469479%2FProperties%2F-1608724257"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":library:dokkaHtml/androidMain" data-filterable-set=":library:dokkaHtml/androidMain" data-active="" data-toggle=":library:dokkaHtml/androidMain">android</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":library:dokkaHtml/androidMain"><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-p-r-o-d-u-c-t_-v-b-o-x86-p.html">PRODUCT_VBOX86P</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div><div class="brief "><p class="paragraph"><code class="lang-kotlin">PRODUCT_VBOX86P</code> represents the product &quot;vbox86p&quot;, used in some emulator configurations.</p></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1582576589%2FProperties%2F-1608724257" anchor-label="RED_VELVET_CAKE" id="-1582576589%2FProperties%2F-1608724257" data-filterable-set=":library:dokkaHtml/androidMain"></a>
+          <div class="table-row" data-filterable-current=":library:dokkaHtml/androidMain" data-filterable-set=":library:dokkaHtml/androidMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-r-e-d_-v-e-l-v-e-t_-c-a-k-e.html"><span>RED_</span><wbr></wbr><span>VELVET_</span><wbr></wbr><span>CAKE</span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1582576589%2FProperties%2F-1608724257"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":library:dokkaHtml/androidMain" data-filterable-set=":library:dokkaHtml/androidMain" data-active="" data-toggle=":library:dokkaHtml/androidMain">android</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":library:dokkaHtml/androidMain"><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-r-e-d_-v-e-l-v-e-t_-c-a-k-e.html">RED_VELVET_CAKE</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div><div class="brief "><p class="paragraph"><code class="lang-kotlin">RED_VELVET_CAKE</code> -> &quot;Red Velvet Cake&quot; Android operating system name</p></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="2102136117%2FProperties%2F-1608724257" anchor-label="SNOW_CONE" id="2102136117%2FProperties%2F-1608724257" data-filterable-set=":library:dokkaHtml/androidMain"></a>
+          <div class="table-row" data-filterable-current=":library:dokkaHtml/androidMain" data-filterable-set=":library:dokkaHtml/androidMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-s-n-o-w_-c-o-n-e.html"><span>SNOW_</span><wbr></wbr><span>CONE</span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2102136117%2FProperties%2F-1608724257"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":library:dokkaHtml/androidMain" data-filterable-set=":library:dokkaHtml/androidMain" data-active="" data-toggle=":library:dokkaHtml/androidMain">android</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":library:dokkaHtml/androidMain"><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-s-n-o-w_-c-o-n-e.html">SNOW_CONE</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div><div class="brief "><p class="paragraph"><code class="lang-kotlin">SNOW_CONE</code> -> &quot;Snow Cone&quot; Android operating system name</p></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1563894724%2FProperties%2F-1608724257" anchor-label="TIRAMISU" id="1563894724%2FProperties%2F-1608724257" data-filterable-set=":library:dokkaHtml/androidMain"></a>
+          <div class="table-row" data-filterable-current=":library:dokkaHtml/androidMain" data-filterable-set=":library:dokkaHtml/androidMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-t-i-r-a-m-i-s-u.html"><span><span>TIRAMISU</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1563894724%2FProperties%2F-1608724257"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":library:dokkaHtml/androidMain" data-filterable-set=":library:dokkaHtml/androidMain" data-active="" data-toggle=":library:dokkaHtml/androidMain">android</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":library:dokkaHtml/androidMain"><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-t-i-r-a-m-i-s-u.html">TIRAMISU</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div><div class="brief "><p class="paragraph"><code class="lang-kotlin">TIRAMISU</code> -> &quot;Tiramisu&quot; Android operating system name</p></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-753935938%2FProperties%2F-1608724257" anchor-label="UPSIDE_DOWN_CAKE" id="-753935938%2FProperties%2F-1608724257" data-filterable-set=":library:dokkaHtml/androidMain"></a>
+          <div class="table-row" data-filterable-current=":library:dokkaHtml/androidMain" data-filterable-set=":library:dokkaHtml/androidMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-u-p-s-i-d-e_-d-o-w-n_-c-a-k-e.html"><span>UPSIDE_</span><wbr></wbr><span>DOWN_</span><wbr></wbr><span>CAKE</span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-753935938%2FProperties%2F-1608724257"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":library:dokkaHtml/androidMain" data-filterable-set=":library:dokkaHtml/androidMain" data-active="" data-toggle=":library:dokkaHtml/androidMain">android</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":library:dokkaHtml/androidMain"><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-u-p-s-i-d-e_-d-o-w-n_-c-a-k-e.html">UPSIDE_DOWN_CAKE</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div><div class="brief "><p class="paragraph"><code class="lang-kotlin">UPSIDE_DOWN_CAKE</code> -> &quot;Upside down cake&quot; Android operating system name</p></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1326929078%2FProperties%2F-1608724257" anchor-label="VANILLA_ICE_CREAM" id="-1326929078%2FProperties%2F-1608724257" data-filterable-set=":library:dokkaHtml/androidMain"></a>
+          <div class="table-row" data-filterable-current=":library:dokkaHtml/androidMain" data-filterable-set=":library:dokkaHtml/androidMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-v-a-n-i-l-l-a_-i-c-e_-c-r-e-a-m.html"><span>VANILLA_</span><wbr></wbr><span>ICE_</span><wbr></wbr><span>CREAM</span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1326929078%2FProperties%2F-1608724257"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":library:dokkaHtml/androidMain" data-filterable-set=":library:dokkaHtml/androidMain" data-active="" data-toggle=":library:dokkaHtml/androidMain">android</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":library:dokkaHtml/androidMain"><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-v-a-n-i-l-l-a_-i-c-e_-c-r-e-a-m.html">VANILLA_ICE_CREAM</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div><div class="brief "><p class="paragraph"><code class="lang-kotlin">VANILLA_ICE_CREAM</code> -> &quot;Vanilla icecream&quot; Android operating system name</p></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="footer">
+        <a href="#content" id="go-to-top-link" class="footer--button footer--button_go-to-top"></a>
+        <span>(c) 2025 Tecknobit</span>
+        <span class="pull-right">
+            <span>Generated by </span>
+            <a class="footer--link footer--link_external" href="https://github.com/Kotlin/dokka">
+                <span>dokka</span>
+            </a>
+        </span>
+    </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
