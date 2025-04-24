@@ -3,21 +3,24 @@
 package com.tecknobit.kinfo
 
 import androidx.compose.runtime.Composable
-import com.tecknobit.kinfo.DevicePlatform.*
+import com.tecknobit.kinfo.enums.DevicePlatform
+import com.tecknobit.kinfo.enums.DevicePlatform.*
 import com.tecknobit.kinfo.model.android.AndroidInfo
 import com.tecknobit.kinfo.model.desktop.DesktopInfo
 import com.tecknobit.kinfo.model.ios.IosInfo
 import com.tecknobit.kinfo.model.web.WebInfo
 
 /**
- * `UNKNOWN` represents an "unknown" device fingerprint or hardware configuration.
- * It is used to check for unknown or unidentified device information.
- */
-const val UNKNOWN = "unknown"
-
-/**
  * `DevicePlatform` list of the available supported platforms
  */
+@Deprecated(
+    message = "Moved in the enums package",
+    replaceWith = ReplaceWith(
+        expression = "DevicePlatform",
+        "com.tecknobit.kinfo.enums.DevicePlatform"
+    ),
+    level = DeprecationLevel.ERROR
+)
 enum class DevicePlatform {
 
     /**
