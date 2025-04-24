@@ -225,4 +225,30 @@ interface OperatingSystem {
         separator: Regex = Regex("\\s+"),
     ): Map<String, Long>
 
+    @Bridge
+    fun queryInstalledApps() : List<ApplicationInfo>
+
+    fun findInstalledApp(
+        name: String
+    ) : ApplicationInfo? {
+        val installedApps = queryInstalledApps()
+        installedApps.forEach { application ->
+            if(application.name == name)
+                return application
+        }
+        return null
+    }
+
+    fun findInstalledApps(
+        findCondition: (ApplicationInfo) -> Boolean
+    ) : List<ApplicationInfo> {
+        val installedApps = queryInstalledApps()
+        val foundApplications = mutableListOf<ApplicationInfo>()
+        installedApps.forEach { application ->
+            if(findCondition(application))
+                foundApplications.add(application)
+        }
+        return foundApplications
+    }
+
 }

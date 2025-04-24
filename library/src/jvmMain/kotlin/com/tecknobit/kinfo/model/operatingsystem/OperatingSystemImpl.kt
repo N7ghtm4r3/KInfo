@@ -12,6 +12,7 @@ import com.tecknobit.kinfo.model.operatingsystem.processes.OSThreadImpl
 import com.tecknobit.kinfo.model.operatingsystem.protocols.InternetProtocolStatsImpl
 import com.tecknobit.kinfo.model.operatingsystem.protocols.NetworkParamsImpl
 import oshi.SystemInfo
+import oshi.driver.windows.registry.InstalledAppsData
 import oshi.util.ProcUtil
 
 /**
@@ -469,6 +470,24 @@ class OperatingSystemImpl(
         separator: Regex,
     ): Map<String, Long> {
         return ProcUtil.parseStatistics(procFile, separator.toPattern())
+    }
+
+    @Bridge
+    override fun queryInstalledApps(): List<ApplicationInfo> {
+        val installedApps = InstalledAppsData.queryInstalledApps()
+        val applications = mutableListOf<ApplicationInfoImpl>()
+        installedApps.forEach { application ->
+            applications.add(
+                ApplicationInfoImpl(
+                    name = application.name,
+                    version = application.version,
+                    vendor = application.vendor,
+                    timestamp = application.timestamp,
+                    additionalInfo = application.additionalInfo
+                )
+            )
+        }
+        return applications
     }
 
 }
