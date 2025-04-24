@@ -44,6 +44,12 @@ The desktop platform works under the hood with the [oshi library](https://github
 | **Network Params**   | `networkParams`         | The network parameters of the operating system, including host name, domain name, DNS servers, and default gateways  | `OperatingSystem.networkParams`         |
 | **Service Info**     | `services`              | The list of services running on the operating system                                                                 | `OperatingSystem.services`              |
 | **Session Info**     | `sessions`              | The list of user sessions currently active on the operating system                                                   | `OperatingSystem.sessions`              |
+| **Application Info** | `name`                  | The name of the application                                                                                          | `OperatingSystem.queryInstalledApps`    |
+|                      | `version`               | The version of the application                                                                                       |                                         |
+|                      | `vendor`                | The vendor or publisher of the application                                                                           |                                         |
+|                      | `timestamp`             | The installation or last modified timestamp of the application in milliseconds since epoch                           |                                         |
+|                      | `additionalInfo`        | A map containing additional application details                                                                      |                                         |
+
 
 ## Support
 

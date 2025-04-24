@@ -11,8 +11,11 @@ import com.tecknobit.kinfo.model.operatingsystem.processes.OSProcessImpl
 import com.tecknobit.kinfo.model.operatingsystem.processes.OSThreadImpl
 import com.tecknobit.kinfo.model.operatingsystem.protocols.InternetProtocolStatsImpl
 import com.tecknobit.kinfo.model.operatingsystem.protocols.NetworkParamsImpl
+import oshi.PlatformEnum.*
 import oshi.SystemInfo
-import oshi.driver.windows.registry.InstalledAppsData
+import oshi.software.os.linux.LinuxInstalledApps
+import oshi.software.os.mac.MacInstalledApps
+import oshi.software.os.windows.WindowsInstalledApps
 import oshi.util.ProcUtil
 
 /**
@@ -23,7 +26,7 @@ import oshi.util.ProcUtil
  * @param systemInfo The object containing general information about the operating system.
  */
 class OperatingSystemImpl(
-    systemInfo: SystemInfo
+    systemInfo: SystemInfo,
 ) : OperatingSystem {
 
     /**
@@ -174,7 +177,7 @@ class OperatingSystemImpl(
      */
     @Bridge
     override fun getProcesses(
-        pids: Collection<Int>
+        pids: Collection<Int>,
     ): List<OSProcess> {
         return loadOSProcesses(
             sourceList = fileSystemInfo.getProcesses(pids)
@@ -189,7 +192,7 @@ class OperatingSystemImpl(
      */
     @Bridge
     override fun getProcess(
-        pid: Int
+        pid: Int,
     ): OSProcess {
         return initOSProcess(
             source = fileSystemInfo.getProcess(pid)
@@ -204,7 +207,7 @@ class OperatingSystemImpl(
      */
     @Bridge
     override fun getOSDesktopWindows(
-        visibleOnly: Boolean
+        visibleOnly: Boolean,
     ): List<OSDesktopWindow> {
         return loadOSDesktopWindows(
             sourceList = fileSystemInfo.getDesktopWindows(visibleOnly)
@@ -218,7 +221,7 @@ class OperatingSystemImpl(
      * @return A list of `OSProcess` objects.
      */
     private fun loadOSProcesses(
-        sourceList: List<oshi.software.os.OSProcess>
+        sourceList: List<oshi.software.os.OSProcess>,
     ): List<OSProcess> {
         val result = mutableListOf<OSProcess>()
         sourceList.forEach { process ->
@@ -234,7 +237,7 @@ class OperatingSystemImpl(
      * @return A configured `OSProcess` object.
      */
     private fun initOSProcess(
-        source: oshi.software.os.OSProcess
+        source: oshi.software.os.OSProcess,
     ): OSProcess {
         return OSProcessImpl(
             name = source.name,
@@ -281,7 +284,7 @@ class OperatingSystemImpl(
      * @return A list of `OSThread` objects.
      */
     private fun loadOSThreads(
-        sourceList: List<oshi.software.os.OSThread>
+        sourceList: List<oshi.software.os.OSThread>,
     ): List<OSThread> {
         val result = mutableListOf<OSThread>()
         sourceList.forEach { thread ->
@@ -297,7 +300,7 @@ class OperatingSystemImpl(
      * @return A configured `OSThread` object.
      */
     private fun initOSThread(
-        source: oshi.software.os.OSThread
+        source: oshi.software.os.OSThread,
     ): OSThread {
         return OSThreadImpl(
             threadId = source.threadId,
@@ -326,7 +329,7 @@ class OperatingSystemImpl(
      * @return A list of `OSService` objects.
      */
     private fun loadOSServices(
-        sourceList: List<oshi.software.os.OSService>
+        sourceList: List<oshi.software.os.OSService>,
     ): List<OSService> {
         val result = mutableListOf<OSService>()
         sourceList.forEach { service ->
@@ -348,7 +351,7 @@ class OperatingSystemImpl(
      * @return A list of `OSSession` objects.
      */
     private fun loadOSSessions(
-        sourceList: List<oshi.software.os.OSSession>
+        sourceList: List<oshi.software.os.OSSession>,
     ): List<OSSession> {
         val result = mutableListOf<OSSession>()
         sourceList.forEach { session ->
@@ -375,7 +378,7 @@ class OperatingSystemImpl(
      * @return A list of `OSDesktopWindow` objects, representing the desktop windows.
      */
     private fun loadOSDesktopWindows(
-        sourceList: List<oshi.software.os.OSDesktopWindow>
+        sourceList: List<oshi.software.os.OSDesktopWindow>,
     ): List<OSDesktopWindow> {
         val result = mutableListOf<OSDesktopWindow>()
         sourceList.forEach { desktopWindow ->
@@ -472,9 +475,20 @@ class OperatingSystemImpl(
         return ProcUtil.parseStatistics(procFile, separator.toPattern())
     }
 
+    /**
+     * Method used to retrieve the current installed applications on the system
+     *
+     * @return the current applications installed on the system as [List] of [ApplicationInfo], the list will always be
+     * empty when the os platform is not yet supported by the original `oshi` API
+     */
     @Bridge
     override fun queryInstalledApps(): List<ApplicationInfo> {
-        val installedApps = InstalledAppsData.queryInstalledApps()
+        val installedApps: List<oshi.software.os.ApplicationInfo> = when (SystemInfo.getCurrentPlatform()) {
+            WINDOWS -> WindowsInstalledApps.queryInstalledApps()
+            LINUX -> LinuxInstalledApps.queryInstalledApps()
+            MACOS -> MacInstalledApps.queryInstalledApps()
+            else -> emptyList()
+        }
         val applications = mutableListOf<ApplicationInfoImpl>()
         installedApps.forEach { application ->
             applications.add(

@@ -225,30 +225,41 @@ interface OperatingSystem {
         separator: Regex = Regex("\\s+"),
     ): Map<String, Long>
 
+    /**
+     * Method used to retrieve the current installed applications on the system
+     *
+     * @return the current applications installed on the system as [List] of [ApplicationInfo], the list will always be
+     * empty when the os platform is not yet supported by the original `oshi` API
+     */
     @Bridge
     fun queryInstalledApps() : List<ApplicationInfo>
 
+    /**
+     * Method used to find an installed application by name
+     *
+     * @param name The name of the application to find
+     *
+     * @return the installed application as [ApplicationInfo], `null` if not found
+     */
     fun findInstalledApp(
         name: String
     ) : ApplicationInfo? {
         val installedApps = queryInstalledApps()
-        installedApps.forEach { application ->
-            if(application.name == name)
-                return application
-        }
-        return null
+        return installedApps.firstOrNull { application -> application.name == name }
     }
 
+    /**
+     * Method used to find an installed applications list by a filter condition
+     *
+     * @param applicationFilter The filter used to determine whether the application must be included in the retrieved list
+     *
+     * @return the list of the installed applications as [List] of [ApplicationInfo]
+     */
     fun findInstalledApps(
-        findCondition: (ApplicationInfo) -> Boolean
+        applicationFilter: (ApplicationInfo) -> Boolean
     ) : List<ApplicationInfo> {
         val installedApps = queryInstalledApps()
-        val foundApplications = mutableListOf<ApplicationInfo>()
-        installedApps.forEach { application ->
-            if(findCondition(application))
-                foundApplications.add(application)
-        }
-        return foundApplications
+        return installedApps.filter(applicationFilter)
     }
 
 }
