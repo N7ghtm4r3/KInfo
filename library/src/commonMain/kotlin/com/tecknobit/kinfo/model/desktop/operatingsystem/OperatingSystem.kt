@@ -150,16 +150,79 @@ interface OperatingSystem {
         visibleOnly: Boolean
     ): List<OSDesktopWindow>
 
+    /**
+     * Parses `/proc` files with a given structure consisting of a keyed header line followed by a keyed value line.
+     *
+     * Examples of such files include `/proc/net/netstat` and `/proc/net/snmp`.
+     * The returned map has the structure:
+     *
+     * ```
+     * {
+     *     "TcpExt": {"SyncookiesSent": 0, "SyncookiesRecv": 4, "SyncookiesFailed": 0, ... },
+     *     "IpExt": {"InNoRoutes": 55, "InTruncatedPkts": 0, "InMcastPkts": 27786, "OutMcastPkts": 1435, ... },
+     *     "MPTcpExt": {"MPCapableSYNRX": 0, "MPCapableSYNTX": 0, "MPCapableSYNACKRX": 0, ... }
+     * }
+     * ```
+     *
+     * Example input file structure:
+     * ```
+     * TcpExt: SyncookiesSent SyncookiesRecv SyncookiesFailed ...
+     * TcpExt: 0 4 0 ...
+     * IpExt: InNoRoutes InTruncatedPkts InMcastPkts OutMcastPkts ...
+     * IpExt: 55 0 27786 1435 ...
+     * MPTcpExt: MPCapableSYNRX MPCapableSYNTX MPCapableSYNACKRX ...
+     * MPTcpExt: 0 0 0 ...
+     * ```
+     *
+     * @param procFile The file to process.
+     * @param keys Optional array of keys to include in the outer map. If not provided, all keys found in the file will be returned
+     *
+     * @return map of keys to their corresponding stats
+     */
     @Bridge
     fun parseNestedStatistics(
         procFile: String,
         vararg keys: String
     ): Map<String, Map<String, Long>>
 
+    /**
+     * Parses `/proc` files formatted as "statistic (long)value" to produce a simple mapping.
+     *
+     * An example file like `/proc/net/snmp6` might contain content in the following format:
+     *
+     * ```
+     * Ip6InReceives             8026
+     * Ip6InHdrErrors            0
+     * Icmp6InMsgs               2
+     * Icmp6InErrors             0
+     * Icmp6OutMsgs              424
+     * Udp6IgnoredMulti          5
+     * Udp6MemErrors             1
+     * UdpLite6InDatagrams       37
+     * UdpLite6NoPorts           1
+     * ```
+     *
+     * This would produce a mapping structure like:
+     *
+     * ```
+     * {
+     *     "Ip6InReceives": 8026,
+     *     "Ip6InHdrErrors": 0,
+     *     "Icmp6InMsgs": 2,
+     *     "Icmp6InErrors": 0,
+     *     ...
+     * }
+     * ```
+     *
+     * @param procFile The file to process
+     * @param separator A regular expression specifying the separator between the statistic name and its value
+     *
+     * @return A map of statistics and their associated values.
+     */
     @Bridge
     fun parseStatistics(
         procFile: String,
-        separator: Regex,
-    ): Map<String, Map<String, Long>>
+        separator: Regex = Regex("\\s+"),
+    ): Map<String, Long>
 
 }
