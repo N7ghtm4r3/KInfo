@@ -180,7 +180,6 @@ interface OSProcess {
 
 }
 
-
 /**
  * Process and Thread Execution States
  */

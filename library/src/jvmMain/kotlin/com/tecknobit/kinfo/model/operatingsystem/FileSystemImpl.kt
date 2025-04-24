@@ -1,5 +1,6 @@
 package com.tecknobit.kinfo.model.operatingsystem
 
+import com.tecknobit.kinfo.annotations.Bridge
 import com.tecknobit.kinfo.model.desktop.operatingsystem.FileSystem
 import com.tecknobit.kinfo.model.desktop.operatingsystem.OSFileStore
 
@@ -50,6 +51,7 @@ class FileSystemImpl(
      * @param localOnly A flag indicating whether to return only local file stores (`true`) or all file stores (`false`).
      * @return A list of file stores matching the provided criteria.
      */
+    @Bridge
     override fun getFileStores(
         localOnly: Boolean
     ): List<OSFileStore> {

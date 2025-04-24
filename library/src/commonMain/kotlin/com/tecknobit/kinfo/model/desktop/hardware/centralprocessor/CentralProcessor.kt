@@ -1,5 +1,7 @@
 package com.tecknobit.kinfo.model.desktop.hardware.centralprocessor
 
+import com.tecknobit.kinfo.annotations.Bridge
+
 /**
  * `CentralProcessor` interface provides detailed information and metrics about the central processor of a system
  * It includes properties to retrieve processor specifications, performance data, and load statistics
@@ -87,6 +89,7 @@ interface CentralProcessor {
      * @param oldTickets the previous CPU ticks for comparison
      * @return the calculated system CPU load as a percentage
      */
+    @Bridge
     fun getSystemCpuLoadBetweenTicks(
         oldTickets: LongArray
     ): Double
@@ -97,6 +100,7 @@ interface CentralProcessor {
      * @param nelem the number of intervals for which to retrieve the load average
      * @return an array of load average values
      */
+    @Bridge
     fun getSystemLoadAverage(
         nelem: Int
     ): DoubleArray
@@ -107,6 +111,7 @@ interface CentralProcessor {
      * @param delay the delay period in milliseconds
      * @return the calculated system CPU load as a percentage
      */
+    @Bridge
     fun getSystemCpuLoad(
         delay: Long
     ): Double
@@ -117,6 +122,7 @@ interface CentralProcessor {
      * @param oldTickets the previous CPU ticks for comparison
      * @return an array of calculated CPU loads for each processor as percentages
      */
+    @Bridge
     fun getProcessorCpuLoadBetweenTicks(
         oldTickets: Array<LongArray>
     ): DoubleArray

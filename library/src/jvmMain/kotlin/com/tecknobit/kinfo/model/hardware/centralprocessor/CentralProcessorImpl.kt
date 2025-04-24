@@ -1,7 +1,7 @@
 package com.tecknobit.kinfo.model.hardware.centralprocessor
 
+import com.tecknobit.kinfo.annotations.Bridge
 import com.tecknobit.kinfo.model.desktop.hardware.centralprocessor.*
-import com.tecknobit.kinfo.model.desktop.hardware.centralprocessor.CentralProcessor
 
 /**
  * `CentralProcessorImpl` provides an implementation of the [CentralProcessor] interface.
@@ -113,6 +113,7 @@ class CentralProcessorImpl(
      * @param oldTickets Array of previous tick counters for calculation
      * @return The calculated CPU load as a percentage
      */
+    @Bridge
     override fun getSystemCpuLoadBetweenTicks(
         oldTickets: LongArray
     ): Double {
@@ -125,6 +126,7 @@ class CentralProcessorImpl(
      * @param nelem The number of intervals to retrieve load averages for
      * @return An array of load average values
      */
+    @Bridge
     override fun getSystemLoadAverage(
         nelem: Int
     ): DoubleArray {
@@ -137,6 +139,7 @@ class CentralProcessorImpl(
      * @param delay The delay in milliseconds over which the CPU load is measured
      * @return The calculated CPU load as a percentage
      */
+    @Bridge
     override fun getSystemCpuLoad(
         delay: Long
     ): Double {
@@ -150,6 +153,7 @@ class CentralProcessorImpl(
      * @param oldTickets Array of previous tick counters for each logical processor
      * @return An array of calculated CPU loads for each logical processor
      */
+    @Bridge
     override fun getProcessorCpuLoadBetweenTicks(
         oldTickets: Array<LongArray>
     ): DoubleArray {
