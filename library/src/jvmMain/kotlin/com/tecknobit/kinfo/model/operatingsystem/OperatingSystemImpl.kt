@@ -1,5 +1,6 @@
 package com.tecknobit.kinfo.model.operatingsystem
 
+import com.tecknobit.kinfo.annotations.Bridge
 import com.tecknobit.kinfo.model.desktop.operatingsystem.*
 import com.tecknobit.kinfo.model.desktop.operatingsystem.processes.OSProcess
 import com.tecknobit.kinfo.model.desktop.operatingsystem.processes.OSThread
@@ -11,6 +12,7 @@ import com.tecknobit.kinfo.model.operatingsystem.processes.OSThreadImpl
 import com.tecknobit.kinfo.model.operatingsystem.protocols.InternetProtocolStatsImpl
 import com.tecknobit.kinfo.model.operatingsystem.protocols.NetworkParamsImpl
 import oshi.SystemInfo
+import oshi.util.ProcUtil
 
 /**
  * `OperatingSystemImpl` is the implementation of the `OperatingSystem` interface.
@@ -156,6 +158,7 @@ class OperatingSystemImpl(
      *
      * @return A list of `OSProcess` objects representing the running processes.
      */
+    @Bridge
     override fun getProcesses(): List<OSProcess> {
         return loadOSProcesses(
             sourceList = fileSystemInfo.processes
@@ -168,6 +171,7 @@ class OperatingSystemImpl(
      * @param pids A collection of PIDs of the processes to retrieve.
      * @return A list of `OSProcess` objects for the specified processes.
      */
+    @Bridge
     override fun getProcesses(
         pids: Collection<Int>
     ): List<OSProcess> {
@@ -182,6 +186,7 @@ class OperatingSystemImpl(
      * @param pid The PID of the process to retrieve.
      * @return An `OSProcess` object representing the process with the given PID.
      */
+    @Bridge
     override fun getProcess(
         pid: Int
     ): OSProcess {
@@ -196,6 +201,7 @@ class OperatingSystemImpl(
      * @param visibleOnly If `true`, only returns visible windows.
      * @return A list of desktop windows of the operating system.
      */
+    @Bridge
     override fun getOSDesktopWindows(
         visibleOnly: Boolean
     ): List<OSDesktopWindow> {
@@ -384,6 +390,22 @@ class OperatingSystemImpl(
             )
         }
         return result
+    }
+
+    @Bridge
+    override fun parseNestedStatistics(
+        procFile: String,
+        vararg keys: String,
+    ): Map<String, Map<String, Long>> {
+        return ProcUtil.parseNestedStatistics(procFile, *keys)
+    }
+
+    @Bridge
+    override fun parseStatistics(
+        procFile: String,
+        separator: Regex,
+    ): Map<String, Map<String, Long>> {
+        return ProcUtil.parseStatistics(procFile, separator.toPattern())
     }
 
 }

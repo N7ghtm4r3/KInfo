@@ -1,5 +1,6 @@
 package com.tecknobit.kinfo.model.desktop.operatingsystem
 
+import com.tecknobit.kinfo.annotations.Bridge
 import com.tecknobit.kinfo.model.desktop.operatingsystem.processes.OSProcess
 import com.tecknobit.kinfo.model.desktop.operatingsystem.processes.OSThread
 import com.tecknobit.kinfo.model.desktop.operatingsystem.protocols.InternetProtocolStats
@@ -112,6 +113,7 @@ interface OperatingSystem {
      *
      * @return A list of all `OSProcess` objects representing the running processes.
      */
+    @Bridge
     fun getProcesses(): List<OSProcess>
 
     /**
@@ -120,6 +122,7 @@ interface OperatingSystem {
      * @param pids A collection of process IDs to fetch the processes.
      * @return A list of `OSProcess` objects corresponding to the given process IDs.
      */
+    @Bridge
     fun getProcesses(
         pids: Collection<Int>
     ): List<OSProcess>
@@ -130,6 +133,7 @@ interface OperatingSystem {
      * @param pid The process ID of the process to retrieve.
      * @return The `OSProcess` object corresponding to the given process ID.
      */
+    @Bridge
     fun getProcess(
         pid: Int
     ): OSProcess
@@ -141,8 +145,21 @@ interface OperatingSystem {
      *                    or all desktop windows (`false`).
      * @return A list of `OSDesktopWindow` objects representing the desktop windows.
      */
+    @Bridge
     fun getOSDesktopWindows(
         visibleOnly: Boolean
     ): List<OSDesktopWindow>
+
+    @Bridge
+    fun parseNestedStatistics(
+        procFile: String,
+        vararg keys: String
+    ): Map<String, Map<String, Long>>
+
+    @Bridge
+    fun parseStatistics(
+        procFile: String,
+        separator: Regex,
+    ): Map<String, Map<String, Long>>
 
 }
