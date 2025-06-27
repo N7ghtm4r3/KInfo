@@ -21,22 +21,22 @@ import com.tecknobit.kinfo.model.web.WebInfo
 expect class KInfoState() {
 
     /**
-     * `androidInfo` the information about an [DevicePlatform.ANDROID]'s device
+     * `androidInfo` the information about an [com.tecknobit.kinfo.enums.DevicePlatform.ANDROID]'s device
      */
     val androidInfo: AndroidInfo
 
     /**
-     * `iosInfo` the information about an [DevicePlatform.IOS]'s device
+     * `iosInfo` the information about an [com.tecknobit.kinfo.enums.DevicePlatform.IOS]'s device
      */
     val iosInfo: IosInfo
 
     /**
-     * `desktopInfo` the information about an [DevicePlatform.DESKTOP]'s device
+     * `desktopInfo` the information about an [com.tecknobit.kinfo.enums.DevicePlatform.DESKTOP]'s device
      */
     val desktopInfo: DesktopInfo
 
     /**
-     * `webInfo` the information about a webapp running on the [DevicePlatform.WEB]
+     * `webInfo` the information about a webapp running on the [com.tecknobit.kinfo.enums.DevicePlatform.WEB]
      */
     val webInfo: WebInfo
 
@@ -51,10 +51,10 @@ expect class KInfoState() {
  * Method to display different contents based on the current platform where this method has been invoked
  *
  * @param kInfoState The state used to retrieve the device information
- * @param onAndroid The content to display on an [DevicePlatform.ANDROID] device
- * @param onIos The content to display on an [DevicePlatform.IOS] device
- * @param onDesktop The content to display on a [DevicePlatform.DESKTOP] device
- * @param onWeb The content to display on an [DevicePlatform.WEB] device
+ * @param onAndroid The content to display on an [com.tecknobit.kinfo.enums.DevicePlatform.ANDROID] device
+ * @param onIos The content to display on an [com.tecknobit.kinfo.enums.DevicePlatform.IOS] device
+ * @param onDesktop The content to display on a [com.tecknobit.kinfo.enums.DevicePlatform.DESKTOP] device
+ * @param onWeb The content to display on an [com.tecknobit.kinfo.enums.DevicePlatform.WEB] device
  */
 @Composable
 fun OnPlatform(
@@ -76,10 +76,10 @@ fun OnPlatform(
  * Method to execute different actions based on the current platform where this method has been invoked
  *
  * @param kInfoState The state used to retrieve the device information
- * @param onAndroid The action to execute on an [DevicePlatform.ANDROID] device
- * @param onIos The action to execute on an [DevicePlatform.IOS] device
- * @param onDesktop The action to execute on a [DevicePlatform.DESKTOP] device
- * @param onWeb The action to execute on an [DevicePlatform.WEB] device
+ * @param onAndroid The action to execute on an [com.tecknobit.kinfo.enums.DevicePlatform.ANDROID] device
+ * @param onIos The action to execute on an [com.tecknobit.kinfo.enums.DevicePlatform.IOS] device
+ * @param onDesktop The action to execute on a [com.tecknobit.kinfo.enums.DevicePlatform.DESKTOP] device
+ * @param onWeb The action to execute on an [com.tecknobit.kinfo.enums.DevicePlatform.WEB] device
  */
 fun onPlatform(
     kInfoState: KInfoState = KInfoState(),

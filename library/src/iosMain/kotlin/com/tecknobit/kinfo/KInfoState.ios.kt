@@ -22,7 +22,7 @@ import platform.UIKit.interfaceOrientation
 actual class KInfoState {
 
     /**
-     * `iosInfo` the information about an [DevicePlatform.IOS]'s device
+     * `iosInfo` the information about an [com.tecknobit.kinfo.enums.DevicePlatform.IOS]'s device
      */
     actual val iosInfo: IosInfo by lazy {
         IosInfoImpl()
@@ -34,19 +34,19 @@ actual class KInfoState {
     actual val devicePlatform = IOS
 
     /**
-     * `androidInfo` the information about an [DevicePlatform.ANDROID]'s device
+     * `androidInfo` the information about an [com.tecknobit.kinfo.enums.DevicePlatform.ANDROID]'s device
      */
     actual val androidInfo: AndroidInfo
         get() = throw Exception("trying to access incorrect platform info")
 
     /**
-     * `desktopInfo` the information about an [DevicePlatform.DESKTOP]'s device
+     * `desktopInfo` the information about an [com.tecknobit.kinfo.enums.DevicePlatform.DESKTOP]'s device
      */
     actual val desktopInfo: DesktopInfo
         get() = throw Exception("trying to access incorrect platform info")
 
     /**
-     * `webInfo` the information about a webapp running on the [DevicePlatform.WEB]
+     * `webInfo` the information about a webapp running on the [com.tecknobit.kinfo.enums.DevicePlatform.WEB]
      */
     actual val webInfo: WebInfo
         get() = throw Exception("trying to access incorrect platform info")

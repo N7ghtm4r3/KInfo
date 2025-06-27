@@ -19,7 +19,7 @@ import com.tecknobit.kinfo.model.web.WebInfo
 actual class KInfoState {
 
     /**
-     * `webInfo` the information about a webapp running on the [DevicePlatform.WEB]
+     * `webInfo` the information about a webapp running on the [com.tecknobit.kinfo.enums.DevicePlatform.WEB]
      */
     actual val webInfo: WebInfo by lazy {
         WebInfoImpl()
@@ -31,19 +31,19 @@ actual class KInfoState {
     actual val devicePlatform = WEB
 
     /**
-     * `desktopInfo` the information about an [DevicePlatform.DESKTOP]'s device
+     * `desktopInfo` the information about an [com.tecknobit.kinfo.enums.DevicePlatform.DESKTOP]'s device
      */
     actual val desktopInfo: DesktopInfo
         get() = throw Exception("trying to access incorrect platform info")
 
     /**
-     * `androidInfo` the information about an [DevicePlatform.ANDROID]'s device
+     * `androidInfo` the information about an [com.tecknobit.kinfo.enums.DevicePlatform.ANDROID]'s device
      */
     actual val androidInfo: AndroidInfo
         get() = throw Exception("trying to access incorrect platform info")
 
     /**
-     * `iosInfo` the information about an [DevicePlatform.IOS]'s device
+     * `iosInfo` the information about an [com.tecknobit.kinfo.enums.DevicePlatform.IOS]'s device
      */
     actual val iosInfo: IosInfo
         get() = throw Exception("trying to access incorrect platform info")
