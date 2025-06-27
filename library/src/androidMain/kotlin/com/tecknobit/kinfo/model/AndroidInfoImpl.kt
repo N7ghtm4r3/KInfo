@@ -185,7 +185,12 @@ internal class AndroidInfoImpl : AndroidInfo {
          * `VANILLA_ICE_CREAM` -> "Vanilla icecream" Android operating system name
          */
         const val VANILLA_ICE_CREAM = "Vanilla ice cream"
-        
+
+        /**
+         * `BAKLAVA` -> "BAKLAVA" Android operating system name
+         */
+        const val BAKLAVA = "Baklava"
+
     }
 
     /**
@@ -462,6 +467,7 @@ internal class AndroidInfoImpl : AndroidInfo {
             Build.VERSION_CODES.TIRAMISU -> TIRAMISU
             Build.VERSION_CODES.UPSIDE_DOWN_CAKE -> UPSIDE_DOWN_CAKE
             Build.VERSION_CODES.VANILLA_ICE_CREAM -> VANILLA_ICE_CREAM
+            Build.VERSION_CODES.BAKLAVA -> BAKLAVA
             else -> BASE
         }
     }

@@ -18,7 +18,7 @@ plugins {
 }
 
 group = "com.teknobit.kinfo"
-version = "1.0.2"
+version = "1.0.3"
 
 kotlin {
     jvm {
@@ -121,7 +121,7 @@ mavenPublishing {
     coordinates(
         groupId = "io.github.n7ghtm4r3",
         artifactId = "KInfo",
-        version = "1.0.2"
+        version = "1.0.3"
     )
     pom {
         name.set("KInfo")
@@ -171,8 +171,4 @@ tasks.dokkaHtml {
     pluginConfiguration<DokkaBase, DokkaBaseConfiguration> {
         footerMessage = "(c) 2025 Tecknobit"
     }
-}
-
-configurations.all {
-    exclude("io.github.n7ghtm4r3", "Equinox-Compose-android")
 }

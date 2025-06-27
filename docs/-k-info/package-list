@@ -1081,6 +1081,7 @@ $dokka.location:com.tecknobit.kinfo.model/AndroidDisplayMetricsImpl/xDpi/#/Point
 $dokka.location:com.tecknobit.kinfo.model/AndroidDisplayMetricsImpl/yDpi/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model/-android-display-metrics-impl/y-dpi.html
 $dokka.location:com.tecknobit.kinfo.model/AndroidInfoImpl.Companion///PointingToDeclaration/-k-info/com.tecknobit.kinfo.model/-android-info-impl/-companion/index.html
 $dokka.location:com.tecknobit.kinfo.model/AndroidInfoImpl.Companion/ANDROID_10/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model/-android-info-impl/-companion/-a-n-d-r-o-i-d_10.html
+$dokka.location:com.tecknobit.kinfo.model/AndroidInfoImpl.Companion/BAKLAVA/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model/-android-info-impl/-companion/-b-a-k-l-a-v-a.html
 $dokka.location:com.tecknobit.kinfo.model/AndroidInfoImpl.Companion/BASE/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model/-android-info-impl/-companion/-b-a-s-e.html
 $dokka.location:com.tecknobit.kinfo.model/AndroidInfoImpl.Companion/CUPCAKE/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model/-android-info-impl/-companion/-c-u-p-c-a-k-e.html
 $dokka.location:com.tecknobit.kinfo.model/AndroidInfoImpl.Companion/DONUT/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo.model/-android-info-impl/-companion/-d-o-n-u-t.html
@@ -1254,15 +1255,6 @@ $dokka.location:com.tecknobit.kinfo//TO_BE_FILLED_BY_OEM/#/PointingToDeclaration
 $dokka.location:com.tecknobit.kinfo//UNKNOWN/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo/-u-n-k-n-o-w-n.html
 $dokka.location:com.tecknobit.kinfo//onPlatform/#com.tecknobit.kinfo.KInfoState#kotlin.Function1[com.tecknobit.kinfo.model.android.AndroidInfo,kotlin.Unit]?#kotlin.Function1[com.tecknobit.kinfo.model.ios.IosInfo,kotlin.Unit]?#kotlin.Function1[com.tecknobit.kinfo.model.desktop.DesktopInfo,kotlin.Unit]?#kotlin.Function1[com.tecknobit.kinfo.model.web.WebInfo,kotlin.Unit]?/PointingToDeclaration/-k-info/com.tecknobit.kinfo/on-platform.html
 $dokka.location:com.tecknobit.kinfo//rememberKInfoState/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo/remember-k-info-state.html
-$dokka.location:com.tecknobit.kinfo/DevicePlatform.ANDROID///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}-k-info/com.tecknobit.kinfo/-device-platform/-a-n-d-r-o-i-d/index.html
-$dokka.location:com.tecknobit.kinfo/DevicePlatform.DESKTOP///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}-k-info/com.tecknobit.kinfo/-device-platform/-d-e-s-k-t-o-p/index.html
-$dokka.location:com.tecknobit.kinfo/DevicePlatform.IOS///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}-k-info/com.tecknobit.kinfo/-device-platform/-i-o-s/index.html
-$dokka.location:com.tecknobit.kinfo/DevicePlatform.WEB///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}-k-info/com.tecknobit.kinfo/-device-platform/-w-e-b/index.html
-$dokka.location:com.tecknobit.kinfo/DevicePlatform///PointingToDeclaration/-k-info/com.tecknobit.kinfo/-device-platform/index.html
-$dokka.location:com.tecknobit.kinfo/DevicePlatform/DevicePlatform/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo/-device-platform/-device-platform.html
-$dokka.location:com.tecknobit.kinfo/DevicePlatform/entries/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo/-device-platform/entries.html
-$dokka.location:com.tecknobit.kinfo/DevicePlatform/valueOf/#kotlin.String/PointingToDeclaration/-k-info/com.tecknobit.kinfo/-device-platform/value-of.html
-$dokka.location:com.tecknobit.kinfo/DevicePlatform/values/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo/-device-platform/values.html
 $dokka.location:com.tecknobit.kinfo/KInfoState///PointingToDeclaration/-k-info/com.tecknobit.kinfo/-k-info-state/index.html
 $dokka.location:com.tecknobit.kinfo/KInfoState/KInfoState/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo/-k-info-state/-k-info-state.html
 $dokka.location:com.tecknobit.kinfo/KInfoState/androidInfo/#/PointingToDeclaration/-k-info/com.tecknobit.kinfo/-k-info-state/android-info.html
