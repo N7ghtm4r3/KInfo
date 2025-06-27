@@ -11,41 +11,6 @@ import com.tecknobit.kinfo.model.ios.IosInfo
 import com.tecknobit.kinfo.model.web.WebInfo
 
 /**
- * `DevicePlatform` list of the available supported platforms
- */
-@Deprecated(
-    message = "Moved in the enums package",
-    replaceWith = ReplaceWith(
-        expression = "DevicePlatform",
-        "com.tecknobit.kinfo.enums.DevicePlatform"
-    ),
-    level = DeprecationLevel.ERROR
-)
-enum class DevicePlatform {
-
-    /**
-     * `ANDROID` the Android platform value
-     */
-    ANDROID,
-
-    /**
-     * `IOS` the iOs platform value
-     */
-    IOS,
-
-    /**
-     * `DESKTOP` the desktop platform value
-     */
-    DESKTOP,
-
-    /**
-     * `WEB` the web platform value
-     */
-    WEB
-
-}
-
-/**
  * `KInfoState` provides information about the current device where the application is running. This information is related
  * to the platform and the specific details that the platform offers.
  *
