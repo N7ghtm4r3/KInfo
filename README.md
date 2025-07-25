@@ -51,7 +51,7 @@ Add the JitPack repository to your build file
 
     ```gradle
     dependencies {
-        implementation 'io.github.n7ghtm4r3:Kinfo:1.0.3'
+        implementation 'io.github.n7ghtm4r3:KInfo:1.0.3'
     }
     ```
 
@@ -59,7 +59,7 @@ Add the JitPack repository to your build file
 
     ```gradle
     dependencies {
-        implementation("io.github.n7ghtm4r3:Kinfo:1.0.3")
+        implementation("io.github.n7ghtm4r3:KInfo:1.0.3")
     }
     ```
 
