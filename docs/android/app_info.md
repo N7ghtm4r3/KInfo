@@ -29,7 +29,7 @@ The package name of the application is retrieved from `Context.packageName` prop
 ```kotlin
 val packageName: String = androidInfo.packageName
 
-println(packageName) // e.g. com.tecknobit.kinfoDemo
+println(packageName) // e.g. com.tecknobit.kinfodemo
 ```
 
 ## versionName
@@ -46,4 +46,36 @@ The version name of the application is retrieved from `PackageInfo.versionName` 
 val versionName: String = androidInfo.versionName
 
 println(versionName) // e.g. 1.0.0
+```
+
+## versionCode
+
+The version code of the application
+
+### Original source
+
+The version code of the application is retrieved from `PackageInfoCompat.getLongVersionCode(packageInfo)` property
+
+### KInfo's source
+
+```kotlin
+val versionCode: String = androidInfo.versionCode
+
+println(versionCode) // e.g. 1
+```
+
+## isDebug
+
+Indicates whether the application is the debug build
+
+### Original source
+
+`isDebug` value is retrieved from `BuildConfig.DEBUG` property
+
+### KInfo's source
+
+```kotlin
+val isDebug: Boolean = androidInfo.isDebug
+
+println(isDebug) // e.g. true or false
 ```
