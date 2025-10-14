@@ -69,6 +69,7 @@ nav:
       - Tags: android/tags.md
       - System features: android/system_features.md
       - Display: android/display.md
+      - Locale: android/locale.md
   - iOS: ios/index.md
   - Desktop: desktop/index.md
   - Web: web/index.md
