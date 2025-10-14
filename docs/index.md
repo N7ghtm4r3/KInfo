@@ -1,13 +1,4 @@
-# KInfo
-
-![Maven Central](https://img.shields.io/maven-central/v/io.github.n7ghtm4r3/KInfo.svg?label=Maven%20Central)
-
-![Static Badge](https://img.shields.io/badge/android-4280511051)
-![Static Badge](https://img.shields.io/badge/ios-445E91)
-![Static Badge](https://img.shields.io/badge/desktop-006874)
-![Static Badge](https://img.shields.io/badge/wasmjs-834C74)
-
-**v1.0.4**
+# Overview
 
 KInfo allows to access the device details of `android`, `iOS`, `desktop` e `web` devices
 
@@ -48,66 +39,6 @@ dependencies {
     implementation(libs.kinfo)
 }
 ```
-  
-## Usage
-
-### Composable invocation
-
-```kotlin
-OnPlatform(
-    onAndroid = { androidInfo ->
-        // uses the Android information retrieved
-        Text(
-            text = androidInfo.model
-        )
-    },
-    onIos = { iosInfo ->
-        // uses the iOs information retrieved
-        Text(
-            text = iosInfo.model
-        )
-    },
-    onDesktop = { desktopInfo ->
-        // uses the desktop information retrieved
-        Text(
-            text = desktopInfo.hardware.computerSystem.model // hardware information
-        )
-        Text(
-            text = desktopInfo.operatingSystem.versionInfo.codeName // operating system information
-        )
-    },
-    onWeb = { webInfo: WebInfo ->
-        // uses the web information retrieved
-        Text(
-            text = webInfo.browser.name
-        )
-    }
-)
-```
-
-### Non-composable invocation
-
-```kotlin
-onPlatform(
-    onAndroid = { androidInfo ->
-        // uses the Android information retrieved
-        println(androidInfo.model)
-    },
-    onIos = { iosInfo ->
-        // uses the iOs information retrieved
-        println(iosInfo.model)
-    },
-    onDesktop = { desktopInfo ->
-        // uses the desktop information retrieved
-        println(desktopInfo.hardware.computerSystem.model) // hardware information
-        println(desktopInfo.operatingSystem.versionInfo.codeName) // operating system information
-    },
-    onWeb = { webInfo: WebInfo ->
-        // uses the web information retrieved
-        println(webInfo.browser.name)
-    }
-)
-```
 
 ## Information available
 
@@ -118,11 +49,7 @@ Take a look to related documentation about the information available for each pl
 - [Desktop](documd/DesktopInfo.md)
 - [Web](documd/WebInfo.md)
 
-Will be gradually added new information for each platform 
-
-## Documentation
-
-Check out the library documentation [here!](https://n7ghtm4r3.github.io/KInfo/)
+Will be gradually added new information for each platform
 
 ## Support
 
