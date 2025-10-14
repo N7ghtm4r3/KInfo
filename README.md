@@ -7,7 +7,7 @@
 ![Static Badge](https://img.shields.io/badge/desktop-006874)
 ![Static Badge](https://img.shields.io/badge/wasmjs-834C74)
 
-**v1.0.3**
+**v1.0.4**
 
 KInfo is Compose Multiplatform Library allows to access the device details of android, ios, desktop e web devices 
 
@@ -19,10 +19,10 @@ KInfo is Compose Multiplatform Library allows to access the device details of an
 
 ```gradle
 [versions]
-kinfo = "1.0.3"
+kinfo = "1.0.4"
 
 [libraries]
-kinfo = { module = "io.github.n7ghtm4r3:KInfo", version.ref = "kinfo" } 
+kinfo = { module = "io.github.n7ghtm4r3:kinfo", version.ref = "kinfo" } 
 ```
 
 #### Gradle
@@ -51,7 +51,7 @@ Add the JitPack repository to your build file
 
     ```gradle
     dependencies {
-        implementation 'io.github.n7ghtm4r3:KInfo:1.0.3'
+        implementation 'io.github.n7ghtm4r3:kinfo:1.0.4'
     }
     ```
 
@@ -59,7 +59,7 @@ Add the JitPack repository to your build file
 
     ```gradle
     dependencies {
-        implementation("io.github.n7ghtm4r3:KInfo:1.0.3")
+        implementation("io.github.n7ghtm4r3:kinfo:1.0.4")
     }
     ```
 

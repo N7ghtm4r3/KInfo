@@ -1,5 +1,6 @@
 package com.tecknobit.kinfo.model.operatingsystem
 
+import com.tecknobit.kinfo.UNKNOWN
 import com.tecknobit.kinfo.annotations.Bridge
 import com.tecknobit.kinfo.model.desktop.operatingsystem.*
 import com.tecknobit.kinfo.model.desktop.operatingsystem.processes.OSProcess
@@ -494,7 +495,7 @@ class OperatingSystemImpl(
             applications.add(
                 ApplicationInfoImpl(
                     name = application.name,
-                    version = application.version,
+                    version = application.version ?: UNKNOWN,
                     vendor = application.vendor,
                     timestamp = application.timestamp,
                     additionalInfo = application.additionalInfo

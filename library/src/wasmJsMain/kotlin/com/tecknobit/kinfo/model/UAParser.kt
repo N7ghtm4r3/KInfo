@@ -1,21 +1,23 @@
+@file:OptIn(ExperimentalWasmJsInterop::class)
+@file:JsModule("ua-parser-js")
+
 package com.tecknobit.kinfo.model
 
 /**
  * External class representing the `UAParser` from the "ua-parser-js" JavaScript library.
  *
  * This class is used to parse the user agent string and extract detailed information about the browser, CPU,
- * device, engine, and operating system associated with the user agent.
+ * device, engine, and operating system associated with the user agent
  *
- * @param userAgent The user agent string to be parsed by the `UAParser`.
+ * @param userAgent The user agent string to be parsed by the `UAParser`
  *
  * @see UAParserResult
  *
  * @author N7ghtm4r3
  */
-@JsModule("ua-parser-js")
 external class UAParser(
     userAgent: String
-) {
+): JsAny {
 
     /**
      * Retrieves the parsed result containing detailed information about the browser, CPU, device, engine, and OS.
@@ -156,16 +158,4 @@ external interface Os {
      */
     val version: String?
 
-}
-
-/**
- * A convenience function to parse a user agent string and return the resulting information as a `UAParserResult`
- *
- * @param userAgent The user agent string to be parsed
- * @return An instance of `UAParserResult` containing the parsed information about the browser, CPU, device, engine, and OS
- */
-fun parseUserAgent(
-    userAgent: String
-): UAParserResult {
-    return UAParser(userAgent).getResult()
 }
