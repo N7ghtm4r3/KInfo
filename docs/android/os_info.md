@@ -269,3 +269,19 @@ The version code for **Android 14**
 ```kotlin
 println(versionCode.UPSIDE_DOWN_CAKE) // 34
 ```
+
+## androidId
+
+Unique Android ID of the device
+
+### Original source
+
+The value of the Android ID is retrieved from `Settings.Secure.ANDROID_ID` property
+
+### KInfo's source
+
+```kotlin
+val androidId: String = androidInfo.androidId
+
+println(androidId) // e.g. 016a501869178b55
+```
