@@ -64,6 +64,7 @@ nav:
       - Overview: android/index.md
       - App info: android/app_info.md
       - OS info: android/os_info.md
+      - Device info: android/device_info.md
   - iOS: ios/index.md
   - Desktop: desktop/index.md
   - Web: web/index.md

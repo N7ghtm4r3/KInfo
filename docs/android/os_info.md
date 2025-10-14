@@ -1,4 +1,4 @@
-The OS information refers to the details of the operating system of the device on which the application using KInfo is 
+The OS information refers to the details of the operating system of the device on which the application using **KInfo** is 
 currently running
 
 ## version
