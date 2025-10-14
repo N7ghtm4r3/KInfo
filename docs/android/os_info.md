@@ -15,12 +15,107 @@ The details about the Android OS version are retrieved from `AndroidVersionImpl`
 val version: Version = androidInfo.version
 ```
 
-#### Version properties
+### Properties
 
-- `baseOs` the base operating system version of the Android device, when **empty** means that is an Android stock version
+#### baseOs
 
-    ```kotlin
-    val baseOs: String = version.baseOs
-    
-    println(baseOs) // e.g. empty or similar to R16NW/G960FXXU2BRJ6
-    ```
+The base operating system version of the Android device, when **empty** means that is an Android stock version
+
+```kotlin
+val baseOs: String = version.baseOs
+
+println(baseOs) // e.g. empty or similar to R16NW/G960FXXU2BRJ6
+```
+
+#### sdkInt
+
+The integer value of the current **Android SDK** version
+
+```kotlin
+val sdkInt: Int = version.sdkInt
+
+println(sdkInt) // e.g. 36
+```
+
+#### codeName
+
+The code name of the current Android version
+
+```kotlin
+val codeName: String = version.codeName
+
+println(codeName) // e.g. Baklava
+```
+
+#### release
+
+The string value representing the release version of the Android operating system
+
+```kotlin
+val release: String = version.release
+
+println(release) // e.g. 16
+```
+
+#### incremental
+
+The incremental version string, often used for identifying minor updates
+
+```kotlin
+val incremental: String = version.incremental
+
+println(incremental) // e.g. 12096271
+```
+
+#### releaseOrCodeName
+
+Value can be either the release version or the code name of the Android version
+
+```kotlin
+val releaseOrCodeName: String = version.releaseOrCodeName
+
+println(releaseOrCodeName) // e.g. 16 or Baklava
+```
+
+#### releaseOrPreviewDisplay
+
+Value can be either the release version or preview display name (if in preview mode)
+
+```kotlin
+val releaseOrPreviewDisplay: String = version.releaseOrPreviewDisplay
+
+println(releaseOrPreviewDisplay) // e.g. Android 16 Preview
+```
+
+#### securityPatch
+
+The security patch level of the current Android version
+
+```kotlin
+val securityPatch: String = version.securityPatch
+
+println(securityPatch) // e.g. 2025-10-14
+```
+
+#### mediaPerformanceClass
+
+The media performance class of the Android device (used to indicate the media performance tier)
+
+```kotlin
+val mediaPerformanceClass: Int = version.mediaPerformanceClass
+
+println(mediaPerformanceClass) // e.g. from 0 to 3 or more
+```
+
+#### previewSdkInt
+
+The SDK version of the preview release (if any), if **0** is a stable release, otherwise is an experimental release
+and indicates which release step is the current release, such **Beta 2** 
+
+```kotlin
+val previewSdkInt: Int = version.previewSdkInt
+
+println(previewSdkInt) // e.g. 2
+```
+
+## VERSION_CODES
