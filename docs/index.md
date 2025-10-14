@@ -44,10 +44,10 @@ dependencies {
 
 Take a look to related documentation about the information available for each platform
 
-- [Android](documd/AndroidInfo.md)
-- [Ios](documd/IosInfo.md)
-- [Desktop](documd/DesktopInfo.md)
-- [Web](documd/WebInfo.md)
+- [Android](android/index.md)
+- [iOS](ios/index.md)
+- [Desktop](desktop/index.md)
+- [Web](web/index.md)
 
 Will be gradually added new information for each platform
 

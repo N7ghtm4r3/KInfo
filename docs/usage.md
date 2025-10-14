@@ -1,5 +1,9 @@
 ## Composable invocation
 
+In `composable` contexts you can use the dedicated `OnPlatform` method to directly retrieve the device information in the 
+`commonMain`, avoiding the need to create a dedicated `expect/actual` mechanism.
+Below is an example of its usage:
+
 ```kotlin
 OnPlatform(
     onAndroid = { androidInfo ->
@@ -33,6 +37,10 @@ OnPlatform(
 ```
 
 ## Non-composable invocation
+
+Similar to composable contexts, you can use the dedicated `onPlatform` method outside composable contexts, where composition 
+is not needed, to directly retrieve device information in `commonMain`, avoiding the need to create a dedicated `expect/actual` mechanism.
+Below is an example of its usage:
 
 ```kotlin
 onPlatform(

@@ -30,6 +30,7 @@ theme:
     - search.suggest
     - search.highlight
     - search.share
+    - content.tabs.link
     - content.code.copy
     - navigation.tabs
     - navigation.tabs.sticky
@@ -58,6 +59,13 @@ plugins:
 
 nav:
   - Overview: index.md
+  - Usage: usage.md
+  - Android:
+      - Overview: android/index.md
+      - App info: android/app_info.md
+  - iOS: ios/index.md
+  - Desktop: desktop/index.md
+  - Web: web/index.md
 
 extra:
   social:
