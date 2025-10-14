@@ -285,3 +285,15 @@ val androidId: String = androidInfo.androidId
 
 println(androidId) // e.g. 016a501869178b55
 ```
+
+## androidCodename
+
+Android codename of the device, similar to [codename](#codename) property, but is more human-readable
+
+### KInfo's source
+
+```kotlin
+val androidCodename: String = androidInfo.androidCodename
+
+println(androidCodename) // e.g. Upside down cake 
+```
