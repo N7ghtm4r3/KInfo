@@ -1,4 +1,5 @@
 
+import com.vanniktech.maven.publish.JavadocJar
 import com.vanniktech.maven.publish.KotlinMultiplatform
 import org.jetbrains.dokka.DokkaConfiguration.Visibility.*
 import org.jetbrains.dokka.base.DokkaBase
@@ -115,8 +116,7 @@ android {
 mavenPublishing {
     configure(
         KotlinMultiplatform(
-            // TODO: TO ENABLE BEFORE PUBLISHING
-            // javadocJar = JavadocJar.Dokka("dokkaHtml"),
+            javadocJar = JavadocJar.Dokka("dokkaHtml"),
             sourcesJar = true,
             androidVariantsToPublish = listOf("release"),
         )
