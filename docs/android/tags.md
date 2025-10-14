@@ -25,5 +25,5 @@ Indicates if the device is physical or an emulator
 ```kotlin
 val isPhysicalDevice: Boolean = androidInfo.isPhysicalDevice
 
-println(isPhysicalDevice) // e.g. true or false
+println(isPhysicalDevice) // true or false
 ```

@@ -77,5 +77,5 @@ Indicates whether the application is the debug build
 ```kotlin
 val isDebug: Boolean = androidInfo.isDebug
 
-println(isDebug) // e.g. true or false
+println(isDebug) // true or false
 ```

@@ -70,6 +70,7 @@ nav:
       - System features: android/system_features.md
       - Display: android/display.md
       - Locale: android/locale.md
+      - Device orientation: android/device_orientation.md
   - iOS: ios/index.md
   - Desktop: desktop/index.md
   - Web: web/index.md
