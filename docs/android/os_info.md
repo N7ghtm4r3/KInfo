@@ -119,3 +119,153 @@ println(previewSdkInt) // e.g. 2
 ```
 
 ## VERSION_CODES
+
+Enumerated version codes for Android
+
+### Original source
+
+The enum entries are retrieved from `Build.VERSION_CODES` constants
+
+### KInfo's source
+
+```kotlin
+val versionCode: VersionCode = androidInfo.VERSION_CODES
+```
+
+### Entries
+
+#### CUR_DEVELOPMENT
+
+The current development version of Android (for testing purposes)
+
+```kotlin
+println(versionCode.CUR_DEVELOPMENT) // e.g. 10000
+```
+
+#### CUPCAKE
+
+The version code for **Android 1.5**
+
+```kotlin
+println(versionCode.CUPCAKE) // 3
+```
+
+#### DONUT
+
+The version code for **Android 1.6**
+
+```kotlin
+println(versionCode.DONUT) // 4
+```
+
+#### LOLLIPOP
+
+The version code for **Android Lollipop**
+
+```kotlin
+println(versionCode.LOLLIPOP) // 21
+```
+
+#### LOLLIPOP_MR1
+
+The version code for **Android Lollipop MR1**
+
+```kotlin
+println(versionCode.LOLLIPOP_MR1) // 22
+```
+
+#### M
+
+The version code for **Android Marshmallow**
+
+```kotlin
+println(versionCode.M) // 23
+```
+
+#### N
+
+The version code for **Android Nougat**
+
+```kotlin
+println(versionCode.N) // 24
+```
+
+#### N_MR1
+
+The version code for **Android Nougat MR1**
+
+```kotlin
+println(versionCode.N_MR1) // 25
+```
+
+#### O
+
+The version code for **Android Oreo**
+
+```kotlin
+println(versionCode.O) // 26
+```
+
+#### O_MR1
+
+The version code for **Android Oreo MR1**
+
+```kotlin
+println(versionCode.O_MR1) // 27
+```
+
+#### P
+
+The version code for **Android Pie**
+
+```kotlin
+println(versionCode.P) // 28
+```
+
+#### Q
+
+The version code for **Android 10**
+
+```kotlin
+println(versionCode.Q) // 29
+```
+
+#### R
+
+The version code for **Android 11**
+
+```kotlin
+println(versionCode.R) // 30
+```
+
+#### S
+
+The version code for **Android 12**
+
+```kotlin
+println(versionCode.S) // 32
+```
+
+#### S_V2
+
+The version code for **Android 12**
+
+```kotlin
+println(versionCode.S_V2) // 32
+```
+
+#### TIRAMISU
+
+The version code for **Android 13**
+
+```kotlin
+println(versionCode.TIRAMISU) // 33
+```
+
+#### UPSIDE_DOWN_CAKE
+
+The version code for **Android 14**
+
+```kotlin
+println(versionCode.UPSIDE_DOWN_CAKE) // 34
+```
