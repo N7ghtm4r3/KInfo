@@ -1,7 +1,5 @@
 
-import com.vanniktech.maven.publish.JavadocJar
 import com.vanniktech.maven.publish.KotlinMultiplatform
-import com.vanniktech.maven.publish.SonatypeHost
 import org.jetbrains.dokka.DokkaConfiguration.Visibility.*
 import org.jetbrains.dokka.base.DokkaBase
 import org.jetbrains.dokka.base.DokkaBaseConfiguration
@@ -18,7 +16,7 @@ plugins {
 }
 
 group = "com.teknobit.kinfo"
-version = "1.0.3"
+version = "1.0.4"
 
 kotlin {
     jvm {
@@ -42,7 +40,7 @@ kotlin {
         iosSimulatorArm64()
     ).forEach {
         it.binaries.framework {
-            baseName = "KInfo"
+            baseName = "kinfo"
             isStatic = true
         }
     }
@@ -50,11 +48,9 @@ kotlin {
     @OptIn(ExperimentalWasmDsl::class)
     wasmJs {
         binaries.executable()
+
         browser {
             webpackTask {
-                dependencies {
-                    implementation(libs.x.cdn.jsdelivr.net.npm.ua.parser.js)
-                }
             }
         }
     }
@@ -94,6 +90,12 @@ kotlin {
             }
         }
 
+        val wasmJsMain by getting {
+            dependencies {
+                implementation(npm("ua-parser-js", "2.0.6"))
+            }
+        }
+
     }
     jvmToolchain(18)
 }
@@ -113,15 +115,16 @@ android {
 mavenPublishing {
     configure(
         KotlinMultiplatform(
-            javadocJar = JavadocJar.Dokka("dokkaHtml"),
+            // TODO: TO ENABLE BEFORE PUBLISHING
+            // javadocJar = JavadocJar.Dokka("dokkaHtml"),
             sourcesJar = true,
             androidVariantsToPublish = listOf("release"),
         )
     )
     coordinates(
         groupId = "io.github.n7ghtm4r3",
-        artifactId = "KInfo",
-        version = "1.0.3"
+        artifactId = "kinfo",
+        version = "1.0.4"
     )
     pom {
         name.set("KInfo")
@@ -147,7 +150,7 @@ mavenPublishing {
             url.set("https://github.com/N7ghtm4r3/KInfo")
         }
     }
-    publishToMavenCentral(SonatypeHost.CENTRAL_PORTAL)
+    publishToMavenCentral()
     signAllPublications()
 }
 
@@ -162,7 +165,7 @@ subprojects {
 }
 
 tasks.dokkaHtml {
-    outputDirectory.set(layout.projectDirectory.dir("../docs"))
+    outputDirectory.set(layout.projectDirectory.dir("../docs/dokka"))
     dokkaSourceSets.configureEach {
         moduleName = "KInfo"
         includeNonPublic.set(true)
