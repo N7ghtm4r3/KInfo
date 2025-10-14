@@ -66,6 +66,7 @@ nav:
       - OS info: android/os_info.md
       - Device info: android/device_info.md
       - ABIs: android/abis.md
+      - Tags: android/tags.md
   - iOS: ios/index.md
   - Desktop: desktop/index.md
   - Web: web/index.md
