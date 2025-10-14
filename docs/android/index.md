@@ -7,7 +7,7 @@ On **Android** target are available the below information:
 | **Category**         | **Property**         | **Description**                                    | **Source**                      |
 |----------------------|----------------------|----------------------------------------------------|---------------------------------|
 | **App Info**         | `appName`            | The name of the application                        | `PackageInfo.applicationInfo`   |
-|                      | `packageName`        | The package name of the application                | `AppContext.packageName`        |
+|                      | `packageName`        | The package name of the application                | `Context.packageName`           |
 |                      | `versionName`        | The version name of the application                | `PackageInfo.versionName`       |
 |                      | `versionCode`        | The version code of the application                | `PackageInfoCompat`             |
 |                      | `isDebug`            | Indicates if the application is in debug mode      | `BuildConfig.DEBUG`             |
