@@ -79,7 +79,9 @@ nav:
       - Overview: desktop/index.md
       - Hardware:
         - Overview: desktop/hardware/index.md
-        - Computer system: desktop/hardware/computer_system.md
+        - Computer system:
+            - Overview: desktop/hardware/computersystem/computer_system.md
+            - Firmware: desktop/hardware/computersystem/firmware.md
   - Web:
       - Overview: web/index.md
       - Browser info: web/browser_info.md

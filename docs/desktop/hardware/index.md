@@ -29,6 +29,5 @@ The information are retrievable using the `DesktopInfo.Hardware` API:
 Retrieve a `Hardware` instance from `desktopInfo` instance
 
 ```kotlin
-
 val hardware = desktopInfo.hardware
 ```

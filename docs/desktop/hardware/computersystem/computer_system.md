@@ -2,7 +2,7 @@ The information refers the computer system
 
 ### Original source
 
-The computer system information are retrieved from `Hardware.computerSystem` property
+The computer system information are retrieved from `Hardware.ComputerSystem` class
 
 ### KInfo's source
 
