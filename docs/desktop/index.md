@@ -10,7 +10,7 @@ On **desktop** target are available the below information:
 
 | **Category**           | **Property**          | **Description**                                                                                         | **Source**                     |
 |------------------------|-----------------------|---------------------------------------------------------------------------------------------------------|--------------------------------|
-| **Computer System**    | `computerSystem`      | The details of the computer system, including manufacturer, model, and firmware                         | `Hardware.computerSystem`      |
+| **Computer System**    | `computerSystem`      | The details of the computer system                                                                      | `Hardware.computerSystem`      |
 | **CPU**                | `centralProcessor`    | The details of the system's central processor (CPU), including information like cores, speed, and usage | `Hardware.centralProcessor`    |
 | **Memory**             | `globalMemory`        | The details about the system's global memory, including total size, available memory, and page size     | `Hardware.globalMemory`        |
 | **Power Sources**      | `powerSources`        | A list of power sources available to the system (e.g., battery, AC power)                               | `Hardware.powerSources`        |
@@ -83,3 +83,34 @@ val desktopInfo = kInfoState.desktopInfo
 
     You can directly retrieve `desktopInfo` just inside the `desktopMain` module, in the `commonMain` module you have
     to use the [common usage](../usage.md) instead, or the application will crash
+
+
+## O.E.M Mechanism
+
+When a property is **To Be Filled By O.E.M** you can use the below mechanism to use other value instead that is not 
+filled:
+
+```kotlin
+val computerSystem = desktopInfo.hardware.computerSystem
+
+val model = computerSystem.model.whenIsToBeFilledByOEM(
+    useInstead = {
+        your custom logic
+    }
+)
+```
+
+You can just check also if a property is marked as **To Be Filled By O.E.M** with the below method:
+
+
+```kotlin
+val computerSystem = desktopInfo.hardware.computerSystem
+
+val isModelToBeFilledByOEM = computerSystem.model.isToBeFilledByOEM()
+
+if(isModelToBeFilledByOEM) {
+    your custom logic
+} else {
+    your custom logic
+}
+```
