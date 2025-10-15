@@ -21,7 +21,7 @@
 |                 | `isMultitaskingSupported`                    | Indicates whether the current iOS device supports multitasking                           | `UIDevice.currentDevice.isMultitaskingSupported()`                    |
 |                 | `isGeneratingDeviceOrientationNotifications` | Indicates whether the current device is generating notifications for orientation changes | `UIDevice.currentDevice.isGeneratingDeviceOrientationNotifications()` |
 |                 | `deviceOrientation`                          | Current orientation of the device                                                        | `IosDeviceOrientationImpl`                                            |
-| **Locale**      | `locale`                                     | Represents the current language and region of the device                                 | `NSLocale.currentLocale`                                              |
+| **Locale Info** | `locale`                                     | Represents the current language and region of the device                                 | `NSLocale.currentLocale`                                              |
 
 ## Support
 

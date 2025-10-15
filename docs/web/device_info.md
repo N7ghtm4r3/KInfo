@@ -3,7 +3,7 @@ currently running
 
 ### Original source
 
-The device information are retrieved from `UAParser.result.device` property
+The device information are retrieved from `UAParser.result.device` interface
 
 ### KInfo's source
 

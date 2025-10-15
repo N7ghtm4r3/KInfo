@@ -19,8 +19,8 @@ On **web** target are available the below information:
 |                  | `type`         | The type of the device                                                 | `UAParser.result.device.type`      |
 |                  | `vendor`       | The vendor of the device                                               | `UAParser.result.device.vendor`    |
 | **CPU Info**     | `architecture` | The CPU architecture of the device                                     | `UAParser.result.cpu.architecture` |
-| **Engine Info**  | `name`         | The name of the browser engine (e.g., "Blink", "WebKit")               | `UAParser.result.engine.name`      |
-|                  | `version`      | The version of the engine (e.g., "91.0")                               | `UAParser.result.engine.version`   |
+| **Engine Info**  | `name`         | The name of the browser engine                                         | `UAParser.result.engine.name`      |
+|                  | `version`      | The version of the engine                                              | `UAParser.result.engine.version`   |
 | **Web Info**     | `userAgent`    | The user agent string representing the client's web browser and system | `window.navigator.userAgent`       |
 
 ## API source

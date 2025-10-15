@@ -68,13 +68,13 @@ nav:
       - ABIs: android/abis.md
       - Tags: android/tags.md
       - System features: android/system_features.md
-      - Display: android/display.md
-      - Locale: android/locale.md
+      - Display info: android/display_info.md
+      - Locale info: android/locale_info.md
   - iOS:
       - Overview: ios/index.md
       - App info: ios/app_info.md
       - Device info: ios/device_info.md
-      - Locale: ios/locale.md
+      - Locale info: ios/locale_info.md
   - Desktop: desktop/index.md
   - Web:
       - Overview: web/index.md
@@ -82,6 +82,8 @@ nav:
       - OS info: web/os_info.md
       - Device info: web/device_info.md
       - CPU info: web/cpu_info.md
+      - Engine info: web/engine_info.md
+      - Web info: web/web_info.md
 
 extra:
   social:

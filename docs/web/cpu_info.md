@@ -2,7 +2,7 @@ The CPU information refers to the details of the CPU of the device
 
 ### Original source
 
-The CPU information are retrieved from `UAParser.result.cpu` property
+The CPU information are retrieved from `UAParser.result.cpu` interface
 
 ### KInfo's source
 

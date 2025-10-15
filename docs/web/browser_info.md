@@ -2,7 +2,7 @@ Information refer to the browser where the application is running
 
 ### Original source
 
-The browser information are retrieved from `UAParser.result.browser` property
+The browser information are retrieved from `UAParser.result.browser` interface
 
 ### KInfo's source
 

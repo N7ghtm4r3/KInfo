@@ -34,8 +34,8 @@
 | **Tags**            | `tags`               | Comma-separated tags associated with the build       | `Build.TAGS`                    |
 |                     | `isPhysicalDevice`   | Indicates if the device is physical or an emulator   | Custom Logic                    |
 | **System Features** | `systemFeatureList`  | List of system features available on the device      | `PackageManager.systemFeatures` |
-| **Display**         | `displayMetrics`     | Display metrics containing screen properties         | `AndroidDisplayMetricsImpl`     |
-| **Locale**          | `locale`             | Locale information (language and region)             | `LocaleManagerCompat`           |
+| **Display Info**    | `displayMetrics`     | Display metrics containing screen properties         | `AndroidDisplayMetricsImpl`     |
+| **Locale Info**     | `locale`             | Locale information (language and region)             | `LocaleManagerCompat`           |
 
 ## Support
 
