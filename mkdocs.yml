@@ -99,6 +99,7 @@ nav:
         - Logical Volume Groups: desktop/hardware/logical_volume_group.md
         - Network interface: desktop/hardware/network_interface.md
         - Display: desktop/hardware/display.md
+        - Sensors: desktop/hardware/sensors/sensors.md
   - Web:
       - Overview: web/index.md
       - Browser info: web/browser_info.md
