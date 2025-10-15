@@ -6,7 +6,7 @@ Represents the current language and region of the device
 
 ### Original source
 
-The locale value is retrieved with `NSLocale.currentLocale` property
+The locale value is retrieved from `NSLocale.currentLocale` property
 
 ### KInfo's source
 

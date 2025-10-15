@@ -76,7 +76,9 @@ nav:
       - Device info: ios/device_info.md
       - Locale: ios/locale.md
   - Desktop: desktop/index.md
-  - Web: web/index.md
+  - Web:
+      - Overview: web/index.md
+      - Browser info: web/browser_info.md
 
 extra:
   social:
