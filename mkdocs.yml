@@ -83,12 +83,17 @@ nav:
             - Overview: desktop/hardware/computersystem/computer_system.md
             - Firmware: desktop/hardware/computersystem/firmware.md
             - Baseboard: desktop/hardware/computersystem/baseboard.md
+        - Central Processor:
+            - Overview: desktop/hardware/centralprocessor/central_processor.md
+            - Logical Processor: desktop/hardware/centralprocessor/logical_processor.md
+            - Physical Processor: desktop/hardware/centralprocessor/physical_processor.md
+            - Processor Cache: desktop/hardware/centralprocessor/processor_cache.md
   - Web:
       - Overview: web/index.md
       - Browser info: web/browser_info.md
       - OS info: web/os_info.md
       - Device info: web/device_info.md
-      - CPU info: web/cpu_info.md
+      - CPU info: web/central_processor.md
       - Engine info: web/engine_info.md
       - Web info: web/web_info.md
 
