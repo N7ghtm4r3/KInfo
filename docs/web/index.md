@@ -12,8 +12,8 @@ On **web** target are available the below information:
 | **Browser Info** | `name`         | The name of the browser                                                | `UAParser.result.browser.name`     |
 |                  | `version`      | The version of the browser                                             | `UAParser.result.browser.version`  |
 |                  | `major`        | The major version number of the browser                                | `UAParser.result.browser.major`    |
-| **Device Info**  | `model`        | The model of the device (e.g., "iPhone", "Pixel 4")                    | `UAParser.result.device.model`     |
-|                  | `type`         | The type of the device (e.g., "mobile", "tablet", "desktop")           | `UAParser.result.device.type`      |
+| **Device Info**  | `model`        | The model of the device                                                | `UAParser.result.device.model`     |
+|                  | `type`         | The type of the device                                                 | `UAParser.result.device.type`      |
 | **OS Info**      | `name`         | The name of the operating system (e.g., "Windows", "macOS", "Android") | `UAParser.result.os.name`          |
 |                  | `version`      | The version of the operating system (e.g., "10", "11")                 | `UAParser.result.os.version`       |
 |                  | `type`         | Type of current browser                                                | `UAParser.result.browser.type`     |

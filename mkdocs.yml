@@ -79,6 +79,7 @@ nav:
   - Web:
       - Overview: web/index.md
       - Browser info: web/browser_info.md
+      - Device info: web/device_info.md
 
 extra:
   social:
