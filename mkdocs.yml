@@ -75,7 +75,11 @@ nav:
       - App info: ios/app_info.md
       - Device info: ios/device_info.md
       - Locale info: ios/locale_info.md
-  - Desktop: desktop/index.md
+  - Desktop:
+      - Overview: desktop/index.md
+      - Hardware:
+        - Overview: desktop/hardware/index.md
+        - Computer system: desktop/hardware/computer_system.md
   - Web:
       - Overview: web/index.md
       - Browser info: web/browser_info.md

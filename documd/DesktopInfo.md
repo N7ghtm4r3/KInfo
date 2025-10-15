@@ -50,7 +50,6 @@ The desktop platform works under the hood with the [oshi library](https://github
 |                      | `timestamp`             | The installation or last modified timestamp of the application in milliseconds since epoch                           |                                         |
 |                      | `additionalInfo`        | A map containing additional application details                                                                      |                                         |
 
-
 ## Support
 
 If you need help using the library or encounter any problems or bugs, please contact us via the
