@@ -72,6 +72,7 @@ nav:
       - Locale: android/locale.md
   - iOS:
       - Overview: ios/index.md
+      - App info: ios/app_info.md
       - Device info: ios/device_info.md
   - Desktop: desktop/index.md
   - Web: web/index.md

@@ -6,6 +6,11 @@ On **iOS** target are available the below information:
 
 | **Category**    | **Property**                                 | **Description**                                                                          | **Source**                                                            |
 |-----------------|----------------------------------------------|------------------------------------------------------------------------------------------|-----------------------------------------------------------------------|
+| **App Info**    | `appName`                                    | The name of the application                                                              | `NSBundle.mainBundle.infoDictionary`                                  |
+|                 | `bundleId`                                   | The unique identifier for the app bundle                                                 | `NSBundle.mainBundle.bundleIdentifier`                                |
+|                 | `appVersion`                                 | The version of the app                                                                   | `NSBundle.mainBundle.infoDictionary`                                  |
+|                 | `appShortVersion`                            | The short version of the app                                                             | `NSBundle.mainBundle.infoDictionary`                                  |
+|                 | `isDebug`                                    | Indicates whether the app is running in debug mode                                       | `Platform.isDebugBinary`                                              |
 | **Device Info** | `name`                                       | The name of the current device                                                           | `UIDevice.currentDevice.name`                                         |
 |                 | `systemName`                                 | The name of the iOS operating system                                                     | `UIDevice.currentDevice.systemName`                                   |
 |                 | `systemVersion`                              | The version of the iOS operating system                                                  | `UIDevice.currentDevice.systemVersion`                                |
@@ -16,11 +21,6 @@ On **iOS** target are available the below information:
 |                 | `isMultitaskingSupported`                    | Indicates whether the current iOS device supports multitasking                           | `UIDevice.currentDevice.isMultitaskingSupported()`                    |
 |                 | `isGeneratingDeviceOrientationNotifications` | Indicates whether the current device is generating notifications for orientation changes | `UIDevice.currentDevice.isGeneratingDeviceOrientationNotifications()` |
 |                 | `deviceOrientation`                          | Current orientation of the device                                                        | `IosDeviceOrientationImpl`                                            |
-| **App Info**    | `appName`                                    | The name of the app (e.g., "MyApp")                                                      | `NSBundle.mainBundle.infoDictionary`                                  |
-|                 | `bundleId`                                   | The unique identifier for the app bundle (e.g., "com.example.myapp")                     | `NSBundle.mainBundle.bundleIdentifier`                                |
-|                 | `appVersion`                                 | The version of the app (e.g., "1.0.0")                                                   | `NSBundle.mainBundle.infoDictionary`                                  |
-|                 | `appShortVersion`                            | The short version of the app (e.g., "1.0")                                               | `NSBundle.mainBundle.infoDictionary`                                  |
-|                 | `isDebug`                                    | Indicates whether the app is running in debug mode                                       | `Platform.isDebugBinary`                                              |
 | **Locale**      | `locale`                                     | Represents the current language and region of the device                                 | `NSLocale.currentLocale`                                              |
 
 ## API source
