@@ -1,8 +1,8 @@
-The information refers the computer system
+The information refers to the computer system
 
 ### Original source
 
-The computer system information are retrieved from `Hardware.ComputerSystem` class
+The computer system information are retrieved from `Hardware.ComputerSystem` interface
 
 ### KInfo's source
 

@@ -1,4 +1,4 @@
-The information refers the firmware of the computer system
+The information refers to the firmware of the computer system
 
 ### Original source
 
@@ -14,40 +14,50 @@ val firmware = computerSystem.firmware
 
 #### manufacturer
 
-The manufacturer of the computer system
+The manufacturer of the firmware
 
 ```kotlin
-val manufacturer: String = computerSystem.manufacturer
+val manufacturer: String = firmware.manufacturer
 
-println(manufacturer) // e.g. Lenovo
+println(manufacturer) // e.g. Microsoft
 ```
 
-#### model
+#### name
 
-The model of the computer system
+The name of the firmware
 
 ```kotlin
-val model: String = computerSystem.model
+val name: String = firmware.name
 
-println(model) // e.g. 82RB
+println(name) // e.g. UEFI
 ```
 
-#### serialNumber
+#### description
 
-The serial number of the computer system
+Detailed description of the firmware
 
 ```kotlin
-val serialNumber: String = computerSystem.serialNumber
+val description: String = firmware.description
 
-println(serialNumber) // e.g. PF3X1234
+println(description) // e.g. LENOVO BIOS Rev 1.45 (UEFI)
 ```
 
-#### hardwareUUID
+#### version
 
-The unique hardware identifier for the system
+The version number of the firmware
 
 ```kotlin
-val hardwareUUID: String = computerSystem.hardwareUUID
+val version: String = firmware.version
 
-println(hardwareUUID) // e.g. 00000000-0000-0000-0000-000000000000
+println(version) // e.g. 2.5.3
+```
+
+#### releaseDate
+
+The release date of the firmware
+
+```kotlin
+val releaseDate: String = firmware.releaseDate
+
+println(releaseDate) // e.g. 06/10/2024
 ```

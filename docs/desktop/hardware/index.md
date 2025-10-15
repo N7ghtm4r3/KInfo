@@ -1,14 +1,14 @@
 # Overview
 
+The information refers to the available hardware of the device
+
 ## Available information
 
 On **desktop** target the available **hardware** information are the below:
 
-### Hardware
-
 | **Category**           | **Property**          | **Description**                                                                                         | **Source**                     |
 |------------------------|-----------------------|---------------------------------------------------------------------------------------------------------|--------------------------------|
-| **Computer System**    | `computerSystem`      | The details of the computer system, including manufacturer, model, and firmware                         | `Hardware.computerSystem`      |
+| **Computer System**    | `computerSystem`      | The details of the computer system                                                                      | `Hardware.computerSystem`      |
 | **CPU**                | `centralProcessor`    | The details of the system's central processor (CPU), including information like cores, speed, and usage | `Hardware.centralProcessor`    |
 | **Memory**             | `globalMemory`        | The details about the system's global memory, including total size, available memory, and page size     | `Hardware.globalMemory`        |
 | **Power Sources**      | `powerSources`        | A list of power sources available to the system (e.g., battery, AC power)                               | `Hardware.powerSources`        |
