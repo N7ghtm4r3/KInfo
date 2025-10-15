@@ -100,6 +100,7 @@ nav:
         - Network interface: desktop/hardware/network_interface.md
         - Display: desktop/hardware/display.md
         - Sensors: desktop/hardware/sensors/sensors.md
+        - Sound card: desktop/hardware/sound_card.md
   - Web:
       - Overview: web/index.md
       - Browser info: web/browser_info.md

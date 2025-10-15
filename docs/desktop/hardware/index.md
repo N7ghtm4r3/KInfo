@@ -85,3 +85,13 @@ val displays: List<Display> = hardware.displays
 
 println(displays)
 ```
+
+### soundCards
+
+List of [sound cards](sound_card.md) available on the system
+
+```kotlin
+val soundCards: List<SoundCard> = hardware.soundCards
+
+println(soundCards)
+```

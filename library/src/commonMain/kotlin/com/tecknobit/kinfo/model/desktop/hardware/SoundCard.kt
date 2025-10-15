@@ -9,17 +9,17 @@ package com.tecknobit.kinfo.model.desktop.hardware
 interface SoundCard {
 
     /**
-     * `driverVersion` The version of the driver for the sound card.
+     * `driverVersion` The version of the driver for the sound card
      */
     val driverVersion: String
 
     /**
-     * `name` The name of the sound card (e.g., "Realtek High Definition Audio").
+     * `name` The name of the sound card (e.g., "Realtek High Definition Audio")
      */
     val name: String
 
     /**
-     * `codec` The codec used by the sound card (e.g., "Realtek ALC1220").
+     * `codec` The codec used by the sound card (e.g., "Realtek ALC1220")
      */
     val codec: String
 
