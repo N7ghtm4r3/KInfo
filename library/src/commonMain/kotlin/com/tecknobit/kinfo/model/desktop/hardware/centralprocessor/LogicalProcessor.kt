@@ -10,27 +10,27 @@ package com.tecknobit.kinfo.model.desktop.hardware.centralprocessor
 interface LogicalProcessor {
 
     /**
-     * `processorNumber` represents the unique identifier of the logical processor
+     * `processorNumber` the unique identifier of the logical processor
      */
     val processorNumber: Int
 
     /**
-     * `physicalProcessorNumber` specifies the physical core number to which this logical processor belongs
+     * `physicalProcessorNumber` the physical core number to which this logical processor belongs
      */
     val physicalProcessorNumber: Int
 
     /**
-     * `physicalPackageNumber` indicates the physical CPU package to which this logical processor belongs
+     * `physicalPackageNumber` the physical CPU package to which this logical processor belongs
      */
     val physicalPackageNumber: Int
 
     /**
-     * `numaNode` represents the NUMA (Non-Uniform Memory Access) node to which this logical processor is assigned
+     * `numaNode` the NUMA (Non-Uniform Memory Access) node to which this logical processor is assigned
      */
     val numaNode: Int
 
     /**
-     * `processorGroup` denotes the processor group for systems that support grouping of processors
+     * `processorGroup` the processor group for systems that support grouping of processors
      */
     val processorGroup: Int
 
