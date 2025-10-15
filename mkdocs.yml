@@ -91,6 +91,7 @@ nav:
         - Global memory:
             - Overview: desktop/hardware/globalmemory/global_memory.md
             - Virtual memory: desktop/hardware/globalmemory/virtual_memory.md
+            - Physical memory: desktop/hardware/globalmemory/physical_memory.md
   - Web:
       - Overview: web/index.md
       - Browser info: web/browser_info.md

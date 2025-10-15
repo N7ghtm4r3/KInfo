@@ -41,3 +41,13 @@ val pageSize: Long = globalMemory.pageSize
 
 println(pageSize) // e.g. 4096
 ```
+
+#### physicalMemory
+
+List of [physical memory](physical_memory.md), provides details about each physical memory module installed
+
+```kotlin
+val physicalMemory: List<PhysicalMemory> = globalMemory.physicalMemory
+
+println(physicalMemory)
+```
