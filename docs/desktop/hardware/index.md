@@ -65,3 +65,13 @@ val logicalVolumeGroups: List<LogicalVolumeGroup> = hardware.logicalVolumeGroups
 
 println(logicalVolumeGroups)
 ```
+
+### networkIFs
+
+List of [network interfaces](network_interface.md) available on the system
+
+```kotlin
+val networkIFs: List<NetworkIF> = hardware.networkIFs
+
+println(networkIFs)
+```

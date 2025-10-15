@@ -152,7 +152,11 @@ The units for capacity
 
 #### CapacityUnits
 
-Enum with the following entries: `MWH`, `MAH` and `RELATIVE`
+| **Unit**     | **Description**                                                                                                                                                                              |
+|--------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **MWH**      | MilliWattHours                                                                                                                                                                               |
+| **MAH**      | Should be multiplied by voltage to convert to mWh                                                                                                                                            |
+| **RELATIVE** | Relative units. The specific units are not defined. The ratio of current/max capacity still represents state of charge and the ratio of max/design capacity still represents state of health |
 
 ```kotlin
 val powerSources = hardware.powerSources

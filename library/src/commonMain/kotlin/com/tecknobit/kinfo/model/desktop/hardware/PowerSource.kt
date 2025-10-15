@@ -121,18 +121,18 @@ interface PowerSource {
 enum class CapacityUnits {
 
     /**
-     * MilliWattHours (mWh).
+     * MilliWattHours (mWh)
      */
     MWH,
 
     /**
-     * MilliAmpHours (mAh). Should be multiplied by voltage to convert to mWh.
+     * MilliAmpHours (mAh). Should be multiplied by voltage to convert to mWh
      */
     MAH,
 
     /**
      * Relative units. The specific units are not defined. The ratio of current/max capacity still represents state
-     * of charge and the ratio of max/design capacity still represents state of health.
+     * of charge and the ratio of max/design capacity still represents state of health
      */
     RELATIVE
 
