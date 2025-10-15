@@ -81,6 +81,7 @@ nav:
       - Browser info: web/browser_info.md
       - OS info: web/os_info.md
       - Device info: web/device_info.md
+      - CPU info: web/cpu_info.md
 
 extra:
   social:
