@@ -93,6 +93,9 @@ nav:
             - Virtual memory: desktop/hardware/globalmemory/virtual_memory.md
             - Physical memory: desktop/hardware/globalmemory/physical_memory.md
         - Power source: desktop/hardware/power_source.md
+        - Storage:
+          - Disk store: desktop/hardware/storage/hw_disk_store.md
+          - Partition: desktop/hardware/storage/hw_partition.md
   - Web:
       - Overview: web/index.md
       - Browser info: web/browser_info.md

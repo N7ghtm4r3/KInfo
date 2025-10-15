@@ -41,7 +41,17 @@ The below properties are miscellaneous readable properties provided by the [hard
 List of [power sources](power_source.md) available in the system
 
 ```kotlin
-val powerSources: List<PowerSource> = centralProcessor.powerSources
+val powerSources: List<PowerSource> = hardware.powerSources
 
 println(powerSources)
+```
+
+### diskStores
+
+List of [storage devices](storage/hw_disk_store.md) available in the system
+
+```kotlin
+val diskStores: List<HWDiskStore> = hardware.diskStores
+
+println(diskStores)
 ```
