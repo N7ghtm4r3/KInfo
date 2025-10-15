@@ -9,28 +9,28 @@ package com.tecknobit.kinfo.model.desktop.hardware
 interface GraphicsCard {
 
     /**
-     * The name of the graphics card (e.g., NVIDIA GeForce RTX 3080, AMD Radeon RX 6800).
+     * The name of the graphics card (e.g., NVIDIA GeForce RTX 3080, AMD Radeon RX 6800)
      */
     val name: String
 
     /**
      * The unique device identifier for the graphics card.
-     * This ID is typically used to distinguish the card within the system.
+     * This ID is typically used to distinguish the card within the system
      */
     val deviceId: String
 
     /**
-     * The vendor of the graphics card (e.g., NVIDIA, AMD, Intel).
+     * The vendor of the graphics card (e.g., NVIDIA, AMD, Intel)
      */
     val vendor: String
 
     /**
-     * The version information of the graphics card (e.g., driver version or hardware revision).
+     * The version information of the graphics card (e.g., driver version or hardware revision)
      */
     val versionInfo: String
 
     /**
-     * The amount of VRAM (video memory) available on the graphics card, in bytes.
+     * The amount of VRAM (video memory) available on the graphics card, in bytes
      */
     val vRam: Long
 

@@ -95,3 +95,13 @@ val soundCards: List<SoundCard> = hardware.soundCards
 
 println(soundCards)
 ```
+
+### graphicsCards
+
+List of [graphic cards](graphic_card.md) available on the system
+
+```kotlin
+val graphicsCards: List<GraphicsCard> = hardware.graphicsCards
+
+println(graphicsCards)
+```
