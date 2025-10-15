@@ -1,4 +1,4 @@
-# Overview
+# Hardware
 
 The information refer to the available hardware of the device
 
@@ -30,4 +30,18 @@ Retrieve a `Hardware` instance from `desktopInfo` instance
 
 ```kotlin
 val hardware = desktopInfo.hardware
+```
+
+## Properties
+
+The below properties are miscellaneous readable properties provided by the [hardware](#hardware-1) instance 
+
+### powerSources
+
+List of [power sources](power_source.md) available in the system
+
+```kotlin
+val powerSources: List<PowerSource> = centralProcessor.powerSources
+
+println(powerSources)
 ```

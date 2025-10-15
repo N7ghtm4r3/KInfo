@@ -116,7 +116,8 @@ class HardwareImpl(
      */
     override val sensors: Sensors by lazy {
         SensorsImpl(
-            sensorsInfo = hardwareInfo.sensors)
+            sensorsInfo = hardwareInfo.sensors
+        )
     }
 
     /**

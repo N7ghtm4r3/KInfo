@@ -1,3 +1,5 @@
+# Central processor
+
 The information refer to the system's central processor (CPU)
 
 ### Original source

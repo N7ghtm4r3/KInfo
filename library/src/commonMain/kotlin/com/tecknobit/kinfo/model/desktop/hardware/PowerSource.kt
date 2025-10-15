@@ -64,7 +64,7 @@ interface PowerSource {
     val isDischarging: Boolean
 
     /**
-     * `capacityUnits` The units for capacity (e.g., mAh, Ah)
+     * `capacityUnits` The units for capacity
      */
     val capacityUnits: CapacityUnits
 
