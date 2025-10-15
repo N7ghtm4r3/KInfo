@@ -82,6 +82,7 @@ nav:
         - Computer system:
             - Overview: desktop/hardware/computersystem/computer_system.md
             - Firmware: desktop/hardware/computersystem/firmware.md
+            - Baseboard: desktop/hardware/computersystem/baseboard.md
   - Web:
       - Overview: web/index.md
       - Browser info: web/browser_info.md

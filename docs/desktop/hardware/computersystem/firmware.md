@@ -1,4 +1,4 @@
-The information refers to the firmware of the computer system
+The information refer to the firmware of the computer system
 
 ### Original source
 

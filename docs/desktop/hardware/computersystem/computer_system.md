@@ -1,4 +1,4 @@
-The information refers to the computer system
+The information refer to the computer system
 
 ### Original source
 

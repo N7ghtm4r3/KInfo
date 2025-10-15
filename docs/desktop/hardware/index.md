@@ -1,6 +1,6 @@
 # Overview
 
-The information refers to the available hardware of the device
+The information refer to the available hardware of the device
 
 ## Available information
 
