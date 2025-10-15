@@ -9,29 +9,29 @@ package com.tecknobit.kinfo.model.desktop.hardware.memory
 interface GlobalMemory {
 
     /**
-     * `total` The total amount of memory in the system (in bytes).
+     * `total` The total amount of memory in the system (in bytes)
      */
     val total: Long
 
     /**
-     * `available` The amount of available memory in the system (in bytes).
+     * `available` The amount of available memory in the system (in bytes)
      */
     val available: Long
 
     /**
-     * `pageSize` The system's memory page size (in bytes).
+     * `pageSize` The system's memory page size (in bytes)
      */
     val pageSize: Long
 
     /**
      * `virtualMemory` The virtual memory information of the system.
-     * It includes details like swap space and memory limits.
+     * It includes details like swap space and memory limits
      */
     val virtualMemory: VirtualMemory
 
     /**
      * `physicalMemory` The list of physical memory information in the system.
-     * It provides details about each physical memory module installed.
+     * It provides details about each physical memory module installed
      */
     val physicalMemory: List<PhysicalMemory>
 

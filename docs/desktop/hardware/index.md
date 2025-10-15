@@ -10,7 +10,7 @@ On **desktop** target the available **hardware** information are the below:
 |------------------------|-----------------------|------------------------------------------------------------------------------------------------------|--------------------------------|
 | **Computer System**    | `computerSystem`      | The details of the computer system                                                                   | `Hardware.computerSystem`      |
 | **CPU**                | `centralProcessor`    | The details of the system's central processor (CPU)                                                  | `Hardware.centralProcessor`    |
-| **Memory**             | `globalMemory`        | The details about the system's global memory, including total size, available memory, and page size  | `Hardware.globalMemory`        |
+| **Memory**             | `globalMemory`        | The details about the system's global memory                                                         | `Hardware.globalMemory`        |
 | **Power Sources**      | `powerSources`        | A list of power sources available to the system (e.g., battery, AC power)                            | `Hardware.powerSources`        |
 | **Disk Storage**       | `diskStores`          | A list of disk storage devices, including information on disk usage, size, and read/write operations | `Hardware.diskStores`          |
 | **Logical Volumes**    | `logicalVolumeGroups` | A list of logical volume groups configured on the system                                             | `Hardware.logicalVolumeGroups` |

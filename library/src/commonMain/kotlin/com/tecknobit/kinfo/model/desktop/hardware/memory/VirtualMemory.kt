@@ -9,32 +9,32 @@ package com.tecknobit.kinfo.model.desktop.hardware.memory
 interface VirtualMemory {
 
     /**
-     * `swapTotal` The total amount of swap space available in the system (in bytes).
+     * `swapTotal` The total amount of swap space available in the system (in bytes)
      */
     val swapTotal: Long
 
     /**
-     * `swapUsed` The amount of swap space currently being used (in bytes).
+     * `swapUsed` The amount of swap space currently being used (in bytes)
      */
     val swapUsed: Long
 
     /**
-     * `virtualMax` The maximum amount of virtual memory that the system can use (in bytes).
+     * `virtualMax` The maximum amount of virtual memory that the system can use (in bytes)
      */
     val virtualMax: Long
 
     /**
-     * `virtualInUse` The amount of virtual memory currently in use (in bytes).
+     * `virtualInUse` The amount of virtual memory currently in use (in bytes)
      */
     val virtualInUse: Long
 
     /**
-     * `swapPagesIn` The number of pages that have been swapped in from disk into memory.
+     * `swapPagesIn` The number of pages that have been swapped in from disk into memory
      */
     val swapPagesIn: Long
 
     /**
-     * `swapPagesOut` The number of pages that have been swapped out from memory to disk.
+     * `swapPagesOut` The number of pages that have been swapped out from memory to disk
      */
     val swapPagesOut: Long
 

@@ -88,6 +88,9 @@ nav:
             - Logical Processor: desktop/hardware/centralprocessor/logical_processor.md
             - Physical Processor: desktop/hardware/centralprocessor/physical_processor.md
             - Processor Cache: desktop/hardware/centralprocessor/processor_cache.md
+        - Global memory:
+            - Overview: desktop/hardware/globalmemory/global_memory.md
+            - Virtual memory: desktop/hardware/globalmemory/virtual_memory.md
   - Web:
       - Overview: web/index.md
       - Browser info: web/browser_info.md
