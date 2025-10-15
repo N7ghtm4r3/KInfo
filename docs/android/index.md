@@ -27,6 +27,7 @@ On **Android** target are available the below information:
 |                     | `model`              | The model name of the device                         | `Build.MODEL`                   |
 |                     | `brand`              | The brand name of the device                         | `Build.BRAND`                   |
 |                     | `product`            | The product name of the device                       | `Build.PRODUCT`                 |
+|                     | `deviceOrientation`  | Current orientation of the device                    | `AndroidDeviceOrientation`      |
 | **Supported ABIs**  | `supportedAbis`      | List of supported ABIs for the device                | `Build.SUPPORTED_ABIS`          |
 |                     | `supported32BitAbis` | List of supported 32-bit ABIs for the device         | `Build.SUPPORTED_32_BIT_ABIS`   |
 |                     | `supported64BitAbis` | List of supported 64-bit ABIs for the device         | `Build.SUPPORTED_64_BIT_ABIS`   |
@@ -35,7 +36,6 @@ On **Android** target are available the below information:
 | **System Features** | `systemFeatureList`  | List of system features available on the device      | `PackageManager.systemFeatures` |
 | **Display**         | `displayMetrics`     | Display metrics containing screen properties         | `AndroidDisplayMetricsImpl`     |
 | **Locale**          | `locale`             | Locale information (language and region)             | `LocaleManagerCompat`           |
-| **Orientation**     | `deviceOrientation`  | Current orientation of the device                    | `AndroidDeviceOrientation`      |
 
 ## API source
 
