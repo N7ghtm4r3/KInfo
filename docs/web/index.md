@@ -9,16 +9,16 @@ On **web** target are available the below information:
 
 | **Category**     | **Property**   | **Description**                                                        | **Source**                         |
 |------------------|----------------|------------------------------------------------------------------------|------------------------------------|
-| **Browser Info** | `name`         | The name of the browser                                                | `UAParser.result.browser.name`     |
+| **Browser Info** | `name`         | The name of the browser                                                | `UAParser.result.browser`          |
 |                  | `version`      | The version of the browser                                             | `UAParser.result.browser.version`  |
 |                  | `major`        | The major version number of the browser                                | `UAParser.result.browser.major`    |
+|                  | `type`         | Type of current browser                                                | `UAParser.result.browser.type`     |
+| **OS Info**      | `name`         | The name of the operating system                                       | `UAParser.result.os.name`          |
+|                  | `version`      | The version of the operating system                                    | `UAParser.result.os.version`       |
 | **Device Info**  | `model`        | The model of the device                                                | `UAParser.result.device.model`     |
 |                  | `type`         | The type of the device                                                 | `UAParser.result.device.type`      |
-| **OS Info**      | `name`         | The name of the operating system (e.g., "Windows", "macOS", "Android") | `UAParser.result.os.name`          |
-|                  | `version`      | The version of the operating system (e.g., "10", "11")                 | `UAParser.result.os.version`       |
-|                  | `type`         | Type of current browser                                                | `UAParser.result.browser.type`     |
+|                  | `vendor`       | The vendor of the device                                               | `UAParser.result.device.vendor`    |
 | **CPU Info**     | `architecture` | The CPU architecture of the device (e.g., "x86", "ARM")                | `UAParser.result.cpu.architecture` |
-|                  | `vendor`       | The vendor of the device (e.g., "Apple", "Google")                     | `UAParser.result.device.vendor`    |
 | **Engine Info**  | `name`         | The name of the browser engine (e.g., "Blink", "WebKit")               | `UAParser.result.engine.name`      |
 |                  | `version`      | The version of the engine (e.g., "91.0")                               | `UAParser.result.engine.version`   |
 | **Web Info**     | `userAgent`    | The user agent string representing the client's web browser and system | `window.navigator.userAgent`       |
