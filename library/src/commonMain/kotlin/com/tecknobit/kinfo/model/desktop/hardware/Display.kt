@@ -11,7 +11,7 @@ interface Display {
 
     /**
      * `edid` The Extended Display Identification Data (EDID) for the display.
-     * It is a byte array that stores the capabilities and characteristics of the display device.
+     * It is a byte array that stores the capabilities and characteristics of the display device
      */
     val edid: ByteArray
 }

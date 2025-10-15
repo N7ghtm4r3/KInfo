@@ -75,3 +75,13 @@ val networkIFs: List<NetworkIF> = hardware.networkIFs
 
 println(networkIFs)
 ```
+
+### displays
+
+List of [displays](display.md) connected to the system
+
+```kotlin
+val displays: List<Display> = hardware.displays
+
+println(displays)
+```

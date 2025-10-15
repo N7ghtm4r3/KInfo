@@ -98,6 +98,7 @@ nav:
           - Partition: desktop/hardware/storage/hw_partition.md
         - Logical Volume Groups: desktop/hardware/logical_volume_group.md
         - Network interface: desktop/hardware/network_interface.md
+        - Display: desktop/hardware/display.md
   - Web:
       - Overview: web/index.md
       - Browser info: web/browser_info.md
