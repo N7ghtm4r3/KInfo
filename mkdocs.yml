@@ -96,6 +96,7 @@ nav:
         - Storage:
           - Disk store: desktop/hardware/storage/hw_disk_store.md
           - Partition: desktop/hardware/storage/hw_partition.md
+        - Logical Volume Groups: desktop/hardware/logical_volume_group.md
   - Web:
       - Overview: web/index.md
       - Browser info: web/browser_info.md

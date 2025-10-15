@@ -55,3 +55,13 @@ val diskStores: List<HWDiskStore> = hardware.diskStores
 
 println(diskStores)
 ```
+
+### logicalVolumeGroups
+
+List of [logical volume groups](logical_volume_group.md) on the system
+
+```kotlin
+val logicalVolumeGroups: List<LogicalVolumeGroup> = hardware.logicalVolumeGroups
+
+println(logicalVolumeGroups)
+```
