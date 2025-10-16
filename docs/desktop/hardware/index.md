@@ -105,3 +105,32 @@ val graphicsCards: List<GraphicsCard> = hardware.graphicsCards
 
 println(graphicsCards)
 ```
+
+## Methods
+
+The below methods are provided by [hardware](#hardware-api) instance, and are useful to interact with the device to 
+retrieve any available information
+
+### getNetworkIfs
+
+Returns the list of network interfaces on the system
+
+```kotlin
+val networkIfs: List<NetworkIF> = hardware.getNetworkIfs(
+    includeLocalInterfaces = // true or false
+)
+
+println(networkIfs)
+```
+
+### getUsbDevices
+
+Retrieves the USB devices connected to the system, with the option to represent them as a device tree
+
+```kotlin
+val usbDevices: List<UsbDevice> = hardware.getUsbDevices(
+    tree = // true or false
+)
+
+println(usbDevices)
+```
