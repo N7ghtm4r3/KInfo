@@ -108,6 +108,10 @@ nav:
         - File System:
           - Overview: desktop/operatingsystem/filesystem/file_system.md
           - File store: desktop/operatingsystem/filesystem/file_store.md
+        - Internal Protocol Stats:
+            - Overview: desktop/operatingsystem/internetprotocolstats/internet_protocol_stats.md
+            - TCP stats: desktop/operatingsystem/internetprotocolstats/tcp_stats.md
+            - UDP stats: desktop/operatingsystem/internetprotocolstats/udp_stats.md
   - Web:
       - Overview: web/index.md
       - Browser info: web/browser_info.md
