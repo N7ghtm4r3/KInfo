@@ -29,18 +29,17 @@ class CentralProcessorImpl(
     }
 
     /**
-     * `maxFreq` represents the maximum frequency of the processor in hertz.
+     * `maxFreq` represents the maximum frequency of the processor in hertz
      */
     override val maxFreq: Long = centralProcessorInfo.maxFreq
 
     /**
-     * `currentFreq` contains an array of current frequencies for each logical processor in hertz.
+     * `currentFreq` contains an array of current frequencies for each logical processor in hertz
      */
     override val currentFreq: LongArray = centralProcessorInfo.currentFreq
 
     /**
-     * `logicalProcessors` returns a list of logical processors,
-     * each representing a core or a thread.
+     * `logicalProcessors` list of logical processors, each representing a core or a thread
      */
     override val logicalProcessors: List<LogicalProcessor>
         get() = loadLogicalProcessors(
@@ -48,8 +47,8 @@ class CentralProcessorImpl(
         )
 
     /**
-     * `physicalProcessors` provides a list of physical processors,
-     * representing the physical cores in the system.
+     * `physicalProcessors` list of physical processors,
+     * representing the physical cores in the system
      */
     override val physicalProcessors: List<PhysicalProcessor>
         get() = loadPhysicalProcessors(
@@ -57,8 +56,7 @@ class CentralProcessorImpl(
         )
 
     /**
-     * `processorCaches` returns a list of processor caches,
-     * detailing cache levels, sizes, and types.
+     * `processorCaches` list of processor caches, detailing cache levels, sizes, and types
      */
     override val processorCaches: List<ProcessorCache>
         get() = loadProcessorCache(
@@ -66,43 +64,43 @@ class CentralProcessorImpl(
         )
 
     /**
-     * `featureFlags` lists the CPU's supported features, such as instruction sets and extensions.
+     * `featureFlags` lists the CPU's supported features, such as instruction sets and extensions
      */
     override val featureFlags: List<String> = centralProcessorInfo.featureFlags
 
     /**
-     * `systemCpuLoadTicks` contains an array of tick counters representing system-wide CPU load.
+     * `systemCpuLoadTicks` contains an array of tick counters representing system-wide CPU load
      */
     override val systemCpuLoadTicks: LongArray = centralProcessorInfo.systemCpuLoadTicks
 
     /**
      * `processorCpuLoadTicks` contains an array of tick counters for each logical processor,
-     * representing the CPU load distribution.
+     * representing the CPU load distribution
      */
     override val processorCpuLoadTicks: Array<LongArray> = centralProcessorInfo.processorCpuLoadTicks
 
     /**
-     * `logicalProcessorCount` provides the number of logical processors in the system.
+     * `logicalProcessorCount` the number of logical processors in the system
      */
     override val logicalProcessorCount: Int = centralProcessorInfo.logicalProcessorCount
 
     /**
-     * `physicalProcessorCount` provides the number of physical processors (cores) in the system.
+     * `physicalProcessorCount` the number of physical processors (cores) in the system
      */
     override val physicalProcessorCount: Int = centralProcessorInfo.physicalProcessorCount
 
     /**
-     * `physicalPackageCount` returns the number of physical processor packages in the system.
+     * `physicalPackageCount` the number of physical processor packages in the system
      */
     override val physicalPackageCount: Int = centralProcessorInfo.physicalPackageCount
 
     /**
-     * `contextSwitches` contains the total number of context switches that have occurred.
+     * `contextSwitches` the total number of context switches that have occurred
      */
     override val contextSwitches: Long = centralProcessorInfo.contextSwitches
 
     /**
-     * `interrupts` contains the total number of interrupts that have occurred.
+     * `interrupts` the total number of interrupts that have occurred
      */
     override val interrupts: Long = centralProcessorInfo.interrupts
 

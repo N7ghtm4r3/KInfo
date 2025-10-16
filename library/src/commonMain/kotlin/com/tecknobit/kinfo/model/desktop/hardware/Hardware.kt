@@ -73,10 +73,10 @@ interface Hardware {
 
     /**
      * Returns the list of network interfaces on the system.
-     * If `includeLocalInterfaces` is true, local interfaces (e.g., loopback interfaces) will also be included.
+     * If `includeLocalInterfaces` is true, local interfaces (e.g., loopback interfaces) will also be included
      *
-     * @param includeLocalInterfaces Whether to include local network interfaces such as loopback interfaces.
-     * @return A list of network interfaces on the system.
+     * @param includeLocalInterfaces Whether to include local network interfaces such as loopback interfaces
+     * @return A list of network interfaces on the system
      */
     @Bridge
     fun getNetworkIfs(
@@ -85,10 +85,11 @@ interface Hardware {
 
     /**
      * Returns the list of USB devices connected to the system.
-     * If `tree` is true, the devices are returned in a hierarchical tree structure.
+     * If `tree` is true, the devices are returned in a hierarchical tree structure
      *
-     * @param tree Whether to return the USB devices in a hierarchical tree structure.
-     * @return A list of USB devices connected to the system.
+     * @param tree Whether to return the USB devices in a hierarchical tree structure
+     *
+     * @return A list of USB devices connected to the system
      */
     @Bridge
     fun getUsbDevices(

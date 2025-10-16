@@ -1,0 +1,142 @@
+# yaml-language-server: $schema=https://squidfunk.github.io/mkdocs-material/schema.json
+
+site_name: KInfo
+site_description: KInfo library documentation
+site_url: https://io.github.n7ghtm4r3/KInfo/
+
+repo_name: KInfo
+repo_url: https://github.com/N7ghtm4r3/KInfo
+site_author: Manuel Maurizio
+
+theme:
+  name: material
+  custom_dir: overrides
+  palette:
+    - scheme: default
+      primary: lime
+      accent: teal
+      toggle:
+        icon: material/brightness-4
+        name: Switch to dark mode
+    - scheme: slate
+      primary: lime
+      accent: teal
+      toggle:
+        icon: material/brightness-7
+        name: Switch to light mode
+  language: en
+
+  features:
+    - search.suggest
+    - search.highlight
+    - search.share
+    - content.tabs.link
+    - content.code.copy
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.footer
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.tabbed:
+      alternate_style: true
+      slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower
+  - admonition
+  - pymdownx.details
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - attr_list
+  - md_in_html
+
+plugins:
+  - search
+
+nav:
+  - Overview: index.md
+  - Usage: usage.md
+  - Android:
+      - Overview: android/index.md
+      - App info: android/app_info.md
+      - OS info: android/os_info.md
+      - Device info: android/device_info.md
+      - ABIs: android/abis.md
+      - Tags: android/tags.md
+      - System features: android/system_features.md
+      - Display info: android/display_info.md
+      - Locale info: android/locale_info.md
+  - iOS:
+      - Overview: ios/index.md
+      - App info: ios/app_info.md
+      - Device info: ios/device_info.md
+      - Locale info: ios/locale_info.md
+  - Desktop:
+      - Overview: desktop/index.md
+      - Hardware:
+        - Overview: desktop/hardware/index.md
+        - Computer system:
+            - Overview: desktop/hardware/computersystem/computer_system.md
+            - Firmware: desktop/hardware/computersystem/firmware.md
+            - Baseboard: desktop/hardware/computersystem/baseboard.md
+        - Central Processor:
+            - Overview: desktop/hardware/centralprocessor/central_processor.md
+            - Logical Processor: desktop/hardware/centralprocessor/logical_processor.md
+            - Physical Processor: desktop/hardware/centralprocessor/physical_processor.md
+            - Processor Cache: desktop/hardware/centralprocessor/processor_cache.md
+        - Global memory:
+            - Overview: desktop/hardware/globalmemory/global_memory.md
+            - Virtual memory: desktop/hardware/globalmemory/virtual_memory.md
+            - Physical memory: desktop/hardware/globalmemory/physical_memory.md
+        - Power source: desktop/hardware/power_source.md
+        - Storage:
+          - Disk store: desktop/hardware/storage/hw_disk_store.md
+          - Partition: desktop/hardware/storage/hw_partition.md
+        - Logical Volume Groups: desktop/hardware/logical_volume_group.md
+        - Network interface: desktop/hardware/network_interface.md
+        - Display: desktop/hardware/display.md
+        - Sensors: desktop/hardware/sensors/sensors.md
+        - Sound card: desktop/hardware/sound_card.md
+        - Graphic card: desktop/hardware/graphic_card.md
+        - USB device: desktop/hardware/usb_device.md
+      - Operating system:
+        - Overview: desktop/operatingsystem/index.md
+        - OS version info: desktop/operatingsystem/os_version_info.md
+        - File System:
+          - Overview: desktop/operatingsystem/filesystem/file_system.md
+          - File store: desktop/operatingsystem/filesystem/file_store.md
+        - Internal Protocol Stats:
+            - Overview: desktop/operatingsystem/internetprotocolstats/internet_protocol_stats.md
+            - TCP stats: desktop/operatingsystem/internetprotocolstats/tcp_stats.md
+            - UDP stats: desktop/operatingsystem/internetprotocolstats/udp_stats.md
+            - IP connection: desktop/operatingsystem/internetprotocolstats/ip_connection.md
+        - TCP state: desktop/operatingsystem/tcp_state.md
+        - OS process: desktop/operatingsystem/os_process.md
+        - OS thread: desktop/operatingsystem/os_thread.md
+        - Network params: desktop/operatingsystem/network_params.md
+        - OS service: desktop/operatingsystem/os_service.md
+        - OS session: desktop/operatingsystem/os_session.md
+        - Desktop window: desktop/operatingsystem/os_desktop_window.md
+        - Application info: desktop/operatingsystem/application_info.md
+  - Web:
+      - Overview: web/index.md
+      - Browser info: web/browser_info.md
+      - OS info: web/os_info.md
+      - Device info: web/device_info.md
+      - CPU info: web/central_processor.md
+      - Engine info: web/engine_info.md
+      - Web info: web/web_info.md
+
+extra:
+  social:
+    - icon: material/email
+      link: mailto:infotecknobitcompany@gmail.com
+    - icon: material/bug
+      link: https://github.com/swapnil-musale/KDeviceInfo/issues
+
+copyright: |
+  &copy; 2025 <a href="https://github.com/N7ghtm4r3" target="new">N7ghtm4r3 - Tecknobit</a>

@@ -9,67 +9,45 @@
 
 **v1.0.4**
 
-KInfo is Compose Multiplatform Library allows to access the device details of android, ios, desktop e web devices 
+KInfo allows to access the device details of `android`, `iOS`, `desktop` e `web` devices
 
-## Integration
+## Implementation
 
-### Implementation
+### Gradle short
 
-#### Version catalog
+```groovy
+dependencies {
+    implementation 'io.github.n7ghtm4r3:kinfo:1.0.4'
+}
+```
 
-```gradle
+### Gradle (Kotlin)
+
+```kotlin
+dependencies {
+    implementation("io.github.n7ghtm4r3:kinfo:1.0.4")
+}
+```
+
+### Gradle (version catalog)
+
+#### libs.versions.toml
+
+```toml
 [versions]
 kinfo = "1.0.4"
 
 [libraries]
-kinfo = { module = "io.github.n7ghtm4r3:kinfo", version.ref = "kinfo" } 
+kinfo = { module = "io.github.n7ghtm4r3:kinfo", version.ref = "kinfo" }
 ```
 
-#### Gradle
+#### build.gradle.kts
 
-Add the JitPack repository to your build file
-
-- Add it in your root build.gradle at the end of repositories
-
-    ```gradle
-    repositories {
-        ...
-        maven { url 'https://jitpack.io' }
-    }
-    ```
-
-  #### Gradle (Kotlin)
-
-    ```gradle
-    repositories {
-        ...
-        maven("https://jitpack.io")
-    }
-    ```
-
-- Add the dependency
-
-    ```gradle
-    dependencies {
-        implementation 'io.github.n7ghtm4r3:kinfo:1.0.4'
-    }
-    ```
-
-  #### Gradle (Kotlin)
-
-    ```gradle
-    dependencies {
-        implementation("io.github.n7ghtm4r3:kinfo:1.0.4")
-    }
-    ```
-
-  #### Gradle (version catalog)
-
-    ```gradle
-    dependencies {
-        implementation(libs.kinfo)
-    }
-    ```
+```kotlin
+dependencies {
+    implementation(libs.kinfo)
+}
+```
   
 ## Usage
 
@@ -136,11 +114,15 @@ onPlatform(
 Take a look to related documentation about the information available for each platform
 
 - [Android](documd/AndroidInfo.md)
-- [Ios](documd/IosInfo.md)
+- [iOS](documd/IosInfo.md)
 - [Desktop](documd/DesktopInfo.md)
 - [Web](documd/WebInfo.md)
 
 Will be gradually added new information for each platform 
+
+## Documentation
+
+Check out the library documentation [here!](https://n7ghtm4r3.github.io/KInfo/)
 
 ## Support
 

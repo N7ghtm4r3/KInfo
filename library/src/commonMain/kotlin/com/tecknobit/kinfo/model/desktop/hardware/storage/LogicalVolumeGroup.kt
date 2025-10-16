@@ -10,18 +10,18 @@ package com.tecknobit.kinfo.model.desktop.hardware.storage
 interface LogicalVolumeGroup {
 
     /**
-     * `name` The name of the logical volume group.
+     * `name` The name of the logical volume group
      */
     val name: String
 
     /**
-     * `physicalVolumes` A set of physical volumes that are part of the logical volume group.
+     * `physicalVolumes` A set of physical volumes that are part of the logical volume group
      */
     val physicalVolumes: Set<String>
 
     /**
      * `logicalVolumes` A map where the key is the logical volume name and the value
-     * is a set of physical volume names that are part of the logical volume.
+     * is a set of physical volume names that are part of the logical volume
      */
     val logicalVolumes: Map<String, Set<String>>
 

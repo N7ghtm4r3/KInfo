@@ -9,17 +9,17 @@ package com.tecknobit.kinfo.model.desktop.operatingsystem
 interface OSService {
 
     /**
-     * `name` The name of the service.
+     * `name` The name of the service
      */
     val name: String
 
     /**
-     * `processID` The process ID associated with the service.
+     * `processID` The process ID associated with the service
      */
     val processID: Int
 
     /**
-     * `state` The current state of the service.
+     * `state` The current state of the service
      */
     val state: ServiceState
 }
@@ -30,18 +30,20 @@ interface OSService {
  * @author N7ghtm4r3
  */
 enum class ServiceState {
+
     /**
-     * The service is currently running.
+     * The service is currently running
      */
     RUNNING,
 
     /**
-     * The service is currently stopped.
+     * The service is currently stopped
+     *
      */
     STOPPED,
 
     /**
-     * The service is in an unknown or other state.
+     * The service is in an unknown or other state
      */
     OTHER
 }

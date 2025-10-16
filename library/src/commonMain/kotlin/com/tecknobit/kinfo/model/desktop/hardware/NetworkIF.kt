@@ -149,27 +149,27 @@ enum class IfOperStatus(
     val value: Int
 ) {
     /**
-     * Up and operational. Ready to pass packets.
+     * Up and operational. Ready to pass packets
      */
     UP(1),
 
     /**
-     * Down and not operational. Not ready to pass packets.
+     * Down and not operational. Not ready to pass packets
      */
     DOWN(2),
 
     /**
-     * In some test mode.
+     * In some test mode
      */
     TESTING(3),
 
     /**
-     * The interface status is unknown.
+     * The interface status is unknown
      */
     UNKNOWN(4),
 
     /**
-     * The interface is not up, but is in a pending state, waiting for some external event.
+     * The interface is not up, but is in a pending state, waiting for some external event
      */
     DORMANT(5),
 
@@ -179,7 +179,7 @@ enum class IfOperStatus(
     NOT_PRESENT(6),
 
     /**
-     * Down due to state of lower-layer interface(s).
+     * Down due to state of lower-layer interface(s)
      */
     LOWER_LAYER_DOWN(7);
 
