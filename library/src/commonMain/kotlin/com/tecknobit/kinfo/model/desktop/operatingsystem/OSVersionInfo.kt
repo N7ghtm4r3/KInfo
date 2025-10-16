@@ -9,17 +9,17 @@ package com.tecknobit.kinfo.model.desktop.operatingsystem
 interface OSVersionInfo {
 
     /**
-     * `version` The version of the operating system.
+     * `version` The version of the operating system
      */
     val version: String
 
     /**
-     * `codeName` The code name of the operating system version.
+     * `codeName` The code name of the operating system version
      */
     val codeName: String
 
     /**
-     * `buildNumber` The build number of the operating system.
+     * `buildNumber` The build number of the operating system
      */
     val buildNumber: String
 

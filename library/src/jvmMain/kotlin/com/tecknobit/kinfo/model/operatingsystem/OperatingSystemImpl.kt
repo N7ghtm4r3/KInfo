@@ -87,7 +87,9 @@ class OperatingSystemImpl(
      * `currentProcess` The current running process.
      */
     override val currentProcess: OSProcess
-        get() = initOSProcess(source = fileSystemInfo.currentProcess)
+        get() = initOSProcess(
+            source = fileSystemInfo.currentProcess
+        )
 
     /**
      * `processCount` The number of active processes running on the system.
@@ -103,7 +105,9 @@ class OperatingSystemImpl(
      * `currentThread` The current running thread.
      */
     override val currentThread: OSThread
-        get() = initOSThread(source = fileSystemInfo.currentThread)
+        get() = initOSThread(
+            source = fileSystemInfo.currentThread
+        )
 
     /**
      * `threadCount` The number of threads running on the system.

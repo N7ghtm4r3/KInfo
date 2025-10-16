@@ -104,6 +104,7 @@ nav:
         - Graphic card: desktop/hardware/graphic_card.md
       - Operating system:
         - Overview: desktop/operatingsystem/index.md
+        - OS version info: desktop/operatingsystem/os_version_info.md
   - Web:
       - Overview: web/index.md
       - Browser info: web/browser_info.md
