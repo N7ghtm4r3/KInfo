@@ -22,9 +22,9 @@ import oshi.util.ProcUtil
 /**
  * `OperatingSystemImpl` is the implementation of the `OperatingSystem` interface.
  * It uses the `oshi` library to gather system operating information and map
- * this information to the classes and methods provided by our API.
+ * this information to the classes and methods provided by our API
  *
- * @param systemInfo The object containing general information about the operating system.
+ * @param systemInfo The object containing general information about the operating system
  */
 class OperatingSystemImpl(
     systemInfo: SystemInfo,
@@ -33,26 +33,26 @@ class OperatingSystemImpl(
     /**
      * A lazy-initialized property that holds the information about the operating system.
      * This property is retrieved from the `systemInfo` object and represents the operating system details
-     * that include file system information, version, network statistics, and more.
+     * that include file system information, version, network statistics, and more
      *
      * It is initialized only when it is accessed for the first time, which can help improve performance
-     * by deferring the creation of the `operatingSystem` object until it's actually needed.
+     * by deferring the creation of the `operatingSystem` object until it's actually needed
      */
     private val fileSystemInfo by lazy { systemInfo.operatingSystem }
 
     /**
-     * `family` The family of the operating system (e.g., "Windows", "Linux").
-     * This property represents the type of operating system.
+     * `family` The family of the operating system (e.g., "Windows", "Linux")
+     * This property represents the type of operating system
      */
     override val family: String = fileSystemInfo.family
 
     /**
-     * `manufacturer` The manufacturer of the operating system (e.g., "Microsoft", "Apple").
+     * `manufacturer` The manufacturer of the operating system (e.g., "Microsoft", "Apple")
      */
     override val manufacturer: String = fileSystemInfo.manufacturer
 
     /**
-     * `versionInfo` The version information of the operating system.
+     * `versionInfo` The version information of the operating system
      */
     override val versionInfo: OSVersionInfo by lazy {
         OSVersionInfoImpl(
@@ -61,7 +61,7 @@ class OperatingSystemImpl(
     }
 
     /**
-     * `fileSystem` The file system information, including the list of file stores and other statistics.
+     * `fileSystem` The file system information, including the list of file stores and other statistics
      */
     override val fileSystem: FileSystem by lazy {
         FileSystemImpl(
@@ -70,7 +70,7 @@ class OperatingSystemImpl(
     }
 
     /**
-     * `internetProtocolStats` The statistics related to network protocols (TCP/UDP).
+     * `internetProtocolStats` The statistics related to network protocols (TCP/UDP)
      */
     override val internetProtocolStats: InternetProtocolStats by lazy {
         InternetProtocolStatsImpl(
@@ -79,12 +79,12 @@ class OperatingSystemImpl(
     }
 
     /**
-     * `processId` The ID of the current process.
+     * `processId` The ID of the current process
      */
     override val processId: Int = fileSystemInfo.processId
 
     /**
-     * `currentProcess` The current running process.
+     * `currentProcess` The current running process
      */
     override val currentProcess: OSProcess
         get() = initOSProcess(
@@ -92,17 +92,17 @@ class OperatingSystemImpl(
         )
 
     /**
-     * `processCount` The number of active processes running on the system.
+     * `processCount` The number of active processes running on the system
      */
     override val processCount: Int = fileSystemInfo.processCount
 
     /**
-     * `threadId` The ID of the current thread.
+     * `threadId` The ID of the current thread
      */
     override val threadId: Int = fileSystemInfo.threadId
 
     /**
-     * `currentThread` The current running thread.
+     * `currentThread` The current running thread
      */
     override val currentThread: OSThread
         get() = initOSThread(
@@ -110,35 +110,35 @@ class OperatingSystemImpl(
         )
 
     /**
-     * `threadCount` The number of threads running on the system.
+     * `threadCount` The number of threads running on the system
      */
     override val threadCount: Int = fileSystemInfo.threadCount
 
     /**
-     * `bitness` The bitness of the operating system (e.g., 32-bit, 64-bit).
+     * `bitness` The bitness of the operating system (e.g., 32-bit, 64-bit)
      */
     override val bitness: Int = fileSystemInfo.bitness
 
     /**
-     * `systemUptime` The system uptime in milliseconds.
+     * `systemUptime` The system uptime in milliseconds
      */
     override val systemUptime: Long
         get() = fileSystemInfo.systemUptime
 
     /**
-     * `systemBootTime` The system boot time in milliseconds (UNIX timestamp).
+     * `systemBootTime` The system boot time in milliseconds (UNIX timestamp)
      */
     override val systemBootTime: Long
         get() = fileSystemInfo.systemBootTime
 
     /**
-     * `isElevated` Indicates if the operating system is running in elevated (privileged) mode.
+     * `isElevated` Indicates if the operating system is running in elevated (privileged) mode
      */
     override val isElevated: Boolean
         get() = fileSystemInfo.isElevated
 
     /**
-     * `networkParams` The network parameters, including hostname, DNS, gateway.
+     * `networkParams` The network parameters, including hostname, DNS, gateway
      */
     override val networkParams: NetworkParams by lazy {
         NetworkParamsImpl(
@@ -147,7 +147,7 @@ class OperatingSystemImpl(
     }
 
     /**
-     * `services` The list of active services on the operating system.
+     * `services` The list of active services on the operating system
      */
     override val services: List<OSService>
         get() = loadOSServices(
@@ -155,7 +155,7 @@ class OperatingSystemImpl(
         )
 
     /**
-     * `sessions` The list of user sessions active on the operating system.
+     * `sessions` The list of user sessions active on the operating system
      */
     override val sessions: List<OSSession>
         get() = loadOSSessions(
@@ -163,9 +163,9 @@ class OperatingSystemImpl(
         )
 
     /**
-     * Retrieves the list of all active processes on the system.
+     * Retrieves the list of all active processes on the system
      *
-     * @return A list of `OSProcess` objects representing the running processes.
+     * @return A list of `OSProcess` objects representing the running processes
      */
     @Bridge
     override fun getProcesses(): List<OSProcess> {
@@ -175,10 +175,10 @@ class OperatingSystemImpl(
     }
 
     /**
-     * Retrieves the list of processes specified by their PIDs.
+     * Retrieves the list of processes specified by their PIDs
      *
-     * @param pids A collection of PIDs of the processes to retrieve.
-     * @return A list of `OSProcess` objects for the specified processes.
+     * @param pids A collection of PIDs of the processes to retrieve
+     * @return A list of `OSProcess` objects for the specified processes
      */
     @Bridge
     override fun getProcesses(
@@ -190,10 +190,10 @@ class OperatingSystemImpl(
     }
 
     /**
-     * Retrieves a single process by its PID.
+     * Retrieves a single process by its PID
      *
-     * @param pid The PID of the process to retrieve.
-     * @return An `OSProcess` object representing the process with the given PID.
+     * @param pid The PID of the process to retrieve
+     * @return An `OSProcess` object representing the process with the given PID
      */
     @Bridge
     override fun getProcess(
@@ -205,10 +205,10 @@ class OperatingSystemImpl(
     }
 
     /**
-     * Retrieves the visible desktop windows of the operating system.
+     * Retrieves the visible desktop windows of the operating system
      *
-     * @param visibleOnly If `true`, only returns visible windows.
-     * @return A list of desktop windows of the operating system.
+     * @param visibleOnly If `true`, only returns visible windows
+     * @return A list of desktop windows of the operating system
      */
     @Bridge
     override fun getOSDesktopWindows(
@@ -220,10 +220,10 @@ class OperatingSystemImpl(
     }
 
     /**
-     * Loads a list of processes from a list of OSHI `OSProcess` objects.
+     * Loads a list of processes from a list of OSHI `OSProcess` objects
      *
-     * @param sourceList The list of processes to load.
-     * @return A list of `OSProcess` objects.
+     * @param sourceList The list of processes to load
+     * @return A list of `OSProcess` objects
      */
     private fun loadOSProcesses(
         sourceList: List<oshi.software.os.OSProcess>,
@@ -236,10 +236,10 @@ class OperatingSystemImpl(
     }
 
     /**
-     * Initializes an `OSProcess` object from an OSHI `OSProcess` object.
+     * Initializes an `OSProcess` object from an OSHI `OSProcess` object
      *
-     * @param source The `OSProcess` object to initialize the new `OSProcess` from.
-     * @return A configured `OSProcess` object.
+     * @param source The `OSProcess` object to initialize the new `OSProcess` from
+     * @return A configured `OSProcess` object
      */
     private fun initOSProcess(
         source: oshi.software.os.OSProcess,
@@ -283,10 +283,10 @@ class OperatingSystemImpl(
     }
 
     /**
-     * Loads a list of threads from a list of OSHI `OSThread` objects.
+     * Loads a list of threads from a list of OSHI `OSThread` objects
      *
-     * @param sourceList The list of threads to load.
-     * @return A list of `OSThread` objects.
+     * @param sourceList The list of threads to load
+     * @return A list of `OSThread` objects
      */
     private fun loadOSThreads(
         sourceList: List<oshi.software.os.OSThread>,
@@ -299,10 +299,10 @@ class OperatingSystemImpl(
     }
 
     /**
-     * Initializes an `OSThread` object from an OSHI `OSThread` object.
+     * Initializes an `OSThread` object from an OSHI `OSThread` object
      *
-     * @param source The `OSThread` object to initialize the new `OSThread` from.
-     * @return A configured `OSThread` object.
+     * @param source The `OSThread` object to initialize the new `OSThread` from
+     * @return A configured `OSThread` object
      */
     private fun initOSThread(
         source: oshi.software.os.OSThread,
@@ -328,10 +328,10 @@ class OperatingSystemImpl(
     }
 
     /**
-     * Loads a list of services from a list of OSHI `OSService` objects.
+     * Loads a list of services from a list of OSHI `OSService` objects
      *
-     * @param sourceList The list of services to load.
-     * @return A list of `OSService` objects.
+     * @param sourceList The list of services to load
+     * @return A list of `OSService` objects
      */
     private fun loadOSServices(
         sourceList: List<oshi.software.os.OSService>,
@@ -350,10 +350,10 @@ class OperatingSystemImpl(
     }
 
     /**
-     * Loads a list of sessions from a list of OSHI `OSSession` objects.
+     * Loads a list of sessions from a list of OSHI `OSSession` objects
      *
-     * @param sourceList The list of sessions to load.
-     * @return A list of `OSSession` objects.
+     * @param sourceList The list of sessions to load
+     * @return A list of `OSSession` objects
      */
     private fun loadOSSessions(
         sourceList: List<oshi.software.os.OSSession>,
@@ -373,14 +373,14 @@ class OperatingSystemImpl(
     }
 
     /**
-     * Loads a list of `OSDesktopWindow` objects from the provided list of `oshi.software.os.OSDesktopWindow`.
+     * Loads a list of `OSDesktopWindow` objects from the provided list of `oshi.software.os.OSDesktopWindow`
      *
      * This function iterates through the `sourceList` of desktop windows and maps each item to a new
      * `OSDesktopWindowImpl` instance, which encapsulates details about the window such as its ID, title,
      * command, owning process ID, order, and visibility.
      *
-     * @param sourceList A list of `oshi.software.os.OSDesktopWindow` objects to be mapped.
-     * @return A list of `OSDesktopWindow` objects, representing the desktop windows.
+     * @param sourceList A list of `oshi.software.os.OSDesktopWindow` objects to be mapped
+     * @return A list of `OSDesktopWindow` objects, representing the desktop windows
      */
     private fun loadOSDesktopWindows(
         sourceList: List<oshi.software.os.OSDesktopWindow>,
@@ -402,9 +402,9 @@ class OperatingSystemImpl(
     }
 
     /**
-     * Parses `/proc` files with a given structure consisting of a keyed header line followed by a keyed value line.
+     * Parses `/proc` files with a given structure consisting of a keyed header line followed by a keyed value line
      *
-     * Examples of such files include `/proc/net/netstat` and `/proc/net/snmp`.
+     * Examples of such files include `/proc/net/netstat` and `/proc/net/snmp`
      * The returned map has the structure:
      *
      * ```
@@ -439,7 +439,7 @@ class OperatingSystemImpl(
     }
 
     /**
-     * Parses `/proc` files formatted as "statistic (long)value" to produce a simple mapping.
+     * Parses `/proc` files formatted as "statistic (long)value" to produce a simple mapping
      *
      * An example file like `/proc/net/snmp6` might contain content in the following format:
      *
@@ -470,7 +470,7 @@ class OperatingSystemImpl(
      * @param procFile The file to process
      * @param separator A regular expression specifying the separator between the statistic name and its value
      *
-     * @return A map of statistics and their associated values.
+     * @return A map of statistics and their associated values
      */
     @Bridge
     override fun parseStatistics(

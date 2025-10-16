@@ -114,6 +114,8 @@ nav:
             - UDP stats: desktop/operatingsystem/internetprotocolstats/udp_stats.md
             - IP connection: desktop/operatingsystem/internetprotocolstats/ip_connection.md
         - TCP state: desktop/operatingsystem/tcp_state.md
+        - OS process: desktop/operatingsystem/os_process.md
+        - OS thread: desktop/operatingsystem/os_thread.md
   - Web:
       - Overview: web/index.md
       - Browser info: web/browser_info.md

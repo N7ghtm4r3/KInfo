@@ -2,179 +2,179 @@ package com.tecknobit.kinfo.model.desktop.operatingsystem.processes
 
 /**
  * `OSProcess` represents a process in the operating system.
- * It provides details about the process, including its name, ID, state, resources usage, and more.
+ * It provides details about the process, including its name, ID, state, resources usage, and more
  *
  * @author N7ghtm4r3
  */
 interface OSProcess {
 
     /**
-     * `name` The name of the process (e.g., "java", "nginx").
+     * `name` The name of the process (e.g., "java", "nginx")
      */
     val name: String
 
     /**
-     * `path` The path to the executable of the process.
+     * `path` The path to the executable of the process
      */
     val path: String
 
     /**
-     * `commandLine` The full command line that was used to start the process.
+     * `commandLine` The full command line that was used to start the process
      */
     val commandLine: String
 
     /**
-     * `arguments` The arguments passed to the process when it was started.
+     * `arguments` The arguments passed to the process when it was started
      */
     val arguments: List<String>
 
     /**
-     * `environmentVariables` A map of environment variables used by the process.
+     * `environmentVariables` A map of environment variables used by the process
      */
     val environmentVariables: Map<String, String>
 
     /**
-     * `currentWorkingDirectory` The current working directory of the process.
+     * `currentWorkingDirectory` The current working directory of the process
      */
     val currentWorkingDirectory: String
 
     /**
-     * `user` The user running the process.
+     * `user` The user running the process
      */
     val user: String
 
     /**
-     * `userId` The ID of the user running the process.
+     * `userId` The ID of the user running the process
      */
     val userId: String
 
     /**
-     * `group` The group associated with the process.
+     * `group` The group associated with the process
      */
     val group: String
 
     /**
-     * `groupId` The ID of the group associated with the process.
+     * `groupId` The ID of the group associated with the process
      */
     val groupId: String
 
     /**
-     * `state` The state of the process (e.g., running, sleeping).
+     * `state` The state of the process (e.g., running, sleeping)
      */
     val state: State
 
     /**
-     * `processId` The unique identifier for the process.
+     * `processId` The unique identifier for the process
      */
     val processId: Int
 
     /**
-     * `parentProcessId` The process ID of the parent process.
+     * `parentProcessId` The process ID of the parent process
      */
     val parentProcessId: Int
 
     /**
-     * `threadCount` The number of threads in the process.
+     * `threadCount` The number of threads in the process
      */
     val threadCount: Int
 
     /**
-     * `priority` The priority of the process.
+     * `priority` The priority of the process
      */
     val priority: Int
 
     /**
-     * `virtualSize` The virtual memory size of the process, in bytes.
+     * `virtualSize` The virtual memory size of the process, in bytes
      */
     val virtualSize: Long
 
     /**
-     * `residentSetSize` The resident set size of the process, in bytes (physical memory used).
+     * `residentSetSize` The resident set size of the process, in bytes (physical memory used)
      */
     val residentSetSize: Long
 
     /**
-     * `kernelTime` The amount of time the process has spent in kernel mode, in milliseconds.
+     * `kernelTime` The amount of time the process has spent in kernel mode, in milliseconds
      */
     val kernelTime: Long
 
     /**
-     * `userTime` The amount of time the process has spent in user mode, in milliseconds.
+     * `userTime` The amount of time the process has spent in user mode, in milliseconds
      */
     val userTime: Long
 
     /**
-     * `startTime` The time when the process started, in milliseconds since the Unix epoch.
+     * `startTime` The time when the process started, in milliseconds since the Unix epoch
      */
     val startTime: Long
 
     /**
-     * `bytesRead` The number of bytes read by the process.
+     * `bytesRead` The number of bytes read by the process
      */
     val bytesRead: Long
 
     /**
-     * `bytesWritten` The number of bytes written by the process.
+     * `bytesWritten` The number of bytes written by the process
      */
     val bytesWritten: Long
 
     /**
-     * `openFiles` The number of open files used by the process.
+     * `openFiles` The number of open files used by the process
      */
     val openFiles: Long
 
     /**
-     * `softOpenFileLimit` The soft limit on the number of files the process can open.
+     * `softOpenFileLimit` The soft limit on the number of files the process can open
      */
     val softOpenFileLimit: Long
 
     /**
-     * `hardOpenFileLimit` The hard limit on the number of files the process can open.
+     * `hardOpenFileLimit` The hard limit on the number of files the process can open
      */
     val hardOpenFileLimit: Long
 
     /**
-     * `processCpuLoadCumulative` The cumulative CPU load of the process as a percentage.
+     * `processCpuLoadCumulative` The cumulative CPU load of the process as a percentage
      */
     val processCpuLoadCumulative: Double
 
     /**
-     * `processCpuLoadBetweenTicks` The CPU load of the process between two ticks, as a percentage.
+     * `processCpuLoadBetweenTicks` The CPU load of the process between two ticks, as a percentage
      */
     val processCpuLoadBetweenTicks: Double
 
     /**
-     * `bitness` The bitness of the process (e.g., 32-bit, 64-bit).
+     * `bitness` The bitness of the process (e.g., 32-bit, 64-bit)
      */
     val bitness: Int
 
     /**
-     * `affinityMask` The CPU affinity mask for the process.
+     * `affinityMask` The CPU affinity mask for the process
      */
     val affinityMask: Long
 
     /**
-     * `updateAttributes` A flag indicating whether the process attributes should be updated.
+     * `updateAttributes` A flag indicating whether the process attributes should be updated
      */
     val updateAttributes: Boolean
 
     /**
-     * `threadDetails` The list of threads associated with the process.
+     * `threadDetails` The list of threads associated with the process
      */
     val threadDetails: List<OSThread>
 
     /**
-     * `minorFaults` The number of minor page faults for the process.
+     * `minorFaults` The number of minor page faults for the process
      */
     val minorFaults: Long
 
     /**
-     * `majorFaults` The number of major page faults for the process.
+     * `majorFaults` The number of major page faults for the process
      */
     val majorFaults: Long
 
     /**
-     * `contextSwitches` The number of context switches for the process.
+     * `contextSwitches` The number of context switches for the process
      */
     val contextSwitches: Long
 
@@ -221,7 +221,7 @@ enum class State {
     OTHER,
 
     /**
-     * The state resulting if the process fails to update statistics, probably due to termination.
+     * The state resulting if the process fails to update statistics, probably due to termination
      */
     INVALID,
 
