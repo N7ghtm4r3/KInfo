@@ -38,80 +38,80 @@ interface OperatingSystem {
 
     /**
      * `internetProtocolStats` The internet protocol statistics related to network connections,
-     * including TCP and UDP statistics and IP connections.
+     * including TCP and UDP statistics and IP connections
      */
     val internetProtocolStats: InternetProtocolStats
 
     /**
-     * `processId` The process ID of the currently running operating system process.
+     * `processId` The process ID of the currently running operating system proces
      */
     val processId: Int
 
     /**
-     * `currentProcess` The currently running process of the operating system.
+     * `currentProcess` The currently running process of the operating system
      */
     val currentProcess: OSProcess
 
     /**
-     * `processCount` The total number of processes running on the operating system.
+     * `processCount` The total number of processes running on the operating system
      */
     val processCount: Int
 
     /**
-     * `threadId` The thread ID of the currently running thread.
+     * `threadId` The thread ID of the currently running thread
      */
     val threadId: Int
 
     /**
-     * `currentThread` The currently running thread of the operating system.
+     * `currentThread` The currently running thread of the operating system
      */
     val currentThread: OSThread
 
     /**
-     * `threadCount` The total number of threads running on the operating system.
+     * `threadCount` The total number of threads running on the operating system
      */
     val threadCount: Int
 
     /**
-     * `bitness` The bitness of the operating system (e.g., 32-bit, 64-bit).
+     * `bitness` The bitness of the operating system (e.g., 32-bit, 64-bit)
      */
     val bitness: Int
 
     /**
-     * `systemUptime` The system uptime in milliseconds since the operating system started.
+     * `systemUptime` The system uptime in seconds since the operating system started
      */
     val systemUptime: Long
 
     /**
-     * `systemBootTime` The time in milliseconds when the system was last booted (Unix timestamp).
+     * `systemBootTime` The timestamp when the system was last booted (Unix timestamp)
      */
     val systemBootTime: Long
 
     /**
-     * `isElevated` A flag indicating whether the operating system is running with elevated privileges (e.g., as an administrator).
+     * `isElevated` A flag indicating whether the operating system is running with elevated privileges (e.g., as an administrator)
      */
     val isElevated: Boolean
 
     /**
      * `networkParams` The network parameters of the operating system, including host name, domain name,
-     * DNS servers, and default gateways.
+     * DNS servers, and default gateways
      */
     val networkParams: NetworkParams
 
     /**
-     * `services` The list of services running on the operating system.
+     * `services` The list of services running on the operating system
      */
     val services: List<OSService>
 
     /**
-     * `sessions` The list of user sessions currently active on the operating system.
+     * `sessions` The list of user sessions currently active on the operating system
      */
     val sessions: List<OSSession>
 
     /**
      * Retrieves the list of all running processes on the operating system.
      *
-     * @return A list of all `OSProcess` objects representing the running processes.
+     * @return A list of all `OSProcess` objects representing the running processes
      */
     @Bridge
     fun getProcesses(): List<OSProcess>
@@ -120,7 +120,7 @@ interface OperatingSystem {
      * Retrieves the list of processes specified by their process IDs.
      *
      * @param pids A collection of process IDs to fetch the processes.
-     * @return A list of `OSProcess` objects corresponding to the given process IDs.
+     * @return A list of `OSProcess` objects corresponding to the given process IDs
      */
     @Bridge
     fun getProcesses(
@@ -131,7 +131,7 @@ interface OperatingSystem {
      * Retrieves a single process by its process ID.
      *
      * @param pid The process ID of the process to retrieve.
-     * @return The `OSProcess` object corresponding to the given process ID.
+     * @return The `OSProcess` object corresponding to the given process ID
      */
     @Bridge
     fun getProcess(
@@ -143,7 +143,7 @@ interface OperatingSystem {
      *
      * @param visibleOnly A flag indicating whether to retrieve only the visible desktop windows (`true`)
      *                    or all desktop windows (`false`).
-     * @return A list of `OSDesktopWindow` objects representing the desktop windows.
+     * @return A list of `OSDesktopWindow` objects representing the desktop windows
      */
     @Bridge
     fun getOSDesktopWindows(
@@ -153,7 +153,7 @@ interface OperatingSystem {
     /**
      * Parses `/proc` files with a given structure consisting of a keyed header line followed by a keyed value line.
      *
-     * Examples of such files include `/proc/net/netstat` and `/proc/net/snmp`.
+     * Examples of such files include `/proc/net/netstat` and `/proc/net/snmp`
      * The returned map has the structure:
      *
      * ```
@@ -217,7 +217,7 @@ interface OperatingSystem {
      * @param procFile The file to process
      * @param separator A regular expression specifying the separator between the statistic name and its value
      *
-     * @return A map of statistics and their associated values.
+     * @return A map of statistics and their associated values
      */
     @Bridge
     fun parseStatistics(

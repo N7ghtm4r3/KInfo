@@ -102,6 +102,8 @@ nav:
         - Sensors: desktop/hardware/sensors/sensors.md
         - Sound card: desktop/hardware/sound_card.md
         - Graphic card: desktop/hardware/graphic_card.md
+      - Operating system:
+        - Overview: desktop/operatingsystem/index.md
   - Web:
       - Overview: web/index.md
       - Browser info: web/browser_info.md

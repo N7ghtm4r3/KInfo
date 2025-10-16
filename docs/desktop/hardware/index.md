@@ -24,7 +24,7 @@ On **desktop** target the available **hardware** information are the below:
 
 The information are retrievable using the `DesktopInfo.Hardware` API:
 
-### Hardware
+### Hardware API
 
 Retrieve a `Hardware` instance from `desktopInfo` instance
 
@@ -34,7 +34,7 @@ val hardware = desktopInfo.hardware
 
 ## Properties
 
-The below properties are miscellaneous readable properties provided by the [hardware](#hardware-1) instance 
+The below properties are miscellaneous readable properties provided by the [hardware](#hardware-api) instance 
 
 ### powerSources
 
