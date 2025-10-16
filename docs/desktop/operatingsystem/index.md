@@ -167,3 +167,167 @@ val sessions: List<OSSession> = operatingSystem.sessions
 
 println(sessions)
 ```
+
+## Methods
+
+The below methods are provided by [operatingSystem](#operatingsystem-api) instance, and are useful to interact with the 
+operating system to retrieve any available information
+
+### getProcesses
+
+Retrieves the list of all running processes on the operating system
+
+#### Interfaces
+
+- [OSProcess](os_process.md) - Represents a process in the operating system
+
+```kotlin
+val processes: List<OSProcess> = operatingSystem.getProcesses()
+
+println(processes)
+```
+
+### getProcess
+
+Retrieves a single process by its process ID
+
+#### Parameters
+
+- **pid** `:Int` - The process ID of the process to retrieve
+
+#### Interfaces
+
+- [OSProcess](os_process.md) - Represents a process in the operating system
+
+```kotlin
+val process: OSProcess = operatingSystem.getProcess(
+    pid = 12202
+)
+
+println(process)
+```
+
+### getOSDesktopWindows
+
+Retrieves the desktop windows of the operating system
+
+#### Parameters
+
+- **visibleOnly** `:Boolean` - A flag indicating whether to retrieve only the visible desktop windows (`true`) or all desktop windows (`false`)
+
+#### Interfaces
+- [OSDesktopWindow](os_desktop_window.md) - Represents a desktop window on the operating system
+
+```kotlin
+val desktopWindows: List<OSDesktopWindow> = operatingSystem.getOSDesktopWindows(
+    visibleOnly = // true or false
+)
+
+println(desktopWindows)
+```
+
+### parseNestedStatistics
+
+Parses `/proc` files with a given structure consisting of a keyed header line followed by a keyed value line
+
+#### Parameters
+
+- **procFile** `:String` - The file to process
+- **keys** `:vararg String` - Optional array of keys to include in the outer map. If not provided, all keys found in the file will be returned
+
+```kotlin
+val nestedStatistic: Map<String, Map<String, Long>> = operatingSystem.parseNestedStatistics(
+    procFile =, // proc file,
+    keys = // requested keys
+)
+
+println(nestedStatistic)
+// e.g. 
+// {
+//     "TcpExt": {"SyncookiesSent": 0, "SyncookiesRecv": 4, "SyncookiesFailed": 0, ... },
+//     "IpExt": {"InNoRoutes": 55, "InTruncatedPkts": 0, "InMcastPkts": 27786, "OutMcastPkts": 1435, ... },
+//     "MPTcpExt": {"MPCapableSYNRX": 0, "MPCapableSYNTX": 0, "MPCapableSYNACKRX": 0, ... }
+// }
+```
+
+### parseStatistics
+
+Parses `/proc` files formatted as "statistic (long)value" to produce a simple mapping
+
+#### Parameters
+
+- **procFile** `:String` - The file to process
+- **separator** `:Regex` - A regular expression specifying the separator between the statistic name and its value
+
+```kotlin
+val statistics: Map<String, Long> = operatingSystem.parseStatistics(
+    procFile =, // proc file,
+    separator = // custom separator
+)
+
+println(statistics)
+// e.g. 
+// {
+//     "Ip6InReceives": 8026,
+//     "Ip6InHdrErrors": 0,
+//     "Icmp6InMsgs": 2,
+//     "Icmp6InErrors": 0,
+//     ...
+// }
+```
+
+### queryInstalledApps
+
+Method used to retrieve the current installed applications on the system
+
+#### Interfaces
+
+- [ApplicationInfo](application_info.md) - Represents common information about an installed application
+
+```kotlin
+val installedApps: List<ApplicationInfo> = operatingSystem.queryInstalledApps()
+
+println(installedApps)
+```
+
+### findInstalledApp
+
+Method used to find an installed application by name
+
+#### Parameters
+
+- **name** `:String` - The name of the application to find
+
+#### Interfaces
+
+- [ApplicationInfo](application_info.md) - Represents common information about an installed application
+
+```kotlin
+val installedApp: ApplicationInfo? = operatingSystem.findInstalledApp(
+    name = "MyApp"
+)
+
+println(installedApp)
+```
+
+### findInstalledApps
+
+Method used to find an installed applications list by a filter condition
+
+#### Parameters
+
+- **applicationFilter** `:(ApplicationInfo) -> Boolean` - The filter used to determine whether the application must be included in the retrieved list
+
+#### Interfaces
+
+- [ApplicationInfo](application_info.md) - Represents common information about an installed application
+
+```kotlin
+val installedApps: List<ApplicationInfo> = operatingSystem.findInstalledApps(
+    applicationFilter = { app ->
+        app.version == "1.0.0"
+    }
+)
+
+println(installedApps)
+```

@@ -109,7 +109,7 @@ interface OperatingSystem {
     val sessions: List<OSSession>
 
     /**
-     * Retrieves the list of all running processes on the operating system.
+     * Retrieves the list of all running processes on the operating system
      *
      * @return A list of all `OSProcess` objects representing the running processes
      */
@@ -128,9 +128,9 @@ interface OperatingSystem {
     ): List<OSProcess>
 
     /**
-     * Retrieves a single process by its process ID.
+     * Retrieves a single process by its process ID
      *
-     * @param pid The process ID of the process to retrieve.
+     * @param pid The process ID of the process to retrieve
      * @return The `OSProcess` object corresponding to the given process ID
      */
     @Bridge
@@ -139,10 +139,10 @@ interface OperatingSystem {
     ): OSProcess
 
     /**
-     * Retrieves the desktop windows of the operating system.
+     * Retrieves the desktop windows of the operating system
      *
      * @param visibleOnly A flag indicating whether to retrieve only the visible desktop windows (`true`)
-     *                    or all desktop windows (`false`).
+     *                    or all desktop windows (`false`)
      * @return A list of `OSDesktopWindow` objects representing the desktop windows
      */
     @Bridge
@@ -174,7 +174,7 @@ interface OperatingSystem {
      * MPTcpExt: 0 0 0 ...
      * ```
      *
-     * @param procFile The file to process.
+     * @param procFile The file to process
      * @param keys Optional array of keys to include in the outer map. If not provided, all keys found in the file will be returned
      *
      * @return map of keys to their corresponding stats

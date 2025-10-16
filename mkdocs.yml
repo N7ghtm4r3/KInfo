@@ -120,6 +120,8 @@ nav:
         - Network params: desktop/operatingsystem/network_params.md
         - OS service: desktop/operatingsystem/os_service.md
         - OS session: desktop/operatingsystem/os_session.md
+        - Desktop window: desktop/operatingsystem/os_desktop_window.md
+        - Application info: desktop/operatingsystem/application_info.md
   - Web:
       - Overview: web/index.md
       - Browser info: web/browser_info.md
