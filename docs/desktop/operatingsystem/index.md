@@ -157,3 +157,13 @@ val services: List<OSService> = operatingSystem.services
 
 println(services)
 ```
+
+### sessions
+
+The list of user [sessions](os_session.md) currently active on the operating system
+
+```kotlin
+val sessions: List<OSSession> = operatingSystem.sessions
+
+println(sessions)
+```
