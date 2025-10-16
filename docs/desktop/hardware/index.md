@@ -115,6 +115,10 @@ retrieve any available information
 
 Returns the list of network interfaces on the system
 
+#### Parameters
+
+- **includeLocalInterfaces** `:Boolean` - Whether to include local interfaces (such as loopback)
+
 ```kotlin
 val networkIfs: List<NetworkIF> = hardware.getNetworkIfs(
     includeLocalInterfaces = // true or false
@@ -126,6 +130,14 @@ println(networkIfs)
 ### getUsbDevices
 
 Retrieves the USB devices connected to the system, with the option to represent them as a device tree
+
+#### Parameters
+
+- **tree** `:Boolean` - Whether to return a tree structure of connected devices
+
+#### Interfaces
+
+- [UsbDevice](usb_device.md) - Represents a USB device
 
 ```kotlin
 val usbDevices: List<UsbDevice> = hardware.getUsbDevices(

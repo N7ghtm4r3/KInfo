@@ -144,3 +144,76 @@ val interrupts: Long = centralProcessor.interrupts
 
 println(interrupts) // e.g. 206562399
 ```
+
+## Methods
+
+The below methods and are useful to retrieve any available information about the central processor
+
+### getSystemCpuLoadBetweenTicks
+
+Retrieves the system CPU load as a percentage between the current ticks and the specified `oldTickets`
+
+#### Parameters
+
+- **oldTickets** `:LongArray` - The previous CPU ticks for comparison
+
+```kotlin
+val systemCpuLoadBetweenTicks: Double = centralProcessor.getSystemCpuLoadBetweenTicks(
+    oldTickets = longArrayOf(130000, 2000, 15000, 450000, 100, 0, 0, 0)
+)
+
+println(systemCpuLoadBetweenTicks) // e.g. 23.74 
+```
+
+### getSystemLoadAverage
+
+Retrieves the system load average for the last `nelem` intervals
+
+#### Parameters
+
+- **nelem** `:Int` - The number of intervals for which to retrieve the load average
+
+```kotlin
+val systemLoadAverage: DoubleArray = centralProcessor.getSystemLoadAverage(
+    nelem = 10
+)
+
+println(systemLoadAverage) // e.g. [0.75, 0.60, 0.55] 
+```
+
+### getSystemCpuLoad
+
+Calculates the system CPU load over a specified delay period
+
+#### Parameters
+
+- **delay** `:Long` - The delay period in milliseconds
+
+```kotlin
+val systemCpuLoad: Double = centralProcessor.getSystemCpuLoad(
+    delay = 1000
+)
+
+println(systemCpuLoad) // e.g. 0.42  
+```
+
+### getProcessorCpuLoadBetweenTicks
+
+Retrieves the processor CPU load as a percentage between the current ticks and the specified `oldTickets`
+
+#### Parameters
+
+- **oldTickets** `:Array<LongArray>` - The previous CPU ticks for comparison
+
+```kotlin
+val processorCpuLoadBetweenTicks: DoubleArray = centralProcessor.getProcessorCpuLoadBetweenTicks(
+    oldTickets = arrayOf(
+        longArrayOf(130000, 2000, 15000, 450000, 100, 0, 0, 0), // Core 0
+        longArrayOf(125000, 1800, 14000, 460000, 80, 0, 0, 0),  // Core 1
+        longArrayOf(120000, 1600, 13000, 470000, 60, 0, 0, 0),  // Core 2
+        longArrayOf(128000, 1900, 14500, 455000, 90, 0, 0, 0)   // Core 3
+    )
+)
+
+println(processorCpuLoadBetweenTicks) // e.g. [0.18, 0.23, 0.14, 0.27]
+```

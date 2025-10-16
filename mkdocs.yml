@@ -102,6 +102,7 @@ nav:
         - Sensors: desktop/hardware/sensors/sensors.md
         - Sound card: desktop/hardware/sound_card.md
         - Graphic card: desktop/hardware/graphic_card.md
+        - USB device: desktop/hardware/usb_device.md
       - Operating system:
         - Overview: desktop/operatingsystem/index.md
         - OS version info: desktop/operatingsystem/os_version_info.md
