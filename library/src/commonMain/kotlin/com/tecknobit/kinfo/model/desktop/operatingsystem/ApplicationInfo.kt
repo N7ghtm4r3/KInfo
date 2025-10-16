@@ -28,7 +28,7 @@ interface ApplicationInfo {
 
     /**
      * `timestamp` The installation or last modified timestamp of the application in milliseconds since epoch.
-     * This represents the `Unix` timestamp.
+     * This represents the `Unix` timestamp
      *
      * - On Windows, this corresponds to the application's install date
      * - On Linux, it represents the package's installation or last modified time
@@ -37,8 +37,9 @@ interface ApplicationInfo {
     val timestamp: Long
 
     /**
-     * `additionalInfo` A map containing additional application details such as install location, source, etc. Keys are
-     * field names, and values are corresponding details
+     * `additionalInfo` A map containing additional application details such as install location, source, etc.
+     *
+     * Keys are field names, and values are corresponding details
      */
     val additionalInfo: Map<String, String>
 
