@@ -62,3 +62,13 @@ val udpV6Stats: UdpStats = internetProtocolStats.udpV6Stats
 
 println(udpV6Stats.datagramsSent) // e.g. 452300
 ```
+
+#### ipConnections
+
+List of [active IP connections](ip_connection.md), each representing a current network connection with its details
+
+```kotlin
+val ipConnections: List<IPConnection> = internetProtocolStats.ipConnections
+
+println(ipConnections)
+```
