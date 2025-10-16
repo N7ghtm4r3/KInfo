@@ -117,6 +117,7 @@ nav:
         - OS process: desktop/operatingsystem/os_process.md
         - OS thread: desktop/operatingsystem/os_thread.md
         - Network params: desktop/operatingsystem/network_params.md
+        - OS service: desktop/operatingsystem/os_service.md
   - Web:
       - Overview: web/index.md
       - Browser info: web/browser_info.md

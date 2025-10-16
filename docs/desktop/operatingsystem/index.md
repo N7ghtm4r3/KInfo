@@ -147,3 +147,13 @@ val isElevated: Boolean = operatingSystem.isElevated
 
 println(isElevated) // true or false
 ```
+
+### services
+
+The list of [services](os_service.md) running on the operating system
+
+```kotlin
+val services: List<OSService> = operatingSystem.services
+
+println(services)
+```
