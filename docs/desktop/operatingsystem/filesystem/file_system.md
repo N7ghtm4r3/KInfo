@@ -23,3 +23,36 @@ val fileStores: List<OSFileStore> = fileSystem.fileStores
 
 println(fileStores)
 ```
+
+### openFileDescriptors
+
+The current number of open file descriptors for the system.
+This is the number of files currently opened by processes
+
+```kotlin
+val openFileDescriptors: Long = fileSystem.openFileDescriptors
+
+println(openFileDescriptors) // e.g. 1200
+```
+
+### maxFileDescriptors
+
+The maximum number of file descriptors available for the entire system.
+This is the upper limit of file descriptors the system can handle at once
+
+```kotlin
+val maxFileDescriptors: Long = fileSystem.maxFileDescriptors
+
+println(maxFileDescriptors) // e.g. 16777216
+```
+
+### maxFileDescriptorsPerProcess
+
+The maximum number of file descriptors available per process.
+This is the upper limit of file descriptors a single process can handle at once
+
+```kotlin
+val maxFileDescriptorsPerProcess: Long = fileSystem.maxFileDescriptorsPerProcess
+
+println(maxFileDescriptorsPerProcess) // e.g. 8192
+```
