@@ -56,3 +56,25 @@ val maxFileDescriptorsPerProcess: Long = fileSystem.maxFileDescriptorsPerProcess
 
 println(maxFileDescriptorsPerProcess) // e.g. 8192
 ```
+
+### Methods
+
+#### getFileStores
+
+Method used to retrieve the file stores of the system
+
+###### Parameters
+
+- **localOnly** `:Boolean` - A flag to indicate whether to return only local file stores (`true`) or all file stores (`false`)
+
+###### Interfaces
+
+- [OSFileStore](file_store.md) - Represents a file store (such as a disk or mount point) in the operating system
+
+```kotlin
+val fileStores: List<OSFileStore> = fileSystem.getFileStores(
+    localOnly = // true or false
+)
+
+println(fileStores)
+```

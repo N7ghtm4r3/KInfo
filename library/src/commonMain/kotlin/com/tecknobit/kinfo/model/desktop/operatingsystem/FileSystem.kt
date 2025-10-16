@@ -37,10 +37,10 @@ interface FileSystem {
     val maxFileDescriptorsPerProcess: Long
 
     /**
-     * `getFileStores` A function to retrieve the file stores of the system.
+     * Method used to retrieve the file stores of the system.
      * This method can filter to return only local file stores if specified
      *
-     * @param localOnly A flag to indicate whether to return only local file stores (`true`) or all file stores (`false`).
+     * @param localOnly A flag to indicate whether to return only local file stores (`true`) or all file stores (`false`)
      * @return A list of file stores that match the provided criteria
      */
     @Bridge
