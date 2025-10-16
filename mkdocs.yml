@@ -116,6 +116,7 @@ nav:
         - TCP state: desktop/operatingsystem/tcp_state.md
         - OS process: desktop/operatingsystem/os_process.md
         - OS thread: desktop/operatingsystem/os_thread.md
+        - Network params: desktop/operatingsystem/network_params.md
   - Web:
       - Overview: web/index.md
       - Browser info: web/browser_info.md
