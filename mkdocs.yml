@@ -105,6 +105,9 @@ nav:
       - Operating system:
         - Overview: desktop/operatingsystem/index.md
         - OS version info: desktop/operatingsystem/os_version_info.md
+        - File System:
+          - Overview: desktop/operatingsystem/filesystem/file_system.md
+          - File store: desktop/operatingsystem/filesystem/file_store.md
   - Web:
       - Overview: web/index.md
       - Browser info: web/browser_info.md

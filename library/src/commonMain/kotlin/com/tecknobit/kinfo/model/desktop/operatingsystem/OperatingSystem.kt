@@ -27,12 +27,12 @@ interface OperatingSystem {
     val manufacturer: String
 
     /**
-     * `versionInfo` The version information of the operating system, including version number, build, etc.
+     * `versionInfo` The version information of the operating system, including version number, build, etc
      */
     val versionInfo: OSVersionInfo
 
     /**
-     * `fileSystem` The file system information of the operating system, including file stores and descriptors.
+     * `fileSystem` The file system information of the operating system, including file stores and descriptors
      */
     val fileSystem: FileSystem
 
