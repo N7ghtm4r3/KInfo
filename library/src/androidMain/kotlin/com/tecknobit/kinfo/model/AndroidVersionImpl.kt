@@ -22,10 +22,9 @@ internal class AndroidVersionImpl : Version {
     /**
      * `baseOs` returns the base operating system version of the Android device
      *
-     * @throws [ApiLevelException] if the API level is below Marshmallow (API 23)
+     * @throws `ApiLevelException` if the API level is below Marshmallow (API 23)
      */
     override val baseOs: String
-        @RequiresApi(Build.VERSION_CODES.M)
         get() = Build.VERSION.BASE_OS
 
     /**
@@ -55,7 +54,7 @@ internal class AndroidVersionImpl : Version {
     /**
      * `releaseOrCodeName` returns either the release version or the code name of the Android version
      *
-     * @throws [ApiLevelException] if the API level is below Android 12 (API 31)
+     * @throws `ApiLevelException` if the API level is below Android 12 (API 31)
      */
     override val releaseOrCodeName: String
         @RequiresApi(Build.VERSION_CODES.R)
@@ -64,7 +63,7 @@ internal class AndroidVersionImpl : Version {
     /**
      * `releaseOrPreviewDisplay` returns either the release version or the preview display name if the device is in preview mode
      *
-     * @throws [ApiLevelException] if the API level is below Android 14 (API 34)
+     * @throws `ApiLevelException` if the API level is below Android 14 (API 34)
      */
     override val releaseOrPreviewDisplay: String
         @RequiresApi(Build.VERSION_CODES.TIRAMISU)
@@ -73,16 +72,15 @@ internal class AndroidVersionImpl : Version {
     /**
      * `securityPatch` returns the security patch level of the current Android version
      *
-     * @throws [ApiLevelException] if the API level is below Marshmallow (API 23)
+     * @throws `ApiLevelException` if the API level is below Marshmallow (API 23)
      */
     override val securityPatch: String
-        @RequiresApi(Build.VERSION_CODES.M)
         get() = Build.VERSION.SECURITY_PATCH
 
     /**
      * `mediaPerformanceClass` returns the media performance class of the Android device
      *
-     * @throws [ApiLevelException] if the API level is below Android 12 (API 31)
+     * @throws `ApiLevelException` if the API level is below Android 12 (API 31)
      */
     override val mediaPerformanceClass: Int
         @RequiresApi(Build.VERSION_CODES.S)
@@ -91,10 +89,9 @@ internal class AndroidVersionImpl : Version {
     /**
      * `previewSdkInt` returns the SDK version for preview releases of Android
      *
-     * @throws [ApiLevelException] if the API level is below Marshmallow (API 23)
+     * @throws `ApiLevelException` if the API level is below Marshmallow (API 23)
      */
     override val previewSdkInt: Int
-        @RequiresApi(Build.VERSION_CODES.M)
         get() = Build.VERSION.PREVIEW_SDK_INT
 
 }

@@ -270,6 +270,22 @@ The version code for **Android 14**
 println(versionCode.UPSIDE_DOWN_CAKE) // 34
 ```
 
+#### VANILLA_ICE_CREAM
+
+The version code for **Android 15**
+
+```kotlin
+println(versionCode.VANILLA_ICE_CREAM) // 35
+```
+
+#### BAKLAVA
+
+The version code for **Android 16**
+
+```kotlin
+println(versionCode.BAKLAVA) // 36
+```
+
 ## androidId
 
 Unique Android ID of the device
