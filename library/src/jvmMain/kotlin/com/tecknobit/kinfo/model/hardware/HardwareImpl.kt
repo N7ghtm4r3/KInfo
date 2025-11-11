@@ -205,7 +205,7 @@ class HardwareImpl(
                     size = disk.size,
                     reads = disk.reads,
                     readBytes = disk.readBytes,
-                    writes = disk.readBytes,
+                    writes = disk.writes,
                     writesBytes = disk.writeBytes,
                     currentQueueLength = disk.currentQueueLength,
                     transferTime = disk.transferTime,
