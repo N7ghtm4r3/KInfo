@@ -98,5 +98,19 @@ internal class AndroidVersionCodeImpl : VersionCode {
      * `UPSIDE_DOWN_CAKE` the version code for Android 14 (API level 34)
      */
     override val UPSIDE_DOWN_CAKE: Int = Build.VERSION_CODES.UPSIDE_DOWN_CAKE
-    
+
+    /**
+     * `VANILLA_ICE_CREAM` the version code for Android 15 (API level 35)
+     *
+     * @since 1.0.5
+     */
+    override val VANILLA_ICE_CREAM: Int = Build.VERSION_CODES.VANILLA_ICE_CREAM
+
+    /**
+     * `BAKLAVA` the version code for Android 16 (API level 36)
+     *
+     * @since 1.0.5
+     */
+    override val BAKLAVA: Int = Build.VERSION_CODES.VANILLA_ICE_CREAM
+
 }

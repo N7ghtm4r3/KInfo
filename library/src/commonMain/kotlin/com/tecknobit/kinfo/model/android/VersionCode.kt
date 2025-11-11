@@ -97,4 +97,18 @@ interface VersionCode {
      * `UPSIDE_DOWN_CAKE` the version code for Android 14 (API level 34)
      */
     val UPSIDE_DOWN_CAKE: Int
+
+    /**
+     * `VANILLA_ICE_CREAM` the version code for Android 15 (API level 35)
+     *
+     * @since 1.0.5
+     */
+    val VANILLA_ICE_CREAM: Int
+
+    /**
+     * `BAKLAVA` the version code for Android 16 (API level 36)
+     *
+     * @since 1.0.5
+     */
+    val BAKLAVA: Int
 }
