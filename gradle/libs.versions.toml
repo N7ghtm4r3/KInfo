@@ -1,15 +1,15 @@
 [versions]
 androidGradlePlugin = "8.12.3"
-kotlin = "2.2.20"
+kotlin = "2.2.21"
 android-minSdk = "24"
 android-compileSdk = "36"
-jetbrainsCompose = "1.9.0"
+jetbrainsCompose = "1.9.3"
 dokka = "2.0.0"
 annotation = "1.9.1"
-oshi = "6.9.0"
+oshi = "6.9.1"
 startupRuntime = "1.2.0"
 androidXCore = "1.17.0"
-equinox = "1.1.6"
+equinox = "1.1.7"
 
 [libraries]
 dokka-base = { module = "org.jetbrains.dokka:dokka-base", version.ref = "dokka" }

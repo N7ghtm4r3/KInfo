@@ -7,7 +7,7 @@
 ![Static Badge](https://img.shields.io/badge/desktop-006874)
 ![Static Badge](https://img.shields.io/badge/wasmjs-834C74)
 
-**v1.0.4**
+**v1.0.5**
 
 KInfo allows to access the device details of `android`, `iOS`, `desktop` e `web` devices
 
@@ -17,7 +17,7 @@ KInfo allows to access the device details of `android`, `iOS`, `desktop` e `web`
 
 ```groovy
 dependencies {
-    implementation 'io.github.n7ghtm4r3:kinfo:1.0.4'
+    implementation 'io.github.n7ghtm4r3:kinfo:1.0.5'
 }
 ```
 
@@ -25,7 +25,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("io.github.n7ghtm4r3:kinfo:1.0.4")
+    implementation("io.github.n7ghtm4r3:kinfo:1.0.5")
 }
 ```
 
@@ -35,7 +35,7 @@ dependencies {
 
 ```toml
 [versions]
-kinfo = "1.0.4"
+kinfo = "1.0.5"
 
 [libraries]
 kinfo = { module = "io.github.n7ghtm4r3:kinfo", version.ref = "kinfo" }
