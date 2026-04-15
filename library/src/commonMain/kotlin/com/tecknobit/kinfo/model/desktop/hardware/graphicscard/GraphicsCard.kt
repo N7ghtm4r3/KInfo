@@ -1,4 +1,6 @@
-package com.tecknobit.kinfo.model.desktop.hardware
+package com.tecknobit.kinfo.model.desktop.hardware.graphicscard
+
+import com.tecknobit.kinfo.annotations.Bridge
 
 /**
  * Represents a graphics card in the system.
@@ -33,5 +35,8 @@ interface GraphicsCard {
      * The amount of VRAM (video memory) available on the graphics card, in bytes
      */
     val vRam: Long
+
+    @Bridge
+    fun createStatsSession(): GpuStats?
 
 }
