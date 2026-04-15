@@ -3,6 +3,7 @@ package com.tecknobit.kinfo.model.desktop.hardware
 import com.tecknobit.kinfo.annotations.Bridge
 import com.tecknobit.kinfo.model.desktop.hardware.centralprocessor.CentralProcessor
 import com.tecknobit.kinfo.model.desktop.hardware.computersystem.ComputerSystem
+import com.tecknobit.kinfo.model.desktop.hardware.graphicscard.GraphicsCard
 import com.tecknobit.kinfo.model.desktop.hardware.memory.GlobalMemory
 import com.tecknobit.kinfo.model.desktop.hardware.storage.HWDiskStore
 import com.tecknobit.kinfo.model.desktop.hardware.storage.LogicalVolumeGroup

@@ -4,12 +4,14 @@ import com.tecknobit.kinfo.annotations.Bridge
 import com.tecknobit.kinfo.model.desktop.hardware.*
 import com.tecknobit.kinfo.model.desktop.hardware.centralprocessor.CentralProcessor
 import com.tecknobit.kinfo.model.desktop.hardware.computersystem.ComputerSystem
+import com.tecknobit.kinfo.model.desktop.hardware.graphicscard.GraphicsCard
 import com.tecknobit.kinfo.model.desktop.hardware.memory.GlobalMemory
 import com.tecknobit.kinfo.model.desktop.hardware.storage.HWDiskStore
 import com.tecknobit.kinfo.model.desktop.hardware.storage.HWPartition
 import com.tecknobit.kinfo.model.desktop.hardware.storage.LogicalVolumeGroup
 import com.tecknobit.kinfo.model.hardware.centralprocessor.CentralProcessorImpl
 import com.tecknobit.kinfo.model.hardware.computersystem.ComputerSystemImpl
+import com.tecknobit.kinfo.model.hardware.graphicscard.GraphicsCardImpl
 import com.tecknobit.kinfo.model.hardware.memory.GlobalMemoryImpl
 import com.tecknobit.kinfo.model.hardware.storage.HWDiskStoreImpl
 import com.tecknobit.kinfo.model.hardware.storage.HWPartitionImpl
@@ -409,7 +411,8 @@ class HardwareImpl(
                     deviceId = card.deviceId,
                     vendor = card.vendor,
                     versionInfo = card.versionInfo,
-                    vRam = card.vRam
+                    vRam = card.vRam,
+                    source = card
                 )
             )
         }
