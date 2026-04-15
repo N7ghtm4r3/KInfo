@@ -240,7 +240,8 @@ class HardwareImpl(
                     size = partition.size,
                     major = partition.major,
                     minor = partition.minor,
-                    mountPoint = partition.mountPoint
+                    mountPoint = partition.mountPoint,
+                    label = partition.label
                 )
             )
         }
