@@ -10,7 +10,7 @@ On **Android** target are available the below information:
 |                     | `packageName`        | The package name of the application                  | `Context.packageName`           |
 |                     | `versionName`        | The version name of the application                  | `PackageInfo.versionName`       |
 |                     | `versionCode`        | The version code of the application                  | `PackageInfoCompat`             |
-|                     | `isDebug`            | Indicates whether the application is the debug build | `BuildConfig.DEBUG`             |
+|                     | `isDebug`            | Indicates whether the application is the debug build | `ApplicationInfo.flags`         |
 | **OS Info**         | `version`            | Details about the Android OS version                 | `AndroidVersionImpl`            |
 |                     | `VERSION_CODES`      | Enumerated version codes for Android                 | `AndroidVersionCodeImpl`        |
 |                     | `androidId`          | Unique Android ID of the device                      | `Settings.Secure.ANDROID_ID`    |

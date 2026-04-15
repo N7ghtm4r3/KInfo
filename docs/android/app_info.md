@@ -70,7 +70,7 @@ Indicates whether the application is the debug build
 
 ### Original source
 
-`isDebug` value is retrieved from `BuildConfig.DEBUG` property
+`isDebug` value is retrieved performing a `bitwise and` with `ApplicationInfo.flags` property
 
 ### KInfo's source
 
