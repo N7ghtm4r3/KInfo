@@ -1,5 +1,6 @@
 package com.tecknobit.kinfo.model.operatingsystem.protocols
 
+import com.tecknobit.kinfo.annotations.Loader
 import com.tecknobit.kinfo.model.desktop.operatingsystem.protocols.*
 
 /**
@@ -9,7 +10,7 @@ import com.tecknobit.kinfo.model.desktop.operatingsystem.protocols.*
  *
  * @param internetProtocolStatsInfo The source object that contains the raw protocol stats.
  *
- * @author N7ghtm4r3
+ * @author N7ghtm4r3 - Tecknobit
  *
  * @see InternetProtocolStats
  */
@@ -108,6 +109,7 @@ class InternetProtocolStatsImpl(
      * @param sourceList The raw list of IP connections.
      * @return A list of [IPConnection] objects representing the active IP connections.
      */
+    @Loader
     private fun loadIpConnections(
         sourceList: List<oshi.software.os.InternetProtocolStats.IPConnection>
     ): List<IPConnection> {

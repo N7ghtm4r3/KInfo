@@ -19,7 +19,7 @@ import com.tecknobit.kinfo.model.web.operatingsystem.Os
  * @see Os
  * @see WebInfoItem
  *
- * @author N7ghtm4r3
+ * @author N7ghtm4r3 - Tecknobit
  */
 interface WebInfo : WebInfoItem {
 

@@ -15,7 +15,7 @@ import platform.UIKit.UIWindowScene
  *
  * The class provides properties and methods to check whether the device is in portrait or landscape mode.
  *
- * @author N7ghtm4r3 - Swapnil Musale
+ * @author N7ghtm4r3 - Tecknobit - Swapnil Musale
  */
 internal class IosDeviceOrientationImpl : DeviceOrientation {
 

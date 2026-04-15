@@ -12,7 +12,7 @@ import com.tecknobit.kinfo.model.web.device.Device
  *
  * @see Device
  *
- * @author N7ghtm4r3
+ * @author N7ghtm4r3 - Tecknobit
  */
 class DeviceImpl(
     parsedDevice: com.tecknobit.kinfo.model.Device

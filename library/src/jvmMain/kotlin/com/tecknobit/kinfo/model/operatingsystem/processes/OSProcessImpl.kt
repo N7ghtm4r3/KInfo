@@ -46,7 +46,7 @@ import com.tecknobit.kinfo.model.desktop.operatingsystem.processes.State
  * @param majorFaults The number of major page faults for the process
  * @param contextSwitches The number of context switches for the process
  *
- * @author N7ghtm4r3
+ * @author N7ghtm4r3 - Tecknobit
  *
  * @see OSProcess
  */

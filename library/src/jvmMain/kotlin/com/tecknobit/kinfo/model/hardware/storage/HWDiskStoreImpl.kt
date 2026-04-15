@@ -22,7 +22,7 @@ import com.tecknobit.kinfo.model.desktop.hardware.storage.HWPartition
  * @param timestamp The timestamp when the disk information was last updated
  * @param updateAttributes A flag indicating whether the disk's attributes should be updated
  *
- * @author N7ghtm4r3
+ * @author N7ghtm4r3 - Tecknobit
  *
  * @see HWDiskStore
  */

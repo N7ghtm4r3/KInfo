@@ -12,7 +12,7 @@ import com.tecknobit.kinfo.model.desktop.hardware.graphicscard.GpuTicks
  * @property activeTicks The current active ticks
  * @property idleTicks The idle ticks count
  *
- * @author N7ghtm4r3
+ * @author N7ghtm4r3 - Tecknobit
  *
  * @since 1.0.6
  *

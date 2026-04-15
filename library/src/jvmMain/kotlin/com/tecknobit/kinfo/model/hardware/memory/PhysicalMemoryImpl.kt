@@ -15,7 +15,7 @@ import com.tecknobit.kinfo.model.desktop.hardware.memory.PhysicalMemory
  * @param partNumber The part number of the memory module.
  * @param serialNumber The serial number of the memory module.
  *
- * @author N7ghtm4r3
+ * @author N7ghtm4r3 - Tecknobit
  *
  * @see PhysicalMemory
  */

@@ -5,7 +5,7 @@ package com.tecknobit.kinfo.model.desktop.operatingsystem
  * standardized access to essential application details while allowing flexibility for OS-specific fields via an
  * additional information map
  *
- * @author N7ghtm4r3
+ * @author N7ghtm4r3 - Tecknobit
  *
  * @since 1.0.2
  */

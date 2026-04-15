@@ -14,7 +14,7 @@ import com.tecknobit.kinfo.model.desktop.hardware.UsbDevice
  * @param uniqueDeviceId A unique identifier for the USB device.
  * @param connectedDevices A list of other USB devices that are connected to this device (if any).
  *
- * @author N7ghtm4r3
+ * @author N7ghtm4r3 - Tecknobit
  *
  * @see UsbDevice
  */

@@ -18,7 +18,7 @@ import com.tecknobit.kinfo.model.desktop.operatingsystem.protocols.TcpState
  * @param receiveQueue The length of the receive queue for the connection.
  * @param owningProcessId The process ID of the process that owns the connection.
  *
- * @author N7ghtm4r3
+ * @author N7ghtm4r3 - Tecknobit
  *
  * @see IPConnection
  */

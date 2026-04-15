@@ -15,7 +15,7 @@ import com.tecknobit.kinfo.model.desktop.hardware.graphicscard.GraphicsCard
  * @param vRam The amount of VRAM (video memory) available on the graphics card, in bytes
  * @param source The original `GraphicsCard` item from oshi library to perform any bridge operations
  *
- * @author N7ghtm4r3
+ * @author N7ghtm4r3 - Tecknobit
  *
  * @see GraphicsCard
  */

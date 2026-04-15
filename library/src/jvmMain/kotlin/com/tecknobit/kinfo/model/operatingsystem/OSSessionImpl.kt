@@ -12,7 +12,7 @@ import com.tecknobit.kinfo.model.desktop.operatingsystem.OSSession
  * @param loginTime The login time of the user session, represented as a timestamp in milliseconds.
  * @param host The host name or IP address of the system where the session is active.
  *
- * @author N7ghtm4r3
+ * @author N7ghtm4r3 - Tecknobit
  *
  * @see OSSession
  */

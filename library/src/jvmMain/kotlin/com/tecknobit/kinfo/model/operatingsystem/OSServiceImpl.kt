@@ -10,7 +10,7 @@ import com.tecknobit.kinfo.model.desktop.operatingsystem.ServiceState
  * @param processID The process ID associated with the service
  * @param state The current state of the service
  *
- * @author N7ghtm4r3
+ * @author N7ghtm4r3 - Tecknobit
  *
  * @see OSService
  */

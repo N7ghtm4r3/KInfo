@@ -14,7 +14,7 @@ import com.tecknobit.kinfo.model.desktop.hardware.PrinterStatus
  *
  * Integration in [oshi - #3078](https://github.com/oshi/oshi/pull/3078)
  *
- * @author N7ghtm4r3
+ * @author N7ghtm4r3 - Tecknobit
  *
  * @since 1.0.6
  */

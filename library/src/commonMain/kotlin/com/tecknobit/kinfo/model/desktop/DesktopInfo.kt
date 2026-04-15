@@ -8,7 +8,7 @@ import com.tecknobit.kinfo.model.desktop.operatingsystem.OperatingSystem
  * Represents information about the desktop environment.
  * Provides details about the operating system and hardware of the desktop.
  *
- * @author N7ghtm4r3
+ * @author N7ghtm4r3 - Tecknobit
  */
 interface DesktopInfo {
 

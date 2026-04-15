@@ -12,7 +12,7 @@ import oshi.hardware.CentralProcessor
  *
  * @param processorIdentifierInfo the underlying processor identifier info object from `CentralProcessor`
  *
- * @author N7ghtm4r3
+ * @author N7ghtm4r3 - Tecknobit
  *
  * @see ProcessorIdentifier
  */

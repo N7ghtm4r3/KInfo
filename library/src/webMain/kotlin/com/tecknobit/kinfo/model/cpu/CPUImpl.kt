@@ -12,7 +12,7 @@ import com.tecknobit.kinfo.model.web.cpu.CPU
  *
  * @see CPU
  *
- * @author N7ghtm4r3
+ * @author N7ghtm4r3 - Tecknobit
  */
 class CPUImpl(
     parsedCPU: com.tecknobit.kinfo.model.CPU

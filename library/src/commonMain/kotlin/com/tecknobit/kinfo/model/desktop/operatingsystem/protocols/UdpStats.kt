@@ -4,7 +4,7 @@ package com.tecknobit.kinfo.model.desktop.operatingsystem.protocols
  * `UdpStats` Represents the statistics for the UDP protocol, including the number of datagrams sent and received,
  * as well as any errors or datagrams with no port
  *
- * @author N7ghtm4r3
+ * @author N7ghtm4r3 - Tecknobit
  *
  * @see UdpStats
  */

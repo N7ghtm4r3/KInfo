@@ -12,7 +12,7 @@ import com.tecknobit.kinfo.model.web.engine.Engine
  *
  * @see Engine
  *
- * @author N7ghtm4r3
+ * @author N7ghtm4r3 - Tecknobit
  */
 class EngineImpl(
     parsedEngine: com.tecknobit.kinfo.model.Engine

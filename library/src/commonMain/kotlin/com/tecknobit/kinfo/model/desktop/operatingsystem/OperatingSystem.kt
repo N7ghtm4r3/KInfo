@@ -12,7 +12,7 @@ import com.tecknobit.kinfo.model.desktop.operatingsystem.protocols.NetworkParams
  *
  * Provides methods to interact with processes, file system, and system services.
  *
- * @author N7ghtm4r3
+ * @author N7ghtm4r3 - Tecknobit
  */
 interface OperatingSystem {
 

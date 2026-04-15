@@ -1,6 +1,7 @@
 package com.tecknobit.kinfo.model.operatingsystem
 
 import com.tecknobit.kinfo.annotations.Bridge
+import com.tecknobit.kinfo.annotations.Loader
 import com.tecknobit.kinfo.model.desktop.operatingsystem.FileSystem
 import com.tecknobit.kinfo.model.desktop.operatingsystem.OSFileStore
 
@@ -10,7 +11,7 @@ import com.tecknobit.kinfo.model.desktop.operatingsystem.OSFileStore
  *
  * @param fileSystemInfo The underlying file system information from the OS library (OSHI).
  *
- * @author N7ghtm4r3
+ * @author N7ghtm4r3 - Tecknobit
  *
  * @see FileSystem
  */
@@ -66,6 +67,7 @@ class FileSystemImpl(
      * @param sourceList The raw list of `oshi.software.os.OSFileStore` to be transformed.
      * @return A list of `OSFileStore` objects.
      */
+    @Loader
     private fun loadFileStoresList(sourceList: List<oshi.software.os.OSFileStore>): List<OSFileStore> {
         val result: MutableList<OSFileStore> = mutableListOf()
         sourceList.forEach { fileStore ->

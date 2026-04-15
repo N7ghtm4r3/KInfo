@@ -5,7 +5,7 @@ package com.tecknobit.kinfo.model.desktop.hardware.storage
  * It provides details about the name of the volume group, the physical volumes
  * associated with it, and the logical volumes mapped to physical volumes.
  *
- * @author N7ghtm4r3
+ * @author N7ghtm4r3 - Tecknobit
  */
 interface LogicalVolumeGroup {
 

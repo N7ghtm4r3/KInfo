@@ -22,7 +22,7 @@ import com.tecknobit.kinfo.model.desktop.operatingsystem.OSFileStore
  * @param totalInodes The total number of inodes.
  * @param updateAttributes Whether the file store updates its attributes.
  *
- * @author N7ghtm4r3
+ * @author N7ghtm4r3 - Tecknobit
  * @see OSFileStore
  */
 class OSFileStoreImpl(

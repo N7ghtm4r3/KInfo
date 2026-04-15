@@ -29,7 +29,7 @@ import kotlinx.browser.window
  * @see Os
  * @see UAParser
  *
- * @author N7ghtm4r3
+ * @author N7ghtm4r3 - Tecknobit
  */
 class WebInfoImpl : WebInfo {
 

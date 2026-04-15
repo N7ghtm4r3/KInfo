@@ -7,7 +7,7 @@ package com.tecknobit.kinfo.model.desktop.hardware.centralprocessor
  * This interface provides the details about the cache hierarchy and its characteristics, which are
  * useful for system-level performance analysis and optimization.
  *
- * @author N7ghtm4r3
+ * @author N7ghtm4r3 - Tecknobit
  */
 interface ProcessorCache {
 

@@ -13,7 +13,7 @@ import com.tecknobit.kinfo.model.desktop.hardware.centralprocessor.LogicalProces
  * @param numaNode The NUMA (Non-Uniform Memory Access) node to which this logical processor is assigned
  * @param processorGroup The processor group for systems that support grouping
  *
- * @author N7ghtm4r3
+ * @author N7ghtm4r3 - Tecknobit
  *
  * @see LogicalProcessor
  */

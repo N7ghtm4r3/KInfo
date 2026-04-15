@@ -2,6 +2,7 @@ package com.tecknobit.kinfo.model.operatingsystem
 
 import com.tecknobit.kinfo.UNKNOWN
 import com.tecknobit.kinfo.annotations.Bridge
+import com.tecknobit.kinfo.annotations.Loader
 import com.tecknobit.kinfo.model.desktop.operatingsystem.*
 import com.tecknobit.kinfo.model.desktop.operatingsystem.processes.OSProcess
 import com.tecknobit.kinfo.model.desktop.operatingsystem.processes.OSThread
@@ -226,6 +227,7 @@ class OperatingSystemImpl(
      * @param sourceList The list of processes to load
      * @return A list of `OSProcess` objects
      */
+    @Loader
     private fun loadOSProcesses(
         sourceList: List<oshi.software.os.OSProcess>,
     ): List<OSProcess> {
@@ -291,6 +293,7 @@ class OperatingSystemImpl(
      * @param sourceList The list of threads to load
      * @return A list of `OSThread` objects
      */
+    @Loader
     private fun loadOSThreads(
         sourceList: List<oshi.software.os.OSThread>,
     ): List<OSThread> {
@@ -336,6 +339,7 @@ class OperatingSystemImpl(
      * @param sourceList The list of services to load
      * @return A list of `OSService` objects
      */
+    @Loader
     private fun loadOSServices(
         sourceList: List<oshi.software.os.OSService>,
     ): List<OSService> {
@@ -358,6 +362,7 @@ class OperatingSystemImpl(
      * @param sourceList The list of sessions to load
      * @return A list of `OSSession` objects
      */
+    @Loader
     private fun loadOSSessions(
         sourceList: List<oshi.software.os.OSSession>,
     ): List<OSSession> {
@@ -385,6 +390,7 @@ class OperatingSystemImpl(
      * @param sourceList A list of `oshi.software.os.OSDesktopWindow` objects to be mapped
      * @return A list of `OSDesktopWindow` objects, representing the desktop windows
      */
+    @Loader
     private fun loadOSDesktopWindows(
         sourceList: List<oshi.software.os.OSDesktopWindow>,
     ): List<OSDesktopWindow> {

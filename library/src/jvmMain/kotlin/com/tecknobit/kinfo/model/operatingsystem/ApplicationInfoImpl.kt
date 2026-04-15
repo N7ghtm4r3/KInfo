@@ -22,7 +22,7 @@ import com.tecknobit.kinfo.model.desktop.operatingsystem.ApplicationInfo
  *
  * @see ApplicationInfo
  *
- * @author N7ghtm4r3
+ * @author N7ghtm4r3 - Tecknobit
  *
  * @since 1.0.2
  */

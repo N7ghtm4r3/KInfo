@@ -4,7 +4,7 @@ package com.tecknobit.kinfo.model.desktop.hardware.memory
  * `VirtualMemory` represents the virtual memory statistics of the system.
  * It provides detailed information about the swap memory, virtual memory limits, and usage statistics.
  *
- * @author N7ghtm4r3
+ * @author N7ghtm4r3 - Tecknobit
  */
 interface VirtualMemory {
 

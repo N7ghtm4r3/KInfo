@@ -10,7 +10,7 @@ import com.tecknobit.kinfo.model.desktop.hardware.Display
  * @param edid The Extended Display Identification Data (EDID) for the display.
  * It is a byte array that stores the capabilities and characteristics of the display device.
  *
- * @author N7ghtm4r3
+ * @author N7ghtm4r3 - Tecknobit
  *
  * @see Display
  */

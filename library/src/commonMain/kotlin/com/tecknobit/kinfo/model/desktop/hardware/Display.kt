@@ -5,7 +5,7 @@ package com.tecknobit.kinfo.model.desktop.hardware
  * It provides details about the Extended Display Identification Data (EDID) for the display.
  * EDID contains information about the display's capabilities and characteristics.
  *
- * @author N7ghtm4r3
+ * @author N7ghtm4r3 - Tecknobit
  */
 interface Display {
 

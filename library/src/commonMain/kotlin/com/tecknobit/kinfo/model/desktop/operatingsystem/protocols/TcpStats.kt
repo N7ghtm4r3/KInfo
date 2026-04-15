@@ -4,7 +4,7 @@ package com.tecknobit.kinfo.model.desktop.operatingsystem.protocols
  * `TcpStats` Represents statistics related to TCP connections, including the number of connections,
  * the segments sent and received, and error counts
  *
- * @author N7ghtm4r3
+ * @author N7ghtm4r3 - Tecknobit
  */
 interface TcpStats {
 

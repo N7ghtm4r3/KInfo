@@ -13,7 +13,7 @@ import com.tecknobit.kinfo.model.desktop.hardware.storage.LogicalVolumeGroup
  * It provides details about the computer system, processors, memory, storage devices, network interfaces, displays, sensors, and more.
  * This interface is useful for obtaining comprehensive hardware information for monitoring or diagnostics.
  *
- * @author N7ghtm4r3
+ * @author N7ghtm4r3 - Tecknobit
  */
 interface Hardware {
 

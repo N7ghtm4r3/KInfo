@@ -9,7 +9,7 @@ import com.tecknobit.kinfo.annotations.Bridge
  * This interface is intended to be implemented by platform-specific classes to provide processor details
  * and performance metrics across different systems
  *
- * @author N7ghtm4r3
+ * @author N7ghtm4r3 - Tecknobit
  */
 interface CentralProcessor {
 

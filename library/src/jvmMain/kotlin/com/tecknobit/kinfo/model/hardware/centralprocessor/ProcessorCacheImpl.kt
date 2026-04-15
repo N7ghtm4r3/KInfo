@@ -10,7 +10,7 @@ import com.tecknobit.kinfo.model.desktop.hardware.centralprocessor.ProcessorCach
  *
  * This implementation provides the specific values for each of these properties for a given cache.
  *
- * @author N7ghtm4r3
+ * @author N7ghtm4r3 - Tecknobit
  *
  * @see ProcessorCache
  */

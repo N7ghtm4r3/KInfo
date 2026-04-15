@@ -6,7 +6,7 @@ package com.tecknobit.kinfo.model.desktop.operatingsystem.protocols
  * This enum defines the possible states a TCP connection can be in during its lifecycle,
  * from establishing a connection to closing or being in a waiting state
  *
- * @author N7ghtm4r3
+ * @author N7ghtm4r3 - Tecknobit
  *
  * @see <a href="https://www.rfc-editor.org/rfc/rfc793">RFC 793</a> for more information on TCP states
  */

@@ -5,7 +5,7 @@ package com.tecknobit.kinfo.model.desktop.hardware.centralprocessor
  * This interface provides information about the physical CPU core, its package,
  * and efficiency, along with its unique identifier string.
  *
- * @author N7ghtm4r3
+ * @author N7ghtm4r3 - Tecknobit
  */
 interface PhysicalProcessor {
 

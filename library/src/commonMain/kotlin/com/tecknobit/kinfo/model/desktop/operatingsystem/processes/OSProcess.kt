@@ -4,7 +4,7 @@ package com.tecknobit.kinfo.model.desktop.operatingsystem.processes
  * `OSProcess` represents a process in the operating system.
  * It provides details about the process, including its name, ID, state, resources usage, and more
  *
- * @author N7ghtm4r3
+ * @author N7ghtm4r3 - Tecknobit
  */
 interface OSProcess {
 

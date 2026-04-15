@@ -12,7 +12,7 @@ import com.tecknobit.kinfo.model.desktop.hardware.computersystem.Firmware
  * @param version The version of the firmware
  * @param releaseDate The release date of the firmware
  *
- * @author N7ghtm4r3
+ * @author N7ghtm4r3 - Tecknobit
  *
  * @see Firmware
  */
