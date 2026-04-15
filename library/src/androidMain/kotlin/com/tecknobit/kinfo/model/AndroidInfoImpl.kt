@@ -1,6 +1,7 @@
 package com.tecknobit.kinfo.model
 
 import android.annotation.SuppressLint
+import android.content.pm.ApplicationInfo.FLAG_DEBUGGABLE
 import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
 import android.os.Build
@@ -10,7 +11,6 @@ import android.provider.Settings
 import androidx.core.app.LocaleManagerCompat
 import androidx.core.content.pm.PackageInfoCompat
 import com.tecknobit.equinoxcore.utilities.AppContext
-import com.tecknobit.kinfo.BuildConfig
 import com.tecknobit.kinfo.UNKNOWN
 import com.tecknobit.kinfo.model.android.AndroidInfo
 import com.tecknobit.kinfo.model.android.DisplayMetrics
@@ -397,7 +397,7 @@ internal class AndroidInfoImpl : AndroidInfo {
     /**
      * `isDebug` indicates whether the application is running in debug mode
      */
-    override val isDebug: Boolean = BuildConfig.DEBUG
+    override val isDebug: Boolean = (AppContext.get().applicationInfo.flags and FLAG_DEBUGGABLE) != 0
 
     /**
      * `androidCodename` is the codename of the Android OS version,

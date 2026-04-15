@@ -1,3 +1,4 @@
+import com.android.build.api.dsl.androidLibrary
 import com.vanniktech.maven.publish.JavadocJar
 import com.vanniktech.maven.publish.KotlinMultiplatform
 import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
@@ -7,11 +8,7 @@ plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
-    // TODO: TO USE THIS
-    // alias(libs.plugins.androidKotlinMultiplatformLibrary)
-
-    // TODO: INSTEAD OF LEGACY ONE
-    alias(libs.plugins.androidLibrary)
+    alias(libs.plugins.androidKotlinMultiplatformLibrary)
     alias(libs.plugins.dokka)
     alias(libs.plugins.vanniktech.mavenPublish)
 }
@@ -20,27 +17,18 @@ group = "com.teknobit.kinfo"
 version = "1.0.6"
 
 kotlin {
-// TODO: TO USE THIS
-//    androidLibrary {
-//        compileSdk = libs.versions.android.compileSdk.get().toInt()
-//        minSdk = libs.versions.android.minSdk.get().toInt()
-//        namespace = "com.tecknobit.kinfo"
-//        experimentalProperties["android.experimental.kmp.enableAndroidResources"] = true
-//
-//        compilations {
-//            compilerOptions {
-//                jvmTarget.set(JvmTarget.JVM_18)
-//            }
-//        }
-//
-//    }
+    androidLibrary {
+        compileSdk = libs.versions.android.compileSdk.get().toInt()
+        minSdk = libs.versions.android.minSdk.get().toInt()
+        namespace = "com.tecknobit.kinfo"
+        experimentalProperties["android.experimental.kmp.enableAndroidResources"] = true
 
-// TODO: INSTEAD OF LEGACY ONE
-    androidTarget {
-        publishLibraryVariants("release")
-        compilerOptions {
-            jvmTarget.set(JvmTarget.JVM_18)
+        compilations {
+            compilerOptions {
+                jvmTarget.set(JvmTarget.JVM_18)
+            }
         }
+
     }
 
     jvm {
@@ -80,16 +68,13 @@ kotlin {
     sourceSets {
         applyDefaultHierarchyTemplate()
 
-        // TODO: TO USE THIS
-        // val commonMain by getting {
-            // dependencies{
-
-        // TODO: INSTEAD OF LEGACY ONE
-        androidMain.dependencies {
-            implementation(libs.startup.runtime)
-            implementation(libs.androidx.core)
-            implementation(libs.equinox.compose)
-            implementation(libs.equinox.core)
+        val androidMain by getting {
+            dependencies {
+                implementation(libs.startup.runtime)
+                implementation(libs.androidx.core)
+                implementation(libs.equinox.compose)
+                implementation(libs.equinox.core)
+            }
         }
 
         val commonMain by getting {
@@ -170,17 +155,4 @@ mavenPublishing {
     }
     publishToMavenCentral()
     signAllPublications()
-}
-
-// TODO: REMOVE THIS OF LEGACY ONE
-android {
-    namespace = "com.tecknobit.kinfo"
-    compileSdk = libs.versions.android.compileSdk.get().toInt()
-    sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
-    defaultConfig {
-        minSdk = libs.versions.android.minSdk.get().toInt()
-    }
-    buildFeatures {
-        buildConfig = true
-    }
 }
