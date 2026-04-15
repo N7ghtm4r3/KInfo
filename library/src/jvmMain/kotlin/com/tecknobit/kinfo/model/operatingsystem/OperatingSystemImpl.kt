@@ -12,6 +12,7 @@ import com.tecknobit.kinfo.model.operatingsystem.processes.OSProcessImpl
 import com.tecknobit.kinfo.model.operatingsystem.processes.OSThreadImpl
 import com.tecknobit.kinfo.model.operatingsystem.protocols.InternetProtocolStatsImpl
 import com.tecknobit.kinfo.model.operatingsystem.protocols.NetworkParamsImpl
+import oshi.PlatformEnum
 import oshi.PlatformEnum.*
 import oshi.SystemInfo
 import oshi.software.os.linux.LinuxInstalledApps
@@ -488,7 +489,7 @@ class OperatingSystemImpl(
      */
     @Bridge
     override fun queryInstalledApps(): List<ApplicationInfo> {
-        val installedApps: List<oshi.software.os.ApplicationInfo> = when (SystemInfo.getCurrentPlatform()) {
+        val installedApps: List<oshi.software.os.ApplicationInfo> = when (PlatformEnum.getCurrentPlatform()) {
             WINDOWS -> WindowsInstalledApps.queryInstalledApps()
             LINUX -> LinuxInstalledApps.queryInstalledApps()
             MACOS -> MacInstalledApps.queryInstalledApps()
