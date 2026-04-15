@@ -21,6 +21,7 @@ On **desktop** target are available the below information:
 | **Sensors**            | `sensors`             | The details of system sensors                            | `Hardware.sensors`             |
 | **Sound Cards**        | `soundCards`          | A list of sound cards available on the system            | `Hardware.soundCards`          |
 | **Graphics Cards**     | `graphicsCards`       | A list of graphics cards available on the system         | `Hardware.graphicsCards`       |
+| **Printers**           | `printers`            | A list of printers available on the system               | `Hardware.printers`            |
 
 ### Operating System
 
