@@ -37,7 +37,7 @@ interface GraphicsCard {
     val vRam: Long
 
     /**
-     * Method used to open a new [GpuStats] session for sampling dynamic GPU metrics
+     * Method used to open a new [GpuStats] session for sampling dynamic GPU metrics.
      * Platforms that do not support a native session return a no-op instance whose
      * metric methods return sentinel values
      *
