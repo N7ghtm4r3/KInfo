@@ -1,37 +1,40 @@
-
 import com.vanniktech.maven.publish.JavadocJar
 import com.vanniktech.maven.publish.KotlinMultiplatform
-import org.jetbrains.dokka.DokkaConfiguration.Visibility.*
-import org.jetbrains.dokka.base.DokkaBase
-import org.jetbrains.dokka.base.DokkaBaseConfiguration
 import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
-    alias(libs.plugins.jetbrainsCompose)
-    alias(libs.plugins.androidLibrary)
-    alias(libs.plugins.compose.compiler)
-    alias(libs.plugins.vanniktech.mavenPublish)
+    alias(libs.plugins.composeMultiplatform)
+    alias(libs.plugins.composeCompiler)
+    alias(libs.plugins.androidKotlinMultiplatformLibrary)
     alias(libs.plugins.dokka)
+    alias(libs.plugins.vanniktech.mavenPublish)
 }
 
 group = "com.teknobit.kinfo"
-version = "1.0.5"
+version = "1.0.6"
 
 kotlin {
+    androidLibrary {
+        compileSdk = libs.versions.android.compileSdk.get().toInt()
+        minSdk = libs.versions.android.minSdk.get().toInt()
+        namespace = "com.tecknobit.kinfo"
+        experimentalProperties["android.experimental.kmp.enableAndroidResources"] = true
+
+        compilations {
+            compilerOptions {
+                jvmTarget.set(JvmTarget.JVM_18)
+            }
+        }
+
+    }
+
     jvm {
         compilations.all {
             this@jvm.compilerOptions {
                 jvmTarget.set(JvmTarget.JVM_18)
             }
-        }
-    }
-
-    androidTarget {
-        publishLibraryVariants("release")
-        compilerOptions {
-            jvmTarget.set(JvmTarget.JVM_18)
         }
     }
 
@@ -48,15 +51,21 @@ kotlin {
 
     @OptIn(ExperimentalWasmDsl::class)
     wasmJs {
-        binaries.executable()
-
+        binaries.library()
         browser {
             webpackTask {
+
             }
         }
     }
 
+    js {
+        browser()
+        binaries.library()
+    }
+
     sourceSets {
+        applyDefaultHierarchyTemplate()
 
         androidMain.dependencies {
             implementation(libs.startup.runtime)
@@ -73,14 +82,7 @@ kotlin {
             }
         }
 
-        val iosX64Main by getting
-        val iosArm64Main by getting
-        val iosSimulatorArm64Main by getting
-        val iosMain by creating {
-            dependsOn(commonMain)
-            iosX64Main.dependsOn(this)
-            iosArm64Main.dependsOn(this)
-            iosSimulatorArm64Main.dependsOn(this)
+        val iosMain by getting {
             dependencies {
             }
         }
@@ -91,9 +93,19 @@ kotlin {
             }
         }
 
+        val webMain by getting {
+            dependencies {
+                implementation(npm("ua-parser-js", "2.0.9"))
+            }
+        }
+
+        val jsMain by getting {
+            dependencies {
+            }
+        }
+
         val wasmJsMain by getting {
             dependencies {
-                implementation(npm("ua-parser-js", "2.0.6"))
             }
         }
 
@@ -101,35 +113,22 @@ kotlin {
     jvmToolchain(18)
 }
 
-android {
-    namespace = "com.tecknobit.kinfo"
-    compileSdk = libs.versions.android.compileSdk.get().toInt()
-    sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
-    defaultConfig {
-        minSdk = libs.versions.android.minSdk.get().toInt()
-    }
-    buildFeatures {
-        buildConfig = true
-    }
-}
-
 mavenPublishing {
     configure(
         KotlinMultiplatform(
-            javadocJar = JavadocJar.Dokka("dokkaHtml"),
-            sourcesJar = true,
+            javadocJar = JavadocJar.Dokka("dokkaGenerate"),
             androidVariantsToPublish = listOf("release"),
         )
     )
     coordinates(
         groupId = "io.github.n7ghtm4r3",
         artifactId = "kinfo",
-        version = "1.0.5"
+        version = "1.0.6"
     )
     pom {
         name.set("KInfo")
         description.set("KInfo is Compose Multiplatform Library allows to access the device details of android, ios, desktop e web devices")
-        inceptionYear.set("2025")
+        inceptionYear.set("2026")
         url.set("https://github.com/N7ghtm4r3/KInfo")
 
         licenses {
@@ -152,26 +151,4 @@ mavenPublishing {
     }
     publishToMavenCentral()
     signAllPublications()
-}
-
-buildscript {
-    dependencies {
-        classpath(libs.dokka.base)
-    }
-}
-
-subprojects {
-    apply(plugin = "org.jetbrains.dokka")
-}
-
-tasks.dokkaHtml {
-    outputDirectory.set(layout.projectDirectory.dir("../docs/dokka"))
-    dokkaSourceSets.configureEach {
-        moduleName = "KInfo"
-        includeNonPublic.set(true)
-        documentedVisibilities.set(setOf(PUBLIC, PROTECTED, PRIVATE, INTERNAL))
-    }
-    pluginConfiguration<DokkaBase, DokkaBaseConfiguration> {
-        footerMessage = "(c) 2025 Tecknobit"
-    }
 }
