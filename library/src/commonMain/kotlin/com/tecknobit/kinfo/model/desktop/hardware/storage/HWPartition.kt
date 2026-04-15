@@ -49,4 +49,13 @@ interface HWPartition {
      */
     val mountPoint: String
 
+    /**
+     * `label` Optional volume label when available
+     *
+     * Integration in [oshi - #3077](https://github.com/oshi/oshi/pull/3077)
+     *
+     * @since 1.0.6
+     */
+    val label: String
+
 }

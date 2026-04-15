@@ -130,3 +130,19 @@ val mountPoint: String = sample.mountPoint
 
 println(mountPoint) // e.g. /home
 ```
+
+### label
+
+Optional volume label when available
+
+```kotlin
+val diskStores = hardware.diskStores
+val diskStore: HWDiskStore = diskStores.first()
+
+val partitions = diskStore.partitions
+val sample: HWPartition = partitions.first()
+
+val label: String = sample.label
+
+println(label) // e.g. Data
+```
