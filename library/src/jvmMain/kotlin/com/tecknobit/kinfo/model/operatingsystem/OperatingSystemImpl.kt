@@ -263,6 +263,8 @@ class OperatingSystemImpl(
             priority = source.priority,
             virtualSize = source.virtualSize,
             residentSetSize = source.residentSetSize,
+            residentMemory = source.residentMemory,
+            privateResidentMemory = source.privateResidentMemory,
             kernelTime = source.kernelTime,
             userTime = source.userTime,
             startTime = source.startTime,
