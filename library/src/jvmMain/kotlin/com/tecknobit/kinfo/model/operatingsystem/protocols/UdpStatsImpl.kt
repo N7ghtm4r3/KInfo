@@ -12,7 +12,7 @@ import com.tecknobit.kinfo.model.desktop.operatingsystem.protocols.UdpStats
  * @param datagramsNoPort The total number of UDP datagrams that did not have a corresponding port to route to.
  * @param datagramsReceivedErrors The total number of UDP datagrams that were received with errors (e.g., checksum errors).
  *
- * @author N7ghtm4r3
+ * @author N7ghtm4r3 - Tecknobit
  *
  * @see UdpStats
  */

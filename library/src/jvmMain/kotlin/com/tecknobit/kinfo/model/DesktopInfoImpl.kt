@@ -18,7 +18,7 @@ import oshi.SystemInfo
  * @see OperatingSystem
  * @see Hardware
  *
- * @author N7ghtm4r3
+ * @author N7ghtm4r3 - Tecknobit
  */
 class DesktopInfoImpl : DesktopInfo {
 

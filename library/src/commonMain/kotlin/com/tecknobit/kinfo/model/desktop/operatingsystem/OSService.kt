@@ -27,7 +27,7 @@ interface OSService {
 /**
  * Service Execution States
  *
- * @author N7ghtm4r3
+ * @author N7ghtm4r3 - Tecknobit
  */
 enum class ServiceState {
 

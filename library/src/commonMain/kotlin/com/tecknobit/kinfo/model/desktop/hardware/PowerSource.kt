@@ -4,7 +4,7 @@ package com.tecknobit.kinfo.model.desktop.hardware
  * Represents a power source (e.g., a battery) in the system, including details like the remaining capacity,
  * power usage, voltage, and charging status.
  *
- * @author N7ghtm4r3
+ * @author N7ghtm4r3 - Tecknobit
  */
 interface PowerSource {
 

@@ -7,7 +7,7 @@ import com.tecknobit.kinfo.model.desktop.hardware.centralprocessor.PhysicalProce
  * This class encapsulates the details about the physical processor's package, number, efficiency,
  * and unique identifier string.
  *
- * @author N7ghtm4r3
+ * @author N7ghtm4r3 - Tecknobit
  *
  * @see PhysicalProcessor
  */

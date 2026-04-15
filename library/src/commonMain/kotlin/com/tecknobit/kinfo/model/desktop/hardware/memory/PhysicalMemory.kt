@@ -5,7 +5,7 @@ package com.tecknobit.kinfo.model.desktop.hardware.memory
  * This interface provides information such as the memory's bank label, capacity,
  * clock speed, manufacturer, memory type, part number, and serial number
  *
- * @author N7ghtm4r3
+ * @author N7ghtm4r3 - Tecknobit
  */
 interface PhysicalMemory {
 

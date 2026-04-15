@@ -10,7 +10,7 @@ import com.tecknobit.kinfo.model.web.WebInfoItem
  *
  * @see WebInfoItem
  *
- * @author N7ghtm4r3
+ * @author N7ghtm4r3 - Tecknobit
  */
 interface Os : WebInfoItem {
 

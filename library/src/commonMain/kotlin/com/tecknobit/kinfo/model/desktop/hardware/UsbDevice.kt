@@ -4,7 +4,7 @@ package com.tecknobit.kinfo.model.desktop.hardware
  * Represents a USB device.
  * This interface provides details about the USB device, including its name, vendor, product information, serial number, and connected devices.
  *
- * @author N7ghtm4r3
+ * @author N7ghtm4r3 - Tecknobit
  */
 interface UsbDevice {
 

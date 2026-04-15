@@ -5,7 +5,7 @@ package com.tecknobit.kinfo.model.desktop.hardware.centralprocessor
  * This interface provides detailed information about the logical processor's mapping to physical processors,
  * NUMA nodes, and processor groups
  *
- * @author N7ghtm4r3
+ * @author N7ghtm4r3 - Tecknobit
  */
 interface LogicalProcessor {
 

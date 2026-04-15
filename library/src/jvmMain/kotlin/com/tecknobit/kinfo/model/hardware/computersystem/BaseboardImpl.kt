@@ -12,7 +12,7 @@ import com.tecknobit.kinfo.model.desktop.hardware.computersystem.Baseboard
  * @param version The version of the baseboard
  * @param serialNumber The serial number of the baseboard
  *
- * @author N7ghtm4r3
+ * @author N7ghtm4r3 - Tecknobit
  *
  * @see Baseboard
  */

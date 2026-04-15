@@ -6,7 +6,7 @@ package com.tecknobit.kinfo.model.desktop.hardware.graphicscard
  *
  * Integration in [oshi - #3095](https://github.com/oshi/oshi/pull/3095)
  *
- * @author N7ghtm4r3
+ * @author N7ghtm4r3 - Tecknobit
  *
  * @since 1.0.6
  */

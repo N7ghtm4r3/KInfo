@@ -10,7 +10,7 @@ import com.tecknobit.kinfo.model.desktop.hardware.SoundCard
  * @param name The name of the sound card (e.g., "Realtek High Definition Audio").
  * @param codec The codec used by the sound card (e.g., "Realtek ALC1220").
  *
- * @author N7ghtm4r3
+ * @author N7ghtm4r3 - Tecknobit
  *
  * @see SoundCard
  */

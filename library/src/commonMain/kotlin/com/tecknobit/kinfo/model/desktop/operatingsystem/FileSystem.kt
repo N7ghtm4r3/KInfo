@@ -6,7 +6,7 @@ import com.tecknobit.kinfo.annotations.Bridge
  * `FileSystem` Represents the file system details of an operating system, providing information about file stores,
  * file descriptors, and associated file system attributes.
  *
- * @author N7ghtm4r3
+ * @author N7ghtm4r3 - Tecknobit
  *
  * @see FileSystem
  */

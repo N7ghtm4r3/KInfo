@@ -5,7 +5,7 @@ package com.tecknobit.kinfo.model.desktop.operatingsystem.protocols
  * providing details about the host name, domain name, DNS servers, and default gateways
  * for both IPv4 and IPv6
  *
- * @author N7ghtm4r3
+ * @author N7ghtm4r3 - Tecknobit
  */
 interface NetworkParams {
 

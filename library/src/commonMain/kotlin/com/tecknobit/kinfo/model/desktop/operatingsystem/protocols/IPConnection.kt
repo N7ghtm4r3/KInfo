@@ -4,7 +4,7 @@ package com.tecknobit.kinfo.model.desktop.operatingsystem.protocols
  * `IPConnection` Represents an active IP connection, providing details about the connection's
  * state, local and foreign addresses, ports, and associated process information
  *
- * @author N7ghtm4r3
+ * @author N7ghtm4r3 - Tecknobit
  *
  * @see IPConnection
  */

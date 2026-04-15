@@ -7,7 +7,7 @@ package com.tecknobit.kinfo.model.desktop.hardware.centralprocessor
  * This interface provides the necessary details to identify and describe the processor's specifications, including
  * whether the CPU is 64-bit and its vendor's frequency.
  *
- * @author N7ghtm4r3
+ * @author N7ghtm4r3 - Tecknobit
  */
 interface ProcessorIdentifier {
 

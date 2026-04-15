@@ -9,7 +9,7 @@ package com.tecknobit.kinfo.model.desktop.hardware
  *
  * Integration in [oshi - #3078](https://github.com/oshi/oshi/pull/3078)
  *
- * @author N7ghtm4r3
+ * @author N7ghtm4r3 - Tecknobit
  *
  * @since 1.0.6
  */
@@ -61,7 +61,7 @@ interface Printer {
 /**
  * `PrinterStatus` Represents the different states a printer can be
  *
- * @author N7ghtm4r3
+ * @author N7ghtm4r3 - Tecknobit
  *
  * @since 1.0.6
  */

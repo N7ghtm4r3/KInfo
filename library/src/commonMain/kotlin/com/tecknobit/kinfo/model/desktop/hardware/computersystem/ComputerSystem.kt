@@ -5,7 +5,7 @@ package com.tecknobit.kinfo.model.desktop.hardware.computersystem
  * about the manufacturer, model, serial number, and UUID of the system.
  * It also provides access to firmware and baseboard information.
  *
- * @author N7ghtm4r3
+ * @author N7ghtm4r3 - Tecknobit
  */
 interface ComputerSystem {
 

@@ -4,7 +4,7 @@ package com.tecknobit.kinfo.model.desktop.operatingsystem.protocols
  * `InternetProtocolStats` Provides the statistics of the network protocol including TCP and UDP statistics
  * for both IPv4 and IPv6, as well as the list of active IP connections
  *
- * @author N7ghtm4r3
+ * @author N7ghtm4r3 - Tecknobit
  *
  * @see InternetProtocolStats
  */

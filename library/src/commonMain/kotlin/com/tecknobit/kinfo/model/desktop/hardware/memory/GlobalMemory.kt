@@ -4,7 +4,7 @@ package com.tecknobit.kinfo.model.desktop.hardware.memory
  * `GlobalMemory` represents the system's memory information.
  * It provides details about the total memory, available memory, page size, virtual memory, and physical memory.
  *
- * @author N7ghtm4r3
+ * @author N7ghtm4r3 - Tecknobit
  */
 interface GlobalMemory {
 

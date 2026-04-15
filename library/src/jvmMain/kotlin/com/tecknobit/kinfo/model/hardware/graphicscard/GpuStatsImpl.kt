@@ -28,7 +28,7 @@ import com.tecknobit.kinfo.model.desktop.hardware.graphicscard.GpuTicks
  * @property memoryClockMhz The current GPU memory clock speed
  * @property fanSpeedPercent The GPU fan speed as a percentage of maximum
  *
- * @author N7ghtm4r3
+ * @author N7ghtm4r3 - Tecknobit
  *
  * @since 1.0.6
  *

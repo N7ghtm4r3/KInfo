@@ -1,6 +1,7 @@
 package com.tecknobit.kinfo.model.hardware.centralprocessor
 
 import com.tecknobit.kinfo.annotations.Bridge
+import com.tecknobit.kinfo.annotations.Loader
 import com.tecknobit.kinfo.model.desktop.hardware.centralprocessor.*
 
 /**
@@ -10,7 +11,7 @@ import com.tecknobit.kinfo.model.desktop.hardware.centralprocessor.*
  *
  * @param centralProcessorInfo The [oshi.hardware.CentralProcessor] instance used to fetch CPU details.
  *
- * @author N7ghtm4r3
+ * @author N7ghtm4r3 - Tecknobit
  *
  * @see CentralProcessor
  */
@@ -164,6 +165,7 @@ class CentralProcessorImpl(
      * @param sourceList The source list of logical processors from OSHI
      * @return A list of [LogicalProcessor] instances
      */
+    @Loader
     private fun loadLogicalProcessors(
         sourceList: List<oshi.hardware.CentralProcessor.LogicalProcessor>
     ): List<LogicalProcessor> {
@@ -188,6 +190,7 @@ class CentralProcessorImpl(
      * @param sourceList The source list of physical processors from OSHI
      * @return A list of [PhysicalProcessor] instances
      */
+    @Loader
     private fun loadPhysicalProcessors(
         sourceList: List<oshi.hardware.CentralProcessor.PhysicalProcessor>
     ): List<PhysicalProcessor> {
@@ -211,6 +214,7 @@ class CentralProcessorImpl(
      * @param sourceList The source list of processor caches from OSHI
      * @return A list of [ProcessorCache] instances
      */
+    @Loader
     private fun loadProcessorCache(
         sourceList: List<oshi.hardware.CentralProcessor.ProcessorCache>
     ): List<ProcessorCache> {

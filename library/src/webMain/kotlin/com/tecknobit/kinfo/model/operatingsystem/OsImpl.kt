@@ -12,7 +12,7 @@ import com.tecknobit.kinfo.model.web.operatingsystem.Os
  *
  * @see Os
  *
- * @author N7ghtm4r3
+ * @author N7ghtm4r3 - Tecknobit
  */
 class OsImpl(
     parsedOs: com.tecknobit.kinfo.model.Os

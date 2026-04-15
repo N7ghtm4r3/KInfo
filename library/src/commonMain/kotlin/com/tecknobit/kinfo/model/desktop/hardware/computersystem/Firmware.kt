@@ -5,7 +5,7 @@ package com.tecknobit.kinfo.model.desktop.hardware.computersystem
  * This interface provides details about the firmware, including its manufacturer, name, description, version, and release date.
  * It is useful for hardware monitoring and system diagnostics.
  *
- * @author N7ghtm4r3
+ * @author N7ghtm4r3 - Tecknobit
  */
 interface Firmware {
 

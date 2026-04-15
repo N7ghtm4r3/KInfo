@@ -9,7 +9,7 @@ import com.tecknobit.kinfo.model.web.WebInfoItem
  * This interface extends the `WebInfoItem` interface and includes a utility method `safeValue()`
  * for safely handling null values in the browser's information.
  *
- * @author N7ghtm4r3
+ * @author N7ghtm4r3 - Tecknobit
  *
  * @see WebInfoItem
  */

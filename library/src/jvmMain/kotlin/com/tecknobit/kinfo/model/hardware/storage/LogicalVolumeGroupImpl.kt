@@ -12,7 +12,7 @@ import com.tecknobit.kinfo.model.desktop.hardware.storage.LogicalVolumeGroup
  * @param logicalVolumes A map where the key is the logical volume name and the value
  *                       is a set of physical volumes associated with it.
  *
- * @author N7ghtm4r3
+ * @author N7ghtm4r3 - Tecknobit
  *
  * @see LogicalVolumeGroup
  */

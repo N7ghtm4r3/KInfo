@@ -5,7 +5,7 @@ package com.tecknobit.kinfo.model.desktop.operatingsystem
  * Provides details about the window's properties, such as its ID, title, associated command,
  * owning process ID, order in the stack, and visibility
  *
- * @author N7ghtm4r3
+ * @author N7ghtm4r3 - Tecknobit
  */
 interface OSDesktopWindow {
 

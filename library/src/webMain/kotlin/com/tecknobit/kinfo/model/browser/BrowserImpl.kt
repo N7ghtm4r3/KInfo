@@ -12,7 +12,7 @@ import com.tecknobit.kinfo.model.web.browser.Browser
  *
  * @see Browser
  *
- * @author N7ghtm4r3
+ * @author N7ghtm4r3 - Tecknobit
  */
 class BrowserImpl(
     parsedBrowser: com.tecknobit.kinfo.model.Browser

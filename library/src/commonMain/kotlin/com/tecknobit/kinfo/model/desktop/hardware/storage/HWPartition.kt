@@ -5,7 +5,7 @@ package com.tecknobit.kinfo.model.desktop.hardware.storage
  * It provides details about the partition such as its identification, name, type, UUID,
  * size, and mount point
  *
- * @author N7ghtm4r3
+ * @author N7ghtm4r3 - Tecknobit
  */
 interface HWPartition {
 

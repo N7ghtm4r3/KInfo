@@ -4,7 +4,7 @@ package com.tecknobit.kinfo.model.desktop.hardware.storage
  * `HWDiskStore` represents information about a disk or storage device in the system.
  * It provides details about the disk's model, serial number, size, read/write statistics, partitions, and other attributes.
  *
- * @author N7ghtm4r3
+ * @author N7ghtm4r3 - Tecknobit
  */
 interface HWDiskStore {
 

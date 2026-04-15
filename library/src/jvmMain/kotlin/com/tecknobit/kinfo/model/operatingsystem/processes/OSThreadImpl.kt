@@ -24,7 +24,7 @@ import com.tecknobit.kinfo.model.desktop.operatingsystem.processes.State
  * @param priority The priority level of the thread.
  * @param updateAttributes A flag indicating whether the thread attributes should be updated.
  *
- * @author N7ghtm4r3
+ * @author N7ghtm4r3 - Tecknobit
  *
  * @see OSThread
  */

@@ -4,7 +4,7 @@ package com.tecknobit.kinfo.model.desktop.operatingsystem.processes
  * `OSThread` Represents a thread of an operating system process, providing details about its
  * execution, resource usage, and associated metadata
  *
- * @author N7ghtm4r3
+ * @author N7ghtm4r3 - Tecknobit
  *
  * @see OSThread
  */

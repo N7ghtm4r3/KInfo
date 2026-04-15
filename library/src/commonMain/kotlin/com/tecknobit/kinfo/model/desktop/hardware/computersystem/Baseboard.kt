@@ -5,7 +5,7 @@ package com.tecknobit.kinfo.model.desktop.hardware.computersystem
  * It provides details about the manufacturer, model, version, and serial number of the baseboard.
  * This interface is useful for hardware monitoring and identification tasks.
  *
- * @author N7ghtm4r3
+ * @author N7ghtm4r3 - Tecknobit
  */
 interface Baseboard {
 

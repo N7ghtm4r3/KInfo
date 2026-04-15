@@ -9,7 +9,7 @@ import com.tecknobit.kinfo.model.desktop.operatingsystem.OSVersionInfo
  * @param osVersionInfo The `OSVersionInfo` object from the `oshi.software.os.OperatingSystem` class
  *                      that provides the version, code name, and build number of the operating system.
  *
- * @author N7ghtm4r3
+ * @author N7ghtm4r3 - Tecknobit
  *
  * @see OSVersionInfo
  */

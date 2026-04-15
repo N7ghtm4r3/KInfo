@@ -1,6 +1,7 @@
 package com.tecknobit.kinfo.model.hardware
 
 import com.tecknobit.kinfo.annotations.Bridge
+import com.tecknobit.kinfo.annotations.Loader
 import com.tecknobit.kinfo.model.desktop.hardware.*
 import com.tecknobit.kinfo.model.desktop.hardware.centralprocessor.CentralProcessor
 import com.tecknobit.kinfo.model.desktop.hardware.computersystem.ComputerSystem
@@ -25,7 +26,7 @@ import oshi.SystemInfo
  *
  * @param systemInfo The `SystemInfo` object that provides access to the hardware information.
  *
- * @author N7ghtm4r3
+ * @author N7ghtm4r3 - Tecknobit
  *
  * @see Hardware
  */
@@ -190,6 +191,7 @@ class HardwareImpl(
      * @param sourceList A list of raw power source information
      * @return A list of `PowerSource` objects
      */
+    @Loader
     private fun loadPowerSources(
         sourceList: List<oshi.hardware.PowerSource>
     ): List<PowerSource> {
@@ -206,6 +208,7 @@ class HardwareImpl(
      * @param sourceList A list of raw disk information
      * @return A list of `HWDiskStore` objects
      */
+    @Loader
     private fun loadDisks(
         sourceList: List<oshi.hardware.HWDiskStore>
     ): List<HWDiskStore> {
@@ -240,6 +243,7 @@ class HardwareImpl(
      * @param sourceList A list of raw partition information
      * @return A list of `HWPartition` objects
      */
+    @Loader
     private fun loadPartitions(
         sourceList: List<oshi.hardware.HWPartition>
     ): List<HWPartition> {
@@ -268,6 +272,7 @@ class HardwareImpl(
      * @param sourceList A list of raw logical volume group information
      * @return A list of `LogicalVolumeGroup` objects
      */
+    @Loader
     private fun loadLogicalVolumeGroup(
         sourceList: List<oshi.hardware.LogicalVolumeGroup>
     ): List<LogicalVolumeGroup> {
@@ -290,6 +295,7 @@ class HardwareImpl(
      * @param sourceList A list of raw network interface information
      * @return A list of `NetworkIF` objects
      */
+    @Loader
     private fun loadNetworkIf(
         sourceList: List<oshi.hardware.NetworkIF>
     ): List<NetworkIF> {
@@ -335,6 +341,7 @@ class HardwareImpl(
      * @param sourceList A list of raw display information
      * @return A list of `Display` objects
      */
+    @Loader
     private fun loadDisplays(
         sourceList: List<oshi.hardware.Display>
     ): List<Display> {
@@ -351,6 +358,7 @@ class HardwareImpl(
      * @param sourceList A list of raw USB device information
      * @return A list of `UsbDevice` objects
      */
+    @Loader
     private fun loadUsbDevices(
         sourceList: List<oshi.hardware.UsbDevice>
     ): List<UsbDevice> {
@@ -378,6 +386,7 @@ class HardwareImpl(
      * @param sourceList A list of raw sound card information
      * @return A list of `SoundCard` objects
      */
+    @Loader
     private fun loadSoundcards(
         sourceList: List<oshi.hardware.SoundCard>
     ): List<SoundCard> {
@@ -400,6 +409,7 @@ class HardwareImpl(
      * @param sourceList A list of raw graphics card information
      * @return A list of `GraphicsCard` objects
      */
+    @Loader
     private fun loadGraphicCards(
         sourceList: List<oshi.hardware.GraphicsCard>
     ): List<GraphicsCard> {
@@ -428,6 +438,7 @@ class HardwareImpl(
      * 
      * @since 1.0.6
      */
+    @Loader
     private fun loadPrinters(
         sourceList: List<oshi.hardware.Printer>,
     ): List<Printer> {

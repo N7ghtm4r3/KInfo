@@ -36,7 +36,7 @@ import java.net.NetworkInterface
  * @param isKnownVmMacAddr Indicates whether the MAC address is known to belong to a virtual machine
  * @param updateAttributes Indicates whether the attributes of the network interface should be updated
  *
- * @author N7ghtm4r3
+ * @author N7ghtm4r3 - Tecknobit
  *
  * @see NetworkIF
  */

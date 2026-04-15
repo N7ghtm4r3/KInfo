@@ -5,7 +5,7 @@ package com.tecknobit.kinfo.model.desktop.operatingsystem
  * Provides information about the file system, including the volume, space usage,
  * and attributes related to the file store
  *
- * @author N7ghtm4r3
+ * @author N7ghtm4r3 - Tecknobit
  */
 interface OSFileStore {
 

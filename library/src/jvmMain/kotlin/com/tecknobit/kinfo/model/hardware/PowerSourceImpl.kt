@@ -12,7 +12,7 @@ import java.time.LocalDate
  *
  * @param powerSourceInfo The `PowerSource` object containing the actual power source data retrieved from the hardware.
  *
- * @author N7ghtm4r3
+ * @author N7ghtm4r3 - Tecknobit
  *
  * @see PowerSource
  */

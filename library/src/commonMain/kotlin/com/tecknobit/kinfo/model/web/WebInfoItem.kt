@@ -7,7 +7,7 @@ import com.tecknobit.kinfo.UNKNOWN
  * This interface includes a utility method `safeValue()` to return a null-safe value.
  * It can be implemented by other interfaces or classes that deal with web-related data
  *
- * @author N7ghtm4r3
+ * @author N7ghtm4r3 - Tecknobit
  */
 interface WebInfoItem {
 

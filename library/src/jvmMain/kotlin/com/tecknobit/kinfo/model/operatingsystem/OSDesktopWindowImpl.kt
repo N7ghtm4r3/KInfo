@@ -14,7 +14,7 @@ import com.tecknobit.kinfo.model.desktop.operatingsystem.OSDesktopWindow
  * @param order The position of the window in the stacking order (e.g., topmost window).
  * @param visible A boolean indicating whether the window is currently visible.
  *
- * @author N7ghtm4r3
+ * @author N7ghtm4r3 - Tecknobit
  *
  * @see OSDesktopWindow
  */

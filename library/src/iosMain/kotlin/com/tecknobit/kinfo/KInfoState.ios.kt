@@ -15,7 +15,7 @@ import platform.UIKit.interfaceOrientation
  * `KInfoState` provides information about the current device where the application is running. This information is related
  * to the platform and the specific details that the platform offers.
  *
- * @author N7ghtm4r3 - Swapnil Musale
+ * @author N7ghtm4r3 - Tecknobit - Swapnil Musale
  *
  */
 @Suppress("EXPECT_ACTUAL_CLASSIFIERS_ARE_IN_BETA_WARNING")

@@ -1,5 +1,6 @@
 package com.tecknobit.kinfo.model.hardware.memory
 
+import com.tecknobit.kinfo.annotations.Loader
 import com.tecknobit.kinfo.model.desktop.hardware.memory.GlobalMemory
 import com.tecknobit.kinfo.model.desktop.hardware.memory.PhysicalMemory
 import com.tecknobit.kinfo.model.desktop.hardware.memory.VirtualMemory
@@ -11,7 +12,7 @@ import com.tecknobit.kinfo.model.desktop.hardware.memory.VirtualMemory
  *
  * @param globalMemory The source of the global memory information, provided by the `oshi.hardware.GlobalMemory` class.
  *
- * @author N7ghtm4r3
+ * @author N7ghtm4r3 - Tecknobit
  *
  * @see GlobalMemory
  */
@@ -57,6 +58,7 @@ class GlobalMemoryImpl(
      * @param sourceList The source list of `oshi.hardware.PhysicalMemory` objects
      * @return A list of `PhysicalMemory` objects encapsulating physical memory information
      */
+    @Loader
     private fun loadPhysicalMemories(
         sourceList: List<oshi.hardware.PhysicalMemory>
     ): List<PhysicalMemory> {

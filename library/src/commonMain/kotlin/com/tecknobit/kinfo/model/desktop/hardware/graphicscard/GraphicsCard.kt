@@ -6,7 +6,7 @@ import com.tecknobit.kinfo.annotations.Bridge
  * Represents a graphics card in the system.
  * This interface provides details about the graphics card, including its name, device ID, vendor, version information, and VRAM size.
  *
- * @author N7ghtm4r3
+ * @author N7ghtm4r3 - Tecknobit
  */
 interface GraphicsCard {
 

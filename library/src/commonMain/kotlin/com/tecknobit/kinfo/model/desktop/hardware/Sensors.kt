@@ -4,7 +4,7 @@ package com.tecknobit.kinfo.model.desktop.hardware
  * Interface that provides access to various sensor data for a computer system.
  * This includes CPU temperature, fan speeds, and CPU voltage
  *
- * @author N7ghtm4r3
+ * @author N7ghtm4r3 - Tecknobit
  *
  * @see Sensors
  */

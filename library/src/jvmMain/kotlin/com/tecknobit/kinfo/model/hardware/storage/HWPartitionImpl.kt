@@ -17,7 +17,7 @@ import com.tecknobit.kinfo.model.desktop.hardware.storage.HWPartition
  * @param mountPoint The mount point of the partition (e.g., /, /home)
  * @param label: Optional volume label when available
  *
- * @author N7ghtm4r3
+ * @author N7ghtm4r3 - Tecknobit
  *
  * @see HWPartition
  */

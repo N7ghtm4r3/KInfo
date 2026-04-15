@@ -14,7 +14,7 @@ package com.tecknobit.kinfo.model
  *
  * @see UAParserResult
  *
- * @author N7ghtm4r3
+ * @author N7ghtm4r3 - Tecknobit
  *
  * @since 1.0.6
  */

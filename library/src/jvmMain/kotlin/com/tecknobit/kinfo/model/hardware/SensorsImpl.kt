@@ -8,7 +8,7 @@ import com.tecknobit.kinfo.model.desktop.hardware.Sensors
  *
  * @param sensorsInfo The raw sensor information provided by the hardware
  *
- * @author N7ghtm4r3
+ * @author N7ghtm4r3 - Tecknobit
  *
  * @see Sensors
  */
