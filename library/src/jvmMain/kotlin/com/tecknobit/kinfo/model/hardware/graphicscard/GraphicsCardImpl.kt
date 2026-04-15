@@ -28,6 +28,15 @@ class GraphicsCardImpl(
     private val source: oshi.hardware.GraphicsCard? = null,
 ) : GraphicsCard {
 
+    /**
+     * Method used to open a new [GpuStats] session for sampling dynamic GPU metrics
+     * Platforms that do not support a native session return a no-op instance whose
+     * metric methods return sentinel values
+     *
+     * @return stats session as nullable [GpuStats]
+     *
+     * @since 1.0.6
+     */
     @Bridge
     override fun createStatsSession(): GpuStats? {
         val sourceStats = source?.createStatsSession()
