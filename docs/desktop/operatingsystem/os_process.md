@@ -191,12 +191,38 @@ println(virtualSize) // e.g. 512000000
 
 #### residentSetSize
 
+!!! Warning
+
+    This property has been deprecated since `1.0.6` version, use the [residentMemory](#residentMemory) instead 
+
 The resident set size of the process, in bytes (physical memory used)
 
 ```kotlin
 val residentSetSize: Long = currentProcess.residentSetSize
 
 println(residentSetSize) // e.g. 128000000
+```
+
+#### residentMemory
+
+The total resident set size (RSS) of the process in bytes, representing all physical memory currently in RAM used by the
+process, including shared pages
+
+```kotlin
+val residentMemory: Long = currentProcess.residentMemory
+
+println(residentMemory) // e.g. 128000000
+```
+
+#### privateResidentMemory
+
+The private resident memory (true footprint) of the process in bytes, representing only the non-shared physical memory
+used exclusively by this process
+
+```kotlin
+val privateResidentMemory: Long = currentProcess.privateResidentMemory
+
+println(privateResidentMemory) // e.g. 128000000
 ```
 
 #### kernelTime
