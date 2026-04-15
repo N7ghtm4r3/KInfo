@@ -1,19 +1,6 @@
 package com.tecknobit.kinfo.model
 
 /**
- * Method used to retrieve the result parsed by the `UAParser`
- *
- * @param userAgent The user agent string to parse by the `UAParser`
- *
- * @return The result of the parsing as [UAParserResult]
- *
- * @since 1.0.6
- */
-expect fun getUaParserResult(
-    userAgent: String
-): UAParserResult
-
-/**
  * Represents the result of parsing a user agent string, containing detailed information about the browser,
  * CPU, device, engine, and operating system.
  *
