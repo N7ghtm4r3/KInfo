@@ -67,11 +67,13 @@ kotlin {
     sourceSets {
         applyDefaultHierarchyTemplate()
 
-        androidMain.dependencies {
-            implementation(libs.startup.runtime)
-            implementation(libs.androidx.core)
-            implementation(libs.equinox.compose)
-            implementation(libs.equinox.core)
+        val androidMain by getting {
+            dependencies {
+                implementation(libs.startup.runtime)
+                implementation(libs.androidx.core)
+                implementation(libs.equinox.compose)
+                implementation(libs.equinox.core)
+            }
         }
 
         val commonMain by getting {
@@ -95,6 +97,7 @@ kotlin {
 
         val webMain by getting {
             dependencies {
+                implementation(libs.kotlin.browser)
                 implementation(npm("ua-parser-js", "2.0.9"))
             }
         }
