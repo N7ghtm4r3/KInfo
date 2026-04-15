@@ -11,9 +11,9 @@ oshi = "6.11.1"
 startupRuntime = "1.2.0"
 androidXCore = "1.17.0"
 equinox = "1.1.9"
+kotlin-browser = "0.5.0"
 
 [libraries]
-dokka-base = { module = "org.jetbrains.dokka:dokka-base", version.ref = "dokka" }
 androidx-core = { module = "androidx.core:core-ktx", version.ref = "androidXCore" }
 oshi-core = { module = "com.github.oshi:oshi-core", version.ref = "oshi" }
 startup-runtime = { module = "androidx.startup:startup-runtime", version.ref = "startupRuntime" }
@@ -22,6 +22,7 @@ compose-ui = { module = "org.jetbrains.compose.ui:ui", version.ref = "composeMul
 compose-runtime = { module = "org.jetbrains.compose.runtime:runtime", version.ref = "composeMultiplatform" }
 equinox-compose = { module = "io.github.n7ghtm4r3:equinox-compose", version.ref = "equinox" }
 equinox-core = { module = "io.github.n7ghtm4r3:equinox-core", version.ref = "equinox" }
+kotlin-browser = { module = "org.jetbrains.kotlinx:kotlinx-browser", version.ref = "kotlin-browser" }
 
 [plugins]
 composeMultiplatform = { id = "org.jetbrains.compose", version.ref = "composeMultiplatform" }

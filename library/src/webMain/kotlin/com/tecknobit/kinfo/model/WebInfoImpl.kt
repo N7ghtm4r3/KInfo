@@ -75,9 +75,9 @@ class WebInfoImpl : WebInfo {
     override val os: Os
 
     init {
-        val result = UAParser(
+        val result = getUaParserResult(
             userAgent = userAgent
-        ).getResult()
+        )
         browser = BrowserImpl(
             parsedBrowser = result.browser
         )
