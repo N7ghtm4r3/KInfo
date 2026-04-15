@@ -98,7 +98,7 @@ println(soundCards)
 
 ### graphicsCards
 
-List of [graphic cards](graphic_card.md) available on the system
+List of [graphic cards](graphicscard/graphics_card.md) available on the system
 
 ```kotlin
 val graphicsCards: List<GraphicsCard> = hardware.graphicsCards

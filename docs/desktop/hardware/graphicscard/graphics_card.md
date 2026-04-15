@@ -67,3 +67,16 @@ val vRam: Long = sample.vRam
 
 println(vRam) // e.g. 10737418240        
 ```
+
+### createStatsSession
+
+Collects sampling dynamic GPU metrics as [GpuStats](gpu_stats.md)
+
+```kotlin
+val graphicsCards = hardware.graphicsCards
+val sample: GraphicsCard = graphicsCards.first()
+
+val stats: GpuStats = sample.createStatsSession()
+
+println(stats.temperature) // e.g. 44
+```
