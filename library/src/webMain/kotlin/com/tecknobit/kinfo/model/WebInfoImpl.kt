@@ -1,5 +1,6 @@
 package com.tecknobit.kinfo.model
 
+import com.tecknobit.kinfo.getUaParserResult
 import com.tecknobit.kinfo.model.browser.BrowserImpl
 import com.tecknobit.kinfo.model.cpu.CPUImpl
 import com.tecknobit.kinfo.model.device.DeviceImpl

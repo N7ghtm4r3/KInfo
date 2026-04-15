@@ -1,4 +1,6 @@
 @file:OptIn(ExperimentalWasmJsInterop::class)
+@file:JsModule("ua-parser-js")
+@file:JsNonModule
 
 package com.tecknobit.kinfo.model
 
@@ -16,8 +18,6 @@ package com.tecknobit.kinfo.model
  *
  * @since 1.0.6
  */
-@JsNonModule
-@JsModule("ua-parser-js")
 external class UAParser(
     userAgent: String
 ): JsAny {
@@ -28,21 +28,4 @@ external class UAParser(
      * @return An instance of `UAParserResult` containing the parsed data.
      */
     fun getResult(): UAParserResult
-}
-
-/**
- * Method used to retrieve the result parsed by the `UAParser`
- *
- * @param userAgent The user agent string to parse by the `UAParser`
- *
- * @return The result of the parsing as [UAParserResult]
- *
- * @since 1.0.6
- */
-actual fun getUaParserResult(
-    userAgent: String
-): UAParserResult {
-    return UAParser(
-        userAgent = userAgent
-    ).getResult()
 }
