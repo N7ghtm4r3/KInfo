@@ -13,12 +13,12 @@ import com.tecknobit.kinfo.model.operatingsystem.processes.OSProcessImpl
 import com.tecknobit.kinfo.model.operatingsystem.processes.OSThreadImpl
 import com.tecknobit.kinfo.model.operatingsystem.protocols.InternetProtocolStatsImpl
 import com.tecknobit.kinfo.model.operatingsystem.protocols.NetworkParamsImpl
-import oshi.PlatformEnum
-import oshi.PlatformEnum.*
 import oshi.SystemInfo
-import oshi.software.os.linux.LinuxInstalledApps
-import oshi.software.os.mac.MacInstalledApps
-import oshi.software.os.windows.WindowsInstalledApps
+import oshi.software.common.os.linux.LinuxInstalledApps
+import oshi.software.common.os.mac.MacInstalledApps
+import oshi.software.os.windows.WindowsInstalledAppsJNA
+import oshi.util.PlatformEnum
+import oshi.util.PlatformEnum.*
 import oshi.util.ProcUtil
 
 /**
@@ -200,10 +200,10 @@ class OperatingSystemImpl(
     @Bridge
     override fun getProcess(
         pid: Int,
-    ): OSProcess {
-        return initOSProcess(
-            source = fileSystemInfo.getProcess(pid)
-        )
+    ): OSProcess? {
+        return fileSystemInfo.getProcess(pid)?.let { process ->
+            initOSProcess(source = process)
+        }
     }
 
     /**
@@ -264,7 +264,6 @@ class OperatingSystemImpl(
             threadCount = source.threadCount,
             priority = source.priority,
             virtualSize = source.virtualSize,
-            residentSetSize = source.residentSetSize,
             residentMemory = source.residentMemory,
             privateResidentMemory = source.privateResidentMemory,
             kernelTime = source.kernelTime,
@@ -498,7 +497,7 @@ class OperatingSystemImpl(
     @Bridge
     override fun queryInstalledApps(): List<ApplicationInfo> {
         val installedApps: List<oshi.software.os.ApplicationInfo> = when (PlatformEnum.getCurrentPlatform()) {
-            WINDOWS -> WindowsInstalledApps.queryInstalledApps()
+            WINDOWS -> WindowsInstalledAppsJNA.queryInstalledApps()
             LINUX -> LinuxInstalledApps.queryInstalledApps()
             MACOS -> MacInstalledApps.queryInstalledApps()
             else -> emptyList()
