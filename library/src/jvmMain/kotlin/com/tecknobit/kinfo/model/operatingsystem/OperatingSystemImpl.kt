@@ -3,6 +3,7 @@ package com.tecknobit.kinfo.model.operatingsystem
 import com.tecknobit.kinfo.UNKNOWN
 import com.tecknobit.kinfo.annotations.Bridge
 import com.tecknobit.kinfo.annotations.Loader
+import com.tecknobit.kinfo.model.CgroupInfoImpl
 import com.tecknobit.kinfo.model.desktop.operatingsystem.*
 import com.tecknobit.kinfo.model.desktop.operatingsystem.processes.OSProcess
 import com.tecknobit.kinfo.model.desktop.operatingsystem.processes.OSThread
@@ -17,7 +18,6 @@ import oshi.SystemInfo
 import oshi.software.common.os.linux.LinuxInstalledApps
 import oshi.software.common.os.mac.MacInstalledApps
 import oshi.software.os.windows.WindowsInstalledAppsJNA
-import oshi.util.PlatformEnum
 import oshi.util.PlatformEnum.*
 import oshi.util.ProcUtil
 
@@ -29,7 +29,7 @@ import oshi.util.ProcUtil
  * @param systemInfo The object containing general information about the operating system
  */
 class OperatingSystemImpl(
-    systemInfo: SystemInfo,
+    private val systemInfo: SystemInfo,
 ) : OperatingSystem {
 
     /**
@@ -40,25 +40,25 @@ class OperatingSystemImpl(
      * It is initialized only when it is accessed for the first time, which can help improve performance
      * by deferring the creation of the `operatingSystem` object until it's actually needed
      */
-    private val fileSystemInfo by lazy { systemInfo.operatingSystem }
+    private val operatingSystemInfo by lazy { systemInfo.operatingSystem }
 
     /**
      * `family` The family of the operating system (e.g., "Windows", "Linux")
      * This property represents the type of operating system
      */
-    override val family: String = fileSystemInfo.family
+    override val family: String = operatingSystemInfo.family
 
     /**
      * `manufacturer` The manufacturer of the operating system (e.g., "Microsoft", "Apple")
      */
-    override val manufacturer: String = fileSystemInfo.manufacturer
+    override val manufacturer: String = operatingSystemInfo.manufacturer
 
     /**
      * `versionInfo` The version information of the operating system
      */
     override val versionInfo: OSVersionInfo by lazy {
         OSVersionInfoImpl(
-            osVersionInfo = fileSystemInfo.versionInfo
+            osVersionInfo = operatingSystemInfo.versionInfo
         )
     }
 
@@ -67,7 +67,7 @@ class OperatingSystemImpl(
      */
     override val fileSystem: FileSystem by lazy {
         FileSystemImpl(
-            fileSystemInfo = fileSystemInfo.fileSystem
+            fileSystemInfo = operatingSystemInfo.fileSystem
         )
     }
 
@@ -76,75 +76,75 @@ class OperatingSystemImpl(
      */
     override val internetProtocolStats: InternetProtocolStats by lazy {
         InternetProtocolStatsImpl(
-            internetProtocolStatsInfo = fileSystemInfo.internetProtocolStats
+            internetProtocolStatsInfo = operatingSystemInfo.internetProtocolStats
         )
     }
 
     /**
      * `processId` The ID of the current process
      */
-    override val processId: Int = fileSystemInfo.processId
+    override val processId: Int = operatingSystemInfo.processId
 
     /**
      * `currentProcess` The current running process
      */
     override val currentProcess: OSProcess
         get() = initOSProcess(
-            source = fileSystemInfo.currentProcess
+            source = operatingSystemInfo.currentProcess
         )
 
     /**
      * `processCount` The number of active processes running on the system
      */
-    override val processCount: Int = fileSystemInfo.processCount
+    override val processCount: Int = operatingSystemInfo.processCount
 
     /**
      * `threadId` The ID of the current thread
      */
-    override val threadId: Int = fileSystemInfo.threadId
+    override val threadId: Int = operatingSystemInfo.threadId
 
     /**
      * `currentThread` The current running thread
      */
     override val currentThread: OSThread
         get() = initOSThread(
-            source = fileSystemInfo.currentThread
+            source = operatingSystemInfo.currentThread
         )
 
     /**
      * `threadCount` The number of threads running on the system
      */
-    override val threadCount: Int = fileSystemInfo.threadCount
+    override val threadCount: Int = operatingSystemInfo.threadCount
 
     /**
      * `bitness` The bitness of the operating system (e.g., 32-bit, 64-bit)
      */
-    override val bitness: Int = fileSystemInfo.bitness
+    override val bitness: Int = operatingSystemInfo.bitness
 
     /**
      * `systemUptime` The system uptime in milliseconds
      */
     override val systemUptime: Long
-        get() = fileSystemInfo.systemUptime
+        get() = operatingSystemInfo.systemUptime
 
     /**
      * `systemBootTime` The system boot time in milliseconds (UNIX timestamp)
      */
     override val systemBootTime: Long
-        get() = fileSystemInfo.systemBootTime
+        get() = operatingSystemInfo.systemBootTime
 
     /**
      * `isElevated` Indicates if the operating system is running in elevated (privileged) mode
      */
     override val isElevated: Boolean
-        get() = fileSystemInfo.isElevated
+        get() = operatingSystemInfo.isElevated
 
     /**
      * `networkParams` The network parameters, including hostname, DNS, gateway
      */
     override val networkParams: NetworkParams by lazy {
         NetworkParamsImpl(
-            networkParamsInfo = fileSystemInfo.networkParams
+            networkParamsInfo = operatingSystemInfo.networkParams
         )
     }
 
@@ -153,7 +153,7 @@ class OperatingSystemImpl(
      */
     override val services: List<OSService>
         get() = loadOSServices(
-            sourceList = fileSystemInfo.services
+            sourceList = operatingSystemInfo.services
         )
 
     /**
@@ -161,8 +161,11 @@ class OperatingSystemImpl(
      */
     override val sessions: List<OSSession>
         get() = loadOSSessions(
-            sourceList = fileSystemInfo.sessions
+            sourceList = operatingSystemInfo.sessions
         )
+
+    override val cgroupInfo: CgroupInfo
+        get() = getCgroupInfo()
 
     /**
      * Retrieves the list of all active processes on the system
@@ -172,7 +175,7 @@ class OperatingSystemImpl(
     @Bridge
     override fun getProcesses(): List<OSProcess> {
         return loadOSProcesses(
-            sourceList = fileSystemInfo.processes
+            sourceList = operatingSystemInfo.processes
         )
     }
 
@@ -187,7 +190,7 @@ class OperatingSystemImpl(
         pids: Collection<Int>,
     ): List<OSProcess> {
         return loadOSProcesses(
-            sourceList = fileSystemInfo.getProcesses(pids)
+            sourceList = operatingSystemInfo.getProcesses(pids)
         )
     }
 
@@ -201,7 +204,7 @@ class OperatingSystemImpl(
     override fun getProcess(
         pid: Int,
     ): OSProcess? {
-        return fileSystemInfo.getProcess(pid)?.let { process ->
+        return operatingSystemInfo.getProcess(pid)?.let { process ->
             initOSProcess(source = process)
         }
     }
@@ -217,7 +220,7 @@ class OperatingSystemImpl(
         visibleOnly: Boolean,
     ): List<OSDesktopWindow> {
         return loadOSDesktopWindows(
-            sourceList = fileSystemInfo.getDesktopWindows(visibleOnly)
+            sourceList = operatingSystemInfo.getDesktopWindows(visibleOnly)
         )
     }
 
@@ -496,12 +499,13 @@ class OperatingSystemImpl(
      */
     @Bridge
     override fun queryInstalledApps(): List<ApplicationInfo> {
-        val installedApps: List<oshi.software.os.ApplicationInfo> = when (PlatformEnum.getCurrentPlatform()) {
+        val installedApps: List<oshi.software.os.ApplicationInfo> = when (getCurrentPlatform()) {
             WINDOWS -> WindowsInstalledAppsJNA.queryInstalledApps()
             LINUX -> LinuxInstalledApps.queryInstalledApps()
             MACOS -> MacInstalledApps.queryInstalledApps()
             else -> emptyList()
         }
+
         val applications = mutableListOf<ApplicationInfoImpl>()
         installedApps.forEach { application ->
             applications.add(
@@ -514,7 +518,26 @@ class OperatingSystemImpl(
                 )
             )
         }
+
         return applications
+    }
+
+    @Loader
+    private fun getCgroupInfo(): CgroupInfo {
+        val cgroupInfo = operatingSystemInfo.cgroupInfo
+
+        return CgroupInfoImpl(
+            isContainerized = cgroupInfo.isContainerized,
+            version = cgroupInfo.version,
+            cpuQuota = cgroupInfo.cpuQuota,
+            cpuPeriod = cgroupInfo.cpuPeriod,
+            cpuUsage = cgroupInfo.cpuUsage,
+            effectiveCpus = cgroupInfo.effectiveCpus,
+            memoryLimit = cgroupInfo.memoryLimit,
+            memoryUsage = cgroupInfo.memoryUsage,
+            pidLimit = cgroupInfo.pidLimit,
+            pidCurrent = cgroupInfo.pidCurrent
+        )
     }
 
 }

@@ -41,7 +41,9 @@ class DesktopInfoImpl : DesktopInfo {
      * `hardware` The hardware information of the desktop, lazily initialized with the `HardwareImpl`
      */
     override val hardware: Hardware by lazy {
-        HardwareImpl(systemInfo = systemInfo)
+        HardwareImpl(
+            systemInfo = systemInfo
+        )
     }
 
 }
