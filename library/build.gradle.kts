@@ -103,7 +103,7 @@ kotlin {
         val webMain by getting {
             dependencies {
                 implementation(libs.kotlin.browser)
-                implementation(npm("ua-parser-js", "2.0.9"))
+                implementation(npm("ua-parser-js", "2.0.10"))
             }
         }
 
