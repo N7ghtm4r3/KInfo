@@ -122,7 +122,9 @@ class InternetProtocolStatsImpl(
                     localPort = connection.localPort,
                     foreignAddress = connection.foreignAddress,
                     foreignPort = connection.foreignPort,
-                    state = TcpState.valueOf(connection.state.name),
+                    state = connection.state?.let { state ->
+                        TcpState.valueOf(state.name)
+                    },
                     transmitQueue = connection.transmitQueue,
                     receiveQueue = connection.receiveQueue,
                     owningProcessId = connection.getowningProcessId()

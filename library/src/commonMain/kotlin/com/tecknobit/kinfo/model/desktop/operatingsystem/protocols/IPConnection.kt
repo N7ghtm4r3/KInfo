@@ -38,7 +38,7 @@ interface IPConnection {
     /**
      * `state` The current state of the connection (e.g., ESTABLISHED, LISTENING)
      */
-    val state: TcpState
+    val state: TcpState?
 
     /**
      * `transmitQueue` The length of the transmit queue for the connection

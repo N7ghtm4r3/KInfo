@@ -8,7 +8,7 @@ KInfo allows to access the device details of `android`, `iOS`, `desktop` e `web`
 
 ```groovy
 dependencies {
-    implementation 'io.github.n7ghtm4r3:kinfo:1.0.6'
+    implementation 'io.github.n7ghtm4r3:kinfo:1.1.0'
 }
 ```
 
@@ -16,7 +16,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("io.github.n7ghtm4r3:kinfo:1.0.6")
+    implementation("io.github.n7ghtm4r3:kinfo:1.1.0")
 }
 ```
 
@@ -26,7 +26,7 @@ dependencies {
 
 ```toml
 [versions]
-kinfo = "1.0.6"
+kinfo = "1.1.0"
 
 [libraries]
 kinfo = { module = "io.github.n7ghtm4r3:kinfo", version.ref = "kinfo" }

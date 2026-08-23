@@ -11,16 +11,16 @@ interface OSVersionInfo {
     /**
      * `version` The version of the operating system
      */
-    val version: String
+    val version: String?
 
     /**
      * `codeName` The code name of the operating system version
      */
-    val codeName: String
+    val codeName: String?
 
     /**
      * `buildNumber` The build number of the operating system
      */
-    val buildNumber: String
+    val buildNumber: String?
 
 }

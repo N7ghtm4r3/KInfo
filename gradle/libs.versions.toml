@@ -1,16 +1,16 @@
 [versions]
-agp = "8.13.2"
-kotlin = "2.3.20"
-mavenPublish = "0.36.0"
+agp = "9.3.1"
+kotlin = "2.4.10"
+mavenPublish = "0.37.0"
 android-minSdk = "24"
-android-compileSdk = "36"
-composeMultiplatform = "1.10.3"
+android-compileSdk = "37"
+composeMultiplatform = "1.11.1"
 dokka = "2.2.0"
-annotation = "1.9.1"
-oshi = "6.11.1"
+annotation = "1.10.0"
+oshi = "7.5.0"
 startupRuntime = "1.2.0"
-androidXCore = "1.17.0"
-equinox = "1.1.9"
+androidXCore = "1.19.0"
+equinox = "1.2.0"
 kotlin-browser = "0.5.0"
 
 [libraries]
@@ -25,6 +25,8 @@ equinox-core = { module = "io.github.n7ghtm4r3:equinox-core", version.ref = "equ
 kotlin-browser = { module = "org.jetbrains.kotlinx:kotlinx-browser", version.ref = "kotlin-browser" }
 
 [plugins]
+
+
 composeMultiplatform = { id = "org.jetbrains.compose", version.ref = "composeMultiplatform" }
 composeCompiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }

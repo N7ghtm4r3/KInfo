@@ -67,11 +67,6 @@ class OSProcessImpl(
     override val threadCount: Int,
     override val priority: Int,
     override val virtualSize: Long,
-    @Deprecated(
-        "This property has been deprecated since oshi 6.11.0",
-        replaceWith = ReplaceWith("residentMemory")
-    )
-    override val residentSetSize: Long,
     override val residentMemory: Long,
     override val privateResidentMemory: Long,
     override val kernelTime: Long,

@@ -1,23 +1,22 @@
-import com.android.build.api.dsl.androidLibrary
 import com.vanniktech.maven.publish.JavadocJar
 import com.vanniktech.maven.publish.KotlinMultiplatform
 import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
-    alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
+    alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidKotlinMultiplatformLibrary)
     alias(libs.plugins.dokka)
     alias(libs.plugins.vanniktech.mavenPublish)
 }
 
 group = "com.teknobit.kinfo"
-version = "1.0.6"
+version = "1.1.0"
 
 kotlin {
-    androidLibrary {
+    android {
         compileSdk = libs.versions.android.compileSdk.get().toInt()
         minSdk = libs.versions.android.minSdk.get().toInt()
         namespace = "com.tecknobit.kinfo"
@@ -25,8 +24,14 @@ kotlin {
 
         compilations {
             compilerOptions {
-                jvmTarget.set(JvmTarget.JVM_18)
+                jvmTarget.set(JvmTarget.JVM_21)
             }
+        }
+
+        withDeviceTestBuilder {
+            sourceSetTreeName = "test"
+        }.configure {
+            instrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         }
 
     }
@@ -40,7 +45,6 @@ kotlin {
     }
 
     listOf(
-        iosX64(),
         iosArm64(),
         iosSimulatorArm64()
     ).forEach {
@@ -114,7 +118,7 @@ kotlin {
         }
 
     }
-    jvmToolchain(18)
+    jvmToolchain(21)
 }
 
 mavenPublishing {
@@ -127,7 +131,7 @@ mavenPublishing {
     coordinates(
         groupId = "io.github.n7ghtm4r3",
         artifactId = "kinfo",
-        version = "1.0.6"
+        version = "1.1.0"
     )
     pom {
         name.set("KInfo")
@@ -154,5 +158,6 @@ mavenPublishing {
         }
     }
     publishToMavenCentral()
-    signAllPublications()
+    // TODO: REINSERT BEFORE PUBLISH
+    //signAllPublications()
 }
