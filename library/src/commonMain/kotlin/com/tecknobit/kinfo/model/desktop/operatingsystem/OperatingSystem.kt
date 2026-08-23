@@ -108,6 +108,8 @@ interface OperatingSystem {
      */
     val sessions: List<OSSession>
 
+    val cgroupInfo: CgroupInfo
+
     /**
      * Retrieves the list of all running processes on the operating system
      *
