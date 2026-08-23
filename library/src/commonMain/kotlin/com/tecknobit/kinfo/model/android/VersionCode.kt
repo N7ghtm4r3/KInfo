@@ -111,4 +111,18 @@ interface VersionCode {
      * @since 1.0.5
      */
     val BAKLAVA: Int
+
+    /**
+     * `BAKLAVA_1` the version code for Android 16 (API level 36) revision 1
+     *
+     * @since 1.1.0
+     */
+    val BAKLAVA_1: Int
+
+    /**
+     * `CINNAMON_BUN` the version code for Android 17 (API level 37)
+     *
+     * @since 1.1.0
+     */
+    val CINNAMON_BUN: Int
 }

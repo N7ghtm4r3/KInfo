@@ -111,6 +111,20 @@ internal class AndroidVersionCodeImpl : VersionCode {
      *
      * @since 1.0.5
      */
-    override val BAKLAVA: Int = Build.VERSION_CODES.VANILLA_ICE_CREAM
+    override val BAKLAVA: Int = Build.VERSION_CODES.BAKLAVA
+
+    /**
+     * `BAKLAVA_1` the version code for Android 16 (API level 36) revision 1
+     *
+     * @since 1.1.0
+     */
+    override val BAKLAVA_1: Int = Build.VERSION_CODES_FULL.BAKLAVA_1
+
+    /**
+     * `CINNAMON_BUN` the version code for Android 17 (API level 37)
+     *
+     * @since 1.1.0
+     */
+    override val CINNAMON_BUN: Int = Build.VERSION_CODES.CINNAMON_BUN
 
 }
