@@ -20,15 +20,15 @@ class OSVersionInfoImpl(
     /**
      * `version` The version of the operating system.
      */
-    override val version: String = osVersionInfo.version
+    override val version: String? = osVersionInfo.version
 
     /**
      * `codeName` The code name of the operating system version.
      */
-    override val codeName: String = osVersionInfo.codeName
+    override val codeName: String? = osVersionInfo.codeName
 
     /**
      * `buildNumber` The build number of the operating system.
      */
-    override val buildNumber: String = osVersionInfo.buildNumber
+    override val buildNumber: String? = osVersionInfo.buildNumber
 }

@@ -130,7 +130,7 @@ class PowerSourceImpl(
      *
      * @return manufacture date as [LocalDate]
      */
-    fun getManufacturerDate(): LocalDate {
+    fun getManufacturerDate(): LocalDate? {
         return powerSourceInfo.manufactureDate
     }
 

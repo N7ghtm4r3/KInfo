@@ -89,15 +89,6 @@ interface OSProcess {
     val virtualSize: Long
 
     /**
-     * `residentSetSize` The resident set size of the process, in bytes (physical memory used)
-     */
-    @Deprecated(
-        "This property has been deprecated since oshi 6.11.0",
-        replaceWith = ReplaceWith("residentMemory")
-    )
-    val residentSetSize: Long
-
-    /**
      * `residentMemory` The total resident set size (RSS) of the process in bytes, representing all physical memory
      * currently in RAM used by the process, including shared pages
      *

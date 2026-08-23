@@ -136,7 +136,7 @@ interface OperatingSystem {
     @Bridge
     fun getProcess(
         pid: Int
-    ): OSProcess
+    ): OSProcess?
 
     /**
      * Retrieves the desktop windows of the operating system
