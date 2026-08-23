@@ -189,20 +189,6 @@ val virtualSize: Long = currentProcess.virtualSize
 println(virtualSize) // e.g. 512000000
 ```
 
-#### residentSetSize
-
-!!! Warning
-
-    This property has been deprecated since `1.0.6` version, use the [residentMemory](#residentMemory) instead 
-
-The resident set size of the process, in bytes (physical memory used)
-
-```kotlin
-val residentSetSize: Long = currentProcess.residentSetSize
-
-println(residentSetSize) // e.g. 128000000
-```
-
 #### residentMemory
 
 The total resident set size (RSS) of the process in bytes, representing all physical memory currently in RAM used by the
