@@ -3,6 +3,7 @@ package com.tecknobit.kinfo.model.desktop.hardware
 import com.tecknobit.kinfo.annotations.Bridge
 import com.tecknobit.kinfo.model.desktop.hardware.centralprocessor.CentralProcessor
 import com.tecknobit.kinfo.model.desktop.hardware.computersystem.ComputerSystem
+import com.tecknobit.kinfo.model.desktop.hardware.display.Display
 import com.tecknobit.kinfo.model.desktop.hardware.graphicscard.GraphicsCard
 import com.tecknobit.kinfo.model.desktop.hardware.memory.GlobalMemory
 import com.tecknobit.kinfo.model.desktop.hardware.storage.HWDiskStore
@@ -53,7 +54,7 @@ interface Hardware {
     val networkIFs: List<NetworkIF>
 
     /**
-     * `displays` A list of display devices connected to the system (e.g., monitors)
+     * `displays` the display devices connected to the system with their identification information
      */
     val displays: List<Display>
 
