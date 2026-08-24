@@ -290,7 +290,9 @@ class OperatingSystemImpl(
             threadDetails = loadOSThreads(sourceList = source.threadDetails),
             minorFaults = source.minorFaults,
             majorFaults = source.majorFaults,
-            contextSwitches = source.contextSwitches
+            contextSwitches = source.contextSwitches,
+            voluntaryContextSwitches = source.voluntaryContextSwitches,
+            involuntaryContextSwitches = source.involuntaryContextSwitches
         )
     }
 
