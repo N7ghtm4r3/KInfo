@@ -25,7 +25,6 @@ import com.tecknobit.kinfo.model.desktop.operatingsystem.processes.State
  * @param threadCount The number of threads in the process
  * @param priority The priority of the process
  * @param virtualSize The virtual memory size of the process, in bytes
- * @param residentSetSize The resident set size of the process, in bytes (physical memory used)
  * @param residentMemory The total resident set size (RSS) of the process in bytes
  * @param privateResidentMemory The private resident memory (true footprint) of the process in bytes
  * @param kernelTime The amount of time the process has spent in kernel mode, in milliseconds
@@ -44,7 +43,11 @@ import com.tecknobit.kinfo.model.desktop.operatingsystem.processes.State
  * @param threadDetails The list of threads associated with the process
  * @param minorFaults The number of minor page faults for the process
  * @param majorFaults The number of major page faults for the process
- * @param contextSwitches The number of context switches for the process
+ * @param contextSwitches The combined number of context switches performed by the process
+ * @param voluntaryContextSwitches The number of context switches performed when the process gives up the CPU before
+ * its time slice expires, or `0` when unavailable
+ * @param involuntaryContextSwitches The number of context switches performed when the scheduler preempts the process,
+ * or `0` when unavailable
  *
  * @author N7ghtm4r3 - Tecknobit
  *
@@ -86,4 +89,6 @@ class OSProcessImpl(
     override val minorFaults: Long,
     override val majorFaults: Long,
     override val contextSwitches: Long,
+    override val voluntaryContextSwitches: Long,
+    override val involuntaryContextSwitches: Long,
 ) : OSProcess

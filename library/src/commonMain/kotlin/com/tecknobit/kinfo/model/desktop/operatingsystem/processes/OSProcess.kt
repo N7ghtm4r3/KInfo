@@ -185,9 +185,34 @@ interface OSProcess {
     val majorFaults: Long
 
     /**
-     * `contextSwitches` The number of context switches for the process
+     * `contextSwitches` a snapshot of the context switches performed by the process, equal to the sum of
+     * [voluntaryContextSwitches] and [involuntaryContextSwitches] when the platform provides the split
+     *
+     * Windows and non-current macOS processes provide only this combined total, while AIX returns `0`
      */
     val contextSwitches: Long
+
+    /**
+     * `voluntaryContextSwitches` the number of context switches performed when the process gives up the CPU before its
+     * time slice expires, such as while waiting for `I/O`
+     *
+     * For the current process, supported `POSIX` platforms aggregate the value across all threads using
+     * `getrusage(RUSAGE_SELF)`. Other processes use platform-specific sources, while unavailable values return `0`
+     *
+     * @since 1.1.0
+     */
+    val voluntaryContextSwitches: Long
+
+    /**
+     * `involuntaryContextSwitches` the number of context switches performed when the scheduler preempts the process,
+     * such as when its time slice expires
+     *
+     * For the current process, supported `POSIX` platforms aggregate the value across all threads using
+     * `getrusage(RUSAGE_SELF)`. Other processes use platform-specific sources, while unavailable values return `0`
+     *
+     * @since 1.1.0
+     */
+    val involuntaryContextSwitches: Long
 
 }
 
