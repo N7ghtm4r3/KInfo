@@ -108,6 +108,11 @@ interface OperatingSystem {
      */
     val sessions: List<OSSession>
 
+    /**
+     * `cgroupInfo` the cgroup resource limits and usage metrics for the current process
+     *
+     * @since 1.1.0
+     */
     val cgroupInfo: CgroupInfo
 
     /**

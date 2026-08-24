@@ -1,0 +1,4 @@
+interface:
+  display_name: "Pipeline Architect"
+  short_description: "Design, secure, and audit CI/CD pipelines"
+  default_prompt: "Use $pipeline-architect to analyze this repository and design or audit a secure CI/CD pipeline, discussing critical or invasive decisions with me."
