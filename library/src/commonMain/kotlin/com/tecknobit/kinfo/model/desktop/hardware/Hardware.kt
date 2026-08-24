@@ -104,4 +104,14 @@ interface Hardware {
         tree: Boolean
     ): List<UsbDevice>
 
+    /**
+     * Method used to get the Bluetooth devices paired or connected to the system
+     *
+     * @return the Bluetooth devices as [List] of [BluetoothDevice]
+     *
+     * @since 1.1.0
+     */
+    @Bridge
+    fun getBluetoothDevices(): List<BluetoothDevice>
+
 }
