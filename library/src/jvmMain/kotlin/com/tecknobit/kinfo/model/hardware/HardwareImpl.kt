@@ -7,6 +7,7 @@ import com.tecknobit.kinfo.model.desktop.hardware.centralprocessor.CentralProces
 import com.tecknobit.kinfo.model.desktop.hardware.computersystem.ComputerSystem
 import com.tecknobit.kinfo.model.desktop.hardware.graphicscard.GraphicsCard
 import com.tecknobit.kinfo.model.desktop.hardware.memory.GlobalMemory
+import com.tecknobit.kinfo.model.desktop.hardware.storage.DiskType
 import com.tecknobit.kinfo.model.desktop.hardware.storage.HWDiskStore
 import com.tecknobit.kinfo.model.desktop.hardware.storage.HWPartition
 import com.tecknobit.kinfo.model.desktop.hardware.storage.LogicalVolumeGroup
@@ -230,7 +231,8 @@ class HardwareImpl(
                         sourceList = disk.partitions
                     ),
                     timestamp = disk.timeStamp,
-                    updateAttributes = disk.updateAttributes()
+                    updateAttributes = disk.updateAttributes(),
+                    diskType = DiskType.valueOf(disk.diskType)
                 )
             )
         }

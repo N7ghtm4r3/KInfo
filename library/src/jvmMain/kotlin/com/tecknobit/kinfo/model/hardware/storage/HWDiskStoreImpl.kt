@@ -1,5 +1,6 @@
 package com.tecknobit.kinfo.model.hardware.storage
 
+import com.tecknobit.kinfo.model.desktop.hardware.storage.DiskType
 import com.tecknobit.kinfo.model.desktop.hardware.storage.HWDiskStore
 import com.tecknobit.kinfo.model.desktop.hardware.storage.HWPartition
 
@@ -21,6 +22,7 @@ import com.tecknobit.kinfo.model.desktop.hardware.storage.HWPartition
  * @param partitions A list of partitions on the disk
  * @param timestamp The timestamp when the disk information was last updated
  * @param updateAttributes A flag indicating whether the disk's attributes should be updated
+ * @param diskType The type of the disk, such as SSD, HDD, Removable, Virtual, or Unknown
  *
  * @author N7ghtm4r3 - Tecknobit
  *
@@ -39,5 +41,6 @@ class HWDiskStoreImpl(
     override val transferTime: Long,
     override val partitions: List<HWPartition>,
     override val timestamp: Long,
-    override val updateAttributes: Boolean
+    override val updateAttributes: Boolean,
+    override val diskType: DiskType
 ) : HWDiskStore

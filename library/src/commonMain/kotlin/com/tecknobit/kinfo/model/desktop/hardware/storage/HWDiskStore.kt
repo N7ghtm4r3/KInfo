@@ -73,4 +73,57 @@ interface HWDiskStore {
      */
     val updateAttributes: Boolean
 
+    /**
+     * `diskType` The type of the disk, such as SSD, HDD, Removable, Virtual, or Unknown
+     *
+     * @since 1.1.0
+     */
+    val diskType: DiskType
+
+}
+
+/**
+ * The `DiskType` enum is useful to represent the type of the disk, such as SSD, HDD, Removable, Virtual, or Unknown
+ *
+ * OSHI derives the disk type from Linux `sysfs` and `udev`, macOS `IOKit`, or Windows `WMI` platform data
+ *
+ * @author N7ghtm4r3 - Tecknobit
+ *
+ * @see HWDiskStore
+ *
+ * @since 1.1.0
+ */
+enum class DiskType {
+
+    /**
+     * `SSD` the disk type used when Linux `queue/rotational` is `0`, or the macOS `Medium Type` contains `Solid State`
+     * or `SSD`
+     */
+    SSD,
+
+    /**
+     * `HDD` the disk type used when Linux `queue/rotational` is `1`, the macOS `Medium Type` contains `Rotational`, or
+     * the Windows `MediaType` contains `fixed` or `external`
+     *
+     * Windows uses this type as the default for fixed disks because `Win32_DiskDrive` does not distinguish SSDs from
+     * HDDs
+     */
+    HDD,
+
+    /**
+     * `Removable` the disk type used when Linux `removable` is `1`, the macOS `IOMedia` entry is removable, or the
+     * Windows `MediaType` contains `removable`
+     */
+    Removable,
+
+    /**
+     * `Virtual` the disk type used for Linux device-mapper disks whose device node starts with `/dev/dm`
+     */
+    Virtual,
+
+    /**
+     * `Unknown` the disk type used when the platform data is absent or not recognized
+     */
+    Unknown
+
 }
