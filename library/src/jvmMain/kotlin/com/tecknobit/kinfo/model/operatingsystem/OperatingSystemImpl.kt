@@ -164,8 +164,13 @@ class OperatingSystemImpl(
             sourceList = operatingSystemInfo.sessions
         )
 
+    /**
+     * `cgroupInfo` the cgroup resource limits and usage metrics for the current process
+     *
+     * @since 1.1.0
+     */
     override val cgroupInfo: CgroupInfo
-        get() = getCgroupInfo()
+        get() = resolveCgroupInfo()
 
     /**
      * Retrieves the list of all active processes on the system
@@ -522,8 +527,15 @@ class OperatingSystemImpl(
         return applications
     }
 
+    /**
+     * Method used to map the OSHI cgroup information for the current process
+     *
+     * @return the mapped cgroup information as [CgroupInfo]
+     *
+     * @since 1.1.0
+     */
     @Loader
-    private fun getCgroupInfo(): CgroupInfo {
+    private fun resolveCgroupInfo(): CgroupInfo {
         val cgroupInfo = operatingSystemInfo.cgroupInfo
 
         return CgroupInfoImpl(
