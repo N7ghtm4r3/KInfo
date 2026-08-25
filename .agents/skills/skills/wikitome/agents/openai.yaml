@@ -1,0 +1,4 @@
+interface:
+  display_name: "WikiToMe"
+  short_description: "Concise, technology-agnostic API wiki entries"
+  default_prompt: "Use $wikitome to briefly explain a specific API or functionality."
