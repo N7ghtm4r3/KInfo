@@ -1,7 +1,8 @@
 package com.tecknobit.kinfo.model.desktop.hardware.display
 
 /**
- * The `Display` interface defines the contract to access the identification information of a display device
+ * The `Display` interface defines the contract to access the identification and connection information of a display
+ * device
  *
  * @author N7ghtm4r3 - Tecknobit
  *
@@ -26,5 +27,19 @@ interface Display {
      * @since 1.1.0
      */
     val displayInfo: DisplayInfo
+
+    /**
+     * `displayPort` the platform-specific system device port identifier, or `unknown` when not available
+     *
+     * @since 1.1.0
+     */
+    val displayPort: String
+
+    /**
+     * `outputName` the X11 output name reported by `xrandr`, or `null` when not available
+     *
+     * @since 1.1.0
+     */
+    val outputName: String?
 
 }

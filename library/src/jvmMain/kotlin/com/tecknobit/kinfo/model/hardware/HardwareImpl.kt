@@ -394,11 +394,14 @@ class HardwareImpl(
     }
 
     /**
-     * Method used to convert raw OSHI displays into [Display] instances with their decoded identification information
+     * Method used to convert raw OSHI displays into [Display] instances with their identification and connection
+     * information
      *
      * @param sourceList The raw displays to convert
      *
      * @return the converted displays as [List] of [Display]
+     *
+     * @since 1.1.0
      */
     @Loader
     private fun loadDisplays(
@@ -426,7 +429,9 @@ class HardwareImpl(
                         preferredResolution = displayInfo.preferredResolution,
                         model = displayInfo.model,
                         productSerialNumber = displayInfo.productSerialNumber
-                    )
+                    ),
+                    displayPort = display.devicePort,
+                    outputName = display.outputName.orElse(null)
                 )
             )
         }
