@@ -159,6 +159,15 @@ class HardwareImpl(
         )
 
     /**
+     * `virtualization` the virtualization or container platform detected from [hardwareInfo], or `null` when no known
+     * signature is found
+     *
+     * @since 1.1.0
+     */
+    override val virtualization: String?
+        get() = hardwareInfo.virtualization.orElse(null)
+
+    /**
      * Retrieves the network interfaces, with the option to include local interfaces
      *
      * @param includeLocalInterfaces Whether to include local interfaces (such as loopback)

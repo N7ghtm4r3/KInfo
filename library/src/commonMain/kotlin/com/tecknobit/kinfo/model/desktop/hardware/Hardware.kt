@@ -81,6 +81,13 @@ interface Hardware {
     val printers: List<Printer>
 
     /**
+     * `virtualization` the detected virtualization or container platform, or `null` when no known signature is found
+     *
+     * @since 1.1.0
+     */
+    val virtualization: String?
+
+    /**
      * Returns the list of network interfaces on the system.
      * If `includeLocalInterfaces` is true, local interfaces (e.g., loopback interfaces) will also be included
      *
