@@ -21,6 +21,13 @@ enum class DevicePlatform {
     DESKTOP,
 
     /**
+     * `MACOS` the macOS platform value
+     *
+     * @since 1.1.0
+     */
+    MACOS,
+
+    /**
      * `WEB` the web platform value
      */
     WEB

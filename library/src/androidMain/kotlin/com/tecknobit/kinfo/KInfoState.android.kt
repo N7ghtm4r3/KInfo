@@ -9,6 +9,7 @@ import com.tecknobit.kinfo.model.android.AndroidInfo
 import com.tecknobit.kinfo.model.desktop.DesktopInfo
 import com.tecknobit.kinfo.model.ios.IosInfo
 import com.tecknobit.kinfo.model.web.WebInfo
+import com.tecknobit.kinfo.model.desktop.macos.MacOsInfo
 
 /**
  * `KInfoState` provides information about the current device where the application is running. This information is related
@@ -45,6 +46,14 @@ actual class KInfoState {
         get() = throw Exception("trying to access incorrect platform info")
 
     /**
+     * `macOsInfo` the unavailable macOS information on an Android device
+     *
+     * @since 1.1.0
+     */
+    actual val macOsInfo: MacOsInfo
+        get() = throw Exception("trying to access incorrect platform info")
+
+    /**
      * `webInfo` the information about a webapp running on the [com.tecknobit.kinfo.enums.DevicePlatform.WEB]
      */
     actual val webInfo: WebInfo
@@ -60,5 +69,6 @@ actual class KInfoState {
 @Composable
 actual fun rememberKInfoState(): KInfoState {
     val orientation = LocalConfiguration.current.orientation
+
     return remember(orientation) { KInfoState() }
 }
