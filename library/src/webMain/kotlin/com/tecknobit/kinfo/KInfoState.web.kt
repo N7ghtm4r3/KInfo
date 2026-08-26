@@ -6,6 +6,7 @@ import com.tecknobit.kinfo.enums.DevicePlatform.WEB
 import com.tecknobit.kinfo.model.WebInfoImpl
 import com.tecknobit.kinfo.model.android.AndroidInfo
 import com.tecknobit.kinfo.model.desktop.DesktopInfo
+import com.tecknobit.kinfo.model.desktop.macos.MacOsInfo
 import com.tecknobit.kinfo.model.ios.IosInfo
 import com.tecknobit.kinfo.model.web.WebInfo
 
@@ -34,6 +35,14 @@ actual class KInfoState {
      * `desktopInfo` the information about an [com.tecknobit.kinfo.enums.DevicePlatform.DESKTOP]'s device
      */
     actual val desktopInfo: DesktopInfo
+        get() = throw Exception("trying to access incorrect platform info")
+
+    /**
+     * `macOsInfo` the unavailable macOS information on a web device
+     *
+     * @since 1.1.0
+     */
+    actual val macOsInfo: MacOsInfo
         get() = throw Exception("trying to access incorrect platform info")
 
     /**
