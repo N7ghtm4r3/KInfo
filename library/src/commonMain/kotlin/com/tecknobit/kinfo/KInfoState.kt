@@ -7,6 +7,7 @@ import com.tecknobit.kinfo.enums.DevicePlatform
 import com.tecknobit.kinfo.enums.DevicePlatform.*
 import com.tecknobit.kinfo.model.android.AndroidInfo
 import com.tecknobit.kinfo.model.desktop.DesktopInfo
+import com.tecknobit.kinfo.model.desktop.macos.MacOsInfo
 import com.tecknobit.kinfo.model.ios.IosInfo
 import com.tecknobit.kinfo.model.web.WebInfo
 
@@ -36,6 +37,13 @@ expect class KInfoState() {
     val desktopInfo: DesktopInfo
 
     /**
+     * `macOsInfo` the information about a device running on the [com.tecknobit.kinfo.enums.DevicePlatform.MACOS] platform
+     *
+     * @since 1.1.0
+     */
+    val macOsInfo: MacOsInfo
+
+    /**
      * `webInfo` the information about a webapp running on the [com.tecknobit.kinfo.enums.DevicePlatform.WEB]
      */
     val webInfo: WebInfo
@@ -54,6 +62,7 @@ expect class KInfoState() {
  * @param onAndroid The content to display on an [com.tecknobit.kinfo.enums.DevicePlatform.ANDROID] device
  * @param onIos The content to display on an [com.tecknobit.kinfo.enums.DevicePlatform.IOS] device
  * @param onDesktop The content to display on a [com.tecknobit.kinfo.enums.DevicePlatform.DESKTOP] device
+ * @param onMacOs The content to display on a [com.tecknobit.kinfo.enums.DevicePlatform.MACOS] device
  * @param onWeb The content to display on an [com.tecknobit.kinfo.enums.DevicePlatform.WEB] device
  */
 @Composable
@@ -62,12 +71,14 @@ fun OnPlatform(
     onAndroid: @Composable ((AndroidInfo) -> Unit)? = null,
     onIos: @Composable ((IosInfo) -> Unit)? = null,
     onDesktop: @Composable ((DesktopInfo) -> Unit)? = null,
+    onMacOs: @Composable ((MacOsInfo) -> Unit)? = null,
     onWeb: @Composable ((WebInfo) -> Unit)? = null,
 ) {
     when(kInfoState.devicePlatform) {
         ANDROID -> onAndroid?.invoke(kInfoState.androidInfo)
         IOS -> onIos?.invoke(kInfoState.iosInfo)
         DESKTOP -> onDesktop?.invoke(kInfoState.desktopInfo)
+        MACOS -> onMacOs?.invoke(kInfoState.macOsInfo)
         WEB -> onWeb?.invoke(kInfoState.webInfo)
     }
 }
@@ -79,6 +90,7 @@ fun OnPlatform(
  * @param onAndroid The action to execute on an [com.tecknobit.kinfo.enums.DevicePlatform.ANDROID] device
  * @param onIos The action to execute on an [com.tecknobit.kinfo.enums.DevicePlatform.IOS] device
  * @param onDesktop The action to execute on a [com.tecknobit.kinfo.enums.DevicePlatform.DESKTOP] device
+ * @param onMacOs The action to execute on a [com.tecknobit.kinfo.enums.DevicePlatform.MACOS] device
  * @param onWeb The action to execute on an [com.tecknobit.kinfo.enums.DevicePlatform.WEB] device
  */
 fun onPlatform(
@@ -86,12 +98,14 @@ fun onPlatform(
     onAndroid: ((AndroidInfo) -> Unit)? = null,
     onIos: ((IosInfo) -> Unit)? = null,
     onDesktop: ((DesktopInfo) -> Unit)? = null,
+    onMacOs: ((MacOsInfo) -> Unit)? = null,
     onWeb: ((WebInfo) -> Unit)? = null
 ) {
     when(kInfoState.devicePlatform) {
         ANDROID -> onAndroid?.invoke(kInfoState.androidInfo)
         IOS -> onIos?.invoke(kInfoState.iosInfo)
         DESKTOP -> onDesktop?.invoke(kInfoState.desktopInfo)
+        MACOS -> onMacOs?.invoke(kInfoState.macOsInfo)
         WEB -> onWeb?.invoke(kInfoState.webInfo)
     }
 }

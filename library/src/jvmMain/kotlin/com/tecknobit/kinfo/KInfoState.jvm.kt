@@ -2,11 +2,11 @@ package com.tecknobit.kinfo
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
-import com.tecknobit.kinfo.enums.DevicePlatform
 import com.tecknobit.kinfo.enums.DevicePlatform.DESKTOP
 import com.tecknobit.kinfo.model.DesktopInfoImpl
 import com.tecknobit.kinfo.model.android.AndroidInfo
 import com.tecknobit.kinfo.model.desktop.DesktopInfo
+import com.tecknobit.kinfo.model.desktop.macos.MacOsInfo
 import com.tecknobit.kinfo.model.ios.IosInfo
 import com.tecknobit.kinfo.model.web.WebInfo
 
@@ -25,6 +25,14 @@ actual class KInfoState {
     actual val desktopInfo: DesktopInfo by lazy {
         DesktopInfoImpl()
     }
+
+    /**
+     * `macOsInfo` the unavailable macOS information on a `JVM` desktop device
+     *
+     * @since 1.1.0
+     */
+    actual val macOsInfo: MacOsInfo
+        get() = throw Exception("trying to access incorrect platform info")
 
     /**
      * `devicePlatform` the current platform where the application is running

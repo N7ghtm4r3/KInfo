@@ -7,6 +7,7 @@ import com.tecknobit.kinfo.enums.DevicePlatform.IOS
 import com.tecknobit.kinfo.model.IosInfoImpl
 import com.tecknobit.kinfo.model.android.AndroidInfo
 import com.tecknobit.kinfo.model.desktop.DesktopInfo
+import com.tecknobit.kinfo.model.desktop.macos.MacOsInfo
 import com.tecknobit.kinfo.model.ios.IosInfo
 import com.tecknobit.kinfo.model.web.WebInfo
 import platform.UIKit.interfaceOrientation
@@ -46,6 +47,14 @@ actual class KInfoState {
         get() = throw Exception("trying to access incorrect platform info")
 
     /**
+     * `macOsInfo` the unavailable macOS information on an iOS device
+     *
+     * @since 1.1.0
+     */
+    actual val macOsInfo: MacOsInfo
+        get() = throw Exception("trying to access incorrect platform info")
+
+    /**
      * `webInfo` the information about a webapp running on the [com.tecknobit.kinfo.enums.DevicePlatform.WEB]
      */
     actual val webInfo: WebInfo
@@ -61,5 +70,6 @@ actual class KInfoState {
 @Composable
 actual fun rememberKInfoState(): KInfoState {
     val orientation = LocalUIViewController.current.interfaceOrientation
+
     return remember(orientation) { KInfoState() }
 }
