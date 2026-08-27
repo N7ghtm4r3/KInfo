@@ -1,0 +1,37 @@
+@file:OptIn(ExperimentalForeignApi::class)
+
+package com.tecknobit.kinfo.utils
+
+import kotlinx.cinterop.*
+import platform.darwin.sysctlbyname
+import platform.posix.size_tVar
+
+/**
+ * Method used to query a string system control value by its name
+ *
+ * @param name The name of the system control value to query
+ * @param default The nullable fallback value returned when the query fails
+ *
+ * @return the queried value or the [default] fallback as [String]
+ *
+ * @since 1.1.0
+ */
+fun queryStringSysCtlByName(
+    name: String,
+    default: String? = null
+): String? {
+    return memScoped {
+        val size = alloc<size_tVar>()
+
+        val allocableSize = sysctlbyname(name, null, size.ptr, null, 0u)
+        if (allocableSize != 0)
+            return default
+
+        val buffer = allocArray<ByteVar>(size.value.toInt())
+        val result = sysctlbyname(name, buffer, size.ptr, null, 0u)
+        if (result != 0)
+            return default
+
+        buffer.toKString()
+    }
+}

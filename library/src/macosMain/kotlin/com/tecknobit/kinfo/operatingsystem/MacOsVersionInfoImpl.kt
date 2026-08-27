@@ -4,9 +4,9 @@ package com.tecknobit.kinfo.operatingsystem
 
 import com.tecknobit.kinfo.model.desktop.operatingsystem.OSVersionInfo
 import com.tecknobit.kinfo.operatingsystem.MacOsCodename.*
+import com.tecknobit.kinfo.utils.queryStringSysCtlByName
 import kotlinx.cinterop.CValue
 import kotlinx.cinterop.ExperimentalForeignApi
-import kotlinx.cinterop.memScoped
 import kotlinx.cinterop.useContents
 import platform.Foundation.NSOperatingSystemVersion
 
@@ -109,10 +109,12 @@ data class MacOsVersionInfoImpl(
      * @return the resolved build number as [String]
      */
     private fun resolveBuildNumber(): String {
-        return memScoped {
-            ""
-        }
+        return queryStringSysCtlByName(
+            name = "kern.osversion",
+            default = "Unknown"
+        )!!
     }
+
 }
 
 /**
