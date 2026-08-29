@@ -1,6 +1,5 @@
 package com.tecknobit.kinfo.model.desktop.macos.operatingsystem
 
-import com.tecknobit.kinfo.model.desktop.operatingsystem.OSSession
 import com.tecknobit.kinfo.model.desktop.operatingsystem.processes.OSProcess
 import com.tecknobit.kinfo.model.desktop.operatingsystem.processes.OSThread
 import com.tecknobit.kinfo.model.desktop.operatingsystem.protocols.IPConnection
@@ -38,9 +37,9 @@ interface MacOsOperatingSystem {
     val allWindows: List<MacOsDesktopWindow>
 
     /**
-     * `utmpx` the current macOS session information
+     * `utmpx` the first active macOS user session available in the `utmpx` records
      */
-    val utmpx: OSSession
+    val utmpx: MacOsOsSession
 
     /**
      * `procTaskAllInfo` the current macOS process information
