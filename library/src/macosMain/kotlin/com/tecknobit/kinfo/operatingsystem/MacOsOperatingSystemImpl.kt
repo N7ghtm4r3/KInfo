@@ -14,10 +14,10 @@ import com.tecknobit.kinfo.model.desktop.operatingsystem.protocols.IPConnection
 import com.tecknobit.kinfo.model.desktop.operatingsystem.protocols.IPRoute
 import com.tecknobit.kinfo.model.desktop.operatingsystem.protocols.TcpStats
 import com.tecknobit.kinfo.model.desktop.operatingsystem.protocols.UdpStats
-import kotlinx.cinterop.CValue
-import kotlinx.cinterop.ExperimentalForeignApi
+import kotlinx.cinterop.*
 import platform.Foundation.NSOperatingSystemVersion
 import platform.Foundation.NSProcessInfo
+import platform.osx.statfs
 
 /**
  * The `MacOsOperatingSystemImpl` class is useful to provide details about the current macOS operating system
@@ -44,7 +44,7 @@ data class MacOsOperatingSystemImpl(
      * `statfs` the macOS file store information
      */
     override val statfs: OSFileStore
-        get() = TODO("Not yet implemented")
+        get() = loadStatFs()
 
     /**
      * `cgWindowId` the macOS desktop window information
@@ -108,6 +108,27 @@ data class MacOsOperatingSystemImpl(
         return MacOsVersionInfoImpl(
             operatingSystemVersion = operatingSystemVersion
         )
+    }
+
+    /**
+     * Method used to load the root macOS file store information
+     *
+     * @return the loaded file store information as [MacOsFileStoreImpl]
+     */
+    @Loader
+    private fun loadStatFs(): MacOsFileStoreImpl {
+        return memScoped {
+            val statfsBuffer = alloc<statfs>()
+            if (statfs("/", statfsBuffer.ptr) != 0)
+                error("Error during statfs reading")
+
+            val statfs = statfsBuffer.readValue()
+            statfs.useContents {
+                MacOsFileStoreImpl(
+                    statfs = this
+                )
+            }
+        }
     }
 
 }
