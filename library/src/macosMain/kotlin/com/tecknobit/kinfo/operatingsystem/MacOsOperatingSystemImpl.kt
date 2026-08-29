@@ -3,7 +3,6 @@
 package com.tecknobit.kinfo.operatingsystem
 
 import com.tecknobit.kinfo.annotations.Loader
-import com.tecknobit.kinfo.model.desktop.common.operatingsystem.processes.OSProcess
 import com.tecknobit.kinfo.model.desktop.common.operatingsystem.processes.OSThread
 import com.tecknobit.kinfo.model.desktop.common.operatingsystem.protocols.IPConnection
 import com.tecknobit.kinfo.model.desktop.common.operatingsystem.protocols.IPRoute
@@ -24,7 +23,9 @@ import platform.darwin.USER_PROCESS
 import platform.darwin.endutxent
 import platform.darwin.getutxent
 import platform.darwin.setutxent
+import platform.osx.proc_taskallinfo
 import platform.osx.statfs
+import platform.posix.getpid
 
 /**
  * The `MacOsOperatingSystemImpl` class is useful to provide details about the current macOS operating system
@@ -74,8 +75,8 @@ data class MacOsOperatingSystemImpl(
     /**
      * `procTaskAllInfo` the macOS process information
      */
-    override val procTaskAllInfo: OSProcess
-        get() = TODO("Not yet implemented")
+    override val procTaskAllInfo: MacOsOSProcess
+        get() = loadOsProcess()
 
     /**
      * `procThreadInfo` the macOS process thread information
@@ -278,6 +279,54 @@ data class MacOsOperatingSystemImpl(
             }
         } finally {
             endutxent()
+        }
+    }
+
+    @Loader
+    private fun loadOsProcess(): MacOsOSProcess {
+        return memScoped {
+            val info = alloc<proc_taskallinfo>()
+            val currentProcessId = getpid()
+
+            return MacOsOsProcessImpl(
+                name = TODO(),
+                path = TODO(),
+                commandLine = TODO(),
+                arguments = TODO(),
+                environmentVariables = TODO(),
+                currentWorkingDirectory = TODO(),
+                user = TODO(),
+                userId = TODO(),
+                group = TODO(),
+                groupId = TODO(),
+                state = TODO(),
+                processId = currentProcessId.toInt(),
+                parentProcessId = TODO(),
+                threadCount = TODO(),
+                priority = TODO(),
+                virtualSize = TODO(),
+                residentMemory = TODO(),
+                privateResidentMemory = TODO(),
+                kernelTime = TODO(),
+                userTime = TODO(),
+                startTime = TODO(),
+                bytesRead = TODO(),
+                bytesWritten = TODO(),
+                openFiles = TODO(),
+                softOpenFileLimit = TODO(),
+                hardOpenFileLimit = TODO(),
+                processCpuLoadCumulative = TODO(),
+                processCpuLoadBetweenTicks = TODO(),
+                bitness = TODO(),
+                affinityMask = TODO(),
+                updateAttributes = TODO(),
+                threadDetails = TODO(),
+                minorFaults = TODO(),
+                majorFaults = TODO(),
+                contextSwitches = TODO(),
+                voluntaryContextSwitches = TODO(),
+                involuntaryContextSwitches = TODO()
+            )
         }
     }
 
