@@ -3,11 +3,7 @@
 package com.tecknobit.kinfo.operatingsystem
 
 import com.tecknobit.kinfo.annotations.Loader
-import com.tecknobit.kinfo.model.desktop.macos.operatingsystem.MacOsDesktopWindow
-import com.tecknobit.kinfo.model.desktop.macos.operatingsystem.MacOsFileStore
-import com.tecknobit.kinfo.model.desktop.macos.operatingsystem.MacOsOperatingSystem
-import com.tecknobit.kinfo.model.desktop.macos.operatingsystem.MacOsVersionInfo
-import com.tecknobit.kinfo.model.desktop.operatingsystem.OSSession
+import com.tecknobit.kinfo.model.desktop.macos.operatingsystem.*
 import com.tecknobit.kinfo.model.desktop.operatingsystem.processes.OSProcess
 import com.tecknobit.kinfo.model.desktop.operatingsystem.processes.OSThread
 import com.tecknobit.kinfo.model.desktop.operatingsystem.protocols.IPConnection
@@ -24,6 +20,10 @@ import platform.Foundation.NSDictionary
 import platform.Foundation.NSNumber
 import platform.Foundation.NSOperatingSystemVersion
 import platform.Foundation.NSProcessInfo
+import platform.darwin.USER_PROCESS
+import platform.darwin.endutxent
+import platform.darwin.getutxent
+import platform.darwin.setutxent
 import platform.osx.statfs
 
 /**
@@ -66,10 +66,10 @@ data class MacOsOperatingSystemImpl(
         get() = loadAllWindows()
 
     /**
-     * `utmpx` the macOS session information
+     * `utmpx` the first active macOS user session available in the `utmpx` records
      */
-    override val utmpx: OSSession
-        get() = TODO("Not yet implemented")
+    override val utmpx: MacOsOsSession
+        get() = loadUserTemporaryExtended()
 
     /**
      * `procTaskAllInfo` the macOS process information
@@ -251,6 +251,34 @@ data class MacOsOperatingSystemImpl(
 
         val executableURL = nsRunningApplication?.executableURL
         return executableURL?.path.orEmpty()
+    }
+
+    /**
+     * Method used to load the first active macOS user session from the `utmpx` records
+     *
+     * @return the loaded macOS user session as [MacOsOsSession]
+     */
+    @Loader
+    private fun loadUserTemporaryExtended(): MacOsOsSession {
+        setutxent()
+
+        try {
+            while (true) {
+                val utmpx = getutxent()?.pointed ?: error("Cannot read utmpx")
+                if (utmpx.ut_type.toInt() != USER_PROCESS)
+                    continue
+
+                val utTv = utmpx.ut_tv
+                return MacOsOSSessionImpl(
+                    userName = utmpx.ut_user.toKString(),
+                    terminalDevice = utmpx.ut_line.toKString(),
+                    loginTime = ((utTv.tv_sec * 1000L) + (utTv.tv_usec / 1000L)),
+                    host = utmpx.ut_host.toKString()
+                )
+            }
+        } finally {
+            endutxent()
+        }
     }
 
 }
