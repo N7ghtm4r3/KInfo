@@ -1,6 +1,6 @@
 package com.tecknobit.kinfo.model.hardware.centralprocessor
 
-import com.tecknobit.kinfo.model.desktop.hardware.centralprocessor.PhysicalProcessor
+import com.tecknobit.kinfo.model.desktop.common.hardware.centralprocessor.PhysicalProcessor
 
 /**
  * Implementation of the [PhysicalProcessor] interface, representing a physical processor in the system.

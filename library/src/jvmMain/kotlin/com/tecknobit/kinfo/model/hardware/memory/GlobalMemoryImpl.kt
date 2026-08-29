@@ -1,9 +1,9 @@
 package com.tecknobit.kinfo.model.hardware.memory
 
 import com.tecknobit.kinfo.annotations.Loader
-import com.tecknobit.kinfo.model.desktop.hardware.memory.GlobalMemory
-import com.tecknobit.kinfo.model.desktop.hardware.memory.PhysicalMemory
-import com.tecknobit.kinfo.model.desktop.hardware.memory.VirtualMemory
+import com.tecknobit.kinfo.model.desktop.common.hardware.memory.GlobalMemory
+import com.tecknobit.kinfo.model.desktop.common.hardware.memory.PhysicalMemory
+import com.tecknobit.kinfo.model.desktop.common.hardware.memory.VirtualMemory
 
 /**
  * Implementation of the `GlobalMemory` interface.

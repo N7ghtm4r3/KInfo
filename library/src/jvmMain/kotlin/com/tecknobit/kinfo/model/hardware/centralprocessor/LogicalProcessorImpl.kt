@@ -1,6 +1,6 @@
 package com.tecknobit.kinfo.model.hardware.centralprocessor
 
-import com.tecknobit.kinfo.model.desktop.hardware.centralprocessor.LogicalProcessor
+import com.tecknobit.kinfo.model.desktop.common.hardware.centralprocessor.LogicalProcessor
 
 /**
  * Implementation of the `LogicalProcessor` interface.

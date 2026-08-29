@@ -1,7 +1,7 @@
 package com.tecknobit.kinfo.model.hardware
 
-import com.tecknobit.kinfo.model.desktop.hardware.Printer
-import com.tecknobit.kinfo.model.desktop.hardware.PrinterStatus
+import com.tecknobit.kinfo.model.desktop.common.hardware.Printer
+import com.tecknobit.kinfo.model.desktop.common.hardware.PrinterStatus
 
 /**
  * Implementation of the `Printer` interface.

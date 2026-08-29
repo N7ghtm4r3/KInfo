@@ -1,8 +1,9 @@
 package com.tecknobit.kinfo.model.desktop
 
 import com.tecknobit.kinfo.TO_BE_FILLED_BY_OEM
-import com.tecknobit.kinfo.model.desktop.hardware.Hardware
-import com.tecknobit.kinfo.model.desktop.operatingsystem.OperatingSystem
+import com.tecknobit.kinfo.model.desktop.DesktopInfo.Companion.isToBeFilledByOEM
+import com.tecknobit.kinfo.model.desktop.common.hardware.Hardware
+import com.tecknobit.kinfo.model.desktop.common.operatingsystem.OperatingSystem
 
 /**
  * Represents information about the desktop environment.

@@ -1,7 +1,7 @@
 package com.tecknobit.kinfo.model.hardware.display
 
-import com.tecknobit.kinfo.model.desktop.hardware.display.Display
-import com.tecknobit.kinfo.model.desktop.hardware.display.DisplayInfo
+import com.tecknobit.kinfo.model.desktop.common.hardware.display.Display
+import com.tecknobit.kinfo.model.desktop.common.hardware.display.DisplayInfo
 
 /**
  * The `DisplayImpl` class is useful to store the identification and connection information of a display device

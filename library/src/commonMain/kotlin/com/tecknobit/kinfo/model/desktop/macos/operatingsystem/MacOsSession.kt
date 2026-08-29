@@ -1,6 +1,6 @@
 package com.tecknobit.kinfo.model.desktop.macos.operatingsystem
 
-import com.tecknobit.kinfo.model.desktop.operatingsystem.OSSession
+import com.tecknobit.kinfo.model.desktop.common.operatingsystem.OSSession
 
 /**
  * The `MacOsOsSession` interface defines the contract to provide macOS user session details

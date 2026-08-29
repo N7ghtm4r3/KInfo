@@ -1,7 +1,7 @@
 package com.tecknobit.kinfo.model.hardware
 
-import com.tecknobit.kinfo.model.desktop.hardware.CapacityUnits
-import com.tecknobit.kinfo.model.desktop.hardware.PowerSource
+import com.tecknobit.kinfo.model.desktop.common.hardware.CapacityUnits
+import com.tecknobit.kinfo.model.desktop.common.hardware.PowerSource
 import java.time.LocalDate
 
 /**

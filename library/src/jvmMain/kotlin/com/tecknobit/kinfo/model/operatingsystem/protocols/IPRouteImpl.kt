@@ -1,6 +1,6 @@
 package com.tecknobit.kinfo.model.operatingsystem.protocols
 
-import com.tecknobit.kinfo.model.desktop.operatingsystem.protocols.IPRoute
+import com.tecknobit.kinfo.model.desktop.common.operatingsystem.protocols.IPRoute
 
 /**
  * The `IPRouteImpl` class is useful to represent an entry in the operating system routing table

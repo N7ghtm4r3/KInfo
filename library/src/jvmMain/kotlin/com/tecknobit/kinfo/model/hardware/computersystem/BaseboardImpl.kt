@@ -1,6 +1,6 @@
 package com.tecknobit.kinfo.model.hardware.computersystem
 
-import com.tecknobit.kinfo.model.desktop.hardware.computersystem.Baseboard
+import com.tecknobit.kinfo.model.desktop.common.hardware.computersystem.Baseboard
 
 /**
  * Implementation of the `Baseboard` interface.

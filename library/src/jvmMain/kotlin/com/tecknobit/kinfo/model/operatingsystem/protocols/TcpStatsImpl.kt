@@ -1,6 +1,6 @@
 package com.tecknobit.kinfo.model.operatingsystem.protocols
 
-import com.tecknobit.kinfo.model.desktop.operatingsystem.protocols.TcpStats
+import com.tecknobit.kinfo.model.desktop.common.operatingsystem.protocols.TcpStats
 
 /**
  * `TcpStatsImpl` Implementation of the `TcpStats` interface, providing statistics related to TCP connections,

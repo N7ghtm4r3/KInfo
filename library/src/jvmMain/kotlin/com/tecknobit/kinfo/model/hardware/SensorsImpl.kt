@@ -1,6 +1,6 @@
 package com.tecknobit.kinfo.model.hardware
 
-import com.tecknobit.kinfo.model.desktop.hardware.Sensors
+import com.tecknobit.kinfo.model.desktop.common.hardware.Sensors
 
 /**
  * Implementation of the `Sensors` interface.

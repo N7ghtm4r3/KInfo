@@ -1,6 +1,6 @@
 package com.tecknobit.kinfo.model.operatingsystem
 
-import com.tecknobit.kinfo.model.desktop.operatingsystem.ApplicationInfo
+import com.tecknobit.kinfo.model.desktop.common.operatingsystem.ApplicationInfo
 
 /**
  * Represents the implementation of the `ApplicationInfo` interface.

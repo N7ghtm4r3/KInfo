@@ -1,8 +1,8 @@
 package com.tecknobit.kinfo.model.hardware.storage
 
-import com.tecknobit.kinfo.model.desktop.hardware.storage.DiskType
-import com.tecknobit.kinfo.model.desktop.hardware.storage.HWDiskStore
-import com.tecknobit.kinfo.model.desktop.hardware.storage.HWPartition
+import com.tecknobit.kinfo.model.desktop.common.hardware.storage.DiskType
+import com.tecknobit.kinfo.model.desktop.common.hardware.storage.HWDiskStore
+import com.tecknobit.kinfo.model.desktop.common.hardware.storage.HWPartition
 
 /**
  * Implementation of the `HWDiskStore` interface.

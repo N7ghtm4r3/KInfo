@@ -2,8 +2,8 @@ package com.tecknobit.kinfo.model.operatingsystem
 
 import com.tecknobit.kinfo.annotations.Bridge
 import com.tecknobit.kinfo.annotations.Loader
-import com.tecknobit.kinfo.model.desktop.operatingsystem.FileSystem
-import com.tecknobit.kinfo.model.desktop.operatingsystem.OSFileStore
+import com.tecknobit.kinfo.model.desktop.common.operatingsystem.FileSystem
+import com.tecknobit.kinfo.model.desktop.common.operatingsystem.OSFileStore
 
 /**
  * `FileSystemImpl` Implementation of the `FileSystem` interface, providing details about the file system

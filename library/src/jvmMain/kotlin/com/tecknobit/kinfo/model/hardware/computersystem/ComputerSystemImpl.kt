@@ -1,8 +1,8 @@
 package com.tecknobit.kinfo.model.hardware.computersystem
 
-import com.tecknobit.kinfo.model.desktop.hardware.computersystem.Baseboard
-import com.tecknobit.kinfo.model.desktop.hardware.computersystem.ComputerSystem
-import com.tecknobit.kinfo.model.desktop.hardware.computersystem.Firmware
+import com.tecknobit.kinfo.model.desktop.common.hardware.computersystem.Baseboard
+import com.tecknobit.kinfo.model.desktop.common.hardware.computersystem.ComputerSystem
+import com.tecknobit.kinfo.model.desktop.common.hardware.computersystem.Firmware
 
 /**
  * Implementation of the `ComputerSystem` interface.

@@ -1,6 +1,6 @@
 package com.tecknobit.kinfo.model.operatingsystem
 
-import com.tecknobit.kinfo.model.desktop.operatingsystem.OSVersionInfo
+import com.tecknobit.kinfo.model.desktop.common.operatingsystem.OSVersionInfo
 
 /**
  * Represents an implementation of the `OSVersionInfo` interface.

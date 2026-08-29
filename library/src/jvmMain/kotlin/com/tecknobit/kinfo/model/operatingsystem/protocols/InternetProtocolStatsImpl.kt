@@ -1,7 +1,7 @@
 package com.tecknobit.kinfo.model.operatingsystem.protocols
 
 import com.tecknobit.kinfo.annotations.Loader
-import com.tecknobit.kinfo.model.desktop.operatingsystem.protocols.*
+import com.tecknobit.kinfo.model.desktop.common.operatingsystem.protocols.*
 
 /**
  * `InternetProtocolStatsImpl` Implements the `InternetProtocolStats` interface to provide details about

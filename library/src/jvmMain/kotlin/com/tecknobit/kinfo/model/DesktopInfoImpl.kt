@@ -1,8 +1,8 @@
 package com.tecknobit.kinfo.model
 
 import com.tecknobit.kinfo.model.desktop.DesktopInfo
-import com.tecknobit.kinfo.model.desktop.hardware.Hardware
-import com.tecknobit.kinfo.model.desktop.operatingsystem.OperatingSystem
+import com.tecknobit.kinfo.model.desktop.common.hardware.Hardware
+import com.tecknobit.kinfo.model.desktop.common.operatingsystem.OperatingSystem
 import com.tecknobit.kinfo.model.hardware.HardwareImpl
 import com.tecknobit.kinfo.model.operatingsystem.OperatingSystemImpl
 import oshi.SystemInfo

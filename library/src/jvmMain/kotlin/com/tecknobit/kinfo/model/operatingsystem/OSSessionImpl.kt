@@ -1,6 +1,6 @@
 package com.tecknobit.kinfo.model.operatingsystem
 
-import com.tecknobit.kinfo.model.desktop.operatingsystem.OSSession
+import com.tecknobit.kinfo.model.desktop.common.operatingsystem.OSSession
 
 /**
  * Represents an implementation of the `OSSession` interface.

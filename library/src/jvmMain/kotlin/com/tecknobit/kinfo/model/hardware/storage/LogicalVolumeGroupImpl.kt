@@ -1,6 +1,6 @@
 package com.tecknobit.kinfo.model.hardware.storage
 
-import com.tecknobit.kinfo.model.desktop.hardware.storage.LogicalVolumeGroup
+import com.tecknobit.kinfo.model.desktop.common.hardware.storage.LogicalVolumeGroup
 
 /**
  * `LogicalVolumeGroupImpl` is an implementation of the `LogicalVolumeGroup` interface.

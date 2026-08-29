@@ -1,7 +1,7 @@
 package com.tecknobit.kinfo.model.operatingsystem
 
-import com.tecknobit.kinfo.model.desktop.operatingsystem.OSService
-import com.tecknobit.kinfo.model.desktop.operatingsystem.ServiceState
+import com.tecknobit.kinfo.model.desktop.common.operatingsystem.OSService
+import com.tecknobit.kinfo.model.desktop.common.operatingsystem.ServiceState
 
 /**
  * Implementation of an operating system service.

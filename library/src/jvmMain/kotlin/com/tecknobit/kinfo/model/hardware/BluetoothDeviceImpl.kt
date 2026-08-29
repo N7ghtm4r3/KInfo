@@ -1,6 +1,6 @@
 package com.tecknobit.kinfo.model.hardware
 
-import com.tecknobit.kinfo.model.desktop.hardware.BluetoothDevice
+import com.tecknobit.kinfo.model.desktop.common.hardware.BluetoothDevice
 
 /**
  * The `BluetoothDeviceImpl` class is useful to represent Bluetooth device information retrieved from the system

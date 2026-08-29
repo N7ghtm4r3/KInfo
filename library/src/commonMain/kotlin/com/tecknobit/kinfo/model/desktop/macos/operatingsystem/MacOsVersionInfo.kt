@@ -1,6 +1,6 @@
 package com.tecknobit.kinfo.model.desktop.macos.operatingsystem
 
-import com.tecknobit.kinfo.model.desktop.operatingsystem.OSVersionInfo
+import com.tecknobit.kinfo.model.desktop.common.operatingsystem.OSVersionInfo
 
 /**
  * The `MacOsVersionInfo` interface defines the contract to provide the version details of macOS

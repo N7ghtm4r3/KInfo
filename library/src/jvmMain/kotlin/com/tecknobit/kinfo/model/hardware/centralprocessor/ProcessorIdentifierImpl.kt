@@ -1,6 +1,6 @@
 package com.tecknobit.kinfo.model.hardware.centralprocessor
 
-import com.tecknobit.kinfo.model.desktop.hardware.centralprocessor.ProcessorIdentifier
+import com.tecknobit.kinfo.model.desktop.common.hardware.centralprocessor.ProcessorIdentifier
 import oshi.hardware.CentralProcessor
 
 /**

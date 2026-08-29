@@ -1,6 +1,6 @@
 package com.tecknobit.kinfo.model.hardware.memory
 
-import com.tecknobit.kinfo.model.desktop.hardware.memory.PhysicalMemory
+import com.tecknobit.kinfo.model.desktop.common.hardware.memory.PhysicalMemory
 
 /**
  * Implementation of the `PhysicalMemory` interface.

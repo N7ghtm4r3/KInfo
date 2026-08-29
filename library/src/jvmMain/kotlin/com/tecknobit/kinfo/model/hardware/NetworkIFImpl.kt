@@ -1,7 +1,7 @@
 package com.tecknobit.kinfo.model.hardware
 
-import com.tecknobit.kinfo.model.desktop.hardware.IfOperStatus
-import com.tecknobit.kinfo.model.desktop.hardware.NetworkIF
+import com.tecknobit.kinfo.model.desktop.common.hardware.IfOperStatus
+import com.tecknobit.kinfo.model.desktop.common.hardware.NetworkIF
 import java.net.NetworkInterface
 
 /**
