@@ -53,7 +53,7 @@ import com.tecknobit.kinfo.model.desktop.common.operatingsystem.processes.State
  *
  * @see OSProcess
  */
-class OSProcessImpl(
+data class OSProcessImpl(
     override val name: String,
     override val path: String,
     override val commandLine: String,
