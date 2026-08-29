@@ -1,6 +1,6 @@
 package com.tecknobit.kinfo.model.hardware
 
-import com.tecknobit.kinfo.model.desktop.hardware.SoundCard
+import com.tecknobit.kinfo.model.desktop.common.hardware.SoundCard
 
 /**
  * Implementation of the `SoundCard` interface.

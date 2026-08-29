@@ -1,8 +1,8 @@
 package com.tecknobit.kinfo.model.operatingsystem.protocols
 
 import com.tecknobit.kinfo.annotations.Loader
-import com.tecknobit.kinfo.model.desktop.operatingsystem.protocols.IPRoute
-import com.tecknobit.kinfo.model.desktop.operatingsystem.protocols.NetworkParams
+import com.tecknobit.kinfo.model.desktop.common.operatingsystem.protocols.IPRoute
+import com.tecknobit.kinfo.model.desktop.common.operatingsystem.protocols.NetworkParams
 
 /**
  * The `NetworkParamsImpl` class is useful to provide the network configuration of a device

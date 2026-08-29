@@ -1,6 +1,6 @@
 package com.tecknobit.kinfo.model.hardware
 
-import com.tecknobit.kinfo.model.desktop.hardware.UsbDevice
+import com.tecknobit.kinfo.model.desktop.common.hardware.UsbDevice
 
 /**
  * `UsbDeviceImpl` is the implementation of the `UsbDevice` interface.

@@ -1,6 +1,6 @@
 package com.tecknobit.kinfo.model.operatingsystem.protocols
 
-import com.tecknobit.kinfo.model.desktop.operatingsystem.protocols.UdpStats
+import com.tecknobit.kinfo.model.desktop.common.operatingsystem.protocols.UdpStats
 
 /**
  * `UdpStatsImpl` Implementation of the `UdpStats` interface.

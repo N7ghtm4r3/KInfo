@@ -1,6 +1,6 @@
 package com.tecknobit.kinfo.model.hardware.memory
 
-import com.tecknobit.kinfo.model.desktop.hardware.memory.VirtualMemory
+import com.tecknobit.kinfo.model.desktop.common.hardware.memory.VirtualMemory
 
 /**
  * Implementation of the `VirtualMemory` interface.

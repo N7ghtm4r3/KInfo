@@ -1,8 +1,8 @@
 package com.tecknobit.kinfo.model.hardware.graphicscard
 
 import com.tecknobit.kinfo.annotations.Bridge
-import com.tecknobit.kinfo.model.desktop.hardware.graphicscard.GpuStats
-import com.tecknobit.kinfo.model.desktop.hardware.graphicscard.GraphicsCard
+import com.tecknobit.kinfo.model.desktop.common.hardware.graphicscard.GpuStats
+import com.tecknobit.kinfo.model.desktop.common.hardware.graphicscard.GraphicsCard
 
 /**
  * Implementation of the `GraphicsCard` interface.
