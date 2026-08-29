@@ -2,7 +2,7 @@
 
 package com.tecknobit.kinfo.operatingsystem
 
-import com.tecknobit.kinfo.model.desktop.operatingsystem.OSVersionInfo
+import com.tecknobit.kinfo.model.desktop.macos.operatingsystem.MacOsVersionInfo
 import com.tecknobit.kinfo.operatingsystem.MacOsCodename.*
 import com.tecknobit.kinfo.utils.queryStringSysCtlByName
 import kotlinx.cinterop.CValue
@@ -21,7 +21,7 @@ import platform.Foundation.NSOperatingSystemVersion
  */
 data class MacOsVersionInfoImpl(
     private val operatingSystemVersion: CValue<NSOperatingSystemVersion>
-) : OSVersionInfo {
+) : MacOsVersionInfo {
 
     /**
      * `major` the major component of the macOS version
