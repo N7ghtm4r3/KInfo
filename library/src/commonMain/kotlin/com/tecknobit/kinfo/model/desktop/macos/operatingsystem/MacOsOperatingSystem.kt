@@ -1,6 +1,5 @@
 package com.tecknobit.kinfo.model.desktop.macos.operatingsystem
 
-import com.tecknobit.kinfo.model.desktop.common.operatingsystem.processes.OSProcess
 import com.tecknobit.kinfo.model.desktop.common.operatingsystem.processes.OSThread
 import com.tecknobit.kinfo.model.desktop.common.operatingsystem.protocols.IPConnection
 import com.tecknobit.kinfo.model.desktop.common.operatingsystem.protocols.IPRoute
@@ -44,7 +43,7 @@ interface MacOsOperatingSystem {
     /**
      * `procTaskAllInfo` the current macOS process information
      */
-    val procTaskAllInfo: OSProcess
+    val procTaskAllInfo: MacOsOSProcess
 
     /**
      * `procThreadInfo` the current macOS thread information
