@@ -4,6 +4,7 @@ package com.tecknobit.kinfo.operatingsystem
 
 import com.tecknobit.kinfo.annotations.Loader
 import com.tecknobit.kinfo.model.desktop.common.operatingsystem.processes.OSThread
+import com.tecknobit.kinfo.model.desktop.common.operatingsystem.processes.State
 import com.tecknobit.kinfo.model.desktop.common.operatingsystem.protocols.IPConnection
 import com.tecknobit.kinfo.model.desktop.common.operatingsystem.protocols.IPRoute
 import com.tecknobit.kinfo.model.desktop.common.operatingsystem.protocols.TcpStats
@@ -11,6 +12,7 @@ import com.tecknobit.kinfo.model.desktop.common.operatingsystem.protocols.UdpSta
 import com.tecknobit.kinfo.model.desktop.macos.operatingsystem.*
 import com.tecknobit.kinfo.utils.toNSString
 import kotlinx.cinterop.*
+import kotlinx.cinterop.ByteVar
 import platform.AppKit.NSRunningApplication
 import platform.CoreFoundation.CFArrayGetCount
 import platform.CoreFoundation.CFArrayGetValueAtIndex
@@ -19,13 +21,9 @@ import platform.Foundation.NSDictionary
 import platform.Foundation.NSNumber
 import platform.Foundation.NSOperatingSystemVersion
 import platform.Foundation.NSProcessInfo
-import platform.darwin.USER_PROCESS
-import platform.darwin.endutxent
-import platform.darwin.getutxent
-import platform.darwin.setutxent
-import platform.osx.proc_taskallinfo
-import platform.osx.statfs
-import platform.posix.getpid
+import platform.darwin.*
+import platform.osx.*
+import platform.posix.*
 
 /**
  * The `MacOsOperatingSystemImpl` class is useful to provide details about the current macOS operating system
@@ -285,48 +283,154 @@ data class MacOsOperatingSystemImpl(
     @Loader
     private fun loadOsProcess(): MacOsOSProcess {
         return memScoped {
-            val info = alloc<proc_taskallinfo>()
-            val currentProcessId = getpid()
+            val buffer = alloc<proc_taskallinfo>()
+            val bufferSize = sizeOf<proc_taskallinfo>().toInt()
 
-            return MacOsOsProcessImpl(
-                name = TODO(),
-                path = TODO(),
-                commandLine = TODO(),
-                arguments = TODO(),
-                environmentVariables = TODO(),
-                currentWorkingDirectory = TODO(),
-                user = TODO(),
-                userId = TODO(),
-                group = TODO(),
-                groupId = TODO(),
-                state = TODO(),
-                processId = currentProcessId.toInt(),
-                parentProcessId = TODO(),
-                threadCount = TODO(),
-                priority = TODO(),
-                virtualSize = TODO(),
-                residentMemory = TODO(),
-                privateResidentMemory = TODO(),
-                kernelTime = TODO(),
-                userTime = TODO(),
-                startTime = TODO(),
-                bytesRead = TODO(),
-                bytesWritten = TODO(),
-                openFiles = TODO(),
-                softOpenFileLimit = TODO(),
-                hardOpenFileLimit = TODO(),
-                processCpuLoadCumulative = TODO(),
-                processCpuLoadBetweenTicks = TODO(),
-                bitness = TODO(),
-                affinityMask = TODO(),
-                updateAttributes = TODO(),
-                threadDetails = TODO(),
-                minorFaults = TODO(),
-                majorFaults = TODO(),
-                contextSwitches = TODO(),
-                voluntaryContextSwitches = TODO(),
-                involuntaryContextSwitches = TODO()
+            val result = proc_pidinfo(
+                pid = getpid(),
+                flavor = PROC_PIDTASKALLINFO,
+                arg = 0uL,
+                buffer = buffer.ptr,
+                buffersize = bufferSize
             )
+            if (result != bufferSize)
+                throw IllegalStateException("Cannot read proc pid info")
+
+            val pbsd = buffer.pbsd
+            val ptinfo = buffer.ptinfo
+            val processId = pbsd.pbi_pid.toInt()
+            val arguments = resolveArguments()
+            val userId = pbsd.pbi_uid
+            val groupId = pbsd.pbi_gid
+            MacOsOsProcessImpl(
+                name = pbsd.pbi_name.toKString(),
+                path = resolveProcessPath(
+                    processId = processId
+                ),
+                commandLine = arguments[0],
+                arguments = arguments,
+                environmentVariables = resolveEnvironmentVariables(),
+                currentWorkingDirectory = resolveCurrentWorkingDirectory(),
+                user = resolveUser(
+                    userId = userId
+                ),
+                userId = userId.toString(),
+                group = resolveGroup(
+                    groupId = groupId
+                ),
+                groupId = groupId.toString(),
+                state = resolveProcessState(
+                    status = pbsd.pbi_status
+                ),
+                processId = processId,
+                parentProcessId = pbsd.pbi_ppid.toInt(),
+                threadCount = ptinfo.pti_threadnum,
+                priority = ptinfo.pti_priority,
+                virtualSize = ptinfo.pti_virtual_size.toLong(),
+                residentMemory = ptinfo.pti_resident_size.toLong(),
+                privateResidentMemory = 0L,
+                kernelTime = ptinfo.pti_total_system.toLong(),
+                userTime = ptinfo.pti_total_user.toLong(),
+                startTime = (pbsd.pbi_start_tvsec + pbsd.pbi_start_tvusec).toLong(),
+                bytesRead = 0L,
+                bytesWritten = 0L,
+                openFiles = pbsd.pbi_nfiles.toLong(),
+                softOpenFileLimit = 0L,
+                hardOpenFileLimit = 0L,
+                processCpuLoadCumulative = 1.0,
+                processCpuLoadBetweenTicks = 1.0,
+                bitness = pbsd.pbi_flags.toInt(),
+                affinityMask = 0L,
+                updateAttributes = false,
+                threadDetails = emptyList(),
+                minorFaults = ptinfo.pti_faults.toLong(),
+                majorFaults = ptinfo.pti_pageins.toLong(),
+                contextSwitches = ptinfo.pti_csw.toLong(),
+                voluntaryContextSwitches = 0L,
+                involuntaryContextSwitches = 0L
+            )
+        }
+    }
+
+    private fun resolveProcessPath(
+        processId: Int
+    ): String {
+        return memScoped {
+            val bufferSize = PROC_PIDPATHINFO_MAXSIZE
+            val buffer = allocArray<ByteVar>(
+                length = bufferSize
+            )
+
+            val actual = proc_pidpath(
+                pid = processId,
+                buffer = buffer,
+                buffersize = bufferSize.toUInt()
+            )
+            if (actual <= 0)
+                return ""
+
+            buffer.toKString()
+        }
+    }
+
+    private fun resolveArguments(): List<String> {
+        return processInfo.arguments.map { argument ->
+            argument.toString()
+        }
+    }
+
+    private fun resolveEnvironmentVariables(): Map<String, String> {
+        val nativeEnvironmentVariables = processInfo.environment
+
+        return buildMap {
+            nativeEnvironmentVariables.forEach { (key, value) ->
+                put(key.toString(), value.toString())
+            }
+        }
+    }
+
+    private fun resolveCurrentWorkingDirectory(): String {
+        return memScoped {
+            val bufferSize = PATH_MAX
+            val buffer = allocArray<ByteVar>(bufferSize)
+
+            val result = getcwd(
+                buffer,
+                bufferSize.toULong()
+            ) ?: return@memScoped ""
+
+            result.toKString()
+        }
+    }
+
+    private fun resolveUser(
+        userId: UInt
+    ): String {
+        val result = getpwuid(userId)?.pointed ?: return ""
+        val name = result.pw_name?.toKString()
+
+        return name.orEmpty()
+    }
+
+    private fun resolveGroup(
+        groupId: UInt
+    ): String {
+        val result = getgrgid(groupId)?.pointed ?: return ""
+        val name = result.gr_name?.toKString()
+
+        return name.orEmpty()
+    }
+
+    private fun resolveProcessState(
+        status: UInt
+    ): State {
+        return when (status.toInt()) {
+            SIDL -> State.NEW
+            SRUN -> State.RUNNING
+            SSLEEP -> State.SLEEPING
+            SSTOP -> State.STOPPED
+            SZOMB -> State.ZOMBIE
+            else -> State.OTHER
         }
     }
 
