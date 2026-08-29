@@ -1,6 +1,6 @@
 package com.tecknobit.kinfo.model.operatingsystem
 
-import com.tecknobit.kinfo.model.desktop.operatingsystem.OSDesktopWindow
+import com.tecknobit.kinfo.model.desktop.common.operatingsystem.OSDesktopWindow
 
 /**
  * `OSDesktopWindowImpl` Implementation of the `OSDesktopWindow` interface.

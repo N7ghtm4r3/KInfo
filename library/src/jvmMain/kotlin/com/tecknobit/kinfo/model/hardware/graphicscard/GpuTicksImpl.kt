@@ -1,6 +1,6 @@
 package com.tecknobit.kinfo.model.hardware.graphicscard
 
-import com.tecknobit.kinfo.model.desktop.hardware.graphicscard.GpuTicks
+import com.tecknobit.kinfo.model.desktop.common.hardware.graphicscard.GpuTicks
 
 /**
  * Implementation of the `GpuTicks` interface.

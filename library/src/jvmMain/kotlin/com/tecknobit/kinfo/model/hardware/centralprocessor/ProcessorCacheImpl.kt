@@ -1,7 +1,7 @@
 package com.tecknobit.kinfo.model.hardware.centralprocessor
 
-import com.tecknobit.kinfo.model.desktop.hardware.centralprocessor.CacheType
-import com.tecknobit.kinfo.model.desktop.hardware.centralprocessor.ProcessorCache
+import com.tecknobit.kinfo.model.desktop.common.hardware.centralprocessor.CacheType
+import com.tecknobit.kinfo.model.desktop.common.hardware.centralprocessor.ProcessorCache
 
 /**
  * `ProcessorCacheImpl` is an implementation of the `ProcessorCache` interface that represents

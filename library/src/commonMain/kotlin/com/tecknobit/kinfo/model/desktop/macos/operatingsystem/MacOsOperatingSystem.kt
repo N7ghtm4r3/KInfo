@@ -1,11 +1,11 @@
 package com.tecknobit.kinfo.model.desktop.macos.operatingsystem
 
-import com.tecknobit.kinfo.model.desktop.operatingsystem.processes.OSProcess
-import com.tecknobit.kinfo.model.desktop.operatingsystem.processes.OSThread
-import com.tecknobit.kinfo.model.desktop.operatingsystem.protocols.IPConnection
-import com.tecknobit.kinfo.model.desktop.operatingsystem.protocols.IPRoute
-import com.tecknobit.kinfo.model.desktop.operatingsystem.protocols.TcpStats
-import com.tecknobit.kinfo.model.desktop.operatingsystem.protocols.UdpStats
+import com.tecknobit.kinfo.model.desktop.common.operatingsystem.processes.OSProcess
+import com.tecknobit.kinfo.model.desktop.common.operatingsystem.processes.OSThread
+import com.tecknobit.kinfo.model.desktop.common.operatingsystem.protocols.IPConnection
+import com.tecknobit.kinfo.model.desktop.common.operatingsystem.protocols.IPRoute
+import com.tecknobit.kinfo.model.desktop.common.operatingsystem.protocols.TcpStats
+import com.tecknobit.kinfo.model.desktop.common.operatingsystem.protocols.UdpStats
 
 /**
  * The `MacOsOperatingSystem` interface defines the contract to provide macOS operating system details

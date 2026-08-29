@@ -1,7 +1,7 @@
 package com.tecknobit.kinfo.model.operatingsystem.protocols
 
-import com.tecknobit.kinfo.model.desktop.operatingsystem.protocols.IPConnection
-import com.tecknobit.kinfo.model.desktop.operatingsystem.protocols.TcpState
+import com.tecknobit.kinfo.model.desktop.common.operatingsystem.protocols.IPConnection
+import com.tecknobit.kinfo.model.desktop.common.operatingsystem.protocols.TcpState
 
 /**
  * `IPConnectionImpl` Implementation of the `IPConnection` interface.

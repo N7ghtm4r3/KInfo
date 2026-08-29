@@ -1,6 +1,6 @@
 package com.tecknobit.kinfo.model.desktop.macos.operatingsystem
 
-import com.tecknobit.kinfo.model.desktop.operatingsystem.OSDesktopWindow
+import com.tecknobit.kinfo.model.desktop.common.operatingsystem.OSDesktopWindow
 
 /**
  * The `MacOsDesktopWindow` interface defines the contract to provide the details of a desktop window on macOS
