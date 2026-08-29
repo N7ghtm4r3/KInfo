@@ -1,6 +1,6 @@
 package com.tecknobit.kinfo.model.desktop.macos.operatingsystem
 
-import com.tecknobit.kinfo.model.desktop.operatingsystem.OSFileStore
+import com.tecknobit.kinfo.model.desktop.common.operatingsystem.OSFileStore
 
 /**
  * The `MacOsFileStore` interface defines the contract to provide macOS file store information

@@ -2,16 +2,16 @@ package com.tecknobit.kinfo.model.hardware
 
 import com.tecknobit.kinfo.annotations.Bridge
 import com.tecknobit.kinfo.annotations.Loader
-import com.tecknobit.kinfo.model.desktop.hardware.*
-import com.tecknobit.kinfo.model.desktop.hardware.centralprocessor.CentralProcessor
-import com.tecknobit.kinfo.model.desktop.hardware.computersystem.ComputerSystem
-import com.tecknobit.kinfo.model.desktop.hardware.display.Display
-import com.tecknobit.kinfo.model.desktop.hardware.graphicscard.GraphicsCard
-import com.tecknobit.kinfo.model.desktop.hardware.memory.GlobalMemory
-import com.tecknobit.kinfo.model.desktop.hardware.storage.DiskType
-import com.tecknobit.kinfo.model.desktop.hardware.storage.HWDiskStore
-import com.tecknobit.kinfo.model.desktop.hardware.storage.HWPartition
-import com.tecknobit.kinfo.model.desktop.hardware.storage.LogicalVolumeGroup
+import com.tecknobit.kinfo.model.desktop.common.hardware.*
+import com.tecknobit.kinfo.model.desktop.common.hardware.centralprocessor.CentralProcessor
+import com.tecknobit.kinfo.model.desktop.common.hardware.computersystem.ComputerSystem
+import com.tecknobit.kinfo.model.desktop.common.hardware.display.Display
+import com.tecknobit.kinfo.model.desktop.common.hardware.graphicscard.GraphicsCard
+import com.tecknobit.kinfo.model.desktop.common.hardware.memory.GlobalMemory
+import com.tecknobit.kinfo.model.desktop.common.hardware.storage.DiskType
+import com.tecknobit.kinfo.model.desktop.common.hardware.storage.HWDiskStore
+import com.tecknobit.kinfo.model.desktop.common.hardware.storage.HWPartition
+import com.tecknobit.kinfo.model.desktop.common.hardware.storage.LogicalVolumeGroup
 import com.tecknobit.kinfo.model.hardware.centralprocessor.CentralProcessorImpl
 import com.tecknobit.kinfo.model.hardware.computersystem.ComputerSystemImpl
 import com.tecknobit.kinfo.model.hardware.display.DisplayImpl

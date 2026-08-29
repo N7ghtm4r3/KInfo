@@ -1,6 +1,6 @@
 package com.tecknobit.kinfo.model.operatingsystem
 
-import com.tecknobit.kinfo.model.desktop.operatingsystem.OSFileStore
+import com.tecknobit.kinfo.model.desktop.common.operatingsystem.OSFileStore
 
 /**
  * Implementation of the [OSFileStore] interface representing a file store in the operating system.

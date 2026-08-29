@@ -1,6 +1,6 @@
 package com.tecknobit.kinfo.model.hardware.display
 
-import com.tecknobit.kinfo.model.desktop.hardware.display.DisplayInfo
+import com.tecknobit.kinfo.model.desktop.common.hardware.display.DisplayInfo
 
 /**
  * The `DisplayInfoImpl` data class is useful to store the decoded identification information of a display

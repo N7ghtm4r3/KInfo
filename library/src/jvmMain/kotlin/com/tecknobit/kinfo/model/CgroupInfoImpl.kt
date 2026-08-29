@@ -1,6 +1,6 @@
 package com.tecknobit.kinfo.model
 
-import com.tecknobit.kinfo.model.desktop.operatingsystem.CgroupInfo
+import com.tecknobit.kinfo.model.desktop.common.operatingsystem.CgroupInfo
 
 /**
  * The `CgroupInfoImpl` class is useful to represent the cgroup resource limits and usage metrics for the current

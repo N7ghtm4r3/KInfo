@@ -1,7 +1,7 @@
 package com.tecknobit.kinfo.model.operatingsystem.processes
 
-import com.tecknobit.kinfo.model.desktop.operatingsystem.processes.OSThread
-import com.tecknobit.kinfo.model.desktop.operatingsystem.processes.State
+import com.tecknobit.kinfo.model.desktop.common.operatingsystem.processes.OSThread
+import com.tecknobit.kinfo.model.desktop.common.operatingsystem.processes.State
 
 /**
  * `OSThreadImpl` Provides the implementation of the `OSThread` interface, representing a thread

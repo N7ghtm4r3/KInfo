@@ -2,7 +2,7 @@ package com.tecknobit.kinfo.model.hardware.centralprocessor
 
 import com.tecknobit.kinfo.annotations.Bridge
 import com.tecknobit.kinfo.annotations.Loader
-import com.tecknobit.kinfo.model.desktop.hardware.centralprocessor.*
+import com.tecknobit.kinfo.model.desktop.common.hardware.centralprocessor.*
 
 /**
  * `CentralProcessorImpl` provides an implementation of the [CentralProcessor] interface.
