@@ -3,6 +3,7 @@
 package com.tecknobit.kinfo.utils
 
 import kotlinx.cinterop.*
+import platform.Foundation.NSString
 import platform.darwin.sysctlbyname
 import platform.posix.size_tVar
 
@@ -34,4 +35,19 @@ fun queryStringSysCtlByName(
 
         buffer.toKString()
     }
+}
+
+/**
+ * Method used to convert a Core Foundation string pointer into [NSString]
+ *
+ * @receiver The Core Foundation string pointer to convert
+ *
+ * @return the converted string as [NSString]
+ *
+ * @since 1.1.0
+ */
+fun CPointer<cnames.structs.__CFString>?.toNSString(): NSString {
+    return interpretObjCPointer(
+        objcPtr = this.rawValue
+    )
 }

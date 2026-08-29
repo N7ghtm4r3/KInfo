@@ -3,7 +3,7 @@ package com.tecknobit.kinfo.model.desktop.operatingsystem
 /**
  * `OSService` represents an operating system service
  *
- * @author n7ghtm4r3
+ * @author N7ghtm4r3 - Tecknobit
  * @see ServiceState
  */
 interface OSService {
