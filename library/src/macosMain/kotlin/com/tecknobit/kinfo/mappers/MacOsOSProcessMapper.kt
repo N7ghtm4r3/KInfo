@@ -50,6 +50,7 @@ class MacOsOSProcessMapper(
                 seconds = pbsd.pbi_start_tvsec,
                 microseconds = pbsd.pbi_start_tvusec
             )
+            val majorFaults = ptinfo.pti_pageins.toLong()
 
             MacOsOsProcessImpl(
                 name = pbsd.pbi_name.toKString(),
@@ -92,11 +93,13 @@ class MacOsOSProcessMapper(
                     startTime = startTime
                 ),
                 processCpuLoadBetweenTicks = 1.0,
-                bitness = pbsd.pbi_flags.toInt(),
-                affinityMask = 0L,
+                bitness = resolveBitness(
+                    flags = pbsd.pbi_flags
+                ),
+                affinityMask = resolveAffinityMask(),
                 threadDetails = emptyList(),
-                minorFaults = ptinfo.pti_faults.toLong(),
-                majorFaults = ptinfo.pti_pageins.toLong(),
+                minorFaults = ptinfo.pti_faults.toLong() - majorFaults,
+                majorFaults = majorFaults,
                 contextSwitches = ptinfo.pti_csw.toLong(),
                 voluntaryContextSwitches = processTimes.voluntaryContextSwitches,
                 involuntaryContextSwitches = processTimes.involuntaryContextSwitches
@@ -263,6 +266,24 @@ class MacOsOSProcessMapper(
             return 0.0
 
         return (userTime + kernelTime).toDouble() / upTime
+    }
+
+    private fun resolveBitness(
+        flags: UInt
+    ): Int {
+        val is64Bit = flags and PROC_FLAG_LP64.toUInt() != 0u
+
+        return if (is64Bit) 64 else 32
+    }
+
+    private fun resolveAffinityMask(): Long {
+        val logicalProcessors = processInfo.processorCount.toInt()
+
+        return when {
+            logicalProcessors <= 0 -> 0L
+            logicalProcessors >= 64 -> -1L
+            else -> (1L shl logicalProcessors) - 1L
+        }
     }
 
 }
