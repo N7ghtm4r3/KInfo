@@ -66,6 +66,13 @@ Load only the role references that match the target code:
       permission to omit it. Never reuse identities from examples or neighboring projects.
     - Preserve an existing `@since` value. Add a new one only from an explicit release, revision, or user answer; never
       infer a version from the current date or repository history.
+   - Apply a new `@since` tag at the narrowest non-redundant scope:
+       - When an entire new type and its initial members are added together, add `@since` only to the new enclosing
+         type;
+         do not repeat the same tag on each initial property, constructor, or method.
+       - When a new property, constructor, or method is added to an already-existing type, add `@since` to each newly
+         added declaration.
+       - Preserve all pre-existing `@since` tags even when they are more repetitive than this rule.
     - If interaction is unavailable or the user asks to proceed without questions, omit unresolved optional tags instead
       of emitting placeholders.
 4. Classify each declaration by its actual role, select the closest applicable blueprint, and derive every sentence from
