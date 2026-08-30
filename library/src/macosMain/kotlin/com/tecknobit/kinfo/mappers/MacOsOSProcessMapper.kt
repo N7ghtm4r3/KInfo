@@ -14,10 +14,26 @@ import platform.osx.*
 import platform.posix.*
 import kotlin.time.Clock
 
+/**
+ * The `MacOsOSProcessMapper` class is useful to map native information about the current macOS process to a KInfo model
+ *
+ * @property processInfo The Foundation process information used to resolve process details
+ *
+ * @author N7ghtm4r3 - Tecknobit
+ *
+ * @see NativeMapper
+ *
+ * @since 1.1.0
+ */
 class MacOsOSProcessMapper(
     private val processInfo: NSProcessInfo
 ) : NativeMapper<MacOsOsProcessImpl>() {
 
+    /**
+     * Method used to map the native information about the current process to its [MacOsOsProcessImpl] model
+     *
+     * @return the mapped process information as [MacOsOsProcessImpl]
+     */
     override fun mapFromNative(): MacOsOsProcessImpl {
         return memScoped {
             val buffer = alloc<proc_taskallinfo>()
@@ -108,6 +124,13 @@ class MacOsOSProcessMapper(
         }
     }
 
+    /**
+     * Method used to resolve the executable path of a process
+     *
+     * @param processId The identifier of the process
+     *
+     * @return the executable path or an empty value when unavailable as [String]
+     */
     @Resolver
     private fun resolveProcessPath(
         processId: Int
@@ -130,6 +153,11 @@ class MacOsOSProcessMapper(
         }
     }
 
+    /**
+     * Method used to resolve the arguments of the current process
+     *
+     * @return the process arguments as [List] of [String]
+     */
     @Resolver
     private fun resolveArguments(): List<String> {
         return processInfo.arguments.map { argument ->
@@ -137,6 +165,11 @@ class MacOsOSProcessMapper(
         }
     }
 
+    /**
+     * Method used to resolve the environment variables of the current process
+     *
+     * @return the process environment variables as [Map]
+     */
     @Resolver
     private fun resolveEnvironmentVariables(): Map<String, String> {
         val nativeEnvironmentVariables = processInfo.environment
@@ -148,6 +181,11 @@ class MacOsOSProcessMapper(
         }
     }
 
+    /**
+     * Method used to resolve the current working directory of the process
+     *
+     * @return the current working directory or an empty value when unavailable as [String]
+     */
     @Resolver
     private fun resolveCurrentWorkingDirectory(): String {
         return memScoped {
@@ -163,6 +201,13 @@ class MacOsOSProcessMapper(
         }
     }
 
+    /**
+     * Method used to resolve the username associated with a native user identifier
+     *
+     * @param userId The native user identifier to resolve
+     *
+     * @return the resolved username or an empty value when unavailable as [String]
+     */
     @Resolver
     private fun resolveUser(
         userId: UInt
@@ -173,6 +218,13 @@ class MacOsOSProcessMapper(
         return name.orEmpty()
     }
 
+    /**
+     * Method used to resolve the group name associated with a native group identifier
+     *
+     * @param groupId The native group identifier to resolve
+     *
+     * @return the resolved group name or an empty value when unavailable as [String]
+     */
     @Resolver
     private fun resolveGroup(
         groupId: UInt
@@ -183,6 +235,13 @@ class MacOsOSProcessMapper(
         return name.orEmpty()
     }
 
+    /**
+     * Method used to resolve the process state associated with a native status value
+     *
+     * @param status The native process status to resolve
+     *
+     * @return the resolved process state as [State]
+     */
     @Resolver
     private fun resolveProcessState(
         status: UInt
@@ -197,6 +256,13 @@ class MacOsOSProcessMapper(
         }
     }
 
+    /**
+     * Method used to resolve the resource usage of a process
+     *
+     * @param processId The identifier of the process
+     *
+     * @return the resolved resource usage as [ResourcesUsage]
+     */
     @Resolver
     private fun resolveResourcesUsage(
         processId: Int
@@ -220,6 +286,11 @@ class MacOsOSProcessMapper(
         }
     }
 
+    /**
+     * Method used to resolve the open file limits of the current process
+     *
+     * @return the resolved open file limits as [FileLimits]
+     */
     @Resolver
     private fun resolveFileLimits(): FileLimits {
         return memScoped {
@@ -239,6 +310,11 @@ class MacOsOSProcessMapper(
         }
     }
 
+    /**
+     * Method used to resolve the CPU times and context switches of the current process
+     *
+     * @return the resolved process times as [ProcessTimes]
+     */
     @Resolver
     private fun resolveProcessTimes(): ProcessTimes {
         return memScoped {
@@ -266,6 +342,15 @@ class MacOsOSProcessMapper(
         }
     }
 
+    /**
+     * Method used to resolve the cumulative CPU load of the process
+     *
+     * @param userTime The time spent by the process in user mode in milliseconds
+     * @param kernelTime The time spent by the process in kernel mode in milliseconds
+     * @param startTime The process start time in milliseconds since the Unix epoch
+     *
+     * @return the cumulative CPU load as [Double]
+     */
     @Resolver
     private fun resolveCumulativeCpuLoad(
         userTime: Long,
@@ -280,6 +365,13 @@ class MacOsOSProcessMapper(
         return (userTime + kernelTime).toDouble() / upTime
     }
 
+    /**
+     * Method used to resolve the process bitness from its native flags
+     *
+     * @param flags The native process flags to inspect
+     *
+     * @return the resolved process bitness as [Int]
+     */
     @Resolver
     private fun resolveBitness(
         flags: UInt
@@ -289,6 +381,11 @@ class MacOsOSProcessMapper(
         return if (is64Bit) 64 else 32
     }
 
+    /**
+     * Method used to resolve the affinity mask supported by the available logical processors
+     *
+     * @return the resolved affinity mask as [Long]
+     */
     @Resolver
     private fun resolveAffinityMask(): Long {
         val logicalProcessors = processInfo.processorCount.toInt()
@@ -302,17 +399,50 @@ class MacOsOSProcessMapper(
 
 }
 
+/**
+ * The `ResourcesUsage` class is useful to collect native resource usage values for a process
+ *
+ * @property privateResidentMemory The private resident memory used by the process in bytes
+ * @property bytesRead The number of bytes read by the process
+ * @property bytesWritten The number of bytes written by the process
+ *
+ * @author N7ghtm4r3 - Tecknobit
+ *
+ * @since 1.1.0
+ */
 private data class ResourcesUsage(
     val privateResidentMemory: Long = -1L,
     val bytesRead: Long = -1L,
     val bytesWritten: Long = -1L
 )
 
+/**
+ * The `FileLimits` class is useful to collect the open file limits of a process
+ *
+ * @property softOpenFileLimit The soft limit on the number of open files
+ * @property hardOpenFileLimit The hard limit on the number of open files
+ *
+ * @author N7ghtm4r3 - Tecknobit
+ *
+ * @since 1.1.0
+ */
 private data class FileLimits(
     val softOpenFileLimit: Long = -1L,
     val hardOpenFileLimit: Long = -1L
 )
 
+/**
+ * The `ProcessTimes` class is useful to collect CPU times and context switch counts for a process
+ *
+ * @property userTime The time spent by the process in user mode in milliseconds
+ * @property kernelTime The time spent by the process in kernel mode in milliseconds
+ * @property voluntaryContextSwitches The number of voluntary context switches performed by the process
+ * @property involuntaryContextSwitches The number of involuntary context switches performed by the process
+ *
+ * @author N7ghtm4r3 - Tecknobit
+ *
+ * @since 1.1.0
+ */
 private data class ProcessTimes(
     val userTime: Long = -1L,
     val kernelTime: Long = -1L,

@@ -239,6 +239,11 @@ data class MacOsOperatingSystemImpl(
         }
     }
 
+    /**
+     * Method used to load the current macOS process information
+     *
+     * @return the loaded process information as [MacOsOSProcess]
+     */
     @Loader
     private fun loadOsProcess(): MacOsOSProcess {
         val macOsOSProcessMapper = MacOsOSProcessMapper(

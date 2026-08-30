@@ -17,11 +17,28 @@ import platform.CoreGraphics.kCGWindowOwnerPID
 import platform.Foundation.NSDictionary
 import platform.Foundation.NSNumber
 
+/**
+ * The `MacOsDesktopWindowMapper` class is useful to map a native macOS window entry to a KInfo model
+ *
+ * @property pointer The pointer to the native window dictionary
+ * @property index The position of the window in the native window list
+ *
+ * @author N7ghtm4r3 - Tecknobit
+ *
+ * @see NativeMapper
+ *
+ * @since 1.1.0
+ */
 class MacOsDesktopWindowMapper(
     private val pointer: COpaquePointer?,
     private val index: Long,
 ) : NativeMapper<MacOsDesktopWindowImpl>() {
 
+    /**
+     * Method used to map the native window dictionary to its [MacOsDesktopWindowImpl] model
+     *
+     * @return the mapped desktop window as [MacOsDesktopWindowImpl]
+     */
     override fun mapFromNative(): MacOsDesktopWindowImpl {
         val dictionary = interpretObjCPointer<NSDictionary>(pointer.rawValue)
 

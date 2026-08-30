@@ -53,6 +53,16 @@ fun CPointer<cnames.structs.__CFString>?.toNSString(): NSString {
     )
 }
 
+/**
+ * Method used to convert signed seconds and microseconds to cumulative milliseconds
+ *
+ * @param seconds The signed seconds component to convert
+ * @param microseconds The signed microseconds component to convert
+ *
+ * @return the cumulative time in milliseconds as [Long]
+ *
+ * @since 1.1.0
+ */
 @Resolver
 fun resolveCumulativeTime(
     seconds: Long,
@@ -61,6 +71,16 @@ fun resolveCumulativeTime(
     return ((seconds * 1000L) + (microseconds / 1000L))
 }
 
+/**
+ * Method used to convert unsigned seconds and microseconds to cumulative milliseconds
+ *
+ * @param seconds The unsigned seconds component to convert
+ * @param microseconds The unsigned microseconds component to convert
+ *
+ * @return the cumulative time in milliseconds as [Long]
+ *
+ * @since 1.1.0
+ */
 @Resolver
 fun resolveCumulativeTime(
     seconds: ULong,
