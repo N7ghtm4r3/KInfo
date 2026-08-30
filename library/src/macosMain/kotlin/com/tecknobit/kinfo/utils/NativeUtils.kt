@@ -51,3 +51,17 @@ fun CPointer<cnames.structs.__CFString>?.toNSString(): NSString {
         objcPtr = this.rawValue
     )
 }
+
+fun resolveCumulativeTime(
+    seconds: Long,
+    microseconds: Int
+): Long {
+    return ((seconds * 1000L) + (microseconds / 1000L))
+}
+
+fun resolveCumulativeTime(
+    seconds: ULong,
+    microseconds: ULong
+): Long {
+    return ((seconds * 1000uL) + (microseconds / 1000uL)).toLong()
+}

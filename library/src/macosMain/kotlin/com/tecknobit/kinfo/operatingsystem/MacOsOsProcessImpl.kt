@@ -35,11 +35,14 @@ data class MacOsOsProcessImpl(
     override val processCpuLoadBetweenTicks: Double,
     override val bitness: Int,
     override val affinityMask: Long,
-    override val updateAttributes: Boolean,
     override val threadDetails: List<OSThread>,
     override val minorFaults: Long,
     override val majorFaults: Long,
     override val contextSwitches: Long,
     override val voluntaryContextSwitches: Long,
     override val involuntaryContextSwitches: Long
-) : MacOsOSProcess
+) : MacOsOSProcess {
+
+    override val updateAttributes: Boolean = false
+
+}
