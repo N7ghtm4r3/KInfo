@@ -2,6 +2,7 @@
 
 package com.tecknobit.kinfo.operatingsystem
 
+import com.tecknobit.kinfo.annotations.Resolver
 import com.tecknobit.kinfo.model.desktop.macos.operatingsystem.MacOsFileStore
 import kotlinx.cinterop.ExperimentalForeignApi
 import kotlinx.cinterop.toKString
@@ -162,6 +163,7 @@ data class MacOsFileStoreImpl(
      *
      * @return the resolved resource value as [String]
      */
+    @Resolver
     private fun Map<Any?, *>?.resolveValueForKey(
         key: String?
     ): String {
@@ -178,6 +180,7 @@ data class MacOsFileStoreImpl(
      *
      * @return the normalized mount options as [String]
      */
+    @Resolver
     private fun resolveOptions(
         flags: UInt
     ): String {
