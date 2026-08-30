@@ -3,6 +3,7 @@ package com.tecknobit.kinfo.model.operatingsystem
 import com.tecknobit.kinfo.UNKNOWN
 import com.tecknobit.kinfo.annotations.Bridge
 import com.tecknobit.kinfo.annotations.Loader
+import com.tecknobit.kinfo.annotations.Resolver
 import com.tecknobit.kinfo.model.CgroupInfoImpl
 import com.tecknobit.kinfo.model.desktop.common.operatingsystem.*
 import com.tecknobit.kinfo.model.desktop.common.operatingsystem.processes.OSProcess
@@ -536,7 +537,7 @@ class OperatingSystemImpl(
      *
      * @since 1.1.0
      */
-    @Loader
+    @Resolver
     private fun resolveCgroupInfo(): CgroupInfo {
         val cgroupInfo = operatingSystemInfo.cgroupInfo
 

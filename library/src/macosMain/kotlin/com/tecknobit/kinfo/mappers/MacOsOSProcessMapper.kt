@@ -2,6 +2,7 @@
 
 package com.tecknobit.kinfo.mappers
 
+import com.tecknobit.kinfo.annotations.Resolver
 import com.tecknobit.kinfo.model.desktop.common.operatingsystem.processes.State
 import com.tecknobit.kinfo.operatingsystem.MacOsOsProcessImpl
 import com.tecknobit.kinfo.utils.resolveCumulativeTime
@@ -107,6 +108,7 @@ class MacOsOSProcessMapper(
         }
     }
 
+    @Resolver
     private fun resolveProcessPath(
         processId: Int
     ): String {
@@ -128,12 +130,14 @@ class MacOsOSProcessMapper(
         }
     }
 
+    @Resolver
     private fun resolveArguments(): List<String> {
         return processInfo.arguments.map { argument ->
             argument.toString()
         }
     }
 
+    @Resolver
     private fun resolveEnvironmentVariables(): Map<String, String> {
         val nativeEnvironmentVariables = processInfo.environment
 
@@ -144,6 +148,7 @@ class MacOsOSProcessMapper(
         }
     }
 
+    @Resolver
     private fun resolveCurrentWorkingDirectory(): String {
         return memScoped {
             val bufferSize = PATH_MAX
@@ -158,6 +163,7 @@ class MacOsOSProcessMapper(
         }
     }
 
+    @Resolver
     private fun resolveUser(
         userId: UInt
     ): String {
@@ -167,6 +173,7 @@ class MacOsOSProcessMapper(
         return name.orEmpty()
     }
 
+    @Resolver
     private fun resolveGroup(
         groupId: UInt
     ): String {
@@ -176,6 +183,7 @@ class MacOsOSProcessMapper(
         return name.orEmpty()
     }
 
+    @Resolver
     private fun resolveProcessState(
         status: UInt
     ): State {
@@ -189,6 +197,7 @@ class MacOsOSProcessMapper(
         }
     }
 
+    @Resolver
     private fun resolveResourcesUsage(
         processId: Int
     ): ResourcesUsage {
@@ -211,6 +220,7 @@ class MacOsOSProcessMapper(
         }
     }
 
+    @Resolver
     private fun resolveFileLimits(): FileLimits {
         return memScoped {
             val buffer = alloc<rlimit>()
@@ -229,6 +239,7 @@ class MacOsOSProcessMapper(
         }
     }
 
+    @Resolver
     private fun resolveProcessTimes(): ProcessTimes {
         return memScoped {
             val buffer = alloc<rusage>()
@@ -255,6 +266,7 @@ class MacOsOSProcessMapper(
         }
     }
 
+    @Resolver
     private fun resolveCumulativeCpuLoad(
         userTime: Long,
         kernelTime: Long,
@@ -268,6 +280,7 @@ class MacOsOSProcessMapper(
         return (userTime + kernelTime).toDouble() / upTime
     }
 
+    @Resolver
     private fun resolveBitness(
         flags: UInt
     ): Int {
@@ -276,6 +289,7 @@ class MacOsOSProcessMapper(
         return if (is64Bit) 64 else 32
     }
 
+    @Resolver
     private fun resolveAffinityMask(): Long {
         val logicalProcessors = processInfo.processorCount.toInt()
 
