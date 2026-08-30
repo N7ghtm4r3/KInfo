@@ -3,6 +3,7 @@
 package com.tecknobit.kinfo.mappers
 
 import com.tecknobit.kinfo.annotations.Resolver
+import com.tecknobit.kinfo.helpers.CpuTicksRegistry
 import com.tecknobit.kinfo.model.desktop.common.operatingsystem.processes.State
 import com.tecknobit.kinfo.operatingsystem.MacOsOsProcessImpl
 import com.tecknobit.kinfo.utils.resolveCumulativeTime
@@ -60,12 +61,16 @@ class MacOsOSProcessMapper(
             )
             val fileLimits = resolveFileLimits()
             val processTimes = resolveProcessTimes()
-
             val userTime = processTimes.userTime
             val kernelTime = processTimes.kernelTime
             val startTime = resolveCumulativeTime(
                 seconds = pbsd.pbi_start_tvsec,
                 microseconds = pbsd.pbi_start_tvusec
+            )
+            val processCpuLoadCumulative = resolveCumulativeCpuLoad(
+                userTime = userTime,
+                kernelTime = kernelTime,
+                startTime = startTime
             )
             val majorFaults = ptinfo.pti_pageins.toLong()
 
@@ -104,16 +109,18 @@ class MacOsOSProcessMapper(
                 openFiles = pbsd.pbi_nfiles.toLong(),
                 softOpenFileLimit = fileLimits.softOpenFileLimit,
                 hardOpenFileLimit = fileLimits.hardOpenFileLimit,
-                processCpuLoadCumulative = resolveCumulativeCpuLoad(
+                processCpuLoadCumulative = processCpuLoadCumulative,
+                processCpuLoadBetweenTicks = resolveProcessCpuLoadBetweenTicks(
+                    processId = processId,
                     userTime = userTime,
                     kernelTime = kernelTime,
-                    startTime = startTime
+                    processCpuLoadCumulative = processCpuLoadCumulative
                 ),
-                processCpuLoadBetweenTicks = 1.0,
                 bitness = resolveBitness(
                     flags = pbsd.pbi_flags
                 ),
                 affinityMask = resolveAffinityMask(),
+                // TODO: TO MAP YET 
                 threadDetails = emptyList(),
                 minorFaults = ptinfo.pti_faults.toLong() - majorFaults,
                 majorFaults = majorFaults,
@@ -363,6 +370,54 @@ class MacOsOSProcessMapper(
             return 0.0
 
         return (userTime + kernelTime).toDouble() / upTime
+    }
+
+    /**
+     * Method used to resolve the CPU load of a process between registered tick samples
+     *
+     * The cumulative CPU load is returned when no valid sample spanning at least one second is available
+     *
+     * @param processId The identifier of the process
+     * @param userTime The time spent by the process in user mode in milliseconds
+     * @param kernelTime The time spent by the process in kernel mode in milliseconds
+     * @param processCpuLoadCumulative The cumulative CPU load used when a valid interval is unavailable
+     *
+     * @return the CPU load between registered tick samples as [Double]
+     *
+     * @since 1.1.0
+     */
+    @Resolver
+    private fun resolveProcessCpuLoadBetweenTicks(
+        processId: Int,
+        userTime: Long,
+        kernelTime: Long,
+        processCpuLoadCumulative: Double
+    ): Double {
+        return CpuTicksRegistry.use {
+            val currentCpuTime = userTime + kernelTime
+            val currentDeltaTime = Clock.System.now().toEpochMilliseconds()
+
+            val previousCpuTick = retrievePreviousCpuTick(
+                pid = processId,
+                defaultValue = CpuTicksRegistry.CpuTick(
+                    cpuTime = currentCpuTime,
+                    timestamp = currentDeltaTime
+                )
+            )
+
+            val deltaCpuTime = currentCpuTime - previousCpuTick.cpuTime
+            val deltaTime = currentDeltaTime - previousCpuTick.timestamp
+            if (deltaCpuTime < 0L || deltaTime < 1000L)
+                return@use processCpuLoadCumulative
+
+            registerCpuTick(
+                processId = processId,
+                cpuTime = currentCpuTime,
+                timestamp = currentDeltaTime
+            )
+
+            deltaCpuTime / deltaTime.toDouble()
+        }
     }
 
     /**
