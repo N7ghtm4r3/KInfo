@@ -2,6 +2,7 @@
 
 package com.tecknobit.kinfo.utils
 
+import com.tecknobit.kinfo.annotations.Resolver
 import kotlinx.cinterop.*
 import platform.Foundation.NSString
 import platform.darwin.sysctlbyname
@@ -52,6 +53,7 @@ fun CPointer<cnames.structs.__CFString>?.toNSString(): NSString {
     )
 }
 
+@Resolver
 fun resolveCumulativeTime(
     seconds: Long,
     microseconds: Int
@@ -59,6 +61,7 @@ fun resolveCumulativeTime(
     return ((seconds * 1000L) + (microseconds / 1000L))
 }
 
+@Resolver
 fun resolveCumulativeTime(
     seconds: ULong,
     microseconds: ULong

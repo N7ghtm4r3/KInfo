@@ -2,6 +2,7 @@
 
 package com.tecknobit.kinfo.mappers
 
+import com.tecknobit.kinfo.annotations.Resolver
 import com.tecknobit.kinfo.operatingsystem.MacOsDesktopWindowImpl
 import com.tecknobit.kinfo.utils.toNSString
 import kotlinx.cinterop.COpaquePointer
@@ -49,6 +50,7 @@ class MacOsDesktopWindowMapper(
      *
      * @return the executable command associated with the process as [String]
      */
+    @Resolver
     private fun resolveCommandFor(
         pid: Long
     ): String {
