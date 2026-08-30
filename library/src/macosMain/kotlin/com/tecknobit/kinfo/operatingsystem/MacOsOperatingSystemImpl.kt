@@ -3,6 +3,7 @@
 package com.tecknobit.kinfo.operatingsystem
 
 import com.tecknobit.kinfo.annotations.Loader
+import com.tecknobit.kinfo.mappers.MacOsDesktopWindowMapper
 import com.tecknobit.kinfo.mappers.MacOsOSProcessMapper
 import com.tecknobit.kinfo.model.desktop.common.operatingsystem.processes.OSThread
 import com.tecknobit.kinfo.model.desktop.common.operatingsystem.protocols.IPConnection
@@ -11,14 +12,13 @@ import com.tecknobit.kinfo.model.desktop.common.operatingsystem.protocols.TcpSta
 import com.tecknobit.kinfo.model.desktop.common.operatingsystem.protocols.UdpStats
 import com.tecknobit.kinfo.model.desktop.macos.operatingsystem.*
 import com.tecknobit.kinfo.utils.resolveCumulativeTime
-import com.tecknobit.kinfo.utils.toNSString
 import kotlinx.cinterop.*
-import platform.AppKit.NSRunningApplication
 import platform.CoreFoundation.CFArrayGetCount
 import platform.CoreFoundation.CFArrayGetValueAtIndex
-import platform.CoreGraphics.*
-import platform.Foundation.NSDictionary
-import platform.Foundation.NSNumber
+import platform.CoreGraphics.CGWindowListCopyWindowInfo
+import platform.CoreGraphics.kCGNullWindowID
+import platform.CoreGraphics.kCGWindowListOptionAll
+import platform.CoreGraphics.kCGWindowListOptionOnScreenOnly
 import platform.Foundation.NSOperatingSystemVersion
 import platform.Foundation.NSProcessInfo
 import platform.darwin.USER_PROCESS
@@ -196,62 +196,16 @@ data class MacOsOperatingSystemImpl(
                 idx = index
             )
 
-            val windowImpl = element.toMacOsDesktopWindow(
+            val macOsDesktopWindowMapper = MacOsDesktopWindowMapper(
+                pointer = element,
                 index = index
             )
+
+            val windowImpl = macOsDesktopWindowMapper.mapFromNative()
             windows.add(windowImpl)
         }
 
         return windows
-    }
-
-    /**
-     * Method used to convert native macOS window information into [MacOsDesktopWindowImpl]
-     *
-     * @receiver The native pointer containing the desktop window information
-     * @param index The position of the desktop window in the stacking order
-     *
-     * @return the desktop window information as [MacOsDesktopWindowImpl]
-     */
-    private fun COpaquePointer?.toMacOsDesktopWindow(
-        index: Long
-    ): MacOsDesktopWindowImpl {
-        val dictionary = interpretObjCPointer<NSDictionary>(this.rawValue)
-
-        val windowId = dictionary.objectForKey(kCGWindowNumber.toNSString()) as? NSNumber
-        val title = dictionary.objectForKey(kCGWindowOwnerName.toNSString()) as? String
-        val owningProcessIdRaw = dictionary.objectForKey(kCGWindowOwnerPID.toNSString()) as? NSNumber
-        val owningProcessId = owningProcessIdRaw?.longValue ?: -1
-        val visible = dictionary.objectForKey(kCGWindowIsOnscreen.toNSString()) as? NSNumber
-
-        return MacOsDesktopWindowImpl(
-            windowId = windowId?.longValue ?: -1,
-            title = title.orEmpty(),
-            command = resolveCommandFor(
-                pid = owningProcessId
-            ),
-            owningProcessId = owningProcessId,
-            order = index.toInt(),
-            visible = visible?.boolValue ?: false
-        )
-    }
-
-    /**
-     * Method used to resolve the executable command associated with a process identifier
-     *
-     * @param pid The identifier of the process owning the desktop window
-     *
-     * @return the executable command associated with the process as [String]
-     */
-    private fun resolveCommandFor(
-        pid: Long
-    ): String {
-        val nsRunningApplication = NSRunningApplication.runningApplicationWithProcessIdentifier(
-            pid = pid.toInt()
-        )
-
-        val executableURL = nsRunningApplication?.executableURL
-        return executableURL?.path.orEmpty()
     }
 
     /**
