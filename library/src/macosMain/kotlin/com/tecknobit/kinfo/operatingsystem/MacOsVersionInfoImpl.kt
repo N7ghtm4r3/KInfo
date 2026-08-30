@@ -2,6 +2,7 @@
 
 package com.tecknobit.kinfo.operatingsystem
 
+import com.tecknobit.kinfo.annotations.Resolver
 import com.tecknobit.kinfo.model.desktop.macos.operatingsystem.MacOsVersionInfo
 import com.tecknobit.kinfo.operatingsystem.MacOsCodename.*
 import com.tecknobit.kinfo.utils.queryStringSysCtlByName
@@ -69,6 +70,7 @@ data class MacOsVersionInfoImpl(
      *
      * @return the resolved codename as [String]
      */
+    @Resolver
     private fun resolveCodeName(): String {
         val codeName = when (major) {
             26L -> TAHOE
@@ -108,6 +110,7 @@ data class MacOsVersionInfoImpl(
      *
      * @return the resolved build number as [String]
      */
+    @Resolver
     private fun resolveBuildNumber(): String {
         return queryStringSysCtlByName(
             name = "kern.osversion",
