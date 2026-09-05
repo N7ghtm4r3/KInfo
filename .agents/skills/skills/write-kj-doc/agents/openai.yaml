@@ -1,4 +1,0 @@
-interface:
-  display_name: "Write KDoc and Javadoc"
-  short_description: "Write docs without changing source code"
-  default_prompt: "Use $write-kj-doc to add KDoc or Javadoc comments only, leaving all source code unchanged."
