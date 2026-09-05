@@ -4,9 +4,9 @@ package com.tecknobit.kinfo.operatingsystem
 
 import com.tecknobit.kinfo.annotations.Loader
 import com.tecknobit.kinfo.mappers.MacOsDesktopWindowMapper
+import com.tecknobit.kinfo.mappers.MacOsIPConnectionsMapper
 import com.tecknobit.kinfo.mappers.MacOsOSProcessMapper
 import com.tecknobit.kinfo.model.desktop.common.operatingsystem.processes.OSThread
-import com.tecknobit.kinfo.model.desktop.common.operatingsystem.protocols.IPConnection
 import com.tecknobit.kinfo.model.desktop.common.operatingsystem.protocols.IPRoute
 import com.tecknobit.kinfo.model.desktop.common.operatingsystem.protocols.TcpStats
 import com.tecknobit.kinfo.model.desktop.common.operatingsystem.protocols.UdpStats
@@ -87,8 +87,8 @@ data class MacOsOperatingSystemImpl(
     /**
      * `socketFdInfo` the macOS `IP` connection information
      */
-    override val socketFdInfo: IPConnection
-        get() = TODO("Not yet implemented")
+    override val socketFdInfo: List<MacOsIPConnection>
+        get() = loadIPConnections()
 
     /**
      * `rtMsgHdr2` the macOS `IP` route information
@@ -251,6 +251,18 @@ data class MacOsOperatingSystemImpl(
         )
 
         return macOsOSProcessMapper.mapFromNative()
+    }
+
+    /**
+     * Method used to load the accessible macOS `IP` connections
+     *
+     * @return the loaded `IP` connections as [List] of [MacOsIPConnection]
+     */
+    @Loader
+    private fun loadIPConnections(): List<MacOsIPConnection> {
+        val macOsIPConnectionMapper = MacOsIPConnectionsMapper()
+
+        return macOsIPConnectionMapper.mapFromNative()
     }
 
 }
