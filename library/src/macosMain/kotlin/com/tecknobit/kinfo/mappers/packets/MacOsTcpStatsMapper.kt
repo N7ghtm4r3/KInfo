@@ -1,10 +1,9 @@
 @file:OptIn(ExperimentalForeignApi::class)
 
-package com.tecknobit.kinfo.mappers
+package com.tecknobit.kinfo.mappers.packets
 
 import com.tecknobit.kinfo.annotations.Resolver
 import com.tecknobit.kinfo.operatingsystem.MacOsTcpStatsImpl
-import com.tecknobit.kinfo.utils.queryUIntArraySysCtlByName
 import kotlinx.cinterop.ExperimentalForeignApi
 
 /**
@@ -20,12 +19,13 @@ import kotlinx.cinterop.ExperimentalForeignApi
  *
  * @author N7ghtm4r3 - Tecknobit
  *
- * @see NativeMapper
+ * @see com.tecknobit.kinfo.mappers.NativeMapper
+ * @see MacOsPacketsStatsMapper
  * @see MacOsTcpStatsImpl
  *
  * @since 1.1.0
  */
-class MacOsTcpStatsMapper : NativeMapper<MacOsTcpStatsImpl>() {
+class MacOsTcpStatsMapper : MacOsPacketsStatsMapper<MacOsTcpStatsImpl>() {
 
     private companion object {
 
@@ -102,9 +102,9 @@ class MacOsTcpStatsMapper : NativeMapper<MacOsTcpStatsImpl>() {
      * @return the mapped macOS `TCP` statistics as [MacOsTcpStatsImpl]
      */
     override fun mapFromNative(): MacOsTcpStatsImpl {
-        val nativeStats = queryUIntArraySysCtlByName(
-            name = "net.inet.tcp.stats"
-        ) ?: throw IllegalStateException("Could not read tcp stats")
+        val nativeStats = retrieveNativeStats(
+            systemControlKey = "net.inet.tcp.stats"
+        )
 
         return MacOsTcpStatsImpl(
             connectionsEstablished = nativeStats fetch TCP_CONNECTIONS_ESTABLISHED,
@@ -135,21 +135,6 @@ class MacOsTcpStatsMapper : NativeMapper<MacOsTcpStatsImpl>() {
         val shortPackets = this fetch TCP_SHORT_PACKETS
 
         return badChecksum + badOffset + memoryDrops + shortPackets
-    }
-
-    /**
-     * Method used to fetch and convert a native unsigned counter at the specified [index]
-     *
-     * @receiver The native macOS `TCP` counters
-     *
-     * @param index The index of the counter to fetch
-     *
-     * @return the fetched counter as [Long]
-     */
-    private infix fun UIntArray.fetch(
-        index: Int
-    ): Long {
-        return this[index].toLong()
     }
 
 }
