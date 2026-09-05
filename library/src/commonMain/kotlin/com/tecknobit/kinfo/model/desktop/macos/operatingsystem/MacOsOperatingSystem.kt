@@ -1,7 +1,6 @@
 package com.tecknobit.kinfo.model.desktop.macos.operatingsystem
 
 import com.tecknobit.kinfo.model.desktop.common.operatingsystem.processes.OSThread
-import com.tecknobit.kinfo.model.desktop.common.operatingsystem.protocols.IPConnection
 import com.tecknobit.kinfo.model.desktop.common.operatingsystem.protocols.IPRoute
 import com.tecknobit.kinfo.model.desktop.common.operatingsystem.protocols.TcpStats
 import com.tecknobit.kinfo.model.desktop.common.operatingsystem.protocols.UdpStats
@@ -53,7 +52,7 @@ interface MacOsOperatingSystem {
     /**
      * `socketFdInfo` the current macOS `IP` connection information
      */
-    val socketFdInfo: IPConnection
+    val socketFdInfo: List<MacOsIPConnection>
 
     /**
      * `rtMsgHdr2` the current macOS `IP` route information
