@@ -3,9 +3,13 @@
 package com.tecknobit.kinfo.operatingsystem
 
 import com.tecknobit.kinfo.annotations.Loader
-import com.tecknobit.kinfo.mappers.*
+import com.tecknobit.kinfo.mappers.MacOsDesktopWindowMapper
+import com.tecknobit.kinfo.mappers.MacOsIPConnectionsMapper
+import com.tecknobit.kinfo.mappers.MacOsIPRoutesMapper
+import com.tecknobit.kinfo.mappers.MacOsOSProcessMapper
+import com.tecknobit.kinfo.mappers.packets.MacOsTcpStatsMapper
+import com.tecknobit.kinfo.mappers.packets.MacOsUdpStatsMapper
 import com.tecknobit.kinfo.model.desktop.common.operatingsystem.processes.OSThread
-import com.tecknobit.kinfo.model.desktop.common.operatingsystem.protocols.UdpStats
 import com.tecknobit.kinfo.model.desktop.macos.operatingsystem.*
 import com.tecknobit.kinfo.utils.resolveCumulativeTime
 import kotlinx.cinterop.*
@@ -105,8 +109,8 @@ data class MacOsOperatingSystemImpl(
     /**
      * `udpStat` the macOS `UDP` statistics
      */
-    override val udpStat: UdpStats
-        get() = TODO("Not yet implemented")
+    override val udpStat: MacOsUdpStats
+        get() = loadUdpStats()
 
     /**
      * Method used to load the macOS operating system version information
@@ -289,6 +293,13 @@ data class MacOsOperatingSystemImpl(
         val macOsTcpStatsMapper = MacOsTcpStatsMapper()
 
         return macOsTcpStatsMapper.mapFromNative()
+    }
+
+    @Loader
+    private fun loadUdpStats(): MacOsUdpStats {
+        val macOsUdpStatsMapper = MacOsUdpStatsMapper()
+
+        return macOsUdpStatsMapper.mapFromNative()
     }
 
 }
