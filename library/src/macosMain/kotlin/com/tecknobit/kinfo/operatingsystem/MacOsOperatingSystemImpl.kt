@@ -3,12 +3,8 @@
 package com.tecknobit.kinfo.operatingsystem
 
 import com.tecknobit.kinfo.annotations.Loader
-import com.tecknobit.kinfo.mappers.MacOsDesktopWindowMapper
-import com.tecknobit.kinfo.mappers.MacOsIPConnectionsMapper
-import com.tecknobit.kinfo.mappers.MacOsIPRoutesMapper
-import com.tecknobit.kinfo.mappers.MacOsOSProcessMapper
+import com.tecknobit.kinfo.mappers.*
 import com.tecknobit.kinfo.model.desktop.common.operatingsystem.processes.OSThread
-import com.tecknobit.kinfo.model.desktop.common.operatingsystem.protocols.TcpStats
 import com.tecknobit.kinfo.model.desktop.common.operatingsystem.protocols.UdpStats
 import com.tecknobit.kinfo.model.desktop.macos.operatingsystem.*
 import com.tecknobit.kinfo.utils.resolveCumulativeTime
@@ -100,9 +96,11 @@ data class MacOsOperatingSystemImpl(
 
     /**
      * `tcpStat` the macOS `TCP` statistics
+     *
+     * @since 1.1.0
      */
-    override val tcpStat: TcpStats
-        get() = TODO("Not yet implemented")
+    override val tcpStat: MacOsTcpStats
+        get() = loadTcpStats()
 
     /**
      * `udpStat` the macOS `UDP` statistics
@@ -271,14 +269,26 @@ data class MacOsOperatingSystemImpl(
      * Method used to load the available macOS `IP` routes
      *
      * @return the loaded `IP` routes as [List] of [MacOsIpRoute]
-     *
-     * @since 1.1.0
      */
     @Loader
     private fun loadIPRoutes(): List<MacOsIpRoute> {
         val macOsIPRoutesMapper = MacOsIPRoutesMapper()
 
         return macOsIPRoutesMapper.mapFromNative()
+    }
+
+    /**
+     * Method used to load the cumulative macOS `TCP` statistics
+     *
+     * @return the loaded macOS `TCP` statistics as [MacOsTcpStats]
+     *
+     * @since 1.1.0
+     */
+    @Loader
+    private fun loadTcpStats(): MacOsTcpStats {
+        val macOsTcpStatsMapper = MacOsTcpStatsMapper()
+
+        return macOsTcpStatsMapper.mapFromNative()
     }
 
 }
