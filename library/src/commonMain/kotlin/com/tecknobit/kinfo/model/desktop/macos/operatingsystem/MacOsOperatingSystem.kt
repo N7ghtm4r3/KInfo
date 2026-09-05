@@ -1,7 +1,6 @@
 package com.tecknobit.kinfo.model.desktop.macos.operatingsystem
 
 import com.tecknobit.kinfo.model.desktop.common.operatingsystem.processes.OSThread
-import com.tecknobit.kinfo.model.desktop.common.operatingsystem.protocols.TcpStats
 import com.tecknobit.kinfo.model.desktop.common.operatingsystem.protocols.UdpStats
 
 /**
@@ -63,7 +62,7 @@ interface MacOsOperatingSystem {
     /**
      * `tcpStat` the current macOS `TCP` statistics
      */
-    val tcpStat: TcpStats
+    val tcpStat: MacOsTcpStats
 
     /**
      * `udpStat` the current macOS `UDP` statistics
