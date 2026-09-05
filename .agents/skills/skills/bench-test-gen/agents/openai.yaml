@@ -1,4 +1,0 @@
-interface:
-  display_name: "Bench Test Gen"
-  short_description: "Generate complete test and benchmark suites"
-  default_prompt: "Use $bench-test-gen to generate repository-native behavioral tests with all required test-only setup, and add benchmarks with all required benchmark-only setup only when explicitly requested, without changing production or anything outside scope."

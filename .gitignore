@@ -12,12 +12,7 @@ xcuserdata
 #So we don't accidentally commit our private keys
 *.gpg
 gradle.properties
-.env
-workspace.xml
-
-
-
-
-
 
 # From EnvUi
+.env
+workspace.xml
