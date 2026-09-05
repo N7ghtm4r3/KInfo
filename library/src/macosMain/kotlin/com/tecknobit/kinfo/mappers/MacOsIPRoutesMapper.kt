@@ -28,7 +28,7 @@ class MacOsIPRoutesMapper : NativeMapper<List<MacOsIpRouteImpl>>() {
      */
     override fun mapFromNative(): List<MacOsIpRouteImpl> {
         val macOsIpRoutes = mutableListOf<MacOsIpRouteImpl>()
-        val nativeIpRoutes = loadNativeRtMsgHdr2()
+        val nativeIpRoutes = loadAndMapFromNative()
 
         nativeIpRoutes.forEach { ipRoute ->
             macOsIpRoutes.add(ipRoute)
@@ -43,7 +43,7 @@ class MacOsIPRoutesMapper : NativeMapper<List<MacOsIpRouteImpl>>() {
      * @return the mapped macOS routes as [List] of [MacOsIpRouteImpl]
      */
     @Loader
-    private fun loadNativeRtMsgHdr2(): List<MacOsIpRouteImpl> {
+    private fun loadAndMapFromNative(): List<MacOsIpRouteImpl> {
         return memScoped {
             val mib = intArrayOf(
                 CTL_NET,      // network subsystem
@@ -74,24 +74,44 @@ class MacOsIPRoutesMapper : NativeMapper<List<MacOsIpRouteImpl>>() {
                 0u
             )
 
-            buildList {
-                var offset = 0
-                val totalSize = size.value.toInt()
+            mapFromNativeRoutes(
+                size = size,
+                buffer = buffer
+            )
+        }
+    }
 
-                while (offset < totalSize) {
-                    val record = buffer.plus(offset)!!
-                        .reinterpret<rt_msghdr2>()
-                    val header = record.pointed
+    /**
+     * Method used to map the native routing messages stored in the routing table buffer
+     *
+     * @param size The number of bytes available in the routing table buffer
+     * @param buffer The native routing table buffer to map
+     *
+     * @return the mapped macOS routes as [List] of [MacOsIpRouteImpl]
+     */
+    private fun mapFromNativeRoutes(
+        size: size_tVar,
+        buffer: CArrayPointer<ByteVar>
+    ): List<MacOsIpRouteImpl> {
+        return buildList {
+            val totalSize = size.value.toInt()
+            val rtMsgHdr2Size = sizeOf<rt_msghdr2>()
+            var offset = 0
 
+            while (offset < totalSize) {
+                val record = buffer.plus(offset)!!
+                    .reinterpret<rt_msghdr2>()
+                val header = record.pointed
 
-                    val messageSize = header.rtm_msglen.toInt()
-                    check(messageSize >= sizeOf<rt_msghdr2>() && offset + messageSize <= totalSize)
+                val messageSize = header.rtm_msglen.toInt()
+                check(messageSize >= rtMsgHdr2Size && (offset + messageSize) <= totalSize)
 
-                    add(record.mapToMacOsIpRoute(
-                        messageSize = messageSize
-                    ))
-                    offset += messageSize
-                }
+                val mappedRoute = record.mapToMacOsIpRoute(
+                    messageSize = messageSize
+                )
+                add(mappedRoute)
+
+                offset += messageSize
             }
         }
     }
@@ -229,10 +249,12 @@ class MacOsIPRoutesMapper : NativeMapper<List<MacOsIpRouteImpl>>() {
         return memScoped {
             val buffer = allocArray<ByteVar>(IF_NAMESIZE)
 
-            if_indextoname(
+            val interfaceName = if_indextoname(
                 this@toInterfaceName,
                 buffer
-            )?.toKString() ?: ""
+            )
+
+            interfaceName?.toKString() ?: ""
         }
     }
 
@@ -260,13 +282,13 @@ class MacOsIPRoutesMapper : NativeMapper<List<MacOsIpRouteImpl>>() {
         val addressOffset = if(addressSize == 4) 4 else 8
         val bytesCount = (pointed.sa_len.toInt() - addressOffset)
             .coerceIn(0, addressSize)
-
         if(bytesCount == 0)
             return 0
 
-        val mask = checkNotNull(
-            reinterpret<ByteVar>().plus(addressOffset)
-        ).readBytes(bytesCount)
+        val maskBuffer = reinterpret<ByteVar>()
+            .plus(addressOffset)
+        val mask = checkNotNull(maskBuffer)
+            .readBytes(bytesCount)
 
         return mask.sumOf { byte ->
             (byte.toInt() and 0xff).countOneBits()
