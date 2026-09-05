@@ -5,9 +5,9 @@ package com.tecknobit.kinfo.operatingsystem
 import com.tecknobit.kinfo.annotations.Loader
 import com.tecknobit.kinfo.mappers.MacOsDesktopWindowMapper
 import com.tecknobit.kinfo.mappers.MacOsIPConnectionsMapper
+import com.tecknobit.kinfo.mappers.MacOsIPRoutesMapper
 import com.tecknobit.kinfo.mappers.MacOsOSProcessMapper
 import com.tecknobit.kinfo.model.desktop.common.operatingsystem.processes.OSThread
-import com.tecknobit.kinfo.model.desktop.common.operatingsystem.protocols.IPRoute
 import com.tecknobit.kinfo.model.desktop.common.operatingsystem.protocols.TcpStats
 import com.tecknobit.kinfo.model.desktop.common.operatingsystem.protocols.UdpStats
 import com.tecknobit.kinfo.model.desktop.macos.operatingsystem.*
@@ -91,10 +91,12 @@ data class MacOsOperatingSystemImpl(
         get() = loadIPConnections()
 
     /**
-     * `rtMsgHdr2` the macOS `IP` route information
+     * `rtMsgHdr2` the macOS `IP` routes information
+     *
+     * @since 1.1.0
      */
-    override val rtMsgHdr2: IPRoute
-        get() = TODO("Not yet implemented")
+    override val rtMsgHdr2: List<MacOsIpRoute>
+        get() = loadIPRoutes()
 
     /**
      * `tcpStat` the macOS `TCP` statistics
@@ -263,6 +265,20 @@ data class MacOsOperatingSystemImpl(
         val macOsIPConnectionMapper = MacOsIPConnectionsMapper()
 
         return macOsIPConnectionMapper.mapFromNative()
+    }
+
+    /**
+     * Method used to load the available macOS `IP` routes
+     *
+     * @return the loaded `IP` routes as [List] of [MacOsIpRoute]
+     *
+     * @since 1.1.0
+     */
+    @Loader
+    private fun loadIPRoutes(): List<MacOsIpRoute> {
+        val macOsIPRoutesMapper = MacOsIPRoutesMapper()
+
+        return macOsIPRoutesMapper.mapFromNative()
     }
 
 }
