@@ -1,9 +1,10 @@
 @file:OptIn(ExperimentalForeignApi::class)
 
-package com.tecknobit.kinfo.mappers
+package com.tecknobit.kinfo.mappers.operatingsystem
 
 import com.tecknobit.kinfo.annotations.Loader
 import com.tecknobit.kinfo.annotations.Resolver
+import com.tecknobit.kinfo.mappers.NativeMapper
 import com.tecknobit.kinfo.model.desktop.common.operatingsystem.protocols.TcpState
 import com.tecknobit.kinfo.model.desktop.common.operatingsystem.protocols.TcpState.*
 import com.tecknobit.kinfo.model.desktop.macos.operatingsystem.SocketInfoProtocol
@@ -17,7 +18,7 @@ import platform.osx.*
  *
  * @author N7ghtm4r3 - Tecknobit
  *
- * @see NativeMapper
+ * @see com.tecknobit.kinfo.mappers.NativeMapper
  *
  * @since 1.1.0
  */
