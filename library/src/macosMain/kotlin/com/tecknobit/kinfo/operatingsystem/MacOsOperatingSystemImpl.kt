@@ -3,12 +3,12 @@
 package com.tecknobit.kinfo.operatingsystem
 
 import com.tecknobit.kinfo.annotations.Loader
-import com.tecknobit.kinfo.mappers.MacOsDesktopWindowMapper
-import com.tecknobit.kinfo.mappers.MacOsIPConnectionsMapper
-import com.tecknobit.kinfo.mappers.MacOsIPRoutesMapper
-import com.tecknobit.kinfo.mappers.MacOsOSProcessMapper
-import com.tecknobit.kinfo.mappers.packets.MacOsTcpStatsMapper
-import com.tecknobit.kinfo.mappers.packets.MacOsUdpStatsMapper
+import com.tecknobit.kinfo.mappers.operatingsystem.MacOsDesktopWindowMapper
+import com.tecknobit.kinfo.mappers.operatingsystem.MacOsIPConnectionsMapper
+import com.tecknobit.kinfo.mappers.operatingsystem.MacOsIPRoutesMapper
+import com.tecknobit.kinfo.mappers.operatingsystem.MacOsOSProcessMapper
+import com.tecknobit.kinfo.mappers.operatingsystem.packets.MacOsTcpStatsMapper
+import com.tecknobit.kinfo.mappers.operatingsystem.packets.MacOsUdpStatsMapper
 import com.tecknobit.kinfo.model.desktop.macos.operatingsystem.*
 import com.tecknobit.kinfo.utils.resolveCumulativeTime
 import kotlinx.cinterop.*

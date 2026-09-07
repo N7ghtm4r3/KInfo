@@ -1,8 +1,9 @@
 @file:OptIn(ExperimentalForeignApi::class)
 
-package com.tecknobit.kinfo.mappers
+package com.tecknobit.kinfo.mappers.operatingsystem
 
 import com.tecknobit.kinfo.annotations.Resolver
+import com.tecknobit.kinfo.mappers.NativeMapper
 import com.tecknobit.kinfo.operatingsystem.MacOsDesktopWindowImpl
 import com.tecknobit.kinfo.utils.toNSString
 import kotlinx.cinterop.COpaquePointer
@@ -25,7 +26,7 @@ import platform.Foundation.NSNumber
  *
  * @author N7ghtm4r3 - Tecknobit
  *
- * @see NativeMapper
+ * @see com.tecknobit.kinfo.mappers.NativeMapper
  *
  * @since 1.1.0
  */

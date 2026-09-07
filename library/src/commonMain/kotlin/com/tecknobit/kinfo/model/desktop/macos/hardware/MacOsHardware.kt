@@ -1,60 +1,47 @@
 package com.tecknobit.kinfo.model.desktop.macos.hardware
 
-import com.tecknobit.kinfo.model.desktop.common.hardware.*
-import com.tecknobit.kinfo.model.desktop.common.hardware.centralprocessor.*
-import com.tecknobit.kinfo.model.desktop.common.hardware.computersystem.Baseboard
-import com.tecknobit.kinfo.model.desktop.common.hardware.computersystem.ComputerSystem
-import com.tecknobit.kinfo.model.desktop.common.hardware.computersystem.Firmware
-import com.tecknobit.kinfo.model.desktop.common.hardware.display.Display
-import com.tecknobit.kinfo.model.desktop.common.hardware.display.DisplayInfo
-import com.tecknobit.kinfo.model.desktop.common.hardware.graphicscard.GraphicsCard
-import com.tecknobit.kinfo.model.desktop.common.hardware.memory.GlobalMemory
-import com.tecknobit.kinfo.model.desktop.common.hardware.memory.VirtualMemory
-import com.tecknobit.kinfo.model.desktop.common.hardware.storage.HWDiskStore
-import com.tecknobit.kinfo.model.desktop.common.hardware.storage.HWPartition
-
 interface MacOsHardware {
 
-    val platformExpertDevice: ComputerSystem
+    val platformExpertDevice: MacOsComputerSystem
 
-    val baseboardRegistryEntry: Baseboard
+    val baseboardRegistryEntry: MacOsBaseboard
 
-    val romRegistryEntry: Firmware
+    val romRegistryEntry: MacOsFirmware
 
-    val processorInfo: CentralProcessor
+    val processorInfo: MacOsCentralProcessor
 
-    val processorIdentifierInfo: ProcessorIdentifier
+    val processorIdentifierInfo: MacOsProcessorIdentifier
 
-    val processorCaches: ProcessorCache
+    val processorCaches: MacOsProcessorCache
 
-    val logicalProcessorInfo: LogicalProcessor
+    val logicalProcessorInfo: MacOsLogicalProcessor
 
-    val physicalProcessorInfo: PhysicalProcessor
+    val physicalProcessorInfo: MacOsPhysicalProcessor
 
-    val vmStatistics: GlobalMemory
+    val vmStatistics: MacOsGlobalMemory
 
-    val swapUsage: VirtualMemory
+    val swapUsage: MacOsVirtualMemory
 
-    val powerSourceDescription: PowerSource
+    val powerSourceDescription: MacOsPowerSource
 
-    val disk: HWDiskStore
+    val disk: MacOsHWDiskStore
 
-    val media: HWPartition
+    val media: MacOsHWPartition
 
-    val networkInterface: NetworkIF
+    val networkInterface: MacOsNetworkIF
 
-    val displayId: Display
+    val displayId: MacOsDisplay
 
-    val displayService: DisplayInfo
+    val displayService: MacOsDisplayInfo
 
-    val usbDevice: UsbDevice
+    val usbDevice: MacOsUsbDevice
 
-    val bluetoothDevice: BluetoothDevice
+    val bluetoothDevice: MacOsBluetoothDevice
 
-    val destination: Printer
+    val destination: MacOsPrinter
 
-    val audioDeviceId: SoundCard
+    val audioDeviceId: MacOsSoundCard
 
-    val metalDevice: GraphicsCard
+    val metalDevice: MacOsGraphicsCard
 
 }
