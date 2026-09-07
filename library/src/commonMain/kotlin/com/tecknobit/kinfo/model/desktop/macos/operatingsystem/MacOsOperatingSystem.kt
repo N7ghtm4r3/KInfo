@@ -1,7 +1,5 @@
 package com.tecknobit.kinfo.model.desktop.macos.operatingsystem
 
-import com.tecknobit.kinfo.model.desktop.common.operatingsystem.processes.OSThread
-
 /**
  * The `MacOsOperatingSystem` interface defines the contract to provide macOS operating system details
  *
@@ -40,11 +38,6 @@ interface MacOsOperatingSystem {
      * `procTaskAllInfo` the current macOS process information
      */
     val procTaskAllInfo: MacOsOSProcess
-
-    /**
-     * `procThreadInfo` the current macOS thread information
-     */
-    val procThreadInfo: OSThread
 
     /**
      * `socketFdInfo` the current macOS `IP` connection information

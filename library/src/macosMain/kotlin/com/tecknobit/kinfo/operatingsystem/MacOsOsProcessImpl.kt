@@ -1,8 +1,8 @@
 package com.tecknobit.kinfo.operatingsystem
 
-import com.tecknobit.kinfo.model.desktop.common.operatingsystem.processes.OSThread
 import com.tecknobit.kinfo.model.desktop.common.operatingsystem.processes.State
 import com.tecknobit.kinfo.model.desktop.macos.operatingsystem.MacOsOSProcess
+import com.tecknobit.kinfo.model.desktop.macos.operatingsystem.MacOsOSThread
 
 /**
  * The `MacOsOsProcessImpl` class is useful to provide information about a macOS process
@@ -81,7 +81,7 @@ data class MacOsOsProcessImpl(
     override val processCpuLoadBetweenTicks: Double,
     override val bitness: Int,
     override val affinityMask: Long,
-    override val threadDetails: List<OSThread>,
+    override val threadDetails: List<MacOsOSThread>,
     override val minorFaults: Long,
     override val majorFaults: Long,
     override val contextSwitches: Long,
