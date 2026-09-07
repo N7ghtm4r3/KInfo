@@ -1,7 +1,8 @@
 @file:OptIn(ExperimentalForeignApi::class)
 
-package com.tecknobit.kinfo.mappers
+package com.tecknobit.kinfo.mappers.operatingsystem
 
+import com.tecknobit.kinfo.mappers.NativeMapper
 import com.tecknobit.kinfo.operatingsystem.MacOsOSThreadImpl
 import kotlinx.cinterop.*
 import platform.osx.PROC_PIDLISTTHREADS
