@@ -9,7 +9,6 @@ import com.tecknobit.kinfo.mappers.MacOsIPRoutesMapper
 import com.tecknobit.kinfo.mappers.MacOsOSProcessMapper
 import com.tecknobit.kinfo.mappers.packets.MacOsTcpStatsMapper
 import com.tecknobit.kinfo.mappers.packets.MacOsUdpStatsMapper
-import com.tecknobit.kinfo.model.desktop.common.operatingsystem.processes.OSThread
 import com.tecknobit.kinfo.model.desktop.macos.operatingsystem.*
 import com.tecknobit.kinfo.utils.resolveCumulativeTime
 import kotlinx.cinterop.*
@@ -79,12 +78,6 @@ data class MacOsOperatingSystemImpl(
         get() = loadOsProcess()
 
     /**
-     * `procThreadInfo` the macOS process thread information
-     */
-    override val procThreadInfo: OSThread
-        get() = TODO("Not yet implemented")
-
-    /**
      * `socketFdInfo` the macOS `IP` connection information
      */
     override val socketFdInfo: List<MacOsIPConnection>
@@ -92,16 +85,12 @@ data class MacOsOperatingSystemImpl(
 
     /**
      * `rtMsgHdr2` the macOS `IP` routes information
-     *
-     * @since 1.1.0
      */
     override val rtMsgHdr2: List<MacOsIpRoute>
         get() = loadIPRoutes()
 
     /**
      * `tcpStat` the macOS `TCP` statistics
-     *
-     * @since 1.1.0
      */
     override val tcpStat: MacOsTcpStats
         get() = loadTcpStats()
@@ -285,8 +274,6 @@ data class MacOsOperatingSystemImpl(
      * Method used to load the cumulative macOS `TCP` statistics
      *
      * @return the loaded macOS `TCP` statistics as [MacOsTcpStats]
-     *
-     * @since 1.1.0
      */
     @Loader
     private fun loadTcpStats(): MacOsTcpStats {

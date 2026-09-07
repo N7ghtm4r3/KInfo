@@ -2,9 +2,11 @@
 
 package com.tecknobit.kinfo.mappers
 
+import com.tecknobit.kinfo.annotations.Loader
 import com.tecknobit.kinfo.annotations.Resolver
 import com.tecknobit.kinfo.helpers.CpuTicksRegistry
 import com.tecknobit.kinfo.model.desktop.common.operatingsystem.processes.State
+import com.tecknobit.kinfo.model.desktop.macos.operatingsystem.MacOsOSThread
 import com.tecknobit.kinfo.operatingsystem.MacOsOsProcessImpl
 import com.tecknobit.kinfo.utils.resolveCumulativeTime
 import kotlinx.cinterop.*
@@ -120,8 +122,9 @@ class MacOsOSProcessMapper(
                     flags = pbsd.pbi_flags
                 ),
                 affinityMask = resolveAffinityMask(),
-                // TODO: TO MAP YET 
-                threadDetails = emptyList(),
+                threadDetails = loadThreadsInfo(
+                    processId = processId
+                ),
                 minorFaults = ptinfo.pti_faults.toLong() - majorFaults,
                 majorFaults = majorFaults,
                 contextSwitches = ptinfo.pti_csw.toLong(),
@@ -450,6 +453,17 @@ class MacOsOSProcessMapper(
             logicalProcessors >= 64 -> -1L
             else -> (1L shl logicalProcessors) - 1L
         }
+    }
+
+    @Loader
+    private fun loadThreadsInfo(
+        processId: Int
+    ): List<MacOsOSThread> {
+        val macOsThreadsMapper = MacOsThreadsMapper(
+            processId = processId
+        )
+
+        return macOsThreadsMapper.mapFromNative()
     }
 
 }
