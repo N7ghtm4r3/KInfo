@@ -1,4 +1,4 @@
-package com.tecknobit.kinfo.mappers.packets
+package com.tecknobit.kinfo.mappers.operatingsystem.packets
 
 import com.tecknobit.kinfo.annotations.Resolver
 import com.tecknobit.kinfo.operatingsystem.MacOsUdpStatsImpl
