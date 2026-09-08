@@ -282,6 +282,11 @@ data class MacOsOperatingSystemImpl(
         return macOsTcpStatsMapper.mapFromNative()
     }
 
+    /**
+     * Method used to load the cumulative macOS `UDP` statistics
+     *
+     * @return the loaded macOS `UDP` statistics as [MacOsUdpStats]
+     */
     @Loader
     private fun loadUdpStats(): MacOsUdpStats {
         val macOsUdpStatsMapper = MacOsUdpStatsMapper()

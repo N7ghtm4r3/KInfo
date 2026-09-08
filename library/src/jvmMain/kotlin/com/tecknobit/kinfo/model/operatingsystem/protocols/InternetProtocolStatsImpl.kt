@@ -87,10 +87,11 @@ class InternetProtocolStatsImpl(
     }
 
     /**
-     * Initializes the UDP statistics from the raw source data.
+     * Method used to initialize the `UDP` statistics from the native source
      *
-     * @param source The raw UDP stats data from the source.
-     * @return A [UdpStats] object containing the processed UDP stats.
+     * @param source The native `UDP` statistics to map
+     *
+     * @return the mapped `UDP` statistics as [UdpStats]
      */
     private fun initUdpStats(
         source: oshi.software.os.InternetProtocolStats.UdpStats

@@ -1,32 +1,31 @@
 package com.tecknobit.kinfo.model.desktop.common.operatingsystem.protocols
 
 /**
- * `UdpStats` Represents the statistics for the UDP protocol, including the number of datagrams sent and received,
- * as well as any errors or datagrams with no port
+ * The `UdpStats` interface defines the contract to provide cumulative `UDP` datagram statistics
  *
  * @author N7ghtm4r3 - Tecknobit
  *
- * @see UdpStats
+ * @since 1.1.0
  */
 interface UdpStats {
 
     /**
-     * `datagramsSent` The total number of UDP datagrams sent
+     * `datagramsSent` the total number of `UDP` datagrams sent
      */
     val datagramsSent: Long
 
     /**
-     * `datagramsReceived` The total number of UDP datagrams received
+     * `datagramsReceived` the total number of `UDP` datagrams received
      */
     val datagramsReceived: Long
 
     /**
-     * `datagramsNoPort` The total number of UDP datagrams that did not have a corresponding port to route to
+     * `datagramsNoPort` the total number of received `UDP` datagrams without a matching destination port
      */
     val datagramsNoPort: Long
 
     /**
-     * `datagramsReceivedErrors` The total number of UDP datagrams that were received with errors (e.g., checksum errors)
+     * `datagramsReceivedErrors` the total number of errors detected while receiving `UDP` datagrams
      */
     val datagramsReceivedErrors: Long
 

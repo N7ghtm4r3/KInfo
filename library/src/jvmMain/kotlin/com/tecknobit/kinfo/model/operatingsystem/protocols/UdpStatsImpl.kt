@@ -3,18 +3,18 @@ package com.tecknobit.kinfo.model.operatingsystem.protocols
 import com.tecknobit.kinfo.model.desktop.common.operatingsystem.protocols.UdpStats
 
 /**
- * `UdpStatsImpl` Implementation of the `UdpStats` interface.
- * This class provides the statistics for the UDP protocol, including the number of datagrams sent and received,
- * as well as any errors or datagrams with no port.
+ * The `UdpStatsImpl` class is useful to represent cumulative `UDP` datagram statistics
  *
- * @param datagramsSent The total number of UDP datagrams sent.
- * @param datagramsReceived The total number of UDP datagrams received.
- * @param datagramsNoPort The total number of UDP datagrams that did not have a corresponding port to route to.
- * @param datagramsReceivedErrors The total number of UDP datagrams that were received with errors (e.g., checksum errors).
+ * @property datagramsSent The total number of `UDP` datagrams sent
+ * @property datagramsReceived The total number of `UDP` datagrams received
+ * @property datagramsNoPort The total number of received `UDP` datagrams without a matching destination port
+ * @property datagramsReceivedErrors The total number of errors detected while receiving `UDP` datagrams
  *
  * @author N7ghtm4r3 - Tecknobit
  *
  * @see UdpStats
+ *
+ * @since 1.1.0
  */
 class UdpStatsImpl(
     override val datagramsSent: Long,
