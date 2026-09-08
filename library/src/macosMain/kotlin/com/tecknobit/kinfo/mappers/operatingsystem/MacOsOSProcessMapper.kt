@@ -56,6 +56,7 @@ class MacOsOSProcessMapper(
             val pbsd = buffer.pbsd
             val ptinfo = buffer.ptinfo
             val processId = pbsd.pbi_pid.toInt()
+            val threadCount = ptinfo.pti_threadnum
             val arguments = resolveArguments()
             val userId = pbsd.pbi_uid
             val groupId = pbsd.pbi_gid
@@ -99,7 +100,7 @@ class MacOsOSProcessMapper(
                 ),
                 processId = processId,
                 parentProcessId = pbsd.pbi_ppid.toInt(),
-                threadCount = ptinfo.pti_threadnum,
+                threadCount = threadCount,
                 priority = ptinfo.pti_priority,
                 virtualSize = ptinfo.pti_virtual_size.toLong(),
                 residentMemory = ptinfo.pti_resident_size.toLong(),
@@ -124,7 +125,8 @@ class MacOsOSProcessMapper(
                 ),
                 affinityMask = resolveAffinityMask(),
                 threadDetails = loadThreadsInfo(
-                    processId = processId
+                    processId = processId,
+                    threadCount = threadCount
                 ),
                 minorFaults = ptinfo.pti_faults.toLong() - majorFaults,
                 majorFaults = majorFaults,
@@ -456,12 +458,24 @@ class MacOsOSProcessMapper(
         }
     }
 
+    /**
+     * Method used to load the native thread information owned by a process
+     *
+     * @param processId The identifier of the process owning the threads
+     * @param threadCount The number of threads used to size the native address buffer
+     *
+     * @return the mapped macOS threads as [List] of [MacOsOSThread]
+     *
+     * @since 1.1.0
+     */
     @Loader
     private fun loadThreadsInfo(
-        processId: Int
+        processId: Int,
+        threadCount: Int
     ): List<MacOsOSThread> {
         val macOsThreadsMapper = MacOsThreadsMapper(
-            processId = processId
+            processId = processId,
+            threadCount = threadCount
         )
 
         return macOsThreadsMapper.mapFromNative()
