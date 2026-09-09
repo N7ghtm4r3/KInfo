@@ -9,13 +9,11 @@ import com.tecknobit.kinfo.model.desktop.macos.operatingsystem.MacOsOSThread
  * @property threadId The snapshot-local identifier assigned to the thread
  * @property name The native name of the thread, or an empty value when unavailable
  * @property state The execution state of the thread
- * @property threadCpuLoadCumulative The CPU load reported for the thread
- * @property threadCpuLoadBetweenTicks The CPU load between consecutive thread snapshots, currently unavailable
+ * @property threadCpuLoadCumulative The CPU load reported by macOS for the thread
+ * @property threadCpuLoadBetweenTicks The CPU load between consecutive thread snapshots
  * @property owningProcessId The identifier of the process owning the thread
  * @property kernelTime The time spent by the thread in kernel mode, in milliseconds
  * @property userTime The time spent by the thread in user mode, in milliseconds
- * @property upTime The estimated uptime of the thread, in milliseconds
- * @property startTime The estimated start time of the thread, in milliseconds since the Unix epoch
  * @property priority The current scheduling priority of the thread
  *
  * @author N7ghtm4r3 - Tecknobit
@@ -33,8 +31,6 @@ data class MacOsOSThreadImpl(
     override val owningProcessId: Int,
     override val kernelTime: Long,
     override val userTime: Long,
-    override val upTime: Long,
-    override val startTime: Long,
     override val priority: Int
 ) : MacOsOSThread {
 
@@ -57,6 +53,16 @@ data class MacOsOSThreadImpl(
      * `majorFaults` the unsupported number of major page faults experienced by the thread
      */
     override val majorFaults: Long = 0L
+
+    /**
+     * `upTime` the unsupported thread uptime
+     */
+    override val upTime: Long = 0L
+
+    /**
+     * `startTime` the unsupported thread start time
+     */
+    override val startTime: Long = 0L
 
     /**
      * `updateAttributes` whether updating the thread attributes is supported
