@@ -6,9 +6,10 @@ import com.tecknobit.kinfo.annotations.Resolver
 import com.tecknobit.kinfo.mappers.NativeMapper
 import com.tecknobit.kinfo.model.desktop.common.operatingsystem.processes.State
 import com.tecknobit.kinfo.operatingsystem.MacOsOSThreadImpl
+import com.tecknobit.kinfo.utils.resolveThreadCpuLoadBetweenTicks
 import kotlinx.cinterop.*
+import platform.darwin.TH_USAGE_SCALE
 import platform.osx.*
-import kotlin.time.Clock
 
 /**
  * The `MacOsThreadsMapper` class is useful to map native macOS thread information to KInfo models
@@ -120,22 +121,23 @@ class MacOsThreadsMapper(
     ): MacOsOSThreadImpl {
         val kernelTime = pth_system_time.toMillis()
         val userTime = pth_user_time.toMillis()
-        val cpuTime = kernelTime + userTime
-        val cpuLoad = pth_cpu_usage.toDouble() / 1000
-        val upTime = (cpuTime / cpuLoad).toLong()
-        val startTime = Clock.System.now().toEpochMilliseconds() - upTime
+        val cpuLoad = pth_cpu_usage.toDouble() / TH_USAGE_SCALE
 
         return MacOsOSThreadImpl(
             threadId = threadId,
             name = pth_name.toKString(),
             state = pth_run_state.resolveState(),
             threadCpuLoadCumulative = cpuLoad,
-            threadCpuLoadBetweenTicks = 0.0,
+            threadCpuLoadBetweenTicks = resolveThreadCpuLoadBetweenTicks(
+                processId = processId,
+                threadAddress = threadAddress,
+                userTime = userTime,
+                kernelTime = kernelTime,
+                processCpuLoadCumulative = cpuLoad
+            ),
             owningProcessId = processId,
             kernelTime = kernelTime,
             userTime = userTime,
-            upTime = upTime,
-            startTime = startTime,
             priority = pth_curpri
         )
     }
