@@ -4,6 +4,7 @@ package com.tecknobit.kinfo.utils
 
 import com.tecknobit.kinfo.annotations.Resolver
 import kotlinx.cinterop.*
+import platform.CoreFoundation.*
 import platform.Foundation.NSString
 import platform.darwin.sysctlbyname
 import platform.posix.size_tVar
