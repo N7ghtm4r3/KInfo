@@ -4,7 +4,6 @@ package com.tecknobit.kinfo.mappers.hardware
 
 import com.tecknobit.kinfo.hardware.MacOsBaseboardImpl
 import kotlinx.cinterop.ExperimentalForeignApi
-import platform.IOKit.IOObjectRelease
 
 /**
  * The `MacOsBaseboardMapper` class is useful to map `IOPlatformExpertDevice` properties to baseboard information
@@ -27,27 +26,26 @@ class MacOsBaseboardMapper : MacOsHardwareMapper<MacOsBaseboardImpl>() {
      * @throws IllegalStateException If the platform expert service cannot be loaded
      */
     override fun mapFromNative(): MacOsBaseboardImpl {
-        val service = loadIOService(
-            serviceName = "IOPlatformExpertDevice"
+        val macOsBaseboard = useIOService(
+            serviceName = "IOPlatformExpertDevice",
+            usage = { service ->
+                MacOsBaseboardImpl(
+                    manufacturer = service.readFromRegistry(
+                        key = "manufacturer"
+                    ),
+                    model = service.readFromRegistryWithFallback(
+                        key = "board-id",
+                        fallbackKey = "target-type"
+                    ),
+                    version = service.readFromRegistry(
+                        key = "version"
+                    ),
+                    serialNumber = service.readFromRegistry(
+                        key = "mlb-serial-number"
+                    )
+                )
+            }
         )
-
-        val macOsBaseboard = MacOsBaseboardImpl(
-            manufacturer = service.readFromRegistry(
-                key = "manufacturer"
-            ),
-            model = service.readFromRegistryWithFallback(
-                key = "board-id",
-                fallbackKey = "target-type"
-            ),
-            version = service.readFromRegistry(
-                key = "version"
-            ),
-            serialNumber = service.readFromRegistry(
-                key = "mlb-serial-number"
-            )
-        )
-
-        IOObjectRelease(service)
 
         return macOsBaseboard
     }
