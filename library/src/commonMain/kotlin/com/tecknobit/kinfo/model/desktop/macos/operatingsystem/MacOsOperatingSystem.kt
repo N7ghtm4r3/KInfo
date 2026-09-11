@@ -46,8 +46,6 @@ interface MacOsOperatingSystem {
 
     /**
      * `rtMsgHdr2` the current macOS `IP` route information
-     *
-     * @since 1.1.0
      */
     val rtMsgHdr2: List<MacOsIpRoute>
 
