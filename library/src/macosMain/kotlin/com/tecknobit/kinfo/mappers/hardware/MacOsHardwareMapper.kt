@@ -29,6 +29,34 @@ abstract class MacOsHardwareMapper<H> : NativeMapper<H>() {
     }
 
     /**
+     * Method used to load an IOKit service, perform an operation, and release the handle after normal completion
+     *
+     * The operation receives a borrowed handle and must not release it or use it after this method returns
+     * The current implementation does not release the handle if the operation throws or performs a non-local return
+     *
+     * @param T The type of result produced by the operation
+     * @param serviceName The IOKit service class name to match
+     * @param usage The operation to perform with the loaded service handle
+     *
+     * @return the result produced by the operation as [T]
+     * @throws IllegalStateException If no matching service handle is returned
+     */
+    protected inline fun <T> useIOService(
+        serviceName: String,
+        usage: (io_service_t) -> T
+    ): T {
+        val service = loadIOService(
+            serviceName = serviceName
+        )
+
+        return try {
+            usage(service)
+        } finally {
+            IOObjectRelease(service)
+        }
+    }
+
+    /**
      * Method used to retrieve the first IOKit service matching the specified class name
      *
      * The caller is responsible for releasing the returned handle with `IOObjectRelease`
