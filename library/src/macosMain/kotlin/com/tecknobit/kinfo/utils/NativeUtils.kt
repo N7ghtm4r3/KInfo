@@ -1,4 +1,4 @@
-@file:OptIn(ExperimentalForeignApi::class)
+@file:OptIn(ExperimentalForeignApi::class, ExperimentalNativeApi::class)
 
 package com.tecknobit.kinfo.utils
 
@@ -8,6 +8,7 @@ import platform.CoreFoundation.*
 import platform.Foundation.NSString
 import platform.darwin.sysctlbyname
 import platform.posix.size_tVar
+import kotlin.experimental.ExperimentalNativeApi
 
 /**
  * Method used to query a string system control value by its name
@@ -28,6 +29,34 @@ fun queryStringSysCtlByName(
         default = default,
         returns = { _, buffer ->
             buffer.toKString()
+        }
+    )
+}
+
+/**
+ * Method used to query a signed integer system control value by its name
+ *
+ * The queried value must use the native `IntVar` representation
+ * The returned buffer size is not validated before reading its first integer
+ *
+ * @param name The name of the system control value to query
+ * @param default The nullable fallback value returned when either native query fails
+ *
+ * @return the queried value or the [default] fallback as [Int]
+ *
+ * @see queryItemSysCtlByName
+ *
+ * @since 1.1.0
+ */
+fun queryIntSysCtlByName(
+    name: String,
+    default: Int? = null
+): Int? {
+    return queryItemSysCtlByName<Int, IntVar>(
+        name = name,
+        default = default,
+        returns = { _, buffer ->
+            buffer.pointed.value
         }
     )
 }
@@ -209,4 +238,28 @@ fun resolveCumulativeTime(
     microseconds: ULong
 ): Long {
     return ((seconds * 1000uL) + (microseconds / 1000uL)).toLong()
+}
+
+/**
+ * Method used to check whether the process runs natively on ARM64 or through Rosetta on Apple Silicon
+ *
+ * Non-ARM64 processes query `sysctl.proc_translated` and require a value of one
+ * An unavailable property or failed query is treated as a non-translated process
+ *
+ * @return whether native ARM64 execution or Rosetta translation is detected as [Boolean]
+ *
+ * @see queryIntSysCtlByName
+ *
+ * @since 1.1.0
+ */
+fun isAppleSilicon(): Boolean {
+    if (Platform.cpuArchitecture == CpuArchitecture.ARM64)
+        return true
+
+    val translated = queryIntSysCtlByName(
+        name = "sysctl.proc_translated",
+        default = 0
+    )
+
+    return translated == 1
 }

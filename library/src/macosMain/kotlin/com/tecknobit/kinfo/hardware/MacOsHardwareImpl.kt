@@ -3,6 +3,7 @@ package com.tecknobit.kinfo.hardware
 import com.tecknobit.kinfo.annotations.Loader
 import com.tecknobit.kinfo.mappers.hardware.MacOsBaseboardMapper
 import com.tecknobit.kinfo.mappers.hardware.MacOsFirmwareMapper
+import com.tecknobit.kinfo.mappers.hardware.MacOsProcessorIdentifierMapper
 import com.tecknobit.kinfo.model.desktop.macos.hardware.*
 
 /**
@@ -161,8 +162,27 @@ class MacOsHardwareImpl : MacOsHardware {
      */
     @Loader
     private fun loadFirmware(): MacOsFirmware {
-        val macOsFirmware = MacOsFirmwareMapper()
+        val macOsFirmwareMapper = MacOsFirmwareMapper()
 
-        return macOsFirmware.mapFromNative()
+        return macOsFirmwareMapper.mapFromNative()
+    }
+
+    /**
+     * Method used to request the macOS processor identification information from its native mapper
+     *
+     * The current mapper is not implemented and does not return a model
+     *
+     * @return the mapped processor identification information as [MacOsProcessorIdentifier]
+     * @throws NotImplementedError Whenever the current mapper is invoked
+     *
+     * @see MacOsProcessorIdentifierMapper
+     *
+     * @since 1.1.0
+     */
+    @Loader
+    private fun loadProcessorIdentifier(): MacOsProcessorIdentifier {
+        val macOsProcessorIdentifierMapper = MacOsProcessorIdentifierMapper()
+
+        return macOsProcessorIdentifierMapper.mapFromNative()
     }
 }
