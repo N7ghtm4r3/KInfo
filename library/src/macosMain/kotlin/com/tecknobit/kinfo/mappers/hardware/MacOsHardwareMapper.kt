@@ -32,6 +32,10 @@ abstract class MacOsHardwareMapper<H> : NativeMapper<H>() {
          */
         const val PROPERTY_VALUE_CAPACITY = 4096
 
+        const val IO_PLATFORM_EXPERT_DEVICE_SERVICE = "IOPlatformExpertDevice"
+
+        const val IO_PLATFORM_DEVICE_SERVICE = "IOPlatformDevice"
+
     }
 
     /**
@@ -118,17 +122,17 @@ abstract class MacOsHardwareMapper<H> : NativeMapper<H>() {
      *
      * @return the primary non-blank value, the fallback value, or an empty string if both reads fail as [String]
      */
-    protected fun io_registry_entry_t.readFromRegistryWithFallback(
+    protected fun io_registry_entry_t.readStringFromRegistryWithFallback(
         key: String,
         fallbackKey: String
     ): String {
-        val firstAttemptValue = readFromRegistry(
+        val firstAttemptValue = readStringFromRegistry(
             key = key
         )
         if (firstAttemptValue.isNotBlank())
             return firstAttemptValue
 
-        return readFromRegistry(
+        return readStringFromRegistry(
             key = fallbackKey
         )
     }
@@ -143,32 +147,31 @@ abstract class MacOsHardwareMapper<H> : NativeMapper<H>() {
      *
      * @return the decoded value, or [UNKNOWN] when the lookup fails or exceeds capacity, as [String]
      */
-    protected fun io_registry_entry_t.readFromRegistryOrUnknown(
+    protected fun io_registry_entry_t.readStringFromRegistryOrUnknown(
         key: String
     ): String {
-        return readFromRegistry(
+        return readStringFromRegistry(
             key = key,
             default = UNKNOWN
         )
     }
 
-    /**
-     * Method used to read a registry property as UTF-8 text and remove trailing null characters
-     *
-     * Only the returned byte count is decoded and the temporary buffer is released after the lookup
-     * The property must contain text rather than numeric or arbitrary binary data
-     * This method uses the legacy `IORegistryEntryGetProperty` API and does not release the entry handle
-     *
-     * @receiver The registry entry containing the property to read
-     * @param key The property name to query
-     * @param default The value returned when the lookup fails or the returned size exceeds the buffer capacity
-     *
-     * @return the decoded text, including an empty value on a successful empty read, or the default as [String]
-     */
-    protected fun io_registry_entry_t.readFromRegistry(
+    protected fun io_registry_entry_t.readStringFromRegistry(
         key: String,
         default: String = ""
     ): String {
+        return readFromRegistry(
+            key = key,
+            default = default.encodeToByteArray()
+        )
+            .decodeToString()
+            .trimEnd('\u0000')
+    }
+
+    protected fun io_registry_entry_t.readFromRegistry(
+        key: String,
+        default: ByteArray = byteArrayOf()
+    ): ByteArray {
         return memScoped {
             val buffer = allocArray<ByteVar>(PROPERTY_VALUE_CAPACITY)
             val uCapacity = PROPERTY_VALUE_CAPACITY.toUInt()
@@ -188,8 +191,6 @@ abstract class MacOsHardwareMapper<H> : NativeMapper<H>() {
                 return@memScoped default
 
             buffer.readBytes(valueSize.toInt())
-                .decodeToString()
-                .trimEnd('\u0000')
         }
     }
 
