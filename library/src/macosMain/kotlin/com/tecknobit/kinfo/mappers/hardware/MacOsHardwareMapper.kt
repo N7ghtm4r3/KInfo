@@ -52,7 +52,7 @@ abstract class MacOsHardwareMapper<H> : NativeMapper<H>() {
         return try {
             usage(service)
         } finally {
-            IOObjectRelease(service)
+            service.release()
         }
     }
 
@@ -78,6 +78,17 @@ abstract class MacOsHardwareMapper<H> : NativeMapper<H>() {
             throw IllegalStateException("Could not load $serviceName")
 
         return service
+    }
+
+    protected fun loadRegistryFromPath(
+        path: String
+    ): io_registry_entry_t {
+        return memScoped {
+            IORegistryEntryFromPath(
+                kIOMainPortDefault,
+                path.cstr.ptr
+            )
+        }
     }
 
     /**
@@ -145,6 +156,10 @@ abstract class MacOsHardwareMapper<H> : NativeMapper<H>() {
                 .decodeToString()
                 .trimEnd('\u0000')
         }
+    }
+
+    protected fun io_service_t.release() {
+        IOObjectRelease(this)
     }
 
 }
