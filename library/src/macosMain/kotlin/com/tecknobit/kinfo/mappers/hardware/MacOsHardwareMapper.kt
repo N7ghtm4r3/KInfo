@@ -17,6 +17,8 @@ import platform.IOKit.*
  * @author N7ghtm4r3 - Tecknobit
  *
  * @since 1.1.0
+ *
+ * @see NativeMapper
  */
 abstract class MacOsHardwareMapper<H> : NativeMapper<H>() {
 
@@ -68,6 +70,7 @@ abstract class MacOsHardwareMapper<H> : NativeMapper<H>() {
      * @param serviceName The IOKit service class name to match
      *
      * @return the matching service handle as [io_service_t]
+     *
      * @throws IllegalStateException If no matching service handle is returned
      */
     @Loader
@@ -92,8 +95,6 @@ abstract class MacOsHardwareMapper<H> : NativeMapper<H>() {
      * @param path The registry path including its plane, such as `IODeviceTree:/chosen`
      *
      * @return the registry entry handle, or zero when no entry is found, as [io_registry_entry_t]
-     *
-     * @since 1.1.0
      */
     protected fun loadRegistryFromPath(
         path: String
@@ -141,8 +142,6 @@ abstract class MacOsHardwareMapper<H> : NativeMapper<H>() {
      * @param key The property name to query
      *
      * @return the decoded value, or [UNKNOWN] when the lookup fails or exceeds capacity, as [String]
-     *
-     * @since 1.1.0
      */
     protected fun io_registry_entry_t.readFromRegistryOrUnknown(
         key: String
@@ -195,13 +194,11 @@ abstract class MacOsHardwareMapper<H> : NativeMapper<H>() {
     }
 
     /**
-     * Method used to release a nonzero IOKit object handle
+     * Method used to release an IOKit object handle
      *
      * A zero handle is ignored and the native release result is not propagated
      *
      * @receiver The owned handle to release after its last use
-     *
-     * @since 1.1.0
      */
     protected fun io_service_t.release() {
         if(this == 0u)
