@@ -82,3 +82,25 @@ fun isAppleSilicon(): Boolean {
 
     return translated == 1
 }
+
+/**
+ * Method used to format the low 32 bits of a value as eight lowercase hexadecimal characters
+ *
+ * Higher bits are discarded and leading zeroes are added without a hexadecimal prefix
+ *
+ * @param value The value whose low 32 bits are formatted
+ *
+ * @return the zero-padded hexadecimal representation as [String]
+ *
+ * @since 1.1.0
+ */
+fun hex32(value: Long): String {
+    return (value and 0xFFFFFFFFL)
+        .toString(
+            radix = 16
+        )
+        .padStart(
+            length = 8,
+            padChar = '0'
+        )
+}
