@@ -27,20 +27,20 @@ class MacOsBaseboardMapper : MacOsHardwareMapper<MacOsBaseboardImpl>() {
      */
     override fun mapFromNative(): MacOsBaseboardImpl {
         val macOsBaseboard = useIOService(
-            serviceName = "IOPlatformExpertDevice",
+            serviceName = IO_PLATFORM_EXPERT_DEVICE_SERVICE,
             usage = { service ->
                 MacOsBaseboardImpl(
-                    manufacturer = service.readFromRegistry(
+                    manufacturer = service.readStringFromRegistry(
                         key = "manufacturer"
                     ),
-                    model = service.readFromRegistryWithFallback(
+                    model = service.readStringFromRegistryWithFallback(
                         key = "board-id",
                         fallbackKey = "target-type"
                     ),
-                    version = service.readFromRegistry(
+                    version = service.readStringFromRegistry(
                         key = "version"
                     ),
-                    serialNumber = service.readFromRegistry(
+                    serialNumber = service.readStringFromRegistry(
                         key = "mlb-serial-number"
                     )
                 )

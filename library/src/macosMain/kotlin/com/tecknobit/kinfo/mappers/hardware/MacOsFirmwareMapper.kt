@@ -3,7 +3,6 @@
 package com.tecknobit.kinfo.mappers.hardware
 
 import com.tecknobit.kinfo.hardware.MacOsFirmwareImpl
-import com.tecknobit.kinfo.utils.isAppleSilicon
 import kotlinx.cinterop.ExperimentalForeignApi
 import kotlin.experimental.ExperimentalNativeApi
 
@@ -17,27 +16,11 @@ import kotlin.experimental.ExperimentalNativeApi
  *
  * @since 1.1.0
  *
+ * @see com.tecknobit.kinfo.mappers.NativeMapper
  * @see MacOsHardwareMapper
- * @see MacOsFirmwareImpl
+ * @see MacOsSplitHardwareMapper
  */
-class MacOsFirmwareMapper : MacOsHardwareMapper<MacOsFirmwareImpl>() {
-
-    /**
-     * Method used to map firmware properties using the ARM64 or Intel registry paths
-     *
-     * An x64 executable detected as running through Rosetta uses the Apple Silicon mapping
-     * A failed translation query on a non-ARM64 executable selects the Intel mapping
-     *
-     * @return the mapped firmware information as [MacOsFirmwareImpl]
-     *
-     * @see isAppleSilicon
-     */
-    override fun mapFromNative(): MacOsFirmwareImpl {
-        if (isAppleSilicon())
-            return mapForSilicon()
-
-        return mapForIntel()
-    }
+class MacOsFirmwareMapper : MacOsSplitHardwareMapper<MacOsFirmwareImpl>() {
 
     /**
      * Method used to map Apple Silicon firmware information from the root, chosen, and EFI registry entries
@@ -55,33 +38,33 @@ class MacOsFirmwareMapper : MacOsHardwareMapper<MacOsFirmwareImpl>() {
      *
      * @return the mapped firmware information with the Apple Silicon flag set as [MacOsFirmwareImpl]
      */
-    private fun mapForSilicon(): MacOsFirmwareImpl {
+    override fun mapForSilicon(): MacOsFirmwareImpl {
         val root = loadRegistryFromPath("IODeviceTree:/")
         val rom = loadRegistryFromPath("IODeviceTree:/chosen")
         val efi = loadRegistryFromPath("IODeviceTree:/efi")
 
         val macOsFirmware = try {
-            val name = rom.readFromRegistry(
+            val name = rom.readStringFromRegistry(
                 key = "booter-name"
             ).ifBlank {
-                root.readFromRegistry(
+                root.readStringFromRegistry(
                     key = "device_type"
                 )
             }
 
             MacOsFirmwareImpl(
-                manufacturer = root.readFromRegistry(
+                manufacturer = root.readStringFromRegistry(
                     key = "manufacturer"
                 ),
                 name = name,
-                description = efi.readFromRegistryOrUnknown(
+                description = efi.readStringFromRegistryOrUnknown(
                     key = "firmware-abi"
                 ),
-                version = rom.readFromRegistryWithFallback(
+                version = rom.readStringFromRegistryWithFallback(
                     key = "system-firmware-version",
                     fallbackKey = "firmware-version"
                 ),
-                releaseDate = root.readFromRegistry(
+                releaseDate = root.readStringFromRegistry(
                     key = "time-stamp"
                 ),
                 isAppleSilicon = true
@@ -106,26 +89,26 @@ class MacOsFirmwareMapper : MacOsHardwareMapper<MacOsFirmwareImpl>() {
      *
      * @return the mapped firmware information with the Apple Silicon flag unset as [MacOsFirmwareImpl]
      */
-    private fun mapForIntel(): MacOsFirmwareImpl {
+    override fun mapForIntel(): MacOsFirmwareImpl {
         val rom = loadRegistryFromPath("IODeviceTree:/rom")
         val romChosen = loadRegistryFromPath("IODeviceTree:/chosen")
         val efi = loadRegistryFromPath("IODeviceTree:/efi")
 
         val macOsFirmware = try {
             MacOsFirmwareImpl(
-                manufacturer = rom.readFromRegistry(
+                manufacturer = rom.readStringFromRegistry(
                     key = "vendor"
                 ),
-                name = romChosen.readFromRegistryOrUnknown(
+                name = romChosen.readStringFromRegistryOrUnknown(
                     key = "booter-name"
                 ),
-                description = efi.readFromRegistryOrUnknown(
+                description = efi.readStringFromRegistryOrUnknown(
                     key = "firmware-abi"
                 ),
-                version = rom.readFromRegistry(
+                version = rom.readStringFromRegistry(
                     key = "version"
                 ),
-                releaseDate = rom.readFromRegistry(
+                releaseDate = rom.readStringFromRegistry(
                     key = "release-date"
                 ),
                 isAppleSilicon = false

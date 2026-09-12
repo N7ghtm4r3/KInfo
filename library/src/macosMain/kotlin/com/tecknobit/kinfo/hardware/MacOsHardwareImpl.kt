@@ -45,7 +45,7 @@ class MacOsHardwareImpl : MacOsHardware {
      * `processorIdentifierInfo` the processor identification information, currently unavailable in this implementation
      */
     override val processorIdentifierInfo: MacOsProcessorIdentifier
-        get() = TODO("Not yet implemented")
+        get() = loadProcessorIdentifier()
 
     /**
      * `processorCaches` the processor cache information, currently unavailable in this implementation
@@ -173,11 +173,6 @@ class MacOsHardwareImpl : MacOsHardware {
      * The current mapper is not implemented and does not return a model
      *
      * @return the mapped processor identification information as [MacOsProcessorIdentifier]
-     * @throws NotImplementedError Whenever the current mapper is invoked
-     *
-     * @see MacOsProcessorIdentifierMapper
-     *
-     * @since 1.1.0
      */
     @Loader
     private fun loadProcessorIdentifier(): MacOsProcessorIdentifier {
