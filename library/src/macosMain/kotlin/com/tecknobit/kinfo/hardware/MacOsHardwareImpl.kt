@@ -170,8 +170,6 @@ class MacOsHardwareImpl : MacOsHardware {
     /**
      * Method used to request the macOS processor identification information from its native mapper
      *
-     * The current mapper is not implemented and does not return a model
-     *
      * @return the mapped processor identification information as [MacOsProcessorIdentifier]
      */
     @Loader
