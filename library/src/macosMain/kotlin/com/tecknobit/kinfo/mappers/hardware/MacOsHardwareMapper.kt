@@ -2,6 +2,7 @@
 
 package com.tecknobit.kinfo.mappers.hardware
 
+import com.tecknobit.kinfo.UNKNOWN
 import com.tecknobit.kinfo.annotations.Loader
 import com.tecknobit.kinfo.mappers.NativeMapper
 import kotlinx.cinterop.*
@@ -19,6 +20,9 @@ import platform.IOKit.*
  */
 abstract class MacOsHardwareMapper<H> : NativeMapper<H>() {
 
+    /**
+     * The companion object contains the buffer capacity used for native registry property reads
+     */
     protected companion object {
 
         /**
@@ -29,10 +33,10 @@ abstract class MacOsHardwareMapper<H> : NativeMapper<H>() {
     }
 
     /**
-     * Method used to load an IOKit service, perform an operation, and release the handle after normal completion
+     * Method used to load an IOKit service, perform an operation, and release the handle on exit
      *
      * The operation receives a borrowed handle and must not release it or use it after this method returns
-     * The current implementation does not release the handle if the operation throws or performs a non-local return
+     * The handle is also released when the operation throws or performs a non-local return
      *
      * @param T The type of result produced by the operation
      * @param serviceName The IOKit service class name to match
@@ -80,6 +84,17 @@ abstract class MacOsHardwareMapper<H> : NativeMapper<H>() {
         return service
     }
 
+    /**
+     * Method used to load a registry entry from its plane-qualified path
+     *
+     * The caller is responsible for releasing a nonzero handle after use
+     *
+     * @param path The registry path including its plane, such as `IODeviceTree:/chosen`
+     *
+     * @return the registry entry handle, or zero when no entry is found, as [io_registry_entry_t]
+     *
+     * @since 1.1.0
+     */
     protected fun loadRegistryFromPath(
         path: String
     ): io_registry_entry_t {
@@ -114,6 +129,27 @@ abstract class MacOsHardwareMapper<H> : NativeMapper<H>() {
 
         return readFromRegistry(
             key = fallbackKey
+        )
+    }
+
+    /**
+     * Method used to read a textual registry property with [UNKNOWN] as the lookup failure value
+     *
+     * Successful reads preserve empty or blank values and do not release the entry handle
+     *
+     * @receiver The registry entry containing the property to read
+     * @param key The property name to query
+     *
+     * @return the decoded value, or [UNKNOWN] when the lookup fails or exceeds capacity, as [String]
+     *
+     * @since 1.1.0
+     */
+    protected fun io_registry_entry_t.readFromRegistryOrUnknown(
+        key: String
+    ): String {
+        return readFromRegistry(
+            key = key,
+            default = UNKNOWN
         )
     }
 
@@ -158,7 +194,19 @@ abstract class MacOsHardwareMapper<H> : NativeMapper<H>() {
         }
     }
 
+    /**
+     * Method used to release a nonzero IOKit object handle
+     *
+     * A zero handle is ignored and the native release result is not propagated
+     *
+     * @receiver The owned handle to release after its last use
+     *
+     * @since 1.1.0
+     */
     protected fun io_service_t.release() {
+        if(this == 0u)
+            return
+
         IOObjectRelease(this)
     }
 
