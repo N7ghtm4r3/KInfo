@@ -2,6 +2,7 @@ package com.tecknobit.kinfo.hardware
 
 import com.tecknobit.kinfo.annotations.Loader
 import com.tecknobit.kinfo.mappers.hardware.MacOsBaseboardMapper
+import com.tecknobit.kinfo.mappers.hardware.MacOsFirmwareMapper
 import com.tecknobit.kinfo.model.desktop.macos.hardware.*
 
 /**
@@ -33,7 +34,7 @@ class MacOsHardwareImpl : MacOsHardware {
      * @throws NotImplementedError Whenever this property is accessed
      */
     override val romRegistryEntry: MacOsFirmware
-        get() = TODO("Not yet implemented")
+        get() = loadFirmware()
 
     /**
      * `processorInfo` the central processor information, currently unavailable in this implementation
@@ -190,5 +191,12 @@ class MacOsHardwareImpl : MacOsHardware {
         val macOsBaseboardMapper = MacOsBaseboardMapper()
 
         return macOsBaseboardMapper.mapFromNative()
+    }
+
+    @Loader
+    private fun loadFirmware(): MacOsFirmware {
+        val macOsFirmware = MacOsFirmwareMapper()
+
+        return macOsFirmware.mapFromNative()
     }
 }

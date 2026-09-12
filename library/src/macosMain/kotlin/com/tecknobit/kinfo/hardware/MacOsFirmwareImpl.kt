@@ -7,5 +7,6 @@ data class MacOsFirmwareImpl(
     override val name: String,
     override val description: String,
     override val version: String,
-    override val releaseDate: String
+    override val releaseDate: String,
+    override val isAppleSilicon: Boolean
 ) : MacOsFirmware
