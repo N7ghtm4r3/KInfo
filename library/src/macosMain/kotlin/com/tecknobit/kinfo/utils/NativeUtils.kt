@@ -67,8 +67,6 @@ fun resolveCumulativeTime(
  *
  * @return whether native ARM64 execution or Rosetta translation is detected as [Boolean]
  *
- * @see queryIntSysCtlByName
- *
  * @since 1.1.0
  */
 fun isAppleSilicon(): Boolean {

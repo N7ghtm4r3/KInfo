@@ -8,8 +8,6 @@ import com.tecknobit.kinfo.model.desktop.common.operatingsystem.protocols.IPRout
  *
  * @author N7ghtm4r3 - Tecknobit
  *
- * @see IPRoute
- *
  * @since 1.1.0
  */
 interface MacOsIpRoute : IPRoute

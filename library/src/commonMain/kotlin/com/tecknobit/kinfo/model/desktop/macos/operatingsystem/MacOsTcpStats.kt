@@ -17,8 +17,6 @@ import com.tecknobit.kinfo.model.desktop.common.operatingsystem.protocols.TcpSta
  *
  * @author N7ghtm4r3 - Tecknobit
  *
- * @see TcpStats
- *
  * @since 1.1.0
  */
 interface MacOsTcpStats : TcpStats

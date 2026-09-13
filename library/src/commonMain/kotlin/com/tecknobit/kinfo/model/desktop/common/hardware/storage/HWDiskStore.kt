@@ -89,8 +89,6 @@ interface HWDiskStore {
  *
  * @author N7ghtm4r3 - Tecknobit
  *
- * @see HWDiskStore
- *
  * @since 1.1.0
  */
 enum class DiskType {

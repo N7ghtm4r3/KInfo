@@ -19,9 +19,7 @@ import kotlinx.cinterop.ExperimentalForeignApi
  *
  * @author N7ghtm4r3 - Tecknobit
  *
- * @see com.tecknobit.kinfo.mappers.NativeMapper
  * @see MacOsPacketsStatsMapper
- * @see MacOsTcpStatsImpl
  *
  * @since 1.1.0
  */

@@ -14,11 +14,9 @@ import kotlin.experimental.ExperimentalNativeApi
  *
  * @author N7ghtm4r3 - Tecknobit
  *
- * @since 1.1.0
- *
- * @see com.tecknobit.kinfo.mappers.NativeMapper
- * @see MacOsHardwareMapper
  * @see MacOsSplitHardwareMapper
+ *
+ * @since 1.1.0
  */
 class MacOsFirmwareMapper : MacOsSplitHardwareMapper<MacOsFirmwareImpl>() {
 
