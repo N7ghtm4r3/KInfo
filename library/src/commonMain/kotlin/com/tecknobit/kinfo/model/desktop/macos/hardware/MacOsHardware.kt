@@ -47,7 +47,7 @@ interface MacOsHardware {
     /**
      * `physicalProcessorInfo` the physical processor information
      */
-    val physicalProcessorInfo: MacOsPhysicalProcessor
+    val physicalProcessorInfo: List<MacOsPhysicalProcessor>
 
     /**
      * `vmStatistics` the physical memory information
