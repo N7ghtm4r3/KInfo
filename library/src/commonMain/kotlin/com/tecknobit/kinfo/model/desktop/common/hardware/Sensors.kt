@@ -5,8 +5,6 @@ package com.tecknobit.kinfo.model.desktop.common.hardware
  * This includes CPU temperature, fan speeds, and CPU voltage
  *
  * @author N7ghtm4r3 - Tecknobit
- *
- * @see Sensors
  */
 interface Sensors {
 

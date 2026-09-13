@@ -14,11 +14,9 @@ import oshi.SystemInfo
  * This class lazily initializes the system information and provides the `OperatingSystem` and `Hardware`
  * details by using their respective implementations.
  *
- * @see DesktopInfo
- * @see OperatingSystem
- * @see Hardware
- *
  * @author N7ghtm4r3 - Tecknobit
+ *
+ * @see DesktopInfo
  */
 class DesktopInfoImpl : DesktopInfo {
 

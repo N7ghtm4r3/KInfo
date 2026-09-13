@@ -15,6 +15,8 @@ import kotlinx.cinterop.ExperimentalForeignApi
  *
  * @author N7ghtm4r3 - Tecknobit
  *
+ * @see MacOsHardwareMapper
+ *
  * @since 1.1.0
  */
 class MacOsBaseboardMapper : MacOsHardwareMapper<MacOsBaseboardImpl>() {

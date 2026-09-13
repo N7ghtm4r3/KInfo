@@ -5,8 +5,6 @@ package com.tecknobit.kinfo.model.desktop.common.operatingsystem.protocols
  * for both IPv4 and IPv6, as well as the list of active IP connections
  *
  * @author N7ghtm4r3 - Tecknobit
- *
- * @see InternetProtocolStats
  */
 interface InternetProtocolStats {
 

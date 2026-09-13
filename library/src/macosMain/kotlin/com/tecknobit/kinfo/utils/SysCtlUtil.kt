@@ -41,8 +41,6 @@ fun queryStringSysCtlByName(
  *
  * @return the queried value or the [default] fallback as [Int]
  *
- * @see queryItemSysCtlByName
- *
  * @since 1.1.0
  */
 fun queryIntSysCtlByName(

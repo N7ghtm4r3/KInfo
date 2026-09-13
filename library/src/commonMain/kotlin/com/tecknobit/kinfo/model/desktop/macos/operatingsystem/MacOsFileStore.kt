@@ -7,8 +7,6 @@ import com.tecknobit.kinfo.model.desktop.common.operatingsystem.OSFileStore
  *
  * @author N7ghtm4r3 - Tecknobit
  *
- * @see OSFileStore
- *
  * @since 1.1.0
  */
 interface MacOsFileStore : OSFileStore

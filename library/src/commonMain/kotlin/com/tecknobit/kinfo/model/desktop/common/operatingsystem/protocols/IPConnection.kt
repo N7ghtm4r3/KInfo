@@ -5,8 +5,6 @@ package com.tecknobit.kinfo.model.desktop.common.operatingsystem.protocols
  * state, local and foreign addresses, ports, and associated process information
  *
  * @author N7ghtm4r3 - Tecknobit
- *
- * @see IPConnection
  */
 interface IPConnection {
 

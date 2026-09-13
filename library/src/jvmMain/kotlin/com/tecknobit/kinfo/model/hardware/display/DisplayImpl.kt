@@ -14,7 +14,6 @@ import com.tecknobit.kinfo.model.desktop.common.hardware.display.DisplayInfo
  * @author N7ghtm4r3 - Tecknobit
  *
  * @see Display
- * @see DisplayInfo
  *
  * @since 1.1.0
  */

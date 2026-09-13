@@ -5,8 +5,6 @@ package com.tecknobit.kinfo.model.desktop.common.hardware.display
  *
  * @author N7ghtm4r3 - Tecknobit
  *
- * @see Display
- *
  * @since 1.1.0
  */
 interface DisplayInfo {

@@ -18,6 +18,8 @@ import platform.Foundation.NSOperatingSystemVersion
  *
  * @author N7ghtm4r3 - Tecknobit
  *
+ * @see MacOsVersionInfo
+ *
  * @since 1.1.0
  */
 data class MacOsVersionInfoImpl(

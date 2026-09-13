@@ -12,6 +12,8 @@ import com.tecknobit.kinfo.model.desktop.macos.hardware.MacOsBaseboard
  *
  * @author N7ghtm4r3 - Tecknobit
  *
+ * @see MacOsBaseboard
+ *
  * @since 1.1.0
  */
 data class MacOsBaseboardImpl(

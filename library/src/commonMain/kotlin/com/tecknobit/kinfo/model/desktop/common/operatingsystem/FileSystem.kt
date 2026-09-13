@@ -7,8 +7,6 @@ import com.tecknobit.kinfo.annotations.Bridge
  * file descriptors, and associated file system attributes.
  *
  * @author N7ghtm4r3 - Tecknobit
- *
- * @see FileSystem
  */
 interface FileSystem {
 
