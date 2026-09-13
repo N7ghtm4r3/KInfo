@@ -40,9 +40,9 @@ interface MacOsHardware {
     val processorCaches: List<MacOsProcessorCache>
 
     /**
-     * `logicalProcessorInfo` the logical processor information
+     * `logicalProcessorInfo` the list of logical processor descriptions
      */
-    val logicalProcessorInfo: MacOsLogicalProcessor
+    val logicalProcessorInfo: List<MacOsLogicalProcessor>
 
     /**
      * `physicalProcessorInfo` the physical processor information
