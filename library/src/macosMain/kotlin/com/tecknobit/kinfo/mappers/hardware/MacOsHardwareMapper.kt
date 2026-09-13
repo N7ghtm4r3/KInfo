@@ -5,6 +5,7 @@ package com.tecknobit.kinfo.mappers.hardware
 import com.tecknobit.kinfo.UNKNOWN
 import com.tecknobit.kinfo.annotations.Loader
 import com.tecknobit.kinfo.mappers.NativeMapper
+import com.tecknobit.kinfo.mappers.hardware.MacOsHardwareMapper.Companion.PROPERTY_VALUE_CAPACITY
 import kotlinx.cinterop.*
 import platform.IOKit.*
 
@@ -32,8 +33,14 @@ abstract class MacOsHardwareMapper<H> : NativeMapper<H>() {
          */
         const val PROPERTY_VALUE_CAPACITY = 4096
 
+        /**
+         * `IO_PLATFORM_EXPERT_DEVICE_SERVICE` the IOKit class name used to match the platform expert device
+         */
         const val IO_PLATFORM_EXPERT_DEVICE_SERVICE = "IOPlatformExpertDevice"
 
+        /**
+         * `IO_PLATFORM_DEVICE_SERVICE` the IOKit class name used to enumerate platform devices
+         */
         const val IO_PLATFORM_DEVICE_SERVICE = "IOPlatformDevice"
 
     }
@@ -91,8 +98,21 @@ abstract class MacOsHardwareMapper<H> : NativeMapper<H>() {
         return service
     }
 
+    /**
+     * Method used to perform an operation on each accepted IOKit service and release the owned handles
+     *
+     * The zero-based index counts only services accepted by the predicate and follows iterator order
+     * Both callbacks receive borrowed handles and must not release them or retain them after the callback
+     * Each visited service and the iterator are released even when a callback throws
+     *
+     * @param serviceName The IOKit service class name to match
+     * @param consumeServiceIf The optional predicate selecting services to consume, or null to accept every service
+     * @param usage The operation receiving the accepted-service index and current service handle
+     * @throws IllegalStateException If the native matching query fails
+     */
     protected inline fun useIOServices(
         serviceName: String,
+        noinline consumeServiceIf: ((io_service_t) -> Boolean)? = null,
         crossinline usage: (Int, io_service_t) -> Unit
     ) {
         val services = loadIOServices(
@@ -107,21 +127,34 @@ abstract class MacOsHardwareMapper<H> : NativeMapper<H>() {
             var index = 0
             while (service != 0u) {
                 try {
-                    usage(index, services)
+                    if (consumeServiceIf == null || consumeServiceIf(service)) {
+                        usage(index, service)
+                        index++
+                    }
                 } finally {
                     service.release()
                 }
 
                 service = IOIteratorNext(
-                    iterator = service
+                    iterator = services
                 )
-                index++
             }
         } finally {
             services.release()
         }
     }
 
+    /**
+     * Method used to retrieve an iterator over IOKit services matching the specified class name
+     *
+     * The caller must release the iterator and each service obtained from it with `IOObjectRelease`
+     * A successful query may return an iterator containing no services
+     *
+     * @param serviceName The IOKit service class name to match
+     *
+     * @return the matching service iterator as [io_iterator_t]
+     * @throws IllegalStateException If the native matching query returns a nonzero result
+     */
     @Loader
     protected fun loadIOServices(
         serviceName: String
@@ -206,6 +239,17 @@ abstract class MacOsHardwareMapper<H> : NativeMapper<H>() {
         )
     }
 
+    /**
+     * Method used to read a registry byte property as UTF-8 text and remove trailing null characters
+     *
+     * Embedded null characters and letter case are preserved and the entry handle is not released
+     *
+     * @receiver The registry entry containing the property
+     * @param key The property name to query
+     * @param default The fallback text returned when the native read fails or exceeds capacity
+     *
+     * @return the decoded text or fallback as [String]
+     */
     protected fun io_registry_entry_t.readStringFromRegistry(
         key: String,
         default: String = ""
@@ -218,6 +262,17 @@ abstract class MacOsHardwareMapper<H> : NativeMapper<H>() {
             .trimEnd('\u0000')
     }
 
+    /**
+     * Method used to copy a registry byte property into managed memory
+     *
+     * The read uses [PROPERTY_VALUE_CAPACITY] bytes and leaves the entry handle owned by the caller
+     *
+     * @receiver The registry entry containing the property
+     * @param key The property name to query
+     * @param default The fallback bytes returned when the native read fails or exceeds capacity
+     *
+     * @return the copied property bytes or fallback as [ByteArray]
+     */
     protected fun io_registry_entry_t.readFromRegistry(
         key: String,
         default: ByteArray = byteArrayOf()
