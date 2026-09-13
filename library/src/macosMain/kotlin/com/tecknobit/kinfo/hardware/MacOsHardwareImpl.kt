@@ -49,9 +49,9 @@ class MacOsHardwareImpl : MacOsHardware {
         get() = loadProcessorIdentifier()
 
     /**
-     * `processorCaches` the processor cache information, currently unavailable in this implementation
+     * `processorCaches` the caches with positive mapped sizes, loaded from system control values on each access
      */
-    override val processorCaches: MacOsProcessorCache
+    override val processorCaches: List<MacOsProcessorCache>
         get() = loadProcessorCache()
 
     /**
@@ -180,8 +180,13 @@ class MacOsHardwareImpl : MacOsHardware {
         return macOsProcessorIdentifierMapper.mapFromNative()
     }
 
+    /**
+     * Method used to load macOS processor caches with positive mapped sizes through [MacOsProcessorCacheMapper]
+     *
+     * @return the mapped cache descriptions as [List] of [MacOsProcessorCache]
+     */
     @Loader
-    private fun loadProcessorCache(): MacOsProcessorCache {
+    private fun loadProcessorCache(): List<MacOsProcessorCache> {
         val macOsProcessorCacheMapper = MacOsProcessorCacheMapper()
 
         return macOsProcessorCacheMapper.mapFromNative()

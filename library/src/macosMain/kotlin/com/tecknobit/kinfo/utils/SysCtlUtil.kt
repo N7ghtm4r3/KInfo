@@ -56,11 +56,50 @@ fun queryIntSysCtlByName(
     )
 }
 
+/**
+ * Method used to query a signed 64-bit system control value by its name
+ *
+ * The queried value must use the native `LongVar` representation
+ * The returned buffer size is not validated before reading its first value
+ *
+ * @param name The name of the system control value to query
+ * @param default The nullable fallback value returned when either native query fails
+ *
+ * @return the queried value or the nullable [default] fallback as [Long]
+ *
+ * @since 1.1.0
+ */
 fun queryLongSysCtlByName(
     name: String,
     default: Long? = null
 ): Long? {
     return queryItemSysCtlByName<Long, LongVar>(
+        name = name,
+        default = default,
+        returns = { _, buffer ->
+            buffer.pointed.value
+        }
+    )
+}
+
+/**
+ * Method used to query an unsigned 64-bit system control value by its name
+ *
+ * The queried value must use the native `ULongVar` representation
+ * The returned buffer size is not validated before reading its first value
+ *
+ * @param name The name of the system control value to query
+ * @param default The nullable fallback value returned when either native query fails
+ *
+ * @return the queried value or the nullable [default] fallback as [ULong]
+ *
+ * @since 1.1.0
+ */
+fun queryULongSysCtlByName(
+    name: String,
+    default: ULong? = null
+): ULong? {
+    return queryItemSysCtlByName<ULong, ULongVar>(
         name = name,
         default = default,
         returns = { _, buffer ->
