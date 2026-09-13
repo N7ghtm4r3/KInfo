@@ -1,10 +1,7 @@
 package com.tecknobit.kinfo.hardware
 
 import com.tecknobit.kinfo.annotations.Loader
-import com.tecknobit.kinfo.mappers.hardware.MacOsBaseboardMapper
-import com.tecknobit.kinfo.mappers.hardware.MacOsFirmwareMapper
-import com.tecknobit.kinfo.mappers.hardware.MacOsProcessorCacheMapper
-import com.tecknobit.kinfo.mappers.hardware.MacOsProcessorIdentifierMapper
+import com.tecknobit.kinfo.mappers.hardware.*
 import com.tecknobit.kinfo.model.desktop.macos.hardware.*
 
 /**
@@ -55,10 +52,10 @@ class MacOsHardwareImpl : MacOsHardware {
         get() = loadProcessorCache()
 
     /**
-     * `logicalProcessorInfo` the logical processor information, currently unavailable in this implementation
+     * `logicalProcessorInfo` the logical processor descriptions mapped from native counts on each access
      */
-    override val logicalProcessorInfo: MacOsLogicalProcessor
-        get() = TODO("Not yet implemented")
+    override val logicalProcessorInfo: List<MacOsLogicalProcessor>
+        get() = loadLogicalProcessor()
 
     /**
      * `physicalProcessorInfo` the physical processor information, currently unavailable in this implementation
@@ -190,6 +187,18 @@ class MacOsHardwareImpl : MacOsHardware {
         val macOsProcessorCacheMapper = MacOsProcessorCacheMapper()
 
         return macOsProcessorCacheMapper.mapFromNative()
+    }
+
+    /**
+     * Method used to load macOS logical processor descriptions through [MacOsLogicalProcessorMapper]
+     *
+     * @return the mapped logical processor descriptions as [List] of [MacOsLogicalProcessor]
+     */
+    @Loader
+    private fun loadLogicalProcessor(): List<MacOsLogicalProcessor> {
+        val macOsLogicalProcessorMapper = MacOsLogicalProcessorMapper()
+
+        return macOsLogicalProcessorMapper.mapFromNative()
     }
 
 }
