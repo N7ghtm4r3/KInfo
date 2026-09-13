@@ -1,8 +1,8 @@
 package com.tecknobit.kinfo.hardware
 
 import com.tecknobit.kinfo.model.desktop.common.hardware.storage.DiskType
-import com.tecknobit.kinfo.model.desktop.common.hardware.storage.HWPartition
 import com.tecknobit.kinfo.model.desktop.macos.hardware.MacOsHWDiskStore
+import com.tecknobit.kinfo.model.desktop.macos.hardware.MacOsHWPartition
 
 data class MacOsHWDiskStoreImpl(
     override val name: String,
@@ -15,7 +15,7 @@ data class MacOsHWDiskStoreImpl(
     override val writesBytes: Long,
     override val currentQueueLength: Long,
     override val transferTime: Long,
-    override val partitions: List<HWPartition>,
+    override val partitions: List<MacOsHWPartition>,
     override val timestamp: Long,
     override val updateAttributes: Boolean,
     override val diskType: DiskType
