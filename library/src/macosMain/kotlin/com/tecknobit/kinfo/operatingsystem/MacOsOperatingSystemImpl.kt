@@ -33,6 +33,8 @@ import platform.osx.statfs
  *
  * @author N7ghtm4r3 - Tecknobit
  *
+ * @see MacOsOperatingSystem
+ *
  * @since 1.1.0
  */
 data class MacOsOperatingSystemImpl(

@@ -7,8 +7,6 @@ import com.tecknobit.kinfo.model.desktop.common.operatingsystem.processes.OSThre
  *
  * @author N7ghtm4r3 - Tecknobit
  *
- * @see OSThread
- *
  * @since 1.1.0
  */
 interface MacOsOSThread : OSThread

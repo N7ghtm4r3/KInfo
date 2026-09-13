@@ -28,6 +28,8 @@ import oshi.util.ProcUtil
  * this information to the classes and methods provided by our API
  *
  * @param systemInfo The object containing general information about the operating system
+ *
+ * @see OperatingSystem
  */
 class OperatingSystemImpl(
     private val systemInfo: SystemInfo,

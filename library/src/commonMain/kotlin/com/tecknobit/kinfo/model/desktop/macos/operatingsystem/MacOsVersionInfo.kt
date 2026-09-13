@@ -7,8 +7,6 @@ import com.tecknobit.kinfo.model.desktop.common.operatingsystem.OSVersionInfo
  *
  * @author N7ghtm4r3 - Tecknobit
  *
- * @see OSVersionInfo
- *
  * @since 1.1.0
  */
 interface MacOsVersionInfo : OSVersionInfo

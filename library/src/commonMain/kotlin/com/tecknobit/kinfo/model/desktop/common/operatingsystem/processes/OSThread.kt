@@ -5,8 +5,6 @@ package com.tecknobit.kinfo.model.desktop.common.operatingsystem.processes
  * execution, resource usage, and associated metadata
  *
  * @author N7ghtm4r3 - Tecknobit
- *
- * @see OSThread
  */
 interface OSThread {
 
