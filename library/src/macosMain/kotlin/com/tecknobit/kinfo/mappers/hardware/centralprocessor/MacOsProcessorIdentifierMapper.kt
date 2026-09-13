@@ -1,8 +1,9 @@
-package com.tecknobit.kinfo.mappers.hardware
+package com.tecknobit.kinfo.mappers.hardware.centralprocessor
 
 import com.tecknobit.kinfo.UNKNOWN
 import com.tecknobit.kinfo.annotations.Resolver
 import com.tecknobit.kinfo.hardware.MacOsProcessorIdentifierImpl
+import com.tecknobit.kinfo.mappers.hardware.MacOsSplitHardwareMapper
 import com.tecknobit.kinfo.utils.hex32
 import com.tecknobit.kinfo.utils.queryIntSysCtlByName
 import com.tecknobit.kinfo.utils.queryLongSysCtlByName
@@ -16,7 +17,7 @@ import com.tecknobit.kinfo.utils.queryStringSysCtlByName
  *
  * @author N7ghtm4r3 - Tecknobit
  *
- * @see MacOsSplitHardwareMapper
+ * @see com.tecknobit.kinfo.mappers.hardware.MacOsSplitHardwareMapper
  *
  * @since 1.1.0
  */

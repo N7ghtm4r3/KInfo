@@ -3,7 +3,9 @@ package com.tecknobit.kinfo.hardware
 import com.tecknobit.kinfo.model.desktop.common.operatingsystem.*
 import com.tecknobit.kinfo.model.desktop.common.operatingsystem.protocols.InternetProtocolStats
 import com.tecknobit.kinfo.model.desktop.common.operatingsystem.protocols.NetworkParams
+import com.tecknobit.kinfo.model.desktop.macos.hardware.MacOsBaseboard
 import com.tecknobit.kinfo.model.desktop.macos.hardware.MacOsComputerSystem
+import com.tecknobit.kinfo.model.desktop.macos.hardware.MacOsFirmware
 import com.tecknobit.kinfo.model.desktop.macos.operatingsystem.MacOsDesktopWindow
 import com.tecknobit.kinfo.model.desktop.macos.operatingsystem.MacOsOSProcess
 import com.tecknobit.kinfo.model.desktop.macos.operatingsystem.MacOsOSThread
@@ -28,7 +30,9 @@ data class MacOsComputerSystemImpl(
     override val networkParams: NetworkParams,
     override val services: List<OSService>,
     override val sessions: List<OSSession>,
-    override val cgroupInfo: CgroupInfo
+    override val cgroupInfo: CgroupInfo,
+    override val baseboard: MacOsBaseboard,
+    override val firmware: MacOsFirmware
 ) : MacOsComputerSystem {
 
     override fun getProcesses(): List<MacOsOSProcess> {

@@ -1,6 +1,7 @@
-package com.tecknobit.kinfo.mappers.hardware
+package com.tecknobit.kinfo.mappers.hardware.centralprocessor
 
 import com.tecknobit.kinfo.hardware.MacOsLogicalProcessorImpl
+import com.tecknobit.kinfo.mappers.hardware.MacOsHardwareMapper
 import com.tecknobit.kinfo.model.desktop.macos.hardware.MacOsLogicalProcessor
 import com.tecknobit.kinfo.utils.queryIntSysCtlByName
 
@@ -13,7 +14,7 @@ import com.tecknobit.kinfo.utils.queryIntSysCtlByName
  *
  * @author N7ghtm4r3 - Tecknobit
  *
- * @see MacOsHardwareMapper
+ * @see com.tecknobit.kinfo.mappers.hardware.MacOsHardwareMapper
  *
  * @since 1.1.0
  */
