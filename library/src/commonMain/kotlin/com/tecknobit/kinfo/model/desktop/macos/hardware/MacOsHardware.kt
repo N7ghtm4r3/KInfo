@@ -10,19 +10,9 @@ package com.tecknobit.kinfo.model.desktop.macos.hardware
 interface MacOsHardware {
 
     /**
-     * `platformExpertDevice` the computer system information
+     * `computerSystem` the computer system information
      */
-    val platformExpertDevice: MacOsComputerSystem
-
-    /**
-     * `baseboardRegistryEntry` the baseboard information
-     */
-    val baseboardRegistryEntry: MacOsBaseboard
-
-    /**
-     * `romRegistryEntry` the firmware information
-     */
-    val romRegistryEntry: MacOsFirmware
+    val computerSystem: MacOsComputerSystem
 
     /**
      * `processorInfo` the central processor information
@@ -30,34 +20,9 @@ interface MacOsHardware {
     val processorInfo: MacOsCentralProcessor
 
     /**
-     * `processorIdentifierInfo` the processor identification information
+     * `globalMemory` the global memory information
      */
-    val processorIdentifierInfo: MacOsProcessorIdentifier
-
-    /**
-     * `processorCaches` the list of processor cache descriptions
-     */
-    val processorCaches: List<MacOsProcessorCache>
-
-    /**
-     * `logicalProcessorInfo` the list of logical processor descriptions
-     */
-    val logicalProcessorInfo: List<MacOsLogicalProcessor>
-
-    /**
-     * `physicalProcessorInfo` the physical processor information
-     */
-    val physicalProcessorInfo: List<MacOsPhysicalProcessor>
-
-    /**
-     * `vmStatistics` the physical memory information
-     */
-    val vmStatistics: MacOsGlobalMemory
-
-    /**
-     * `swapUsage` the virtual memory and swap information
-     */
-    val swapUsage: MacOsVirtualMemory
+    val globalMemory: MacOsGlobalMemory
 
     /**
      * `powerSourceDescription` the power source information
@@ -68,11 +33,6 @@ interface MacOsHardware {
      * `disk` the disk information
      */
     val disk: MacOsHWDiskStore
-
-    /**
-     * `media` the partition information
-     */
-    val media: MacOsHWPartition
 
     /**
      * `networkInterface` the network interface information
