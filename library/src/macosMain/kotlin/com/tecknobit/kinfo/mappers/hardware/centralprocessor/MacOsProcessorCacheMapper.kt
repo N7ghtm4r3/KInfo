@@ -1,7 +1,8 @@
-package com.tecknobit.kinfo.mappers.hardware
+package com.tecknobit.kinfo.mappers.hardware.centralprocessor
 
 import com.tecknobit.kinfo.annotations.Loader
 import com.tecknobit.kinfo.hardware.MacOsProcessorCacheImpl
+import com.tecknobit.kinfo.mappers.hardware.MacOsHardwareMapper
 import com.tecknobit.kinfo.model.desktop.common.hardware.centralprocessor.CacheType
 import com.tecknobit.kinfo.utils.queryIntSysCtlByName
 import com.tecknobit.kinfo.utils.queryULongSysCtlByName
@@ -15,7 +16,7 @@ import com.tecknobit.kinfo.utils.queryULongSysCtlByName
  *
  * @author N7ghtm4r3 - Tecknobit
  *
- * @see MacOsHardwareMapper
+ * @see com.tecknobit.kinfo.mappers.hardware.MacOsHardwareMapper
  *
  * @since 1.1.0
  */

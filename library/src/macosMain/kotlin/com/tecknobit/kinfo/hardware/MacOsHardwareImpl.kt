@@ -1,7 +1,8 @@
 package com.tecknobit.kinfo.hardware
 
 import com.tecknobit.kinfo.annotations.Loader
-import com.tecknobit.kinfo.mappers.hardware.*
+import com.tecknobit.kinfo.mappers.hardware.centralprocessor.MacOsCentralProcessorMapper
+import com.tecknobit.kinfo.mappers.hardware.computersystem.MacOsComputerSystemMapper
 import com.tecknobit.kinfo.model.desktop.macos.hardware.*
 
 /**
@@ -16,63 +17,21 @@ import com.tecknobit.kinfo.model.desktop.macos.hardware.*
 class MacOsHardwareImpl : MacOsHardware {
 
     /**
-     * `platformExpertDevice` the computer system information, currently unavailable in this implementation
+     * `computerSystem` the computer system information, currently unavailable in this implementation
      */
-    override val platformExpertDevice: MacOsComputerSystem
-        get() = TODO("Not yet implemented")
-
-    /**
-     * `baseboardRegistryEntry` the baseboard information loaded from the platform expert service on each access
-     */
-    override val baseboardRegistryEntry: MacOsBaseboard
-        get() = loadBaseboard()
-
-    /**
-     * `romRegistryEntry` the firmware information loaded from the device tree on each access
-     */
-    override val romRegistryEntry: MacOsFirmware
-        get() = loadFirmware()
+    override val computerSystem: MacOsComputerSystem
+        get() = loadComputerSystem()
 
     /**
      * `processorInfo` the central processor information, currently unavailable in this implementation
      */
     override val processorInfo: MacOsCentralProcessor
-        get() = TODO("Not yet implemented")
+        get() = loadProcessorInfo()
 
     /**
-     * `processorIdentifierInfo` the processor identification information, currently unavailable in this implementation
+     * `globalMemory` the global memory information, currently unavailable in this implementation
      */
-    override val processorIdentifierInfo: MacOsProcessorIdentifier
-        get() = loadProcessorIdentifier()
-
-    /**
-     * `processorCaches` the caches with positive mapped sizes, loaded from system control values on each access
-     */
-    override val processorCaches: List<MacOsProcessorCache>
-        get() = loadProcessorCache()
-
-    /**
-     * `logicalProcessorInfo` the logical processor descriptions mapped from native counts on each access
-     */
-    override val logicalProcessorInfo: List<MacOsLogicalProcessor>
-        get() = loadLogicalProcessor()
-
-    /**
-     * `physicalProcessorInfo` the physical processor information, currently unavailable in this implementation
-     */
-    override val physicalProcessorInfo: List<MacOsPhysicalProcessor>
-        get() = loadPhysicalProcessor()
-
-    /**
-     * `vmStatistics` the physical memory information, currently unavailable in this implementation
-     */
-    override val vmStatistics: MacOsGlobalMemory
-        get() = TODO("Not yet implemented")
-
-    /**
-     * `swapUsage` the virtual memory and swap information, currently unavailable in this implementation
-     */
-    override val swapUsage: MacOsVirtualMemory
+    override val globalMemory: MacOsGlobalMemory
         get() = TODO("Not yet implemented")
 
     /**
@@ -85,12 +44,6 @@ class MacOsHardwareImpl : MacOsHardware {
      * `disk` the disk information, currently unavailable in this implementation
      */
     override val disk: MacOsHWDiskStore
-        get() = TODO("Not yet implemented")
-
-    /**
-     * `media` the partition information, currently unavailable in this implementation
-     */
-    override val media: MacOsHWPartition
         get() = TODO("Not yet implemented")
 
     /**
@@ -141,71 +94,18 @@ class MacOsHardwareImpl : MacOsHardware {
     override val metalDevice: MacOsGraphicsCard
         get() = TODO("Not yet implemented")
 
-    /**
-     * Method used to load the current macOS baseboard information through [MacOsBaseboardMapper]
-     *
-     * @return the mapped baseboard information as [MacOsBaseboard]
-     */
     @Loader
-    private fun loadBaseboard(): MacOsBaseboard {
-        val macOsBaseboardMapper = MacOsBaseboardMapper()
+    private fun loadComputerSystem(): MacOsComputerSystem {
+        val macOsComputerSystemMapper = MacOsComputerSystemMapper()
 
-        return macOsBaseboardMapper.mapFromNative()
-    }
-
-    /**
-     * Method used to load the current macOS firmware information from native registry properties
-     *
-     * @return the mapped firmware information as [MacOsFirmware]
-     */
-    @Loader
-    private fun loadFirmware(): MacOsFirmware {
-        val macOsFirmwareMapper = MacOsFirmwareMapper()
-
-        return macOsFirmwareMapper.mapFromNative()
-    }
-
-    /**
-     * Method used to request the macOS processor identification information from its native mapper
-     *
-     * @return the mapped processor identification information as [MacOsProcessorIdentifier]
-     */
-    @Loader
-    private fun loadProcessorIdentifier(): MacOsProcessorIdentifier {
-        val macOsProcessorIdentifierMapper = MacOsProcessorIdentifierMapper()
-
-        return macOsProcessorIdentifierMapper.mapFromNative()
-    }
-
-    /**
-     * Method used to load macOS processor caches with positive mapped sizes through [MacOsProcessorCacheMapper]
-     *
-     * @return the mapped cache descriptions as [List] of [MacOsProcessorCache]
-     */
-    @Loader
-    private fun loadProcessorCache(): List<MacOsProcessorCache> {
-        val macOsProcessorCacheMapper = MacOsProcessorCacheMapper()
-
-        return macOsProcessorCacheMapper.mapFromNative()
-    }
-
-    /**
-     * Method used to load macOS logical processor descriptions through [MacOsLogicalProcessorMapper]
-     *
-     * @return the mapped logical processor descriptions as [List] of [MacOsLogicalProcessor]
-     */
-    @Loader
-    private fun loadLogicalProcessor(): List<MacOsLogicalProcessor> {
-        val macOsLogicalProcessorMapper = MacOsLogicalProcessorMapper()
-
-        return macOsLogicalProcessorMapper.mapFromNative()
+        return macOsComputerSystemMapper.mapFromNative()
     }
 
     @Loader
-    private fun loadPhysicalProcessor(): List<MacOsPhysicalProcessor> {
-        val macOsPhysicalProcessorMapper = MacOsPhysicalProcessorMapper()
+    private fun loadProcessorInfo(): MacOsCentralProcessor {
+        val macOsCentralProcessorMapper = MacOsCentralProcessorMapper()
 
-        return macOsPhysicalProcessorMapper.mapFromNative()
+        return macOsCentralProcessorMapper.mapFromNative()
     }
 
 }

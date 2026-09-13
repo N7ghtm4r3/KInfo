@@ -1,8 +1,9 @@
 @file:OptIn(ExperimentalForeignApi::class, ExperimentalNativeApi::class)
 
-package com.tecknobit.kinfo.mappers.hardware
+package com.tecknobit.kinfo.mappers.hardware.computersystem
 
 import com.tecknobit.kinfo.hardware.MacOsFirmwareImpl
+import com.tecknobit.kinfo.mappers.hardware.MacOsSplitHardwareMapper
 import kotlinx.cinterop.ExperimentalForeignApi
 import kotlin.experimental.ExperimentalNativeApi
 
@@ -14,7 +15,7 @@ import kotlin.experimental.ExperimentalNativeApi
  *
  * @author N7ghtm4r3 - Tecknobit
  *
- * @see MacOsSplitHardwareMapper
+ * @see com.tecknobit.kinfo.mappers.hardware.MacOsSplitHardwareMapper
  *
  * @since 1.1.0
  */

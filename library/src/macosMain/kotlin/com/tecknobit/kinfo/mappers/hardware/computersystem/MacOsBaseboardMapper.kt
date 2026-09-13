@@ -1,8 +1,9 @@
 @file:OptIn(ExperimentalForeignApi::class)
 
-package com.tecknobit.kinfo.mappers.hardware
+package com.tecknobit.kinfo.mappers.hardware.computersystem
 
 import com.tecknobit.kinfo.hardware.MacOsBaseboardImpl
+import com.tecknobit.kinfo.mappers.hardware.MacOsHardwareMapper
 import kotlinx.cinterop.ExperimentalForeignApi
 
 /**
@@ -15,7 +16,7 @@ import kotlinx.cinterop.ExperimentalForeignApi
  *
  * @author N7ghtm4r3 - Tecknobit
  *
- * @see MacOsHardwareMapper
+ * @see com.tecknobit.kinfo.mappers.hardware.MacOsHardwareMapper
  *
  * @since 1.1.0
  */
