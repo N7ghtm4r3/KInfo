@@ -17,7 +17,7 @@ import com.tecknobit.kinfo.utils.queryIntSysCtlByName
  *
  * @since 1.1.0
  */
-class MacOsLogicalProcessorMapper : MacOsHardwareMapper<List<MacOsLogicalProcessor>>() {
+class MacOsLogicalProcessorMapper : MacOsHardwareMapper<List<MacOsLogicalProcessorImpl>>() {
 
     /**
      * Method used to map `hw.logicalcpu`, `hw.physicalcpu`, and `hw.packages` to logical processor descriptions
@@ -27,7 +27,7 @@ class MacOsLogicalProcessorMapper : MacOsHardwareMapper<List<MacOsLogicalProcess
      *
      * @return the reconstructed logical processor descriptions as [List] of [MacOsLogicalProcessor]
      */
-    override fun mapFromNative(): List<MacOsLogicalProcessor> {
+    override fun mapFromNative(): List<MacOsLogicalProcessorImpl> {
         val logicalCount = queryIntSysCtlByName(
             name = "hw.logicalcpu",
             default = 0

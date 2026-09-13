@@ -91,6 +91,56 @@ abstract class MacOsHardwareMapper<H> : NativeMapper<H>() {
         return service
     }
 
+    protected inline fun useIOServices(
+        serviceName: String,
+        crossinline usage: (Int, io_service_t) -> Unit
+    ) {
+        val services = loadIOServices(
+            serviceName = serviceName
+        )
+
+        var service = IOIteratorNext(
+            iterator = services
+        )
+
+        try {
+            var index = 0
+            while (service != 0u) {
+                try {
+                    usage(index, services)
+                } finally {
+                    service.release()
+                }
+
+                service = IOIteratorNext(
+                    iterator = service
+                )
+                index++
+            }
+        } finally {
+            services.release()
+        }
+    }
+
+    @Loader
+    protected fun loadIOServices(
+        serviceName: String
+    ): io_iterator_t {
+        return memScoped {
+            val buffer = alloc<io_iterator_tVar>()
+
+            val result = IOServiceGetMatchingServices(
+                kIOMainPortDefault,
+                IOServiceMatching(serviceName),
+                buffer.ptr
+            )
+            if (result != 0)
+                throw IllegalStateException("Could not load $serviceName instances")
+
+            buffer.value
+        }
+    }
+
     /**
      * Method used to load a registry entry from its plane-qualified path
      *

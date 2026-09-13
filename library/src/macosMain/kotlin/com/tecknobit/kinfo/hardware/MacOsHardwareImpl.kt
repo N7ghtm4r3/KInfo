@@ -60,8 +60,8 @@ class MacOsHardwareImpl : MacOsHardware {
     /**
      * `physicalProcessorInfo` the physical processor information, currently unavailable in this implementation
      */
-    override val physicalProcessorInfo: MacOsPhysicalProcessor
-        get() = TODO("Not yet implemented")
+    override val physicalProcessorInfo: List<MacOsPhysicalProcessor>
+        get() = loadPhysicalProcessor()
 
     /**
      * `vmStatistics` the physical memory information, currently unavailable in this implementation
@@ -199,6 +199,13 @@ class MacOsHardwareImpl : MacOsHardware {
         val macOsLogicalProcessorMapper = MacOsLogicalProcessorMapper()
 
         return macOsLogicalProcessorMapper.mapFromNative()
+    }
+
+    @Loader
+    private fun loadPhysicalProcessor(): List<MacOsPhysicalProcessor> {
+        val macOsPhysicalProcessorMapper = MacOsPhysicalProcessorMapper()
+
+        return macOsPhysicalProcessorMapper.mapFromNative()
     }
 
 }
