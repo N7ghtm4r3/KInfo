@@ -3,6 +3,7 @@ package com.tecknobit.kinfo.hardware
 import com.tecknobit.kinfo.annotations.Loader
 import com.tecknobit.kinfo.mappers.hardware.MacOsBaseboardMapper
 import com.tecknobit.kinfo.mappers.hardware.MacOsFirmwareMapper
+import com.tecknobit.kinfo.mappers.hardware.MacOsProcessorCacheMapper
 import com.tecknobit.kinfo.mappers.hardware.MacOsProcessorIdentifierMapper
 import com.tecknobit.kinfo.model.desktop.macos.hardware.*
 
@@ -51,7 +52,7 @@ class MacOsHardwareImpl : MacOsHardware {
      * `processorCaches` the processor cache information, currently unavailable in this implementation
      */
     override val processorCaches: MacOsProcessorCache
-        get() = TODO("Not yet implemented")
+        get() = loadProcessorCache()
 
     /**
      * `logicalProcessorInfo` the logical processor information, currently unavailable in this implementation
@@ -178,4 +179,12 @@ class MacOsHardwareImpl : MacOsHardware {
 
         return macOsProcessorIdentifierMapper.mapFromNative()
     }
+
+    @Loader
+    private fun loadProcessorCache(): MacOsProcessorCache {
+        val macOsProcessorCacheMapper = MacOsProcessorCacheMapper()
+
+        return macOsProcessorCacheMapper.mapFromNative()
+    }
+
 }

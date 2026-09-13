@@ -3,7 +3,6 @@ package com.tecknobit.kinfo.mappers.hardware
 import com.tecknobit.kinfo.UNKNOWN
 import com.tecknobit.kinfo.annotations.Resolver
 import com.tecknobit.kinfo.hardware.MacOsProcessorIdentifierImpl
-import com.tecknobit.kinfo.mappers.NativeMapper
 import com.tecknobit.kinfo.utils.hex32
 import com.tecknobit.kinfo.utils.queryIntSysCtlByName
 import com.tecknobit.kinfo.utils.queryLongSysCtlByName
@@ -17,8 +16,6 @@ import com.tecknobit.kinfo.utils.queryStringSysCtlByName
  *
  * @author N7ghtm4r3 - Tecknobit
  *
- * @see NativeMapper
- * @see MacOsHardwareMapper
  * @see MacOsSplitHardwareMapper
  *
  * @since 1.1.0

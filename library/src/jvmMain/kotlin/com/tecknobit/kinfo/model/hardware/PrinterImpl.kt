@@ -16,6 +16,8 @@ import com.tecknobit.kinfo.model.desktop.common.hardware.PrinterStatus
  *
  * @author N7ghtm4r3 - Tecknobit
  *
+ * @see Printer
+ *
  * @since 1.0.6
  */
 class PrinterImpl(
