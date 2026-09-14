@@ -1,6 +1,7 @@
 package com.tecknobit.kinfo.hardware
 
 import com.tecknobit.kinfo.annotations.Loader
+import com.tecknobit.kinfo.mappers.hardware.MacOsGlobalMemoryMapper
 import com.tecknobit.kinfo.mappers.hardware.centralprocessor.MacOsCentralProcessorMapper
 import com.tecknobit.kinfo.mappers.hardware.computersystem.MacOsComputerSystemMapper
 import com.tecknobit.kinfo.model.desktop.macos.hardware.*
@@ -32,7 +33,7 @@ class MacOsHardwareImpl : MacOsHardware {
      * `globalMemory` the global memory information, currently unavailable in this implementation
      */
     override val globalMemory: MacOsGlobalMemory
-        get() = TODO("Not yet implemented")
+        get() = loadGlobalMemory()
 
     /**
      * `powerSourceDescription` the power source information, currently unavailable in this implementation
@@ -120,6 +121,13 @@ class MacOsHardwareImpl : MacOsHardware {
         val macOsCentralProcessorMapper = MacOsCentralProcessorMapper()
 
         return macOsCentralProcessorMapper.mapFromNative()
+    }
+
+    @Loader
+    private fun loadGlobalMemory(): MacOsGlobalMemory {
+        val macOsGlobalMemoryMapper = MacOsGlobalMemoryMapper()
+
+        return macOsGlobalMemoryMapper.mapFromNative()
     }
 
 }
