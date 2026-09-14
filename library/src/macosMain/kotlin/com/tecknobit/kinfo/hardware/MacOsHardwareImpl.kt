@@ -17,7 +17,7 @@ import com.tecknobit.kinfo.model.desktop.macos.hardware.*
 class MacOsHardwareImpl : MacOsHardware {
 
     /**
-     * `computerSystem` the computer system information, currently unavailable in this implementation
+     * `computerSystem` the machine identity, firmware, and baseboard information freshly mapped on each access
      */
     override val computerSystem: MacOsComputerSystem
         get() = loadComputerSystem()
@@ -94,6 +94,12 @@ class MacOsHardwareImpl : MacOsHardware {
     override val metalDevice: MacOsGraphicsCard
         get() = TODO("Not yet implemented")
 
+    /**
+     * Method used to load the current macOS computer system information through [MacOsComputerSystemMapper]
+     *
+     * @return the mapped computer system information as [MacOsComputerSystem]
+     * @throws IllegalStateException If the platform expert service cannot be loaded
+     */
     @Loader
     private fun loadComputerSystem(): MacOsComputerSystem {
         val macOsComputerSystemMapper = MacOsComputerSystemMapper()
@@ -101,6 +107,14 @@ class MacOsHardwareImpl : MacOsHardware {
         return macOsComputerSystemMapper.mapFromNative()
     }
 
+    /**
+     * Method used to request the current macOS central processor information through [MacOsCentralProcessorMapper]
+     *
+     * The mapper is incomplete and currently throws when an unimplemented processor field is evaluated
+     *
+     * @return the mapped central processor information as [MacOsCentralProcessor]
+     * @throws NotImplementedError When an unimplemented processor field is evaluated
+     */
     @Loader
     private fun loadProcessorInfo(): MacOsCentralProcessor {
         val macOsCentralProcessorMapper = MacOsCentralProcessorMapper()
