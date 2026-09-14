@@ -1,17 +1,14 @@
 package com.tecknobit.kinfo.model.desktop.macos.hardware
 
-import com.tecknobit.kinfo.model.desktop.common.operatingsystem.OperatingSystem
+import com.tecknobit.kinfo.model.desktop.common.hardware.computersystem.ComputerSystem
 
-interface MacOsComputerSystem : OperatingSystem {
-
-    /**
-     * `baseboard` the baseboard information
-     */
-    val baseboard: MacOsBaseboard
-
-    /**
-     * `firmware` the firmware information
-     */
-    val firmware: MacOsFirmware
-
-}
+/**
+ * The `MacOsComputerSystem` interface defines the contract to expose macOS system hardware information
+ *
+ * The inherited [ComputerSystem] properties describe the machine identity, firmware, and baseboard
+ *
+ * @author N7ghtm4r3 - Tecknobit
+ *
+ * @since 1.1.0
+ */
+interface MacOsComputerSystem : ComputerSystem
