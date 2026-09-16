@@ -102,3 +102,24 @@ fun hex32(value: Long): String {
             padChar = '0'
         )
 }
+
+@Resolver
+fun resolveFreq(
+    rawFreq: ByteArray,
+    offset: Int = 0,
+    range: IntRange = rawFreq.indices
+): Long {
+    var frequency = 0L
+
+    for (index in range) {
+        val sampleFreq = rawFreq[offset + index].toLong()
+        val normalizedSampleFreq = sampleFreq and 0xFFL
+        val shiftedSampleFreq = normalizedSampleFreq shl (index * 8)
+
+        frequency = frequency or shiftedSampleFreq
+    }
+
+    return frequency.coerceAtLeast(
+        minimumValue = 0
+    )
+}

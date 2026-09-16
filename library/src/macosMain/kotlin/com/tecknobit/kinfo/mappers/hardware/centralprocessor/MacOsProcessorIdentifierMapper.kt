@@ -4,10 +4,7 @@ import com.tecknobit.kinfo.UNKNOWN
 import com.tecknobit.kinfo.annotations.Resolver
 import com.tecknobit.kinfo.hardware.MacOsProcessorIdentifierImpl
 import com.tecknobit.kinfo.mappers.hardware.MacOsSplitHardwareMapper
-import com.tecknobit.kinfo.utils.hex32
-import com.tecknobit.kinfo.utils.queryIntSysCtlByName
-import com.tecknobit.kinfo.utils.queryLongSysCtlByName
-import com.tecknobit.kinfo.utils.queryStringSysCtlByName
+import com.tecknobit.kinfo.utils.*
 
 /**
  * The `MacOsProcessorIdentifierMapper` class is useful to define the native macOS processor identification mapping
@@ -193,18 +190,11 @@ class MacOsProcessorIdentifierMapper : MacOsSplitHardwareMapper<MacOsProcessorId
         if (cpuFreqRaw.size < 8)
             return 0L
 
-        val offset = cpuFreqRaw.size - 8
-        var frequency = 0L
-
-        for (index in 0 until 4) {
-            val sampleFreq = cpuFreqRaw[offset + index].toLong()
-            val normalizedSampleFreq = sampleFreq and 0xFFL
-            val shiftedSampleFreq = normalizedSampleFreq shl (index * 8)
-
-            frequency = frequency or shiftedSampleFreq
-        }
-
-        return frequency
+        return resolveFreq(
+            rawFreq = cpuFreqRaw,
+            offset = cpuFreqRaw.size - 8,
+            range = 0 until 4
+        )
     }
 
 }

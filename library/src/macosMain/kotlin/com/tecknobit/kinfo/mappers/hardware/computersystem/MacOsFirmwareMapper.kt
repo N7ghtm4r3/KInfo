@@ -39,7 +39,7 @@ class MacOsFirmwareMapper : MacOsSplitHardwareMapper<MacOsFirmwareImpl>() {
      */
     override fun mapForSilicon(): MacOsFirmwareImpl {
         val root = loadRegistryFromPath("IODeviceTree:/")
-        val rom = loadRegistryFromPath("IODeviceTree:/chosen")
+        val rom = loadRegistryFromPath(IO_DEVICE_TREE_CHOSEN)
         val efi = loadRegistryFromPath("IODeviceTree:/efi")
 
         val macOsFirmware = try {
@@ -90,7 +90,7 @@ class MacOsFirmwareMapper : MacOsSplitHardwareMapper<MacOsFirmwareImpl>() {
      */
     override fun mapForIntel(): MacOsFirmwareImpl {
         val rom = loadRegistryFromPath("IODeviceTree:/rom")
-        val romChosen = loadRegistryFromPath("IODeviceTree:/chosen")
+        val romChosen = loadRegistryFromPath(IO_DEVICE_TREE_CHOSEN)
         val efi = loadRegistryFromPath("IODeviceTree:/efi")
 
         val macOsFirmware = try {
