@@ -43,6 +43,8 @@ abstract class MacOsHardwareMapper<H> : NativeMapper<H>() {
          */
         const val IO_PLATFORM_DEVICE_SERVICE = "IOPlatformDevice"
 
+        const val IO_DEVICE_TREE_CHOSEN = "IODeviceTree:/chosen"
+
     }
 
     /**
@@ -92,7 +94,7 @@ abstract class MacOsHardwareMapper<H> : NativeMapper<H>() {
             kIOMainPortDefault,
             IOServiceMatching(serviceName)
         )
-        if (service == 0u)
+        if (service == IO_OBJECT_NULL)
             throw IllegalStateException("Could not load $serviceName")
 
         return service
@@ -125,7 +127,7 @@ abstract class MacOsHardwareMapper<H> : NativeMapper<H>() {
 
         try {
             var index = 0
-            while (service != 0u) {
+            while (service != IO_OBJECT_NULL) {
                 try {
                     if (consumeServiceIf == null || consumeServiceIf(service)) {
                         usage(index, service)
@@ -171,6 +173,21 @@ abstract class MacOsHardwareMapper<H> : NativeMapper<H>() {
                 throw IllegalStateException("Could not load $serviceName instances")
 
             buffer.value
+        }
+    }
+
+    protected inline fun <T> useRegistryFromPath(
+        path: String,
+        usage: (io_registry_entry_t) -> T
+    ): T {
+        val registry = loadRegistryFromPath(
+            path = path
+        )
+
+        return try {
+            usage(registry)
+        } finally {
+            registry.release()
         }
     }
 
@@ -277,6 +294,9 @@ abstract class MacOsHardwareMapper<H> : NativeMapper<H>() {
         key: String,
         default: ByteArray = byteArrayOf()
     ): ByteArray {
+        if (this == IO_OBJECT_NULL)
+            return default
+
         return memScoped {
             val buffer = allocArray<ByteVar>(PROPERTY_VALUE_CAPACITY)
             val uCapacity = PROPERTY_VALUE_CAPACITY.toUInt()
@@ -307,7 +327,7 @@ abstract class MacOsHardwareMapper<H> : NativeMapper<H>() {
      * @receiver The owned handle to release after its last use
      */
     protected fun io_service_t.release() {
-        if(this == 0u)
+        if (this == IO_OBJECT_NULL)
             return
 
         IOObjectRelease(this)
