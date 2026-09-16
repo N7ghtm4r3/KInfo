@@ -1,9 +1,9 @@
 package com.tecknobit.kinfo.hardware
 
 import com.tecknobit.kinfo.annotations.Loader
-import com.tecknobit.kinfo.mappers.hardware.MacOsGlobalMemoryMapper
 import com.tecknobit.kinfo.mappers.hardware.centralprocessor.MacOsCentralProcessorMapper
 import com.tecknobit.kinfo.mappers.hardware.computersystem.MacOsComputerSystemMapper
+import com.tecknobit.kinfo.mappers.hardware.globalmemory.MacOsGlobalMemoryMapper
 import com.tecknobit.kinfo.model.desktop.macos.hardware.*
 
 /**
