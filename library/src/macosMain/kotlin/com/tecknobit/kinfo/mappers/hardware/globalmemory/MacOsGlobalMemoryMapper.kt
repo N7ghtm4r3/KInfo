@@ -6,6 +6,7 @@ import com.tecknobit.kinfo.annotations.Loader
 import com.tecknobit.kinfo.annotations.Resolver
 import com.tecknobit.kinfo.hardware.MacOsGlobalMemoryImpl
 import com.tecknobit.kinfo.mappers.hardware.MacOsHardwareMapper
+import com.tecknobit.kinfo.model.desktop.macos.hardware.MacOsPhysicalMemory
 import com.tecknobit.kinfo.model.desktop.macos.hardware.MacOsVirtualMemory
 import com.tecknobit.kinfo.utils.queryLongSysCtlByName
 import com.tecknobit.kinfo.utils.useMachHost
@@ -29,7 +30,7 @@ class MacOsGlobalMemoryMapper : MacOsHardwareMapper<MacOsGlobalMemoryImpl>() {
                 totalRam = totalMemory,
                 availableRam = available
             ),
-            physicalMemory = emptyList()
+            physicalMemory = loadPhysicalMemory()
         )
     }
 
@@ -99,6 +100,13 @@ class MacOsGlobalMemoryMapper : MacOsHardwareMapper<MacOsGlobalMemoryImpl>() {
         )
 
         return macOsVirtualMemoryMapper.mapFromNative()
+    }
+
+    @Loader
+    private fun loadPhysicalMemory(): List<MacOsPhysicalMemory> {
+        val macOsPhysicalMemoryMapper = MacOsPhysicalMemoryMapper()
+
+        return macOsPhysicalMemoryMapper.mapFromNative()
     }
 
 }
