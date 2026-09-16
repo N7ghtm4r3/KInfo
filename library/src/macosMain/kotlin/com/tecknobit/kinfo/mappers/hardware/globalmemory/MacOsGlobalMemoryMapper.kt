@@ -1,34 +1,33 @@
 @file:OptIn(ExperimentalForeignApi::class)
 
-package com.tecknobit.kinfo.mappers.hardware
+package com.tecknobit.kinfo.mappers.hardware.globalmemory
 
 import com.tecknobit.kinfo.annotations.Loader
 import com.tecknobit.kinfo.annotations.Resolver
 import com.tecknobit.kinfo.hardware.MacOsGlobalMemoryImpl
-import com.tecknobit.kinfo.hardware.MacOsVirtualMemoryImpl
+import com.tecknobit.kinfo.mappers.hardware.MacOsHardwareMapper
+import com.tecknobit.kinfo.model.desktop.macos.hardware.MacOsVirtualMemory
 import com.tecknobit.kinfo.utils.queryLongSysCtlByName
+import com.tecknobit.kinfo.utils.useMachHost
 import kotlinx.cinterop.*
 import platform.darwin.*
-import platform.posix.mach_port_t
 
 class MacOsGlobalMemoryMapper : MacOsHardwareMapper<MacOsGlobalMemoryImpl>() {
 
     override fun mapFromNative(): MacOsGlobalMemoryImpl {
+        val totalMemory = loadTotalMemory()
         val pageSize = loadPageSize()
+        val available = resolveAvailableMemory(
+            pageSize = pageSize
+        )
 
         return MacOsGlobalMemoryImpl(
-            total = loadTotalMemory(),
-            available = resolveAvailableMemory(
-                pageSize = pageSize
-            ),
+            total = totalMemory,
+            available = available,
             pageSize = pageSize,
-            virtualMemory = MacOsVirtualMemoryImpl(
-                swapTotal = 0,
-                swapUsed = 0,
-                virtualMax = 0,
-                virtualInUse = 0,
-                swapPagesIn = 0,
-                swapPagesOut = 0
+            virtualMemory = loadVirtualMemory(
+                totalRam = totalMemory,
+                availableRam = available
             ),
             physicalMemory = emptyList()
         )
@@ -79,7 +78,7 @@ class MacOsGlobalMemoryMapper : MacOsHardwareMapper<MacOsGlobalMemoryImpl>() {
                     count.ptr
                 )
                 if (result != KERN_SUCCESS)
-                    return 0
+                    return@memScoped 0
 
                 val freePages = buffer.free_count.toLong()
                 val inactivePages = buffer.inactive_count.toLong()
@@ -89,19 +88,17 @@ class MacOsGlobalMemoryMapper : MacOsHardwareMapper<MacOsGlobalMemoryImpl>() {
         }
     }
 
-    private inline fun <T> useMachHost(
-        usage: (mach_port_t) -> T
-    ): T {
-        val host = mach_host_self()
+    @Loader
+    private fun loadVirtualMemory(
+        totalRam: Long,
+        availableRam: Long
+    ): MacOsVirtualMemory {
+        val macOsVirtualMemoryMapper = MacOsVirtualMemoryMapper(
+            totalRam = totalRam,
+            availableRam = availableRam
+        )
 
-        return try {
-            usage(host)
-        } finally {
-            mach_port_deallocate(
-                mach_task_self_,
-                host
-            )
-        }
+        return macOsVirtualMemoryMapper.mapFromNative()
     }
 
 }
