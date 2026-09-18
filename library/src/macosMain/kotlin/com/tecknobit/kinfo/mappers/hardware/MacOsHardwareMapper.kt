@@ -34,6 +34,11 @@ abstract class MacOsHardwareMapper<H> : NativeMapper<H>() {
         const val PROPERTY_VALUE_CAPACITY = 4096
 
         /**
+         * `REGISTRY_SEPARATOR_CHARACTER` the null character separating registry string entries
+         */
+        const val REGISTRY_SEPARATOR_CHARACTER = '\u0000'
+
+        /**
          * `IO_PLATFORM_EXPERT_DEVICE_SERVICE` the IOKit class name used to match the platform expert device
          */
         const val IO_PLATFORM_EXPERT_DEVICE_SERVICE = "IOPlatformExpertDevice"
@@ -43,6 +48,9 @@ abstract class MacOsHardwareMapper<H> : NativeMapper<H>() {
          */
         const val IO_PLATFORM_DEVICE_SERVICE = "IOPlatformDevice"
 
+        /**
+         * `IO_DEVICE_TREE_CHOSEN` the plane-qualified path of the chosen device tree entry
+         */
         const val IO_DEVICE_TREE_CHOSEN = "IODeviceTree:/chosen"
 
     }
@@ -176,6 +184,18 @@ abstract class MacOsHardwareMapper<H> : NativeMapper<H>() {
         }
     }
 
+    /**
+     * Method used to perform an operation on a registry entry and release its handle on exit
+     *
+     * The callback must not release or retain the handle
+     * Nonzero handles are released even when the operation throws
+     *
+     * @param T The result type produced by the operation
+     * @param path The plane-qualified registry path
+     * @param usage The operation receiving the borrowed handle, possibly zero when the entry is absent
+     *
+     * @return the operation result as [T]
+     */
     protected inline fun <T> useRegistryFromPath(
         path: String,
         usage: (io_registry_entry_t) -> T
@@ -257,6 +277,31 @@ abstract class MacOsHardwareMapper<H> : NativeMapper<H>() {
     }
 
     /**
+     * Method used to split a registry text property into null-separated entries
+     *
+     * Trailing null characters are removed before splitting
+     * Interior empty entries, whitespace, and any property-specific prefix are preserved
+     *
+     * @receiver The registry entry containing the property
+     * @param key The property name to query
+     * @param default The fallback list used when the decoded property is blank or unavailable
+     *
+     * @return the decoded entries or the fallback as [List] of [String]
+     */
+    protected fun io_registry_entry_t.readStringsFromRegistry(
+        key: String,
+        default: List<String> = emptyList()
+    ): List<String> {
+        val valueFromRegistry = readStringFromRegistry(
+            key = key
+        )
+        if (valueFromRegistry.isBlank())
+            return default
+
+        return valueFromRegistry.split(REGISTRY_SEPARATOR_CHARACTER)
+    }
+
+    /**
      * Method used to read a registry byte property as UTF-8 text and remove trailing null characters
      *
      * Embedded null characters and letter case are preserved and the entry handle is not released
@@ -271,12 +316,14 @@ abstract class MacOsHardwareMapper<H> : NativeMapper<H>() {
         key: String,
         default: String = ""
     ): String {
-        return readFromRegistry(
+        val valueFromRegistry = readFromRegistry(
             key = key,
             default = default.encodeToByteArray()
         )
+
+        return valueFromRegistry
             .decodeToString()
-            .trimEnd('\u0000')
+            .trimEnd(REGISTRY_SEPARATOR_CHARACTER)
     }
 
     /**

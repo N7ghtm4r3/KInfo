@@ -103,6 +103,21 @@ fun hex32(value: Long): String {
         )
 }
 
+/**
+ * Method used to decode frequency bytes using little-endian bit positions
+ *
+ * The caller must provide valid array indices and a range suitable for a 64-bit value
+ * No unit conversion is performed
+ *
+ * @param rawFreq The bytes containing the frequency
+ * @param offset The base offset added to each range index
+ * @param range The byte indices that also determine the eight-bit shift positions
+ *
+ * @return the decoded value clamped to zero when negative as [Long]
+ * @throws IndexOutOfBoundsException If an offset-adjusted index lies outside the array
+ *
+ * @since 1.1.0
+ */
 @Resolver
 fun resolveFreq(
     rawFreq: ByteArray,
