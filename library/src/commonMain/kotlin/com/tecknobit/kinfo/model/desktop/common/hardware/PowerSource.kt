@@ -1,138 +1,159 @@
 package com.tecknobit.kinfo.model.desktop.common.hardware
 
 /**
- * Represents a power source (e.g., a battery) in the system, including details like the remaining capacity,
- * power usage, voltage, and charging status.
+ * The `PowerSource` interface defines the contract to expose battery capacity, electrical measurements, and charging state
+ *
+ * Measurement scales and unavailable values depend on the platform implementation
  *
  * @author N7ghtm4r3 - Tecknobit
+ *
+ * @since 1.0.0
  */
 interface PowerSource {
 
     /**
-     * `name` The name of the power source (e.g., "Battery 1")
+     * `name` the operating system name of the power source
      */
     val name: String
 
     /**
-     * `deviceName` The name of the device associated with the power source
+     * `deviceName` the device-reported name of the power source
      */
     val deviceName: String
 
     /**
-     * `remainingCapacityPercent` The remaining capacity of the power source as a percentage of the total capacity
+     * `remainingCapacityPercent` the remaining charge, expressed from zero to one hundred on native macOS
+     * and as a fraction from zero to one on `JVM`
+     *
+     * The system estimate can differ from the ratio between [currentCapacity] and [maxCapacity]
      */
     val remainingCapacityPercent: Double
 
     /**
-     * `timeRemainingEstimated` The estimated time remaining on the power source (in hours)
+     * `timeRemainingEstimated` the estimated remaining runtime in hours on native macOS and seconds on `JVM`
+     *
+     * Unavailable readings and special values follow the platform implementation
      */
     val timeRemainingEstimated: Double
 
     /**
-     * `timeRemainingInstant` The instantaneous time remaining on the power source (in hours)
+     * `timeRemainingInstant` the battery-reported remaining time in hours on native macOS and seconds on `JVM`
+     *
+     * Charging and unavailable readings follow the platform implementation
      */
     val timeRemainingInstant: Double
 
     /**
-     * `powerUsageRate` The rate of power usage by the power source (in watts)
+     * `powerUsageRate` the signed power rate in watts on native macOS and milliwatts on `JVM`
+     *
+     * Positive values indicate charging and negative values indicate discharging
      */
     val powerUsageRate: Double
 
     /**
-     * `voltage` The voltage of the power source (in volts)
+     * `voltage` the battery voltage in volts, with unavailable values defined by the platform implementation
      */
     val voltage: Double
 
     /**
-     * `amperage` The amperage of the power source (in amperes)
+     * `amperage` the signed battery current in amperes on native macOS and milliamperes on `JVM`
+     *
+     * Positive values indicate charging and negative values indicate discharging
      */
     val amperage: Double
 
     /**
-     * `isPowerOnLine` Whether the power source is connected to an external power line
+     * `isPowerOnLine` whether the device is connected to an external power source
      */
     val isPowerOnLine: Boolean
 
     /**
-     * `isCharging` Whether the power source is currently charging
+     * `isCharging` whether the battery is charging
      */
     val isCharging: Boolean
 
     /**
-     * `isDischarging` Whether the power source is currently discharging
+     * `isDischarging` whether the battery is discharging
      */
     val isDischarging: Boolean
 
     /**
-     * `capacityUnits` The units for capacity
+     * `capacityUnits` the units shared by [currentCapacity], [maxCapacity], and [designCapacity]
      */
     val capacityUnits: CapacityUnits
 
     /**
-     * `currentCapacity` The current capacity of the power source (in mAh or Ah, depending on `capacityUnits`)
+     * `currentCapacity` the remaining battery capacity in [capacityUnits]
      */
     val currentCapacity: Int
 
     /**
-     * `maxCapacity` The maximum capacity of the power source (in mAh or Ah, depending on `capacityUnits`)
+     * `maxCapacity` the full-charge battery capacity in [capacityUnits]
      */
     val maxCapacity: Int
 
     /**
-     * `designCapacity` The designed capacity of the power source (in mAh or Ah, depending on `capacityUnits`)
+     * `designCapacity` the original design capacity in [capacityUnits]
      */
     val designCapacity: Int
 
     /**
-     * `cycleCount` The number of charge cycles the power source has gone through
+     * `cycleCount` the reported number of battery charge cycles
      */
     val cycleCount: Int
 
     /**
-     * `chemistry` The chemistry used in the power source (e.g., Li-ion, NiMH)
+     * `chemistry` the battery chemistry description, or an unknown marker when unavailable
      */
     val chemistry: String
 
     /**
-     * `manufacturer` The manufacturer of the power source
+     * `manufacturer` the battery manufacturer name, which can be blank or unknown when unavailable
      */
     val manufacturer: String
 
     /**
-     * `serialNumber` The serial number of the power source
+     * `serialNumber` the battery serial number, which can be empty or unknown when unavailable
      */
     val serialNumber: String
 
     /**
-     * `temperature` The temperature of the power source (in Celsius)
+     * `temperature` the battery temperature in degrees Celsius, with unavailable values defined by the platform implementation
      */
     val temperature: Double
 
     /**
-     * `updateAttributes` Whether the attributes of the power source should be updated
+     * `updateAttributes` the stored refresh status of the power source
+     *
+     * Reading this property does not trigger another refresh
      */
     val updateAttributes: Boolean
 
 }
 
 /**
- * Units of Battery Capacity
+ * The `CapacityUnits` enum is useful to represent the units shared by battery capacity measurements
+ *
+ * @author N7ghtm4r3 - Tecknobit
+ *
+ * @since 1.0.0
  */
 enum class CapacityUnits {
 
     /**
-     * MilliWattHours (mWh)
+     * `MWH` the energy capacity expressed in milliwatt-hours
      */
     MWH,
 
     /**
-     * MilliAmpHours (mAh). Should be multiplied by voltage to convert to mWh
+     * `MAH` the charge capacity expressed in milliampere-hours
      */
     MAH,
 
     /**
-     * Relative units. The specific units are not defined. The ratio of current/max capacity still represents state
-     * of charge and the ratio of max/design capacity still represents state of health
+     * `RELATIVE` the capacity expressed on a shared scale without a physical measurement unit
+     *
+     * Capacity values can be compared only when they use the same relative scale
      */
     RELATIVE
 

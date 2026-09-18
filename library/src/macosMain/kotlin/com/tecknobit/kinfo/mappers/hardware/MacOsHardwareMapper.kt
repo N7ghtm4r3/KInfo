@@ -7,19 +7,24 @@ import com.tecknobit.kinfo.annotations.Loader
 import com.tecknobit.kinfo.mappers.NativeMapper
 import com.tecknobit.kinfo.mappers.hardware.MacOsHardwareMapper.Companion.PROPERTY_VALUE_CAPACITY
 import kotlinx.cinterop.*
+import platform.CoreFoundation.CFRelease
+import platform.CoreFoundation.CFStringCreateWithCString
+import platform.CoreFoundation.kCFStringEncodingUTF8
+import platform.Foundation.CFBridgingRelease
+import platform.Foundation.NSNumber
 import platform.IOKit.*
 
 /**
- * The `MacOsHardwareMapper` class is useful to load IOKit services and read textual registry properties
+ * The `MacOsHardwareMapper` class is useful to load IOKit services and read binary, textual, and numeric registry properties
  * for macOS hardware models
  *
  * @param H The type of hardware model produced by the mapper
  *
  * @author N7ghtm4r3 - Tecknobit
  *
- * @since 1.1.0
- *
  * @see NativeMapper
+ *
+ * @since 1.1.0
  */
 abstract class MacOsHardwareMapper<H> : NativeMapper<H>() {
 
@@ -299,6 +304,126 @@ abstract class MacOsHardwareMapper<H> : NativeMapper<H>() {
             return default
 
         return valueFromRegistry.split(REGISTRY_SEPARATOR_CHARACTER)
+    }
+
+    /**
+     * Method used to read a numeric registry property as a signed 32-bit integer
+     *
+     * @receiver The borrowed registry entry containing the property
+     * @param key The property name to query
+     * @param default The fallback value when the property is unavailable or incompatible
+     *
+     * @return the converted property value or [default] as [Int]
+     */
+    protected fun io_registry_entry_t.readIntFromRegistry(
+        key: String,
+        default: Int = 0
+    ): Int {
+        return readPrimitiveFromRegistry(
+            key = key,
+            default = default,
+            returns = { it.intValue }
+        )
+    }
+
+    /**
+     * Method used to read a numeric or Boolean registry property as a Boolean value
+     *
+     * Numeric zero represents false and nonzero values represent true
+     *
+     * @receiver The borrowed registry entry containing the property
+     * @param key The property name to query
+     * @param default The fallback value when the property is unavailable or incompatible
+     *
+     * @return the converted property value or [default] as [Boolean]
+     */
+    protected fun io_registry_entry_t.readBooleanFromRegistry(
+        key: String,
+        default: Boolean = false
+    ): Boolean {
+        return readPrimitiveFromRegistry(
+            key = key,
+            default = default,
+            returns = { it.boolValue }
+        )
+    }
+
+    /**
+     * Method used to read a numeric registry property as a double-precision value
+     *
+     * Values retain their native measurement units
+     *
+     * @receiver The borrowed registry entry containing the property
+     * @param key The property name to query
+     * @param default The fallback value when the property is unavailable or incompatible
+     *
+     * @return the converted property value or [default] as [Double]
+     */
+    protected fun io_registry_entry_t.readDoubleFromRegistry(
+        key: String,
+        default: Double = 0.0
+    ): Double {
+        return readPrimitiveFromRegistry(
+            key = key,
+            default = default,
+            returns = { it.doubleValue }
+        )
+    }
+
+    /**
+     * Method used to read a numeric registry property as a signed 64-bit integer on macOS
+     *
+     * @receiver The borrowed registry entry containing the property
+     * @param key The property name to query
+     * @param default The fallback value when the property is unavailable or incompatible
+     *
+     * @return the converted property value or [default] as [Long]
+     */
+    protected fun io_registry_entry_t.readLongFromRegistry(
+        key: String,
+        default: Long = 0
+    ): Long {
+        return readPrimitiveFromRegistry(
+            key = key,
+            default = default,
+            returns = { it.longValue }
+        )
+    }
+
+    /**
+     * Method used to read a numeric registry property with a custom conversion
+     *
+     * @receiver The borrowed registry entry containing the property
+     * @param T The type produced by the numeric conversion
+     * @param key The property name to query
+     * @param default The fallback value when the property is unavailable, incompatible, or the conversion returns null
+     * @param returns The conversion applied to the numeric property
+     *
+     * @return the non-null converted property value or [default] as [T]
+     */
+    private inline fun <T> io_registry_entry_t.readPrimitiveFromRegistry(
+        key: String,
+        default: T,
+        returns: (NSNumber) -> T
+    ): T {
+        if (this == IO_OBJECT_NULL)
+            return default
+
+        val cfKey = CFStringCreateWithCString(
+            null,
+            key,
+            kCFStringEncodingUTF8
+        ) ?: return default
+
+        val number = try {
+            CFBridgingRelease(
+                IORegistryEntryCreateCFProperty(this, cfKey, null, 0u)
+            ) as? NSNumber
+        } finally {
+            CFRelease(cfKey)
+        }
+
+        return number?.let(returns) ?: default
     }
 
     /**
