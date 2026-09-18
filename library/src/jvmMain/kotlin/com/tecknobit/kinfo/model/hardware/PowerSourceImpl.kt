@@ -5,130 +5,139 @@ import com.tecknobit.kinfo.model.desktop.common.hardware.PowerSource
 import java.time.LocalDate
 
 /**
- * Implementation of the `PowerSource` interface.
- * This class provides details about a power source, including its name, device name, capacity, voltage, amperage, and more.
- * It also offers methods for accessing information about the power source's status, such as whether it is charging or discharging,
- * as well as the estimated remaining time for use.
+ * The `PowerSourceImpl` class is useful to capture the power source measurements supplied by [oshi.hardware.PowerSource]
  *
- * @param powerSourceInfo The `PowerSource` object containing the actual power source data retrieved from the hardware.
+ * Measurements are exposed as a fixed snapshot using the units reported by the underlying source
+ *
+ * @property powerSourceInfo The underlying power source information
  *
  * @author N7ghtm4r3 - Tecknobit
  *
  * @see PowerSource
+ *
+ * @since 1.0.0
  */
 class PowerSourceImpl(
     private val powerSourceInfo: oshi.hardware.PowerSource,
 ) : PowerSource {
 
     /**
-     * `name` The name of the power source (e.g., "Battery 1")
+     * `name` the operating system name of the power source
      */
     override val name: String = powerSourceInfo.name
 
     /**
-     * `deviceName` The device name of the power source (e.g., "BAT0", "AC")
+     * `deviceName` the device-reported name of the power source
      */
     override val deviceName: String = powerSourceInfo.deviceName
 
     /**
-     * `remainingCapacityPercent` The remaining battery capacity as a percentage of the total capacity (0-100%)
+     * `remainingCapacityPercent` the estimated remaining charge as a fraction from zero to one
+     *
+     * The estimate can differ from the ratio between [currentCapacity] and [maxCapacity]
      */
     override val remainingCapacityPercent: Double = powerSourceInfo.remainingCapacityPercent
 
     /**
-     * `timeRemainingEstimated` The estimated time remaining on the power source, in minutes
+     * `timeRemainingEstimated` the estimated remaining runtime in seconds
+     *
+     * Minus one indicates that the estimate is being calculated and minus two indicates unlimited runtime
      */
     override val timeRemainingEstimated: Double = powerSourceInfo.timeRemainingEstimated
 
     /**
-     * `timeRemainingInstant` The instantaneous time remaining on the power source, in minutes
+     * `timeRemainingInstant` the battery-reported remaining time in seconds
+     *
+     * While charging, the value can represent the remaining time to reach full charge
      */
     override val timeRemainingInstant: Double = powerSourceInfo.timeRemainingInstant
 
     /**
-     * `powerUsageRate` The current power usage rate of the power source in watts
+     * `powerUsageRate` the signed power rate in milliwatts, positive when charging and negative when discharging
      */
     override val powerUsageRate: Double = powerSourceInfo.powerUsageRate
 
     /**
-     * `voltage` The voltage of the power source in volts
+     * `voltage` the battery voltage in volts, or minus one when unknown
      */
     override val voltage: Double = powerSourceInfo.voltage
 
     /**
-     * `amperage` The amperage of the power source in amperes
+     * `amperage` the signed battery current in milliamperes, positive when charging and negative when discharging
      */
     override val amperage: Double = powerSourceInfo.amperage
 
     /**
-     * `isPowerOnLine` Whether the power source is currently connected to the power line (e.g., AC power)
+     * `isPowerOnLine` whether the device is connected to an external power source
      */
     override val isPowerOnLine: Boolean = powerSourceInfo.isPowerOnLine
 
     /**
-     * `isCharging` Whether the power source is currently charging
+     * `isCharging` whether the battery is charging
      */
     override val isCharging: Boolean = powerSourceInfo.isCharging
 
     /**
-     * `isDischarging` Whether the power source is currently discharging
+     * `isDischarging` whether the battery is discharging
      */
     override val isDischarging: Boolean = powerSourceInfo.isDischarging
 
     /**
-     * `capacityUnits` The capacity units of the power source (e.g., "mWh", "Wh")
+     * `capacityUnits` the units shared by [currentCapacity], [maxCapacity], and [designCapacity]
      */
     override val capacityUnits: CapacityUnits = CapacityUnits.valueOf(powerSourceInfo.capacityUnits.name)
 
     /**
-     * `currentCapacity` The current capacity of the power source in the given capacity units
+     * `currentCapacity` the remaining battery capacity in [capacityUnits]
      */
     override val currentCapacity: Int = powerSourceInfo.currentCapacity
 
     /**
-     * `maxCapacity` The maximum capacity of the power source in the given capacity units
+     * `maxCapacity` the full-charge battery capacity in [capacityUnits]
      */
     override val maxCapacity: Int = powerSourceInfo.maxCapacity
 
     /**
-     * `designCapacity` The design capacity of the power source in the given capacity units
+     * `designCapacity` the original design capacity in [capacityUnits]
      */
     override val designCapacity: Int = powerSourceInfo.designCapacity
 
     /**
-     * `cycleCount` The cycle count of the power source, representing the number of charge-discharge cycles
+     * `cycleCount` the reported number of battery charge cycles, or minus one when unknown
      */
     override val cycleCount: Int = powerSourceInfo.cycleCount
 
     /**
-     * `chemistry` The chemistry of the power source (e.g., "Li-ion", "Li-Po")
+     * `chemistry` the battery chemistry description
      */
     override val chemistry: String = powerSourceInfo.chemistry
 
     /**
-     * `manufacturer` The manufacturer of the power source (e.g., "Samsung", "LG")
+     * `manufacturer` the battery manufacturer name
      */
     override val manufacturer: String = powerSourceInfo.manufacturer
 
     /**
-     * `serialNumber` The serial number of the power source
+     * `serialNumber` the battery serial number
      */
     override val serialNumber: String = powerSourceInfo.serialNumber
 
     /**
-     * `temperature` The temperature of the power source in Celsius
+     * `temperature` the battery temperature in degrees Celsius, or zero when unknown
      */
     override val temperature: Double = powerSourceInfo.temperature
 
     /**
-     * `updateAttributes` Whether the attributes of the power source have been updated
+     * `updateAttributes` the result of refreshing the wrapped source during construction
+     *
+     * Refreshing the source does not update the measurements stored in this snapshot
      */
     override val updateAttributes: Boolean = powerSourceInfo.updateAttributes()
 
     /**
-     * Returns the manufacture date of the power source
+     * Method used to retrieve the battery manufacture date
      *
-     * @return manufacture date as [LocalDate]
+     * @return the manufacture date, or null when unavailable, as [LocalDate]
      */
     fun getManufacturerDate(): LocalDate? {
         return powerSourceInfo.manufactureDate

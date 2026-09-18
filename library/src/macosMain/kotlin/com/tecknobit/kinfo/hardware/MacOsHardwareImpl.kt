@@ -1,6 +1,7 @@
 package com.tecknobit.kinfo.hardware
 
 import com.tecknobit.kinfo.annotations.Loader
+import com.tecknobit.kinfo.mappers.hardware.MacOsPowerSourceMapper
 import com.tecknobit.kinfo.mappers.hardware.centralprocessor.MacOsCentralProcessorMapper
 import com.tecknobit.kinfo.mappers.hardware.computersystem.MacOsComputerSystemMapper
 import com.tecknobit.kinfo.mappers.hardware.globalmemory.MacOsGlobalMemoryMapper
@@ -38,10 +39,12 @@ class MacOsHardwareImpl : MacOsHardware {
         get() = loadGlobalMemory()
 
     /**
-     * `powerSourceDescription` the power source information, currently unavailable in this implementation
+     * `powerSourceDescription` the internal battery measurements freshly mapped on each access
+     *
+     * @throws IllegalStateException If the internal battery service is unavailable
      */
     override val powerSourceDescription: MacOsPowerSource
-        get() = TODO("Not yet implemented")
+        get() = loadPowerSource()
 
     /**
      * `disk` the disk information, currently unavailable in this implementation
@@ -56,21 +59,15 @@ class MacOsHardwareImpl : MacOsHardware {
         get() = TODO("Not yet implemented")
 
     /**
-     * `displayId` the display information, currently unavailable in this implementation
+     * `displayInfo` the display information, currently unavailable in this implementation
      */
-    override val displayId: MacOsDisplay
+    override val displayInfo: MacOsDisplay
         get() = TODO("Not yet implemented")
 
     /**
-     * `displayService` the display information, currently unavailable in this implementation
+     * `usbDevices` the USB device information, currently unavailable in this implementation
      */
-    override val displayService: MacOsDisplayInfo
-        get() = TODO("Not yet implemented")
-
-    /**
-     * `usbDevice` the USB device information, currently unavailable in this implementation
-     */
-    override val usbDevice: MacOsUsbDevice
+    override val usbDevices: List<MacOsUsbDevice>
         get() = TODO("Not yet implemented")
 
     /**
@@ -136,6 +133,19 @@ class MacOsHardwareImpl : MacOsHardware {
         val macOsGlobalMemoryMapper = MacOsGlobalMemoryMapper()
 
         return macOsGlobalMemoryMapper.mapFromNative()
+    }
+
+    /**
+     * Method used to load the current internal battery information
+     *
+     * @return the mapped power source information as [MacOsPowerSource]
+     * @throws IllegalStateException If the internal battery service is unavailable
+     */
+    @Loader
+    private fun loadPowerSource(): MacOsPowerSource {
+        val macOsPowerSourceMapper = MacOsPowerSourceMapper()
+
+        return macOsPowerSourceMapper.mapFromNative()
     }
 
 }

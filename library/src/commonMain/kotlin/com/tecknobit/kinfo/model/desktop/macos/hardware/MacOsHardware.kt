@@ -25,7 +25,7 @@ interface MacOsHardware {
     val globalMemory: MacOsGlobalMemory
 
     /**
-     * `powerSourceDescription` the power source information
+     * `powerSourceDescription` the internal battery capacity, electrical measurements, and charging state
      */
     val powerSourceDescription: MacOsPowerSource
 
@@ -40,19 +40,14 @@ interface MacOsHardware {
     val networkInterface: MacOsNetworkIF
 
     /**
-     * `displayId` the display information
+     * `displayInfo` the display information
      */
-    val displayId: MacOsDisplay
+    val displayInfo: MacOsDisplay
 
     /**
-     * `displayService` the display information
+     * `usbDevices` the USB device information
      */
-    val displayService: MacOsDisplayInfo
-
-    /**
-     * `usbDevice` the USB device information
-     */
-    val usbDevice: MacOsUsbDevice
+    val usbDevices: List<MacOsUsbDevice>
 
     /**
      * `bluetoothDevice` the Bluetooth device information
