@@ -30,7 +30,9 @@ class MacOsHardwareImpl : MacOsHardware {
         get() = loadProcessorInfo()
 
     /**
-     * `globalMemory` the global memory information, currently unavailable in this implementation
+     * `globalMemory` the global, virtual, and physical memory information freshly mapped on each access
+     *
+     * @throws IllegalStateException If swap usage or swap page statistics cannot be read
      */
     override val globalMemory: MacOsGlobalMemory
         get() = loadGlobalMemory()
@@ -123,6 +125,12 @@ class MacOsHardwareImpl : MacOsHardware {
         return macOsCentralProcessorMapper.mapFromNative()
     }
 
+    /**
+     * Method used to load the current macOS memory snapshot through [MacOsGlobalMemoryMapper]
+     *
+     * @return the mapped global memory as [MacOsGlobalMemory]
+     * @throws IllegalStateException If swap usage or swap page statistics cannot be read
+     */
     @Loader
     private fun loadGlobalMemory(): MacOsGlobalMemory {
         val macOsGlobalMemoryMapper = MacOsGlobalMemoryMapper()

@@ -13,8 +13,26 @@ import com.tecknobit.kinfo.utils.useMachHost
 import kotlinx.cinterop.*
 import platform.darwin.*
 
+/**
+ * The `MacOsGlobalMemoryMapper` class is useful to map physical, virtual, and available memory information from macOS
+ *
+ * @author N7ghtm4r3 - Tecknobit
+ *
+ * @see MacOsHardwareMapper
+ *
+ * @since 1.1.0
+ */
 class MacOsGlobalMemoryMapper : MacOsHardwareMapper<MacOsGlobalMemoryImpl>() {
 
+    /**
+     * Method used to map a fresh snapshot of macOS global memory
+     *
+     * Available memory is estimated from free and inactive pages
+     * The native queries are independent and do not form an atomic snapshot
+     *
+     * @return the mapped memory snapshot as [MacOsGlobalMemoryImpl]
+     * @throws IllegalStateException If swap usage or swap page statistics cannot be read
+     */
     override fun mapFromNative(): MacOsGlobalMemoryImpl {
         val totalMemory = loadTotalMemory()
         val pageSize = loadPageSize()
@@ -34,6 +52,11 @@ class MacOsGlobalMemoryMapper : MacOsHardwareMapper<MacOsGlobalMemoryImpl>() {
         )
     }
 
+    /**
+     * Method used to read the total physical memory from `hw.memsize`
+     *
+     * @return the total memory in bytes, or zero when the query fails, as [Long]
+     */
     @Loader
     private fun loadTotalMemory(): Long {
         return queryLongSysCtlByName(
@@ -42,13 +65,17 @@ class MacOsGlobalMemoryMapper : MacOsHardwareMapper<MacOsGlobalMemoryImpl>() {
         )!!
     }
 
+    /**
+     * Method used to read the Mach host memory page size
+     *
+     * @return the page size in bytes, or zero when the native query fails, as [Long]
+     */
     @Loader
     private fun loadPageSize(): Long {
         return memScoped {
             val buffer = alloc<vm_size_tVar>()
-            val host = mach_host_self()
 
-            useMachHost {
+            useMachHost { host ->
                 val result = host_page_size(
                     host,
                     buffer.ptr
@@ -61,6 +88,13 @@ class MacOsGlobalMemoryMapper : MacOsHardwareMapper<MacOsGlobalMemoryImpl>() {
         }
     }
 
+    /**
+     * Method used to estimate available memory from free and inactive pages
+     *
+     * @param pageSize The memory page size in bytes
+     *
+     * @return the estimated available memory in bytes, or zero when the query fails, as [Long]
+     */
     @Resolver
     private fun resolveAvailableMemory(
         pageSize: Long
@@ -89,6 +123,15 @@ class MacOsGlobalMemoryMapper : MacOsHardwareMapper<MacOsGlobalMemoryImpl>() {
         }
     }
 
+    /**
+     * Method used to map virtual memory using the supplied physical memory snapshot
+     *
+     * @param totalRam The total physical memory in bytes
+     * @param availableRam The estimated available physical memory in bytes
+     *
+     * @return the mapped virtual memory as [MacOsVirtualMemory]
+     * @throws IllegalStateException If swap usage or swap page statistics cannot be read
+     */
     @Loader
     private fun loadVirtualMemory(
         totalRam: Long,
@@ -102,6 +145,11 @@ class MacOsGlobalMemoryMapper : MacOsHardwareMapper<MacOsGlobalMemoryImpl>() {
         return macOsVirtualMemoryMapper.mapFromNative()
     }
 
+    /**
+     * Method used to map physical memory for the detected macOS architecture
+     *
+     * @return the mapped modules as [List] of [MacOsPhysicalMemory]
+     */
     @Loader
     private fun loadPhysicalMemory(): List<MacOsPhysicalMemory> {
         val macOsPhysicalMemoryMapper = MacOsPhysicalMemoryMapper()
