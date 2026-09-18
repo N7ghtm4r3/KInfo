@@ -1,6 +1,5 @@
 package com.tecknobit.kinfo.hardware
 
-import com.tecknobit.kinfo.model.desktop.common.hardware.UsbDevice
 import com.tecknobit.kinfo.model.desktop.macos.hardware.MacOsUsbDevice
 
 data class MacOsUsbDeviceImpl(
@@ -10,5 +9,5 @@ data class MacOsUsbDeviceImpl(
     override val productId: String,
     override val serialNumber: String,
     override val uniqueDeviceId: String,
-    override val connectedDevices: List<UsbDevice>
+    override val connectedDevices: List<MacOsUsbDevice>
 ) : MacOsUsbDevice

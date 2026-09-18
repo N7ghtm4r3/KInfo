@@ -1,12 +1,12 @@
 package com.tecknobit.kinfo.hardware
 
-import com.tecknobit.kinfo.model.desktop.common.hardware.display.DisplayInfo
 import com.tecknobit.kinfo.model.desktop.macos.hardware.MacOsDisplay
+import com.tecknobit.kinfo.model.desktop.macos.hardware.MacOsDisplayInfo
 
 data class MacOsDisplayImpl(
     @Deprecated("Deprecated since 1.1.0", replaceWith = ReplaceWith("DisplayInfo.edid"))
     override val edid: ByteArray,
-    override val displayInfo: DisplayInfo,
+    override val displayInfo: MacOsDisplayInfo,
     override val displayPort: String,
     override val outputName: String?
 ) : MacOsDisplay {
