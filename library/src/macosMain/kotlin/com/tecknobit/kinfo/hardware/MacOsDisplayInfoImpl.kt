@@ -2,6 +2,32 @@ package com.tecknobit.kinfo.hardware
 
 import com.tecknobit.kinfo.model.desktop.macos.hardware.MacOsDisplayInfo
 
+/**
+ * The `MacOsDisplayInfoImpl` class is useful to hold decoded macOS display identification information
+ *
+ * Equality and hashing compare the contents of [edid] together with all decoded properties
+ *
+ * @property edid The native or synthesized Extended Display Identification Data
+ * @property isEdidSynthetic Whether [edid] was synthesized from native display attributes
+ * @property manufacturerID The decoded three-letter manufacturer identifier, or an empty string when invalid
+ * @property productID The product identifier formatted as a hexadecimal string
+ * @property serialNo The numeric serial bytes formatted as characters or hexadecimal pairs
+ * @property week The raw manufacture-week byte, with unsigned `255` represented as `-1`
+ * @property year The manufacture year, with `1990` as the built-in display fallback
+ * @property version The identification data version in `major.revision` format
+ * @property isDigital Whether the display input is digital
+ * @property hcm The horizontal physical size in centimeters, or zero when unavailable
+ * @property vcm The vertical physical size in centimeters, or zero when unavailable
+ * @property preferredResolution The preferred or built-in native resolution in `widthxheight` format, or an empty string
+ * @property model The display name, or `unknown` when unavailable
+ * @property productSerialNumber The alphanumeric serial descriptor or native attribute, or an empty string when unavailable
+ *
+ * @author N7ghtm4r3 - Tecknobit
+ *
+ * @see MacOsDisplayInfo
+ *
+ * @since 1.1.0
+ */
 data class MacOsDisplayInfoImpl(
     override val edid: ByteArray,
     override val isEdidSynthetic: Boolean,
@@ -19,6 +45,13 @@ data class MacOsDisplayInfoImpl(
     override val productSerialNumber: String
 ) : MacOsDisplayInfo {
 
+    /**
+     * Method used to compare the display identification properties and the contents of [edid]
+     *
+     * @param other The object to compare with this display information
+     *
+     * @return whether both objects have the same type and property values as [Boolean]
+     */
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other == null || this::class != other::class) return false
@@ -43,6 +76,11 @@ data class MacOsDisplayInfoImpl(
         return true
     }
 
+    /**
+     * Method used to compute a hash from the display identification properties and the contents of [edid]
+     *
+     * @return the hash of the display information as [Int]
+     */
     override fun hashCode(): Int {
         var result = isEdidSynthetic.hashCode()
         result = 31 * result + week
