@@ -80,7 +80,11 @@ class MacOsHardwareImpl : MacOsHardware {
         get() = loadUsbDevices()
 
     /**
-     * `bluetoothDevices` the Bluetooth device information, currently unavailable in this implementation
+     * `bluetoothDevices` the paired Bluetooth device snapshots freshly mapped on each access
+     *
+     * Unmatched battery readings currently use `0`, and every device receives the default local controller name
+     *
+     * @throws IllegalStateException If the HID service enumeration fails
      */
     override val bluetoothDevices: List<MacOsBluetoothDevice>
         get() = loadBluetoothDevices()
@@ -200,6 +204,12 @@ class MacOsHardwareImpl : MacOsHardware {
         return macOsUsbDevicesMapper.mapFromNative()
     }
 
+    /**
+     * Method used to load paired Bluetooth device snapshots through [MacOsBluetoothDevicesMapper]
+     *
+     * @return the mapped snapshots, or an empty list when no paired devices are returned, as [List] of [MacOsBluetoothDevice]
+     * @throws IllegalStateException If the HID service enumeration fails
+     */
     @Loader
     private fun loadBluetoothDevices(): List<MacOsBluetoothDevice> {
         val macOsBluetoothDevicesMapper = MacOsBluetoothDevicesMapper()
