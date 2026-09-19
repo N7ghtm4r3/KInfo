@@ -76,13 +76,13 @@ class MacOsHardwareImpl : MacOsHardware {
      * `usbDevices` the USB device information, currently unavailable in this implementation
      */
     override val usbDevices: List<MacOsUsbDevice>
-        get() = TODO("Not yet implemented")
+        get() = loadUsbDevices()
 
     /**
-     * `bluetoothDevice` the Bluetooth device information, currently unavailable in this implementation
+     * `bluetoothDevices` the Bluetooth device information, currently unavailable in this implementation
      */
-    override val bluetoothDevice: MacOsBluetoothDevice
-        get() = TODO("Not yet implemented")
+    override val bluetoothDevices: List<MacOsBluetoothDevice>
+        get() = loadBluetoothDevices()
 
     /**
      * `printers` the CUPS destination snapshots freshly mapped on each access
@@ -93,7 +93,11 @@ class MacOsHardwareImpl : MacOsHardware {
         get() = loadPrinters()
 
     /**
-     * `soundCards` the audio device information, currently unavailable in this implementation
+     * `soundCards` the audio service snapshots freshly mapped on each access
+     *
+     * Each matching `IOAudio2Device` service produces one entry, which need not represent a separate physical card
+     *
+     * @throws IllegalStateException If the native audio service enumeration fails
      */
     override val soundCards: List<MacOsSoundCard>
         get() = loadSoundCards()
@@ -184,6 +188,20 @@ class MacOsHardwareImpl : MacOsHardware {
         return macOsDisplaysInfoMapper.mapFromNative()
     }
 
+    @Loader
+    private fun loadUsbDevices(): List<MacOsUsbDevice> {
+        val macOsUsbDevicesMapper = MacOsUsbDevicesMapper()
+
+        return macOsUsbDevicesMapper.mapFromNative()
+    }
+
+    @Loader
+    private fun loadBluetoothDevices(): List<MacOsBluetoothDevice> {
+        val macOsBluetoothDevicesMapper = MacOsBluetoothDevicesMapper()
+
+        return macOsBluetoothDevicesMapper.mapFromNative()
+    }
+
     /**
      * Method used to load the current macOS printing destinations through [MacOsPrintersMapper]
      *
@@ -196,6 +214,12 @@ class MacOsHardwareImpl : MacOsHardware {
         return macOsPrintersMapper.mapFromNative()
     }
 
+    /**
+     * Method used to load the current macOS audio service snapshots through [MacOsSoundCardsMapper]
+     *
+     * @return the mapped snapshots, or an empty list when no services match, as [List] of [MacOsSoundCard]
+     * @throws IllegalStateException If the native audio service enumeration fails
+     */
     @Loader
     private fun loadSoundCards(): List<MacOsSoundCard> {
         val macOsSoundCardsMapper = MacOsSoundCardsMapper()

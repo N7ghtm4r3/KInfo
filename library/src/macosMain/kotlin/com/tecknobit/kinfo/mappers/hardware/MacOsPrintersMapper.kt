@@ -27,9 +27,6 @@ import platform.cups.cups_dest_t
  */
 class MacOsPrintersMapper : MacOsHardwareMapper<List<MacOsPrinterImpl>>() {
 
-    /**
-     * The companion object allows to identify the connection schemes treated as local printer connections
-     */
     private companion object {
 
         /**
