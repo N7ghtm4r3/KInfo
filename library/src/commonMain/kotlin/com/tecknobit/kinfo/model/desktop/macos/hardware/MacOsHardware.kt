@@ -50,17 +50,17 @@ interface MacOsHardware {
     val usbDevices: List<MacOsUsbDevice>
 
     /**
-     * `bluetoothDevice` the Bluetooth device information
+     * `bluetoothDevices` the Bluetooth device information
      */
-    val bluetoothDevice: MacOsBluetoothDevice
+    val bluetoothDevices: List<MacOsBluetoothDevice>
 
     /**
-     * `printers` the printer information
+     * `printers` the printers information
      */
     val printers: List<MacOsPrinter>
 
     /**
-     * `soundCards` the audio device information
+     * `soundCards` the audio device names, driver versions, and codec descriptions exposed by the macOS implementation
      */
     val soundCards: List<MacOsSoundCard>
 
