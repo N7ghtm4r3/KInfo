@@ -4,6 +4,7 @@ import com.tecknobit.kinfo.annotations.Loader
 import com.tecknobit.kinfo.mappers.hardware.MacOsPowerSourceMapper
 import com.tecknobit.kinfo.mappers.hardware.centralprocessor.MacOsCentralProcessorMapper
 import com.tecknobit.kinfo.mappers.hardware.computersystem.MacOsComputerSystemMapper
+import com.tecknobit.kinfo.mappers.hardware.disks.MacOsHWDisksStoreMapper
 import com.tecknobit.kinfo.mappers.hardware.globalmemory.MacOsGlobalMemoryMapper
 import com.tecknobit.kinfo.model.desktop.macos.hardware.*
 
@@ -47,10 +48,12 @@ class MacOsHardwareImpl : MacOsHardware {
         get() = loadPowerSource()
 
     /**
-     * `disk` the disk information, currently unavailable in this implementation
+     * `disks` the whole-media identities, I/O statistics, and associated partitions freshly mapped on each access
+     *
+     * @throws IllegalStateException If an IOKit media enumeration fails
      */
-    override val disk: MacOsHWDiskStore
-        get() = TODO("Not yet implemented")
+    override val disks: List<MacOsHWDiskStore>
+        get() = loadDisks()
 
     /**
      * `networkInterface` the network interface information, currently unavailable in this implementation
@@ -146,6 +149,19 @@ class MacOsHardwareImpl : MacOsHardware {
         val macOsPowerSourceMapper = MacOsPowerSourceMapper()
 
         return macOsPowerSourceMapper.mapFromNative()
+    }
+
+    /**
+     * Method used to load the current macOS whole-media snapshots through [MacOsHWDisksStoreMapper]
+     *
+     * @return the mapped disk information as [List] of [MacOsHWDiskStore]
+     * @throws IllegalStateException If an IOKit media enumeration fails
+     */
+    @Loader
+    private fun loadDisks(): List<MacOsHWDiskStore> {
+        val macOsHWDisksStoreMapper = MacOsHWDisksStoreMapper()
+
+        return macOsHWDisksStoreMapper.mapFromNative()
     }
 
 }
