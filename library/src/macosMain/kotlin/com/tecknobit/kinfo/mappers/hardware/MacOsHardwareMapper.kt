@@ -542,7 +542,6 @@ abstract class MacOsHardwareMapper<H> : NativeMapper<H>() {
      *
      * @return the stored string or the entry fallback as [String]
      */
-    @Suppress("UNCHECKED_CAST")
     protected fun Map<String, *>?.readStringFromDictionaryOrUnknown(
         key: String
     ): String {
@@ -561,7 +560,6 @@ abstract class MacOsHardwareMapper<H> : NativeMapper<H>() {
      *
      * @return the stored string or [default] as [String]
      */
-    @Suppress("UNCHECKED_CAST")
     protected fun Map<String, *>?.readStringFromDictionary(
         key: String,
         default: String = ""
@@ -570,6 +568,52 @@ abstract class MacOsHardwareMapper<H> : NativeMapper<H>() {
             key = key,
             default = default
         )
+    }
+
+    /**
+     * Method used to convert a dictionary number to a signed 32-bit integer
+     *
+     * Present values must be [NSNumber] instances
+     *
+     * @receiver The optional dictionary containing the requested number
+     * @param key The entry name to read
+     * @param default The fallback number when the dictionary, entry, or value is null or absent
+     *
+     * @return the converted number or [default] as [Int]
+     */
+    protected fun Map<String, *>?.readIntFromDictionary(
+        key: String,
+        default: Int = 0,
+    ): Int {
+        return readNSNumberFromDictionary(
+            key = key,
+            default = NSNumber(
+                int = default
+            )
+        ).intValue
+    }
+
+    /**
+     * Method used to convert a dictionary number to an unsigned 32-bit integer
+     *
+     * Present values must be [NSNumber] instances
+     *
+     * @receiver The optional dictionary containing the requested number
+     * @param key The entry name to read
+     * @param default The fallback number when the dictionary, entry, or value is null or absent
+     *
+     * @return the converted number or [default] as [UInt]
+     */
+    protected fun Map<String, *>?.readUIntFromDictionary(
+        key: String,
+        default: UInt = 0u,
+    ): UInt {
+        return readNSNumberFromDictionary(
+            key = key,
+            default = NSNumber(
+                unsignedInt = default
+            )
+        ).unsignedIntValue
     }
 
     /**
@@ -583,7 +627,6 @@ abstract class MacOsHardwareMapper<H> : NativeMapper<H>() {
      *
      * @return the converted number or [default] as [Long]
      */
-    @Suppress("UNCHECKED_CAST")
     protected fun Map<String, *>?.readLongFromDictionary(
         key: String,
         default: Long = 0,
@@ -605,7 +648,6 @@ abstract class MacOsHardwareMapper<H> : NativeMapper<H>() {
      *
      * @return the stored numeric object or [default] as [NSNumber]
      */
-    @Suppress("UNCHECKED_CAST")
     private fun Map<String, *>?.readNSNumberFromDictionary(
         key: String,
         default: NSNumber = NSNumber(0),
@@ -617,14 +659,17 @@ abstract class MacOsHardwareMapper<H> : NativeMapper<H>() {
     }
 
     /**
-     * Method used to retrieve a dictionary entry and expose it through an unchecked generic cast
+     * Method used to retrieve a dictionary value with a configurable fallback
      *
-     * @receiver The optional dictionary containing the requested entry
-     * @param T The expected entry type
+     * Present values must be compatible with the requested type
+     * The generic cast does not validate their runtime type
+     *
+     * @receiver The optional dictionary containing the requested value
+     * @param T The expected value type
      * @param key The entry name to read
-     * @param default The fallback value for a missing or null entry in a non-null dictionary
+     * @param default The fallback when the dictionary, entry, or value is null or absent
      *
-     * @return the unchecked lookup result as [T]
+     * @return the stored value or [default] as [T]
      */
     @Suppress("UNCHECKED_CAST")
     protected fun <T> Map<String, *>?.readFromDictionary(

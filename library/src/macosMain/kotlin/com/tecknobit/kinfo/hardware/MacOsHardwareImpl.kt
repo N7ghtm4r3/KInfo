@@ -1,7 +1,7 @@
 package com.tecknobit.kinfo.hardware
 
 import com.tecknobit.kinfo.annotations.Loader
-import com.tecknobit.kinfo.mappers.hardware.MacOsPowerSourceMapper
+import com.tecknobit.kinfo.mappers.hardware.*
 import com.tecknobit.kinfo.mappers.hardware.centralprocessor.MacOsCentralProcessorMapper
 import com.tecknobit.kinfo.mappers.hardware.computersystem.MacOsComputerSystemMapper
 import com.tecknobit.kinfo.mappers.hardware.disks.MacOsHWDisksStoreMapper
@@ -62,10 +62,15 @@ class MacOsHardwareImpl : MacOsHardware {
         get() = TODO("Not yet implemented")
 
     /**
-     * `displayInfo` the display information, currently unavailable in this implementation
+     * `displaysInfo` the display identification information freshly mapped on each access
+     *
+     * Native data is decoded when supported, while the Apple Silicon built-in display uses synthesized data
+     * Entries without the attributes required by the mapper are omitted
+     *
+     * @throws IllegalStateException If an IOKit display service enumeration fails
      */
-    override val displayInfo: MacOsDisplay
-        get() = TODO("Not yet implemented")
+    override val displaysInfo: List<MacOsDisplayInfo>
+        get() = loadDisplayInfo()
 
     /**
      * `usbDevices` the USB device information, currently unavailable in this implementation
@@ -80,22 +85,22 @@ class MacOsHardwareImpl : MacOsHardware {
         get() = TODO("Not yet implemented")
 
     /**
-     * `destination` the printer information, currently unavailable in this implementation
+     * `printers` the printer information, currently unavailable in this implementation
      */
-    override val destination: MacOsPrinter
-        get() = TODO("Not yet implemented")
+    override val printers: List<MacOsPrinter>
+        get() = loadPrinters()
 
     /**
-     * `audioDeviceId` the audio device information, currently unavailable in this implementation
+     * `soundCards` the audio device information, currently unavailable in this implementation
      */
-    override val audioDeviceId: MacOsSoundCard
-        get() = TODO("Not yet implemented")
+    override val soundCards: List<MacOsSoundCard>
+        get() = loadSoundCards()
 
     /**
-     * `metalDevice` the graphics card information, currently unavailable in this implementation
+     * `graphicsCard` the graphics card information, currently unavailable in this implementation
      */
-    override val metalDevice: MacOsGraphicsCard
-        get() = TODO("Not yet implemented")
+    override val graphicsCard: List<MacOsGraphicsCard>
+        get() = loadGraphicsCards()
 
     /**
      * Method used to load the current macOS computer system information through [MacOsComputerSystemMapper]
@@ -162,6 +167,40 @@ class MacOsHardwareImpl : MacOsHardware {
         val macOsHWDisksStoreMapper = MacOsHWDisksStoreMapper()
 
         return macOsHWDisksStoreMapper.mapFromNative()
+    }
+
+    /**
+     * Method used to load the current macOS display identification information through [MacOsDisplaysInfoMapper]
+     *
+     * @return the mapped display information as [List] of [MacOsDisplayInfo]
+     * @throws IllegalStateException If an IOKit display service enumeration fails
+     */
+    @Loader
+    private fun loadDisplayInfo(): List<MacOsDisplayInfo> {
+        val macOsDisplaysInfoMapper = MacOsDisplaysInfoMapper()
+
+        return macOsDisplaysInfoMapper.mapFromNative()
+    }
+
+    @Loader
+    private fun loadPrinters(): List<MacOsPrinter> {
+        val macOsPrintersMapper = MacOsPrintersMapper()
+
+        return macOsPrintersMapper.mapFromNative()
+    }
+
+    @Loader
+    private fun loadSoundCards(): List<MacOsSoundCard> {
+        val macOsSoundCardsMapper = MacOsSoundCardsMapper()
+
+        return macOsSoundCardsMapper.mapFromNative()
+    }
+
+    @Loader
+    private fun loadGraphicsCards(): List<MacOsGraphicsCard> {
+        val macOsGraphicCardsMapper = MacOsGraphicCardsMapper()
+
+        return macOsGraphicCardsMapper.mapFromNative()
     }
 
 }
