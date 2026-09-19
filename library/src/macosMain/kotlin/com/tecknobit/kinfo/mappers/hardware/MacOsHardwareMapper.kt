@@ -28,9 +28,6 @@ import platform.IOKit.*
  */
 abstract class MacOsHardwareMapper<H> : NativeMapper<H>() {
 
-    /**
-     * The companion object allows to identify IOKit services and configure native registry property reads
-     */
     protected companion object {
 
         /**
@@ -328,6 +325,17 @@ abstract class MacOsHardwareMapper<H> : NativeMapper<H>() {
             key = key,
             default = default,
             returns = { it.intValue }
+        )
+    }
+
+    protected fun io_registry_entry_t.readUIntFromRegistry(
+        key: String,
+        default: UInt = 0u
+    ): UInt {
+        return readPrimitiveFromRegistry(
+            key = key,
+            default = default,
+            returns = { it.unsignedIntValue }
         )
     }
 

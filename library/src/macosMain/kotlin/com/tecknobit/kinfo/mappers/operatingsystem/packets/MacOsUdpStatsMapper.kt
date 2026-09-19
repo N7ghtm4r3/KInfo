@@ -14,9 +14,6 @@ import com.tecknobit.kinfo.operatingsystem.MacOsUdpStatsImpl
  */
 class MacOsUdpStatsMapper : MacOsPacketsStatsMapper<MacOsUdpStatsImpl>() {
 
-    /**
-     * The companion object contains the indexes of the native macOS `UDP` counters
-     */
     private companion object {
 
         /**
