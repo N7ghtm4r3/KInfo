@@ -30,9 +30,9 @@ interface MacOsHardware {
     val powerSourceDescription: MacOsPowerSource
 
     /**
-     * `disk` the disk information
+     * `disks` the whole-media information for physical and synthesized disks and their associated partitions
      */
-    val disk: MacOsHWDiskStore
+    val disks: List<MacOsHWDiskStore>
 
     /**
      * `networkInterface` the network interface information

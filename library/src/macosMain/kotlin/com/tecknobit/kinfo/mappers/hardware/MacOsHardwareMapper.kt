@@ -15,7 +15,7 @@ import platform.Foundation.NSNumber
 import platform.IOKit.*
 
 /**
- * The `MacOsHardwareMapper` class is useful to load IOKit services and read binary, textual, and numeric registry properties
+ * The `MacOsHardwareMapper` class is useful to load IOKit services and read registry properties and dictionaries
  * for macOS hardware models
  *
  * @param H The type of hardware model produced by the mapper
@@ -29,7 +29,7 @@ import platform.IOKit.*
 abstract class MacOsHardwareMapper<H> : NativeMapper<H>() {
 
     /**
-     * The companion object contains the buffer capacity used for native registry property reads
+     * The companion object allows to identify IOKit services and configure native registry property reads
      */
     protected companion object {
 
@@ -57,6 +57,11 @@ abstract class MacOsHardwareMapper<H> : NativeMapper<H>() {
          * `IO_DEVICE_TREE_CHOSEN` the plane-qualified path of the chosen device tree entry
          */
         const val IO_DEVICE_TREE_CHOSEN = "IODeviceTree:/chosen"
+
+        /**
+         * `IO_MEDIA_SERVICE` the IOKit class name used to enumerate whole media, partitions, and logical media
+         */
+        const val IO_MEDIA_SERVICE = "IOMedia"
 
     }
 
@@ -489,6 +494,149 @@ abstract class MacOsHardwareMapper<H> : NativeMapper<H>() {
 
             buffer.readBytes(valueSize.toInt())
         }
+    }
+
+    /**
+     * Method used to search a registry entry and its ancestors for a dictionary property in the I/O service plane
+     *
+     * The property is bridged to managed memory and the receiver remains owned by the caller
+     * The cast does not validate the type of every dictionary key or value
+     *
+     * @receiver The borrowed registry entry at which the ancestor search starts
+     * @param key The dictionary property name to search
+     *
+     * @return the bridged dictionary, or null when unavailable or not a map, as [Map]
+     */
+    @Suppress("UNCHECKED_CAST")
+    protected fun io_registry_entry_t.findDictionaryInRegistry(
+        key: String
+    ): Map<String, *>? {
+        return memScoped {
+            val cfKey = CFStringCreateWithCString(
+                null,
+                key,
+                kCFStringEncodingUTF8
+            ) ?: return@memScoped null
+
+            try {
+                val property = IORegistryEntrySearchCFProperty(
+                    this@findDictionaryInRegistry,
+                    kIOServicePlane.cstr.ptr,
+                    cfKey,
+                    null,
+                    kIORegistryIterateParents or kIORegistryIterateRecursively
+                )
+
+                CFBridgingRelease(property) as? Map<String, *>
+            } finally {
+                CFRelease(cfKey)
+            }
+        }
+    }
+
+    /**
+     * Method used to read a dictionary string with [UNKNOWN] as the entry fallback
+     *
+     * @receiver The dictionary containing the requested string
+     * @param key The entry name to read
+     *
+     * @return the stored string or the entry fallback as [String]
+     */
+    @Suppress("UNCHECKED_CAST")
+    protected fun Map<String, *>?.readStringFromDictionaryOrUnknown(
+        key: String
+    ): String {
+        return readFromDictionary(
+            key = key,
+            default = UNKNOWN
+        )
+    }
+
+    /**
+     * Method used to read a dictionary string with a configurable entry fallback
+     *
+     * @receiver The dictionary containing the requested string
+     * @param key The entry name to read
+     * @param default The fallback string for a missing or null entry
+     *
+     * @return the stored string or [default] as [String]
+     */
+    @Suppress("UNCHECKED_CAST")
+    protected fun Map<String, *>?.readStringFromDictionary(
+        key: String,
+        default: String = ""
+    ): String {
+        return readFromDictionary(
+            key = key,
+            default = default
+        )
+    }
+
+    /**
+     * Method used to convert a dictionary number to a signed 64-bit integer on macOS
+     *
+     * Present values must be [NSNumber] instances and retain their native measurement units
+     *
+     * @receiver The dictionary containing the requested number
+     * @param key The entry name to read
+     * @param default The fallback number for a missing or null entry
+     *
+     * @return the converted number or [default] as [Long]
+     */
+    @Suppress("UNCHECKED_CAST")
+    protected fun Map<String, *>?.readLongFromDictionary(
+        key: String,
+        default: Long = 0,
+    ): Long {
+        return readNSNumberFromDictionary(
+            key = key,
+            default = NSNumber(
+                long = default
+            )
+        ).longValue
+    }
+
+    /**
+     * Method used to retrieve a dictionary number with a configurable entry fallback
+     *
+     * @receiver The dictionary containing the requested number
+     * @param key The entry name to read
+     * @param default The fallback object for a missing or null entry
+     *
+     * @return the stored numeric object or [default] as [NSNumber]
+     */
+    @Suppress("UNCHECKED_CAST")
+    private fun Map<String, *>?.readNSNumberFromDictionary(
+        key: String,
+        default: NSNumber = NSNumber(0),
+    ): NSNumber {
+        return readFromDictionary(
+            key = key,
+            default = default
+        )
+    }
+
+    /**
+     * Method used to retrieve a dictionary entry and expose it through an unchecked generic cast
+     *
+     * @receiver The optional dictionary containing the requested entry
+     * @param T The expected entry type
+     * @param key The entry name to read
+     * @param default The fallback value for a missing or null entry in a non-null dictionary
+     *
+     * @return the unchecked lookup result as [T]
+     */
+    @Suppress("UNCHECKED_CAST")
+    protected fun <T> Map<String, *>?.readFromDictionary(
+        key: String,
+        default: T
+    ): T {
+        val value = this?.getOrElse(
+            key = key,
+            defaultValue = { default }
+        )
+
+        return (value as T) ?: default
     }
 
     /**
