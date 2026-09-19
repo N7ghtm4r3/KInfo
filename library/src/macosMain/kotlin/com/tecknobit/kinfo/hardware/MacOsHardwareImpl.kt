@@ -85,7 +85,9 @@ class MacOsHardwareImpl : MacOsHardware {
         get() = TODO("Not yet implemented")
 
     /**
-     * `printers` the printer information, currently unavailable in this implementation
+     * `printers` the CUPS destination snapshots freshly mapped on each access
+     *
+     * An empty list is returned when no destinations are provided, including when enumeration fails without data
      */
     override val printers: List<MacOsPrinter>
         get() = loadPrinters()
@@ -182,6 +184,11 @@ class MacOsHardwareImpl : MacOsHardware {
         return macOsDisplaysInfoMapper.mapFromNative()
     }
 
+    /**
+     * Method used to load the current macOS printing destinations through [MacOsPrintersMapper]
+     *
+     * @return the mapped printer snapshots, or an empty list when no destinations are provided, as [List] of [MacOsPrinter]
+     */
     @Loader
     private fun loadPrinters(): List<MacOsPrinter> {
         val macOsPrintersMapper = MacOsPrintersMapper()
