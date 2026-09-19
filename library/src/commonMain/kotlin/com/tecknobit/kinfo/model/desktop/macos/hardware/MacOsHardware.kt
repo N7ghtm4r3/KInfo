@@ -65,8 +65,8 @@ interface MacOsHardware {
     val soundCards: List<MacOsSoundCard>
 
     /**
-     * `graphicsCard` the graphics card information
+     * `graphicCards` the graphics card identities, hardware revisions, and video-memory values exposed by macOS
      */
-    val graphicsCard: List<MacOsGraphicsCard>
+    val graphicCards: List<MacOsGraphicsCard>
 
 }
