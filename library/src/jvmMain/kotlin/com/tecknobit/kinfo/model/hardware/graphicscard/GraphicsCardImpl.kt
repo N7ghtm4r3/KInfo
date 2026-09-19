@@ -40,6 +40,7 @@ class GraphicsCardImpl(
     @Bridge
     override fun createStatsSession(): GpuStats? {
         val sourceStats = source?.createStatsSession()
+
         return sourceStats?.use {
             val ticks = it.gpuTicks
             GpuStatsImpl(
