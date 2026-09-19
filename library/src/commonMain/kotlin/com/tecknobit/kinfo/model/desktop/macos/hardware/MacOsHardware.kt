@@ -40,9 +40,9 @@ interface MacOsHardware {
     val networkInterface: MacOsNetworkIF
 
     /**
-     * `displayInfo` the display information
+     * `displaysInfo` the decoded identification information for the displays available to the native mapper
      */
-    val displayInfo: MacOsDisplay
+    val displaysInfo: List<MacOsDisplayInfo>
 
     /**
      * `usbDevices` the USB device information
@@ -55,18 +55,18 @@ interface MacOsHardware {
     val bluetoothDevice: MacOsBluetoothDevice
 
     /**
-     * `destination` the printer information
+     * `printers` the printer information
      */
-    val destination: MacOsPrinter
+    val printers: List<MacOsPrinter>
 
     /**
-     * `audioDeviceId` the audio device information
+     * `soundCards` the audio device information
      */
-    val audioDeviceId: MacOsSoundCard
+    val soundCards: List<MacOsSoundCard>
 
     /**
-     * `metalDevice` the graphics card information
+     * `graphicsCard` the graphics card information
      */
-    val metalDevice: MacOsGraphicsCard
+    val graphicsCard: List<MacOsGraphicsCard>
 
 }
