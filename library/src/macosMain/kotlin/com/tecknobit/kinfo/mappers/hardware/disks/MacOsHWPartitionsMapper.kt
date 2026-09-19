@@ -27,7 +27,7 @@ import platform.IOKit.io_service_t
  *
  * @since 1.1.0
  */
-class MacOsHWPartitionMapper(
+class MacOsHWPartitionsMapper(
     private val diskName: String
 ) : MacOsHardwareMapper<List<MacOsHWPartitionImpl>>() {
 
@@ -66,30 +66,29 @@ class MacOsHWPartitionMapper(
                 key = "BSD Minor"
             )
 
-            partitions.add(
-                MacOsHWPartitionImpl(
-                    identification = identification,
-                    name = partitionDescription.readStringFromDictionary(
-                        key = "DAMediaName",
-                        default = identification
-                    ),
-                    type = partitionDescription.readStringFromDictionary(
-                        key = "DAVolumeKind"
-                    ),
-                    uuid = partition.readStringFromRegistry(
-                        key = "UUID"
-                    ),
-                    size = size,
-                    major = major,
-                    minor = minor,
-                    mountPoint = resolveMountPoint(
-                        partitionDescription = partitionDescription
-                    ),
-                    label = partitionDescription.readStringFromDictionary(
-                        key = "DAVolumeName"
-                    )
+            val partition = MacOsHWPartitionImpl(
+                identification = identification,
+                name = partitionDescription.readStringFromDictionary(
+                    key = "DAMediaName",
+                    default = identification
+                ),
+                type = partitionDescription.readStringFromDictionary(
+                    key = "DAVolumeKind"
+                ),
+                uuid = partition.readStringFromRegistry(
+                    key = "UUID"
+                ),
+                size = size,
+                major = major,
+                minor = minor,
+                mountPoint = resolveMountPoint(
+                    partitionDescription = partitionDescription
+                ),
+                label = partitionDescription.readStringFromDictionary(
+                    key = "DAVolumeName"
                 )
             )
+            partitions.add(partition)
         }
 
         return partitions

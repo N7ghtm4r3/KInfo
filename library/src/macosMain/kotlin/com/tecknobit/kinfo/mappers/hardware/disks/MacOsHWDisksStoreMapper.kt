@@ -60,41 +60,40 @@ class MacOsHWDisksStoreMapper : MacOsHardwareMapper<List<MacOsHWDiskStoreImpl>>(
                 key = "Statistics"
             )
 
-            disks.add(
-                MacOsHWDiskStoreImpl(
-                    name = name,
-                    model = characteristics.readStringFromDictionaryOrUnknown(
-                        key = "Product Name"
-                    ),
-                    serial = characteristics.readStringFromDictionaryOrUnknown(
-                        key = "Serial Number"
-                    ),
-                    size = size,
-                    reads = statistics.readLongFromDictionary(
-                        key = "Operations (Read)"
-                    ),
-                    readBytes = statistics.readLongFromDictionary(
-                        key = "Bytes (Read)"
-                    ),
-                    writes = statistics.readLongFromDictionary(
-                        key = "Operations (Write)"
-                    ),
-                    writesBytes = statistics.readLongFromDictionary(
-                        key = "Bytes (Write)"
-                    ),
-                    transferTime = resolveTransferTime(
-                        statistics = statistics
-                    ),
-                    partitions = loadPartitions(
-                        diskName = name
-                    ),
-                    timestamp = Clock.System.now().toEpochMilliseconds(),
-                    diskType = resolveDiskType(
-                        media = media,
-                        mediumType = mediumType
-                    )
+            val disk = MacOsHWDiskStoreImpl(
+                name = name,
+                model = characteristics.readStringFromDictionaryOrUnknown(
+                    key = "Product Name"
+                ),
+                serial = characteristics.readStringFromDictionaryOrUnknown(
+                    key = "Serial Number"
+                ),
+                size = size,
+                reads = statistics.readLongFromDictionary(
+                    key = "Operations (Read)"
+                ),
+                readBytes = statistics.readLongFromDictionary(
+                    key = "Bytes (Read)"
+                ),
+                writes = statistics.readLongFromDictionary(
+                    key = "Operations (Write)"
+                ),
+                writesBytes = statistics.readLongFromDictionary(
+                    key = "Bytes (Write)"
+                ),
+                transferTime = resolveTransferTime(
+                    statistics = statistics
+                ),
+                partitions = loadPartitions(
+                    diskName = name
+                ),
+                timestamp = Clock.System.now().toEpochMilliseconds(),
+                diskType = resolveDiskType(
+                    media = media,
+                    mediumType = mediumType
                 )
             )
+            disks.add(disk)
         }
 
         return disks
@@ -137,7 +136,7 @@ class MacOsHWDisksStoreMapper : MacOsHardwareMapper<List<MacOsHWDiskStoreImpl>>(
     private fun loadPartitions(
         diskName: String
     ): List<MacOsHWPartitionImpl> {
-        val macOsHWPartitionMapper = MacOsHWPartitionMapper(
+        val macOsHWPartitionMapper = MacOsHWPartitionsMapper(
             diskName = diskName
         )
 
