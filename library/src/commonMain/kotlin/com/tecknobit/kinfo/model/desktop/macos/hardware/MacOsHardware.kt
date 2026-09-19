@@ -50,7 +50,7 @@ interface MacOsHardware {
     val usbDevices: List<MacOsUsbDevice>
 
     /**
-     * `bluetoothDevices` the Bluetooth device information
+     * `bluetoothDevices` the snapshots of Bluetooth devices paired with the system, including disconnected devices
      */
     val bluetoothDevices: List<MacOsBluetoothDevice>
 
