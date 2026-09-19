@@ -6,6 +6,7 @@ import com.tecknobit.kinfo.mappers.hardware.centralprocessor.MacOsCentralProcess
 import com.tecknobit.kinfo.mappers.hardware.computersystem.MacOsComputerSystemMapper
 import com.tecknobit.kinfo.mappers.hardware.disks.MacOsHWDisksStoreMapper
 import com.tecknobit.kinfo.mappers.hardware.globalmemory.MacOsGlobalMemoryMapper
+import com.tecknobit.kinfo.mappers.hardware.gpu.MacOsGraphicCardsMapper
 import com.tecknobit.kinfo.model.desktop.macos.hardware.*
 
 /**
@@ -103,9 +104,13 @@ class MacOsHardwareImpl : MacOsHardware {
         get() = loadSoundCards()
 
     /**
-     * `graphicsCard` the graphics card information, currently unavailable in this implementation
+     * `graphicCards` the graphics card snapshots freshly mapped on each access
+     *
+     * Intel mapping selects PCI graphics controllers, while Apple Silicon mapping uses AGX accelerator services
+     *
+     * @throws IllegalStateException If the native graphics service enumeration fails
      */
-    override val graphicsCard: List<MacOsGraphicsCard>
+    override val graphicCards: List<MacOsGraphicsCard>
         get() = loadGraphicsCards()
 
     /**
@@ -227,6 +232,12 @@ class MacOsHardwareImpl : MacOsHardware {
         return macOsSoundCardsMapper.mapFromNative()
     }
 
+    /**
+     * Method used to load the current macOS graphics card snapshots through [com.tecknobit.kinfo.mappers.hardware.gpu.MacOsGraphicCardsMapper]
+     *
+     * @return the mapped snapshots, or an empty list when no services are accepted, as [List] of [MacOsGraphicsCard]
+     * @throws IllegalStateException If the native graphics service enumeration fails
+     */
     @Loader
     private fun loadGraphicsCards(): List<MacOsGraphicsCard> {
         val macOsGraphicCardsMapper = MacOsGraphicCardsMapper()

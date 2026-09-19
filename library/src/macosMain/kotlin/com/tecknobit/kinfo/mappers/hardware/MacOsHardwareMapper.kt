@@ -4,6 +4,7 @@ package com.tecknobit.kinfo.mappers.hardware
 
 import com.tecknobit.kinfo.UNKNOWN
 import com.tecknobit.kinfo.annotations.Loader
+import com.tecknobit.kinfo.annotations.Resolver
 import com.tecknobit.kinfo.mappers.NativeMapper
 import com.tecknobit.kinfo.mappers.hardware.MacOsHardwareMapper.Companion.PROPERTY_VALUE_CAPACITY
 import kotlinx.cinterop.*
@@ -63,7 +64,7 @@ abstract class MacOsHardwareMapper<H> : NativeMapper<H>() {
     }
 
     /**
-     * Method used to load an IOKit service, perform an operation, and release the handle on exit
+     * Method used to load the first matching IOKit service, perform an operation, and release the handle on exit
      *
      * The operation receives a borrowed handle and must not release it or use it after this method returns
      * The handle is also released when the operation throws or performs a non-local return
@@ -98,7 +99,6 @@ abstract class MacOsHardwareMapper<H> : NativeMapper<H>() {
      * @param serviceName The IOKit service class name to match
      *
      * @return the matching service handle as [io_service_t]
-     *
      * @throws IllegalStateException If no matching service handle is returned
      */
     @Loader
@@ -328,6 +328,15 @@ abstract class MacOsHardwareMapper<H> : NativeMapper<H>() {
         )
     }
 
+    /**
+     * Method used to read a numeric registry property as an unsigned 32-bit integer
+     *
+     * @receiver The borrowed registry entry containing the property
+     * @param key The property name to query
+     * @param default The fallback value when the property is unavailable or incompatible
+     *
+     * @return the converted property value or [default] as [UInt]
+     */
     protected fun io_registry_entry_t.readUIntFromRegistry(
         key: String,
         default: UInt = 0u
@@ -412,7 +421,7 @@ abstract class MacOsHardwareMapper<H> : NativeMapper<H>() {
      * @param default The fallback value when the property is unavailable, incompatible, or the conversion returns null
      * @param returns The conversion applied to the numeric property
      *
-     * @return the non-null converted property value or [default] as [T]
+     * @return the converted property value or [default] as [T]
      */
     private inline fun <T> io_registry_entry_t.readPrimitiveFromRegistry(
         key: String,
@@ -545,10 +554,12 @@ abstract class MacOsHardwareMapper<H> : NativeMapper<H>() {
     /**
      * Method used to read a dictionary string with [UNKNOWN] as the entry fallback
      *
-     * @receiver The dictionary containing the requested string
+     * Present values must be compatible with [String]
+     *
+     * @receiver The optional dictionary containing the requested string
      * @param key The entry name to read
      *
-     * @return the stored string or the entry fallback as [String]
+     * @return the stored string or [UNKNOWN] when the dictionary or entry is null or absent as [String]
      */
     protected fun Map<String, *>?.readStringFromDictionaryOrUnknown(
         key: String
@@ -562,9 +573,11 @@ abstract class MacOsHardwareMapper<H> : NativeMapper<H>() {
     /**
      * Method used to read a dictionary string with a configurable entry fallback
      *
-     * @receiver The dictionary containing the requested string
+     * Present values must be compatible with [String]
+     *
+     * @receiver The optional dictionary containing the requested string
      * @param key The entry name to read
-     * @param default The fallback string for a missing or null entry
+     * @param default The fallback string when the dictionary, entry, or value is null or absent
      *
      * @return the stored string or [default] as [String]
      */
@@ -629,9 +642,9 @@ abstract class MacOsHardwareMapper<H> : NativeMapper<H>() {
      *
      * Present values must be [NSNumber] instances and retain their native measurement units
      *
-     * @receiver The dictionary containing the requested number
+     * @receiver The optional dictionary containing the requested number
      * @param key The entry name to read
-     * @param default The fallback number for a missing or null entry
+     * @param default The fallback number when the dictionary, entry, or value is null or absent
      *
      * @return the converted number or [default] as [Long]
      */
@@ -648,11 +661,37 @@ abstract class MacOsHardwareMapper<H> : NativeMapper<H>() {
     }
 
     /**
+     * Method used to convert a dictionary number to a double-precision value
+     *
+     * Present values must be [NSNumber] instances and retain their native measurement units
+     *
+     * @receiver The optional dictionary containing the requested number
+     * @param key The entry name to read
+     * @param default The fallback number when the dictionary, entry, or value is null or absent
+     *
+     * @return the converted number or [default] as [Double]
+     * @throws ClassCastException If a present value is incompatible with [NSNumber]
+     */
+    protected fun Map<String, *>?.readDoubleFromDictionary(
+        key: String,
+        default: Double = 0.0,
+    ): Double {
+        return readNSNumberFromDictionary(
+            key = key,
+            default = NSNumber(
+                double = default
+            )
+        ).doubleValue
+    }
+
+    /**
      * Method used to retrieve a dictionary number with a configurable entry fallback
      *
-     * @receiver The dictionary containing the requested number
+     * Present values must be compatible with [NSNumber]
+     *
+     * @receiver The optional dictionary containing the requested number
      * @param key The entry name to read
-     * @param default The fallback object for a missing or null entry
+     * @param default The fallback object when the dictionary, entry, or value is null or absent
      *
      * @return the stored numeric object or [default] as [NSNumber]
      */
@@ -690,6 +729,35 @@ abstract class MacOsHardwareMapper<H> : NativeMapper<H>() {
         )
 
         return (value as T) ?: default
+    }
+
+    /**
+     * Method used to resolve the decimal registry entry identifier of an IOKit service
+     *
+     * The identifier belongs to the supplied entry and does not identify its parent or child entries
+     * The service handle remains owned by the caller
+     *
+     * @param service The borrowed service whose registry entry identifier is requested
+     *
+     * @return the decimal identifier, or [UNKNOWN] when the native query fails, as [String]
+     */
+    @Resolver
+    protected fun resolveServiceRegistryId(
+        service: io_service_t
+    ): String {
+        return memScoped {
+            val id = alloc<ULongVar>()
+
+            val registryEntryId = IORegistryEntryGetRegistryEntryID(
+                service,
+                id.ptr
+            )
+
+            if (registryEntryId == 0)
+                id.value.toString()
+            else
+                UNKNOWN
+        }
     }
 
     /**
