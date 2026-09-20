@@ -42,7 +42,7 @@ jobs:
       - name: Install Android SDK
         run: |
           "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" \
-            --install "platforms;android-37"
+            --install "platforms;android-37.0"
 
       - name: Read release version
         id: version
