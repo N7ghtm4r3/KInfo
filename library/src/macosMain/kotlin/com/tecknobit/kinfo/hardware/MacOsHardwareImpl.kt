@@ -74,7 +74,11 @@ class MacOsHardwareImpl : MacOsHardware {
         get() = loadDisplayInfo()
 
     /**
-     * `usbDevices` the USB device information, currently unavailable in this implementation
+     * `usbDevices` the root USB service snapshots and their nested connected devices freshly mapped on each access
+     *
+     * Devices for which no USB ancestor can be resolved are included at the top level
+     *
+     * @throws IllegalStateException If a native USB service enumeration fails
      */
     override val usbDevices: List<MacOsUsbDevice>
         get() = loadUsbDevices()
@@ -197,6 +201,12 @@ class MacOsHardwareImpl : MacOsHardware {
         return macOsDisplaysInfoMapper.mapFromNative()
     }
 
+    /**
+     * Method used to load the current USB service snapshots and their connected devices through [MacOsUsbDevicesMapper]
+     *
+     * @return the root devices with their nested children, or an empty list when none match, as [List] of [MacOsUsbDevice]
+     * @throws IllegalStateException If a native USB service enumeration fails
+     */
     @Loader
     private fun loadUsbDevices(): List<MacOsUsbDevice> {
         val macOsUsbDevicesMapper = MacOsUsbDevicesMapper()
