@@ -35,9 +35,9 @@ interface MacOsHardware {
     val disks: List<MacOsHWDiskStore>
 
     /**
-     * `networkInterface` the network interface information
+     * `networkInterfaces` the network interface snapshots containing identities, assigned addresses, and traffic statistics
      */
-    val networkInterface: MacOsNetworkIF
+    val networkInterfaces: List<MacOsNetworkIF>
 
     /**
      * `displaysInfo` the decoded identification information for the displays available to the native mapper

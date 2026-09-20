@@ -57,10 +57,14 @@ class MacOsHardwareImpl : MacOsHardware {
         get() = loadDisks()
 
     /**
-     * `networkInterface` the network interface information, currently unavailable in this implementation
+     * `networkInterfaces` the network interface identities, addresses, and traffic statistics freshly mapped on each access
+     *
+     * An empty list is returned when the native routing query fails or provides no interface entries
+     *
+     * @throws IllegalStateException If an interface message has an unsupported version or an undersized header
      */
-    override val networkInterface: MacOsNetworkIF
-        get() = TODO("Not yet implemented")
+    override val networkInterfaces: List<MacOsNetworkIF>
+        get() = loadNetworkInterfaces()
 
     /**
      * `displaysInfo` the display identification information freshly mapped on each access
@@ -186,6 +190,20 @@ class MacOsHardwareImpl : MacOsHardware {
         val macOsHWDisksStoreMapper = MacOsHWDisksStoreMapper()
 
         return macOsHWDisksStoreMapper.mapFromNative()
+    }
+
+    /**
+     * Method used to load the current macOS network interface snapshots through [MacOsNetworkInterfacesMapper]
+     *
+     * @return the mapped interfaces, or an empty list when the routing query fails or provides no entries,
+     * as [List] of [MacOsNetworkIF]
+     * @throws IllegalStateException If an interface message has an unsupported version or an undersized header
+     */
+    @Loader
+    private fun loadNetworkInterfaces(): List<MacOsNetworkIF> {
+        val macOsNetworkInterfacesMapper = MacOsNetworkInterfacesMapper()
+
+        return macOsNetworkInterfacesMapper.mapFromNative()
     }
 
     /**
