@@ -6,7 +6,7 @@ import com.tecknobit.kinfo.UNKNOWN
 import com.tecknobit.kinfo.annotations.Resolver
 import com.tecknobit.kinfo.hardware.MacOsSoundCardImpl
 import com.tecknobit.kinfo.mappers.hardware.MacOsSoundCardsMapper.Companion.CODEC_PATTERN_REGEX
-import kotlinx.cinterop.*
+import kotlinx.cinterop.ExperimentalForeignApi
 import platform.CoreFoundation.CFRelease
 import platform.Foundation.CFBridgingRelease
 import platform.IOKit.*
@@ -155,37 +155,27 @@ class MacOsSoundCardsMapper : MacOsHardwareMapper<List<MacOsSoundCardImpl>>() {
     private fun resolveCodecFromCompatible(
         service: io_service_t
     ): String {
-        return memScoped {
-            val parent = alloc<io_registry_entry_tVar> {
-                value = IO_OBJECT_NULL
-            }
-
-            val result = IORegistryEntryGetParentEntry(
-                service,
-                kIOServicePlane.cstr.ptr,
-                parent.ptr
-            )
-            if (result != kIOReturnSuccess || parent.value == IO_OBJECT_NULL)
-                return@memScoped UNKNOWN
-
-            try {
-                val compatible = parent.value.readStringsFromRegistry(
+        return userRegistryParentEntry(
+            service = service,
+            plane = kIOServicePlane,
+            default = UNKNOWN,
+            usage = { parent ->
+                val compatible = parent.readStringsFromRegistry(
                     key = "compatible"
                 )
 
-                compatible.mapNotNull { compatible ->
+                val compatibleEntries = compatible.mapNotNull { compatible ->
                     CODEC_PATTERN_REGEX.matchEntire(compatible)
                         ?.groupValues
                         ?.get(1)
                 }
-                    .map { it.uppercase() }
+
+                compatibleEntries.map { it.uppercase() }
                     .distinct()
                     .singleOrNull()
                     ?: UNKNOWN
-            } finally {
-                IOObjectRelease(parent.value)
             }
-        }
+        )!!
     }
 
 }

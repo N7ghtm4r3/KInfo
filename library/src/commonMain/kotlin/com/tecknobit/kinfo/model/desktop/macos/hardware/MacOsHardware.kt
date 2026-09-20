@@ -45,7 +45,7 @@ interface MacOsHardware {
     val displaysInfo: List<MacOsDisplayInfo>
 
     /**
-     * `usbDevices` the USB device information
+     * `usbDevices` the USB device identities and their nested connected devices
      */
     val usbDevices: List<MacOsUsbDevice>
 
