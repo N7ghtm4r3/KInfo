@@ -81,14 +81,30 @@ class MacOsDisplaysInfoMapper : MacOsSplitHardwareMapper<List<MacOsDisplayInfoIm
             if (manufacturerID.isBlank())
                 return@useIOServices
 
-            val productNumber = builtInDisplayId?.let { CGDisplayModelNumber(it) }?.and(0xFFFFu) ?: 0u
-            val serialNumber = builtInDisplayId?.let { CGDisplaySerialNumber(it) } ?: 0u
-            val screenSize = builtInDisplayId?.let { loadScreenSize(displayId = it) }
-            val widthPixels = service.readIntFromRegistry(key = "DisplayWidth")
-            val heightPixels = service.readIntFromRegistry(key = "DisplayHeight")
-            val model = productAttributes.readStringFromDictionary(key = "ProductName")
-                .ifBlank { builtInDisplayId?.let { resolveLocalizedDisplayName(it) }.orEmpty() }
-                .ifBlank { UNKNOWN }
+            val productNumber = builtInDisplayId?.let {
+                CGDisplayModelNumber(it)
+            }?.and(0xFFFFu) ?: 0u
+            val serialNumber = builtInDisplayId?.let {
+                CGDisplaySerialNumber(it)
+            } ?: 0u
+            val screenSize = builtInDisplayId?.let {
+                loadScreenSize(
+                    displayId = it
+                )
+            }
+            val widthPixels = service.readIntFromRegistry(
+                key = "DisplayWidth"
+            )
+            val heightPixels = service.readIntFromRegistry(
+                key = "DisplayHeight"
+            )
+            val model = productAttributes.readStringFromDictionary(
+                key = "ProductName"
+            ).ifBlank {
+                builtInDisplayId?.let {
+                    resolveLocalizedDisplayName(it)
+                }.orEmpty()
+            }.ifBlank { UNKNOWN }
 
             val displayInfo = MacOsDisplayInfoImpl(
                 edid = byteArrayOf(),
@@ -115,9 +131,17 @@ class MacOsDisplaysInfoMapper : MacOsSplitHardwareMapper<List<MacOsDisplayInfoIm
                     key = "AlphanumericSerialNumber"
                 )
             )
-            displays.add(displayInfo.copy(
-                edid = displayInfo.synthesizeEdid(vendorNumber, productNumber, serialNumber)
-            ))
+
+            val display = displayInfo.copy(
+                edid = displayInfo.synthesizeEdid(
+                    vendorNumber = vendorNumber,
+                    productNumber = productNumber,
+                    serialNumber = serialNumber
+                )
+            )
+
+            displays.add(display)
+
             builtInAdded = true
         }
 
@@ -265,25 +289,21 @@ class MacOsDisplaysInfoMapper : MacOsSplitHardwareMapper<List<MacOsDisplayInfoIm
     @Loader
     @Suppress("UNCHECKED_CAST")
     private fun io_service_t.loadBuiltInDisplayAttributes(): Map<String, *>? {
-        val attributes = loadDisplayProperty(key = "DisplayAttributes") as? Map<String, *>
+        val attributes = loadDisplayProperty(
+            key = "DisplayAttributes"
+        ) as? Map<String, *>
         if (attributes != null)
             return attributes
 
-        return memScoped {
-            val parent = alloc<io_registry_entry_tVar>()
-            if (IORegistryEntryGetParentEntry(
-                    this@loadBuiltInDisplayAttributes, "IODeviceTree".cstr.ptr, parent.ptr
-                ) != 0
-            ) {
-                return@memScoped null
+        return userRegistryParentEntry(
+            service = this,
+            plane = "IODeviceTree",
+            usage = { parent ->
+                parent.loadDisplayProperty(
+                    key = "DisplayAttributes"
+                ) as? Map<String, *>
             }
-
-            try {
-                parent.value.loadDisplayProperty(key = "DisplayAttributes") as? Map<String, *>
-            } finally {
-                IOObjectRelease(parent.value)
-            }
-        }
+        )
     }
 
     /**

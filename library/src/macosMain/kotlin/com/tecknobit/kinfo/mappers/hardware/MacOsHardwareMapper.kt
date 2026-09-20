@@ -247,7 +247,7 @@ abstract class MacOsHardwareMapper<H> : NativeMapper<H>() {
      * @param key The primary property name
      * @param fallbackKey The alternative property name
      *
-     * @return the primary non-blank value, the fallback value, or an empty string if both reads fail as [String]
+     * @return the primary non-blank value, the fallback value, or [UNKNOWN] when the fallback read fails as [String]
      */
     protected fun io_registry_entry_t.readStringFromRegistryWithFallback(
         key: String,
@@ -260,7 +260,8 @@ abstract class MacOsHardwareMapper<H> : NativeMapper<H>() {
             return firstAttemptValue
 
         return readStringFromRegistry(
-            key = fallbackKey
+            key = fallbackKey,
+            default = UNKNOWN
         )
     }
 
@@ -757,6 +758,70 @@ abstract class MacOsHardwareMapper<H> : NativeMapper<H>() {
                 id.value.toString()
             else
                 UNKNOWN
+        }
+    }
+
+    /**
+     * Method used to invoke an operation with the first parent entry in the specified registry plane
+     *
+     * The supplied service remains owned by the caller and the operation must not release the parent handle
+     * The parent handle is passed to [usage] and released in `finally`, including when the operation throws
+     * The operation must not use the parent handle after this method returns
+     *
+     * @param T The type of result produced by the operation
+     * @param service The borrowed service whose first parent is requested
+     * @param plane The registry plane name, such as `IOService` or `IODeviceTree`
+     * @param default The fallback result when the parent lookup fails or returns no entry
+     * @param usage The operation receiving the borrowed parent handle
+     *
+     * @return the operation result, or [default] when no parent entry is obtained, as [T]
+     */
+    protected inline fun <T> userRegistryParentEntry(
+        service: io_service_t,
+        plane: String,
+        default: T? = null,
+        usage: (io_registry_entry_t) -> T
+    ): T? {
+        val parentEntry = resolveRegistryParentEntry(
+            service = service,
+            plane = plane
+        ) ?: return default
+
+        return try {
+            usage(parentEntry)
+        } finally {
+            parentEntry.release()
+        }
+    }
+
+    /**
+     * Method used to request the first parent entry of a service in the specified registry plane
+     *
+     * A successfully acquired parent handle must be released with `IOObjectRelease`
+     * The handle is copied out of the temporary native storage and remains owned by the caller
+     *
+     * @param service The borrowed service whose first parent is requested
+     * @param plane The registry plane name in which to look up the parent
+     *
+     * @return the parent handle, or null when the lookup fails or returns no entry, as [io_registry_entry_t]
+     */
+    @Resolver
+    protected fun resolveRegistryParentEntry(
+        service: io_service_t,
+        plane: String,
+    ): io_registry_entry_t? {
+        return memScoped {
+            val parent = alloc<io_registry_entry_tVar>()
+
+            val result = IORegistryEntryGetParentEntry(
+                service,
+                plane.cstr.ptr,
+                parent.ptr
+            )
+            if (result != kIOReturnSuccess || parent.value == IO_OBJECT_NULL)
+                return@memScoped null
+
+            parent.value
         }
     }
 
