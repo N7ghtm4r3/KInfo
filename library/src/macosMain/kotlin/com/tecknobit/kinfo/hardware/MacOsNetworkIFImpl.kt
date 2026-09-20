@@ -3,11 +3,45 @@ package com.tecknobit.kinfo.hardware
 import com.tecknobit.kinfo.model.desktop.common.hardware.IfOperStatus
 import com.tecknobit.kinfo.model.desktop.macos.hardware.MacOsNetworkIF
 
+/**
+ * The `MacOsNetworkIFImpl` class is useful to hold a macOS network interface snapshot
+ *
+ * Native mapping supplies cumulative counters and pairs each IP address with its corresponding prefix length
+ * Array properties retain their supplied references and participate in equality and hashing by content
+ *
+ * @property name The BSD interface name, or an empty string when the native name lookup fails
+ * @property index The native network interface index
+ * @property displayName The localized interface name, falling back to [name] when unavailable
+ * @property ifOperStatus The resolved operational status, or [IfOperStatus.UNKNOWN] when it cannot be determined
+ * @property mtu The maximum transmission unit in bytes
+ * @property macaddr The hardware address, or an empty string when unavailable
+ * @property ipv4addr The assigned numeric IPv4 addresses
+ * @property subnetMasks The IPv4 prefix lengths paired with [ipv4addr], or `-1` for absent or noncontiguous netmasks
+ * @property ipv6addr The assigned numeric IPv6 addresses, including their scope suffixes when present
+ * @property prefixLengths The IPv6 prefix lengths paired with [ipv6addr], or `-1` for absent or noncontiguous netmasks
+ * @property ifType The native interface type reported with the routing statistics
+ * @property bytesRecv The cumulative number of received bytes reported by the interface
+ * @property bytesSent The cumulative number of sent bytes reported by the interface
+ * @property packetsRecv The cumulative number of received packets reported by the interface
+ * @property packetsSent The cumulative number of sent packets reported by the interface
+ * @property inErrors The cumulative number of input errors reported by the interface
+ * @property outErrors The cumulative number of output errors reported by the interface
+ * @property inDrops The cumulative number of dropped incoming packets reported by the interface
+ * @property collisions The cumulative number of collisions reported by the interface
+ * @property speed The interface speed reported by the native statistics in bits per second
+ * @property timestamp The mapping timestamp in milliseconds since the Unix epoch
+ * @property isKnownVmMacAddr The result of matching the MAC address against known virtual-machine prefixes
+ *
+ * @author N7ghtm4r3 - Tecknobit
+ *
+ * @see MacOsNetworkIF
+ *
+ * @since 1.1.0
+ */
 data class MacOsNetworkIFImpl(
     override val name: String,
     override val index: Int,
     override val displayName: String,
-    override val ifAlias: String,
     override val ifOperStatus: IfOperStatus,
     override val mtu: Long,
     override val macaddr: String,
@@ -16,8 +50,6 @@ data class MacOsNetworkIFImpl(
     override val ipv6addr: Array<String>,
     override val prefixLengths: Array<Short>,
     override val ifType: Int,
-    override val ndisPhysicalMediumType: Int,
-    override val isConnectorPresent: Boolean,
     override val bytesRecv: Long,
     override val bytesSent: Long,
     override val packetsRecv: Long,
@@ -28,10 +60,38 @@ data class MacOsNetworkIFImpl(
     override val collisions: Long,
     override val speed: Long,
     override val timestamp: Long,
-    override val isKnownVmMacAddr: Boolean,
-    override val updateAttributes: Boolean
+    override val isKnownVmMacAddr: Boolean
 ) : MacOsNetworkIF {
 
+    /**
+     * `ifAlias` the empty fallback used because this implementation does not resolve an interface alias
+     */
+    override val ifAlias: String = ""
+
+    /**
+     * `isConnectorPresent` the fixed `false` fallback used because connector presence is not queried
+     */
+    override val isConnectorPresent: Boolean = false
+
+    /**
+     * `ndisPhysicalMediumType` the fixed `0` fallback for the NDIS-specific property in this macOS implementation
+     */
+    override val ndisPhysicalMediumType: Int = 0
+
+    /**
+     * `updateAttributes` the fixed `false` value indicating that this snapshot does not refresh its native attributes
+     */
+    override val updateAttributes: Boolean = false
+
+    /**
+     * Method used to compare this network interface snapshot with another value
+     *
+     * Equality includes all properties, including the timestamp, and compares address and prefix arrays by content
+     *
+     * @param other The value to compare with this snapshot
+     *
+     * @return whether the other value is a [MacOsNetworkIFImpl] with matching properties as [Boolean]
+     */
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other == null || this::class != other::class) return false
@@ -68,6 +128,13 @@ data class MacOsNetworkIFImpl(
         return true
     }
 
+    /**
+     * Method used to compute the hash code of this network interface snapshot
+     *
+     * Address and prefix arrays contribute their content hashes to match [equals]
+     *
+     * @return the hash code derived from the snapshot properties as [Int]
+     */
     override fun hashCode(): Int {
         var result = index
         result = 31 * result + mtu.hashCode()
