@@ -10,46 +10,46 @@ The desktop platform works under the hood with the [oshi library](https://github
 
 | **Category**           | **Property**          | **Description**                                          | **Source**                     |
 |------------------------|-----------------------|----------------------------------------------------------|--------------------------------|
-| **Computer System**    | `computerSystem`      | The details of the computer system                       | `Hardware.computerSystem`      |
-| **CPU**                | `centralProcessor`    | The details of the system's central processor (CPU)      | `Hardware.centralProcessor`    |
-| **Memory**             | `globalMemory`        | The details about the system's global memory             | `Hardware.globalMemory`        |
-| **Power Sources**      | `powerSources`        | A list of power sources available to the system          | `Hardware.powerSources`        |
-| **Disk Storage**       | `diskStores`          | A list of disk storage devices                           | `Hardware.diskStores`          |
-| **Logical Volumes**    | `logicalVolumeGroups` | A list of logical volume groups configured on the system | `Hardware.logicalVolumeGroups` |
-| **Network Interfaces** | `networkIFs`          | A list of network interfaces on the system               | `Hardware.networkIFs`          |
-| **Displays**           | `displays`            | A list of display devices connected to the system        | `Hardware.displays`            |
-| **Sensors**            | `sensors`             | The details of system sensors                            | `Hardware.sensors`             |
-| **Sound Cards**        | `soundCards`          | A list of sound cards available on the system            | `Hardware.soundCards`          |
-| **Graphics Cards**     | `graphicsCards`       | A list of graphics cards available on the system         | `Hardware.graphicsCards`       |
-| **Printers**           | `printers`            | A list of printers available on the system               | `Hardware.printers`            |
+| **Computer System**    | [`computerSystem`](../docs/desktop/jvm/hardware/computersystem/computer_system.md)      | The details of the computer system                       | `Hardware.computerSystem`      |
+| **CPU**                | [`centralProcessor`](../docs/desktop/jvm/hardware/centralprocessor/central_processor.md)    | The details of the system's central processor (CPU)      | `Hardware.centralProcessor`    |
+| **Memory**             | [`globalMemory`](../docs/desktop/jvm/hardware/globalmemory/global_memory.md)        | The details about the system's global memory             | `Hardware.globalMemory`        |
+| **Power Sources**      | [`powerSources`](../docs/desktop/jvm/hardware/power_source.md)        | A list of power sources available to the system          | `Hardware.powerSources`        |
+| **Disk Storage**       | [`diskStores`](../docs/desktop/jvm/hardware/storage/hw_disk_store.md)          | A list of disk storage devices                           | `Hardware.diskStores`          |
+| **Logical Volumes**    | [`logicalVolumeGroups`](../docs/desktop/jvm/hardware/logical_volume_group.md) | A list of logical volume groups configured on the system | `Hardware.logicalVolumeGroups` |
+| **Network Interfaces** | [`networkIFs`](../docs/desktop/jvm/hardware/network_interface.md)          | A list of network interfaces on the system               | `Hardware.networkIFs`          |
+| **Displays**           | [`displays`](../docs/desktop/jvm/hardware/display.md)            | A list of display devices connected to the system        | `Hardware.displays`            |
+| **Sensors**            | [`sensors`](../docs/desktop/jvm/hardware/sensors/sensors.md)             | The details of system sensors                            | `Hardware.sensors`             |
+| **Sound Cards**        | [`soundCards`](../docs/desktop/jvm/hardware/sound_card.md)          | A list of sound cards available on the system            | `Hardware.soundCards`          |
+| **Graphics Cards**     | [`graphicsCards`](../docs/desktop/jvm/hardware/graphicscard/graphics_card.md)       | A list of graphics cards available on the system         | `Hardware.graphicsCards`       |
+| **Printers**           | [`printers`](../docs/desktop/jvm/hardware/printer.md)            | A list of printers available on the system               | `Hardware.printers`            |
 
 ### Operating System
 
 | **Category**         | **Property**            | **Description**                                                                            | **Source**                              |
 |----------------------|-------------------------|--------------------------------------------------------------------------------------------|-----------------------------------------|
-| **App Info**         | `name`                  | The name of the application                                                                | `OperatingSystem.queryInstalledApps`    |
-|                      | `version`               | The version of the application                                                             |                                         |
-|                      | `vendor`                | The vendor or publisher of the application                                                 |                                         |
-|                      | `timestamp`             | The installation or last modified timestamp of the application in milliseconds since epoch |                                         |
-|                      | `additionalInfo`        | A map containing additional application details                                            |                                         |
-| **OS Info**          | `family`                | The family or type of the operating system                                                 | `OperatingSystem.family`                |
-|                      | `manufacturer`          | The manufacturer of the operating system                                                   | `OperatingSystem.manufacturer`          |
-|                      | `versionInfo`           | The version information of the operating system                                            | `OperatingSystem.versionInfo`           |
-| **System Info**      | `bitness`               | The bitness of the operating system                                                        | `OperatingSystem.bitness`               |
-|                      | `systemUptime`          | The system uptime in milliseconds since the operating system started                       | `OperatingSystem.systemUptime`          |
-|                      | `systemBootTime`        | The time in milliseconds when the system was last booted (Unix timestamp)                  | `OperatingSystem.systemBootTime`        |
-|                      | `isElevated`            | A flag indicating whether the operating system is running with elevated privileges         | `OperatingSystem.isElevated`            |
-| **File System Info** | `fileSystem`            | The file system information of the operating system                                        | `OperatingSystem.fileSystem`            |
-| **Process Info**     | `processId`             | The process ID of the currently running operating system process                           | `OperatingSystem.processId`             |
-|                      | `currentProcess`        | The currently running process of the operating system                                      | `OperatingSystem.currentProcess`        |
-|                      | `processCount`          | The total number of processes running on the operating system                              | `OperatingSystem.processCount`          |
-| **Thread Info**      | `threadId`              | The thread ID of the currently running thread                                              | `OperatingSystem.threadId`              |
-|                      | `currentThread`         | The currently running thread of the operating system                                       | `OperatingSystem.currentThread`         |
-|                      | `threadCount`           | The total number of threads running on the operating system                                | `OperatingSystem.threadCount`           |
-| **Network Info**     | `internetProtocolStats` | The internet protocol statistics related to network connections                            | `OperatingSystem.internetProtocolStats` |
-| **Network Params**   | `networkParams`         | The network parameters of the operating system                                             | `OperatingSystem.networkParams`         |
-| **Service Info**     | `services`              | The list of services running on the operating system                                       | `OperatingSystem.services`              |
-| **Session Info**     | `sessions`              | The list of user sessions currently active on the operating system                         | `OperatingSystem.sessions`              |
+| **App Info**         | [`name`](../docs/desktop/jvm/operatingsystem/application_info.md#name)                  | The name of the application                                                                | `OperatingSystem.queryInstalledApps`    |
+|                      | [`version`](../docs/desktop/jvm/operatingsystem/application_info.md#version)               | The version of the application                                                             |                                         |
+|                      | [`vendor`](../docs/desktop/jvm/operatingsystem/application_info.md#vendor)                | The vendor or publisher of the application                                                 |                                         |
+|                      | [`timestamp`](../docs/desktop/jvm/operatingsystem/application_info.md#timestamp)             | The installation or last modified timestamp of the application in milliseconds since epoch |                                         |
+|                      | [`additionalInfo`](../docs/desktop/jvm/operatingsystem/application_info.md#additionalinfo)        | A map containing additional application details                                            |                                         |
+| **OS Info**          | [`family`](../docs/desktop/jvm/operatingsystem/index.md#family)                | The family or type of the operating system                                                 | `OperatingSystem.family`                |
+|                      | [`manufacturer`](../docs/desktop/jvm/operatingsystem/index.md#manufacturer)          | The manufacturer of the operating system                                                   | `OperatingSystem.manufacturer`          |
+|                      | [`versionInfo`](../docs/desktop/jvm/operatingsystem/os_version_info.md)           | The version information of the operating system                                            | `OperatingSystem.versionInfo`           |
+| **System Info**      | [`bitness`](../docs/desktop/jvm/operatingsystem/index.md#bitness)               | The bitness of the operating system                                                        | `OperatingSystem.bitness`               |
+|                      | [`systemUptime`](../docs/desktop/jvm/operatingsystem/index.md#systemuptime)          | The system uptime in milliseconds since the operating system started                       | `OperatingSystem.systemUptime`          |
+|                      | [`systemBootTime`](../docs/desktop/jvm/operatingsystem/index.md#systemboottime)        | The time in milliseconds when the system was last booted (Unix timestamp)                  | `OperatingSystem.systemBootTime`        |
+|                      | [`isElevated`](../docs/desktop/jvm/operatingsystem/index.md#iselevated)            | A flag indicating whether the operating system is running with elevated privileges         | `OperatingSystem.isElevated`            |
+| **File System Info** | [`fileSystem`](../docs/desktop/jvm/operatingsystem/filesystem/file_system.md)            | The file system information of the operating system                                        | `OperatingSystem.fileSystem`            |
+| **Process Info**     | [`processId`](../docs/desktop/jvm/operatingsystem/index.md#processid)             | The process ID of the currently running operating system process                           | `OperatingSystem.processId`             |
+|                      | [`currentProcess`](../docs/desktop/jvm/operatingsystem/os_process.md)        | The currently running process of the operating system                                      | `OperatingSystem.currentProcess`        |
+|                      | [`processCount`](../docs/desktop/jvm/operatingsystem/index.md#processcount)          | The total number of processes running on the operating system                              | `OperatingSystem.processCount`          |
+| **Thread Info**      | [`threadId`](../docs/desktop/jvm/operatingsystem/index.md#threadid)              | The thread ID of the currently running thread                                              | `OperatingSystem.threadId`              |
+|                      | [`currentThread`](../docs/desktop/jvm/operatingsystem/os_thread.md)         | The currently running thread of the operating system                                       | `OperatingSystem.currentThread`         |
+|                      | [`threadCount`](../docs/desktop/jvm/operatingsystem/index.md#threadcount)           | The total number of threads running on the operating system                                | `OperatingSystem.threadCount`           |
+| **Network Info**     | [`internetProtocolStats`](../docs/desktop/jvm/operatingsystem/internetprotocolstats/internet_protocol_stats.md) | The internet protocol statistics related to network connections                            | `OperatingSystem.internetProtocolStats` |
+| **Network Params**   | [`networkParams`](../docs/desktop/jvm/operatingsystem/network_params.md)         | The network parameters of the operating system                                             | `OperatingSystem.networkParams`         |
+| **Service Info**     | [`services`](../docs/desktop/jvm/operatingsystem/os_service.md)              | The list of services running on the operating system                                       | `OperatingSystem.services`              |
+| **Session Info**     | [`sessions`](../docs/desktop/jvm/operatingsystem/os_session.md)              | The list of user sessions currently active on the operating system                         | `OperatingSystem.sessions`              |
 
 ## Support
 

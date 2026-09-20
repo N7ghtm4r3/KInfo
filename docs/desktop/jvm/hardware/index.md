@@ -8,17 +8,17 @@ On **desktop** target the available **hardware** information are the below:
 
 | **Category**           | **Property**          | **Description**                                          | **Source**                     |
 |------------------------|-----------------------|----------------------------------------------------------|--------------------------------|
-| **Computer System**    | `computerSystem`      | The details of the computer system                       | `Hardware.computerSystem`      |
-| **CPU**                | `centralProcessor`    | The details of the system's central processor (CPU)      | `Hardware.centralProcessor`    |
-| **Memory**             | `globalMemory`        | The details about the system's global memory             | `Hardware.globalMemory`        |
-| **Power Sources**      | `powerSources`        | A list of power sources available to the system          | `Hardware.powerSources`        |
-| **Disk Storage**       | `diskStores`          | A list of disk storage devices                           | `Hardware.diskStores`          |
-| **Logical Volumes**    | `logicalVolumeGroups` | A list of logical volume groups configured on the system | `Hardware.logicalVolumeGroups` |
-| **Network Interfaces** | `networkIFs`          | A list of network interfaces on the system               | `Hardware.networkIFs`          |
-| **Displays**           | `displays`            | A list of display devices connected to the system        | `Hardware.displays`            |
-| **Sensors**            | `sensors`             | The details of system sensors                            | `Hardware.sensors`             |
-| **Sound Cards**        | `soundCards`          | A list of sound cards available on the system            | `Hardware.soundCards`          |
-| **Graphics Cards**     | `graphicsCards`       | A list of graphics cards available on the system         | `Hardware.graphicsCards`       |
+| **Computer System**    | [`computerSystem`](computersystem/computer_system.md)      | The details of the computer system                       | `Hardware.computerSystem`      |
+| **CPU**                | [`centralProcessor`](centralprocessor/central_processor.md)    | The details of the system's central processor (CPU)      | `Hardware.centralProcessor`    |
+| **Memory**             | [`globalMemory`](globalmemory/global_memory.md)        | The details about the system's global memory             | `Hardware.globalMemory`        |
+| **Power Sources**      | [`powerSources`](power_source.md)        | A list of power sources available to the system          | `Hardware.powerSources`        |
+| **Disk Storage**       | [`diskStores`](storage/hw_disk_store.md)          | A list of disk storage devices                           | `Hardware.diskStores`          |
+| **Logical Volumes**    | [`logicalVolumeGroups`](logical_volume_group.md) | A list of logical volume groups configured on the system | `Hardware.logicalVolumeGroups` |
+| **Network Interfaces** | [`networkIFs`](network_interface.md)          | A list of network interfaces on the system               | `Hardware.networkIFs`          |
+| **Displays**           | [`displays`](display.md)            | A list of display devices connected to the system        | `Hardware.displays`            |
+| **Sensors**            | [`sensors`](sensors/sensors.md)             | The details of system sensors                            | `Hardware.sensors`             |
+| **Sound Cards**        | [`soundCards`](sound_card.md)          | A list of sound cards available on the system            | `Hardware.soundCards`          |
+| **Graphics Cards**     | [`graphicsCards`](graphicscard/graphics_card.md)       | A list of graphics cards available on the system         | `Hardware.graphicsCards`       |
 
 ## API source
 
