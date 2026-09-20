@@ -77,54 +77,104 @@ nav:
       - Locale info: ios/locale_info.md
   - Desktop:
       - Overview: desktop/index.md
-      - Hardware:
-        - Overview: desktop/hardware/index.md
-        - Computer system:
-            - Overview: desktop/hardware/computersystem/computer_system.md
-            - Firmware: desktop/hardware/computersystem/firmware.md
-            - Baseboard: desktop/hardware/computersystem/baseboard.md
-        - Central Processor:
-            - Overview: desktop/hardware/centralprocessor/central_processor.md
-            - Logical Processor: desktop/hardware/centralprocessor/logical_processor.md
-            - Physical Processor: desktop/hardware/centralprocessor/physical_processor.md
-            - Processor Cache: desktop/hardware/centralprocessor/processor_cache.md
-        - Global memory:
-            - Overview: desktop/hardware/globalmemory/global_memory.md
-            - Virtual memory: desktop/hardware/globalmemory/virtual_memory.md
-            - Physical memory: desktop/hardware/globalmemory/physical_memory.md
-        - Power source: desktop/hardware/power_source.md
-        - Storage:
-          - Disk store: desktop/hardware/storage/hw_disk_store.md
-          - Partition: desktop/hardware/storage/hw_partition.md
-        - Logical Volume Groups: desktop/hardware/logical_volume_group.md
-        - Network interface: desktop/hardware/network_interface.md
-        - Display: desktop/hardware/display.md
-        - Sensors: desktop/hardware/sensors/sensors.md
-        - Sound card: desktop/hardware/sound_card.md
-        - Graphics card:
-            - Overview: desktop/hardware/graphicscard/graphics_card.md
-            - GPU stats: desktop/hardware/graphicscard/gpu_stats.md
-            - GPU ticks: desktop/hardware/graphicscard/gpu_ticks.md
-        - USB device: desktop/hardware/usb_device.md
-      - Operating system:
-        - Overview: desktop/operatingsystem/index.md
-        - OS version info: desktop/operatingsystem/os_version_info.md
-        - File System:
-          - Overview: desktop/operatingsystem/filesystem/file_system.md
-          - File store: desktop/operatingsystem/filesystem/file_store.md
-        - Internal Protocol Stats:
-            - Overview: desktop/operatingsystem/internetprotocolstats/internet_protocol_stats.md
-            - TCP stats: desktop/operatingsystem/internetprotocolstats/tcp_stats.md
-            - UDP stats: desktop/operatingsystem/internetprotocolstats/udp_stats.md
-            - IP connection: desktop/operatingsystem/internetprotocolstats/ip_connection.md
-        - TCP state: desktop/operatingsystem/tcp_state.md
-        - OS process: desktop/operatingsystem/os_process.md
-        - OS thread: desktop/operatingsystem/os_thread.md
-        - Network params: desktop/operatingsystem/network_params.md
-        - OS service: desktop/operatingsystem/os_service.md
-        - OS session: desktop/operatingsystem/os_session.md
-        - Desktop window: desktop/operatingsystem/os_desktop_window.md
-        - Application info: desktop/operatingsystem/application_info.md
+      - JVM:
+        - Hardware:
+          - Overview: desktop/jvm/hardware/index.md
+          - Computer system:
+              - Overview: desktop/jvm/hardware/computersystem/computer_system.md
+              - Firmware: desktop/jvm/hardware/computersystem/firmware.md
+              - Baseboard: desktop/jvm/hardware/computersystem/baseboard.md
+          - Central Processor:
+              - Overview: desktop/jvm/hardware/centralprocessor/central_processor.md
+              - Logical Processor: desktop/jvm/hardware/centralprocessor/logical_processor.md
+              - Physical Processor: desktop/jvm/hardware/centralprocessor/physical_processor.md
+              - Processor Cache: desktop/jvm/hardware/centralprocessor/processor_cache.md
+          - Global memory:
+              - Overview: desktop/jvm/hardware/globalmemory/global_memory.md
+              - Virtual memory: desktop/jvm/hardware/globalmemory/virtual_memory.md
+              - Physical memory: desktop/jvm/hardware/globalmemory/physical_memory.md
+          - Power source: desktop/jvm/hardware/power_source.md
+          - Storage:
+            - Disk store: desktop/jvm/hardware/storage/hw_disk_store.md
+            - Partition: desktop/jvm/hardware/storage/hw_partition.md
+          - Logical Volume Groups: desktop/jvm/hardware/logical_volume_group.md
+          - Network interface: desktop/jvm/hardware/network_interface.md
+          - Display: desktop/jvm/hardware/display.md
+          - Sensors: desktop/jvm/hardware/sensors/sensors.md
+          - Sound card: desktop/jvm/hardware/sound_card.md
+          - Graphics card:
+              - Overview: desktop/jvm/hardware/graphicscard/graphics_card.md
+              - GPU stats: desktop/jvm/hardware/graphicscard/gpu_stats.md
+              - GPU ticks: desktop/jvm/hardware/graphicscard/gpu_ticks.md
+          - USB device: desktop/jvm/hardware/usb_device.md
+        - Operating system:
+          - Overview: desktop/jvm/operatingsystem/index.md
+          - OS version info: desktop/jvm/operatingsystem/os_version_info.md
+          - File System:
+            - Overview: desktop/jvm/operatingsystem/filesystem/file_system.md
+            - File store: desktop/jvm/operatingsystem/filesystem/file_store.md
+          - Internal Protocol Stats:
+              - Overview: desktop/jvm/operatingsystem/internetprotocolstats/internet_protocol_stats.md
+              - TCP stats: desktop/jvm/operatingsystem/internetprotocolstats/tcp_stats.md
+              - UDP stats: desktop/jvm/operatingsystem/internetprotocolstats/udp_stats.md
+              - IP connection: desktop/jvm/operatingsystem/internetprotocolstats/ip_connection.md
+          - TCP state: desktop/jvm/operatingsystem/tcp_state.md
+          - OS process: desktop/jvm/operatingsystem/os_process.md
+          - OS thread: desktop/jvm/operatingsystem/os_thread.md
+          - Network params: desktop/jvm/operatingsystem/network_params.md
+          - OS service: desktop/jvm/operatingsystem/os_service.md
+          - OS session: desktop/jvm/operatingsystem/os_session.md
+          - Desktop window: desktop/jvm/operatingsystem/os_desktop_window.md
+          - Application info: desktop/jvm/operatingsystem/application_info.md
+      - Native Targets:
+        - macOs:
+            - Overview: desktop/macos/index.md
+            - Hardware:
+                - Overview: desktop/macos/hardware/index.md
+                - Computer system:
+                    - Overview: desktop/macos/hardware/computersystem/computer_system.md
+                    - Firmware: desktop/macos/hardware/computersystem/firmware.md
+                    - Baseboard: desktop/macos/hardware/computersystem/baseboard.md
+                - Central Processor:
+                    - Overview: desktop/macos/hardware/centralprocessor/central_processor.md
+                    - Processor identifier: desktop/macos/hardware/centralprocessor/processor_identifier.md
+                    - Logical Processor: desktop/macos/hardware/centralprocessor/logical_processor.md
+                    - Physical Processor: desktop/macos/hardware/centralprocessor/physical_processor.md
+                    - Processor Cache: desktop/macos/hardware/centralprocessor/processor_cache.md
+                - Global memory:
+                    - Overview: desktop/macos/hardware/globalmemory/global_memory.md
+                    - Virtual memory: desktop/macos/hardware/globalmemory/virtual_memory.md
+                    - Physical memory: desktop/macos/hardware/globalmemory/physical_memory.md
+                - Power source: desktop/macos/hardware/power_source.md
+                - Storage:
+                    - Disk store: desktop/macos/hardware/storage/hw_disk_store.md
+                    - Partition: desktop/macos/hardware/storage/hw_partition.md
+                - Network interface: desktop/macos/hardware/network_interface.md
+                - Display: desktop/macos/hardware/display.md
+                - Sound card: desktop/macos/hardware/sound_card.md
+                - Graphics card:
+                    - Overview: desktop/macos/hardware/graphicscard/graphics_card.md
+                    - GPU stats: desktop/macos/hardware/graphicscard/gpu_stats.md
+                    - GPU ticks: desktop/macos/hardware/graphicscard/gpu_ticks.md
+                - USB device: desktop/macos/hardware/usb_device.md
+                - Bluetooth device: desktop/macos/hardware/bluetooth_device.md
+                - Printer: desktop/macos/hardware/printer.md
+            - Operating system:
+                - Overview: desktop/macos/operatingsystem/index.md
+                - OS version info: desktop/macos/operatingsystem/os_version_info.md
+                - File System:
+                    - File store: desktop/macos/operatingsystem/filesystem/file_store.md
+                - Internet Protocol Stats:
+                    - TCP stats: desktop/macos/operatingsystem/internetprotocolstats/tcp_stats.md
+                    - UDP stats: desktop/macos/operatingsystem/internetprotocolstats/udp_stats.md
+                    - IP connection: desktop/macos/operatingsystem/internetprotocolstats/ip_connection.md
+                    - IP route: desktop/macos/operatingsystem/internetprotocolstats/ip_route.md
+                - TCP state: desktop/macos/operatingsystem/tcp_state.md
+                - OS process: desktop/macos/operatingsystem/os_process.md
+                - OS thread: desktop/macos/operatingsystem/os_thread.md
+                - OS session: desktop/macos/operatingsystem/os_session.md
+                - Desktop window: desktop/macos/operatingsystem/os_desktop_window.md
+
   - Web:
       - Overview: web/index.md
       - Browser info: web/browser_info.md

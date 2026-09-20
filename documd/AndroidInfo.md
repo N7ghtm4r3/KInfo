@@ -6,36 +6,36 @@
 
 | **Category**        | **Property**         | **Description**                                      | **Source**                      |
 |---------------------|----------------------|------------------------------------------------------|---------------------------------|
-| **App Info**        | `appName`            | The name of the application                          | `PackageInfo.applicationInfo`   |
-|                     | `packageName`        | The package name of the application                  | `Context.packageName`           |
-|                     | `versionName`        | The version name of the application                  | `PackageInfo.versionName`       |
-|                     | `versionCode`        | The version code of the application                  | `PackageInfoCompat`             |
-|                     | `isDebug`            | Indicates whether the application is the debug build | `ApplicationInfo.flags`         |
-| **OS Info**         | `version`            | Details about the Android OS version                 | `AndroidVersionImpl`            |
-|                     | `VERSION_CODES`      | Enumerated version codes for Android                 | `AndroidVersionCodeImpl`        |
-|                     | `androidId`          | Unique Android ID of the device                      | `Settings.Secure.ANDROID_ID`    |
-|                     | `androidCodename`    | Android codename of the device                       | Custom Logic                    |
-| **Device Info**     | `board`              | The board name of the device hardware                | `Build.BOARD`                   |
-|                     | `bootloader`         | The version of the device bootloader                 | `Build.BOOTLOADER`              |
-|                     | `device`             | The device name                                      | `Build.DEVICE`                  |
-|                     | `display`            | The display identifier for the build                 | `Build.DISPLAY`                 |
-|                     | `fingerprint`        | Unique identifier for the build fingerprint          | `Build.FINGERPRINT`             |
-|                     | `hardware`           | The name of the device hardware                      | `Build.HARDWARE`                |
-|                     | `host`               | The host name used to build the system               | `Build.HOST`                    |
-|                     | `id`                 | The build ID for the software                        | `Build.ID`                      |
-|                     | `manufacturer`       | The manufacturer name of the device                  | `Build.MANUFACTURER`            |
-|                     | `model`              | The model name of the device                         | `Build.MODEL`                   |
-|                     | `brand`              | The brand name of the device                         | `Build.BRAND`                   |
-|                     | `product`            | The product name of the device                       | `Build.PRODUCT`                 |
-|                     | `deviceOrientation`  | Current orientation of the device                    | `AndroidDeviceOrientation`      |
-| **Supported ABIs**  | `supportedAbis`      | List of supported ABIs for the device                | `Build.SUPPORTED_ABIS`          |
-|                     | `supported32BitAbis` | List of supported 32-bit ABIs for the device         | `Build.SUPPORTED_32_BIT_ABIS`   |
-|                     | `supported64BitAbis` | List of supported 64-bit ABIs for the device         | `Build.SUPPORTED_64_BIT_ABIS`   |
-| **Tags**            | `tags`               | Comma-separated tags associated with the build       | `Build.TAGS`                    |
-|                     | `isPhysicalDevice`   | Indicates if the device is physical or an emulator   | Custom Logic                    |
-| **System Features** | `systemFeatureList`  | List of system features available on the device      | `PackageManager.systemFeatures` |
-| **Display Info**    | `displayMetrics`     | Display metrics containing screen properties         | `AndroidDisplayMetricsImpl`     |
-| **Locale Info**     | `locale`             | Locale information (language and region)             | `LocaleManagerCompat`           |
+| **App Info**        | [`appName`](../docs/android/app_info.md#appname)            | The name of the application                          | `PackageInfo.applicationInfo`   |
+|                     | [`packageName`](../docs/android/app_info.md#packagename)        | The package name of the application                  | `Context.packageName`           |
+|                     | [`versionName`](../docs/android/app_info.md#versionname)        | The version name of the application                  | `PackageInfo.versionName`       |
+|                     | [`versionCode`](../docs/android/app_info.md#versioncode)        | The version code of the application                  | `PackageInfoCompat`             |
+|                     | [`isDebug`](../docs/android/app_info.md#isdebug)            | Indicates whether the application is the debug build | `ApplicationInfo.flags`         |
+| **OS Info**         | [`version`](../docs/android/os_info.md#version)            | Details about the Android OS version                 | `AndroidVersionImpl`            |
+|                     | [`VERSION_CODES`](../docs/android/os_info.md#version_codes)      | Enumerated version codes for Android                 | `AndroidVersionCodeImpl`        |
+|                     | [`androidId`](../docs/android/os_info.md#androidid)          | Unique Android ID of the device                      | `Settings.Secure.ANDROID_ID`    |
+|                     | [`androidCodename`](../docs/android/os_info.md#androidcodename)    | Android codename of the device                       | Custom Logic                    |
+| **Device Info**     | [`board`](../docs/android/device_info.md#board)              | The board name of the device hardware                | `Build.BOARD`                   |
+|                     | [`bootloader`](../docs/android/device_info.md#bootloader)         | The version of the device bootloader                 | `Build.BOOTLOADER`              |
+|                     | [`device`](../docs/android/device_info.md#device)             | The device name                                      | `Build.DEVICE`                  |
+|                     | [`display`](../docs/android/device_info.md#display)            | The display identifier for the build                 | `Build.DISPLAY`                 |
+|                     | [`fingerprint`](../docs/android/device_info.md#fingerprint)        | Unique identifier for the build fingerprint          | `Build.FINGERPRINT`             |
+|                     | [`hardware`](../docs/android/device_info.md#hardware)           | The name of the device hardware                      | `Build.HARDWARE`                |
+|                     | [`host`](../docs/android/device_info.md#host)               | The host name used to build the system               | `Build.HOST`                    |
+|                     | [`id`](../docs/android/device_info.md#id)                 | The build ID for the software                        | `Build.ID`                      |
+|                     | [`manufacturer`](../docs/android/device_info.md#manufacturer)       | The manufacturer name of the device                  | `Build.MANUFACTURER`            |
+|                     | [`model`](../docs/android/device_info.md#model)              | The model name of the device                         | `Build.MODEL`                   |
+|                     | [`brand`](../docs/android/device_info.md#brand)              | The brand name of the device                         | `Build.BRAND`                   |
+|                     | [`product`](../docs/android/device_info.md#product)            | The product name of the device                       | `Build.PRODUCT`                 |
+|                     | [`deviceOrientation`](../docs/android/device_info.md#deviceorientation)  | Current orientation of the device                    | `AndroidDeviceOrientation`      |
+| **Supported ABIs**  | [`supportedAbis`](../docs/android/abis.md#supportedabis)      | List of supported ABIs for the device                | `Build.SUPPORTED_ABIS`          |
+|                     | [`supported32BitAbis`](../docs/android/abis.md#supported32bitabis) | List of supported 32-bit ABIs for the device         | `Build.SUPPORTED_32_BIT_ABIS`   |
+|                     | [`supported64BitAbis`](../docs/android/abis.md#supported64bitabis) | List of supported 64-bit ABIs for the device         | `Build.SUPPORTED_64_BIT_ABIS`   |
+| **Tags**            | [`tags`](../docs/android/tags.md#tags)               | Comma-separated tags associated with the build       | `Build.TAGS`                    |
+|                     | [`isPhysicalDevice`](../docs/android/tags.md#isphysicaldevice)   | Indicates if the device is physical or an emulator   | Custom Logic                    |
+| **System Features** | [`systemFeatureList`](../docs/android/system_features.md#systemfeaturelist)  | List of system features available on the device      | `PackageManager.systemFeatures` |
+| **Display Info**    | [`displayMetrics`](../docs/android/display_info.md#displaymetrics)     | Display metrics containing screen properties         | `AndroidDisplayMetricsImpl`     |
+| **Locale Info**     | [`locale`](../docs/android/locale_info.md#locale)             | Locale information (language and region)             | `LocaleManagerCompat`           |
 
 ## Support
 

@@ -352,7 +352,7 @@ class HardwareImpl(
                     outErrors = networkIf.outErrors,
                     inDrops = networkIf.inDrops,
                     collisions = networkIf.collisions,
-                    speed = networkIf.collisions,
+                    speed = networkIf.speed,
                     timestamp = networkIf.timeStamp,
                     isKnownVmMacAddr = networkIf.isKnownVmMacAddr,
                     updateAttributes = networkIf.updateAttributes()
