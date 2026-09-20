@@ -3,9 +3,9 @@
 ![Maven Central](https://img.shields.io/maven-central/v/io.github.n7ghtm4r3/kinfo.svg?label=Maven%20Central)
 
 ![Static Badge](https://img.shields.io/badge/android-4280511051)
-![Static Badge](https://img.shields.io/badge/ios-445E91)
+![Static Badge](https://img.shields.io/badge/apple-445E91)
 ![Static Badge](https://img.shields.io/badge/desktop-006874)
-![Static Badge](https://img.shields.io/badge/wasmjs-834C74)
+![Static Badge](https://img.shields.io/badge/web-834C74)
 
 **v1.1.0**
 
@@ -76,6 +76,15 @@ OnPlatform(
             text = desktopInfo.operatingSystem.versionInfo.codeName // operating system information
         )
     },
+    onMacOs = { macOsInfo ->
+        // uses the macOS information retrieved
+        Text(
+            text = macOsInfo.hardware.computerSystem.model // hardware information
+        )
+        Text(
+            text = macOsInfo.operatingSystem.operatingSystemVersion.codeName.orEmpty() // operating system information
+        )
+    },
     onWeb = { webInfo: WebInfo ->
         // uses the web information retrieved
         Text(
@@ -101,6 +110,11 @@ onPlatform(
         // uses the desktop information retrieved
         println(desktopInfo.hardware.computerSystem.model) // hardware information
         println(desktopInfo.operatingSystem.versionInfo.codeName) // operating system information
+    },
+    onMacOs = { macOsInfo ->
+        // uses the macOS information retrieved
+        println(macOsInfo.hardware.computerSystem.model) // hardware information
+        println(macOsInfo.operatingSystem.operatingSystemVersion.codeName) // operating system information
     },
     onWeb = { webInfo: WebInfo ->
         // uses the web information retrieved

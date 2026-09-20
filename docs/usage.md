@@ -27,6 +27,15 @@ OnPlatform(
             text = desktopInfo.operatingSystem.versionInfo.codeName // operating system information
         )
     },
+    onMacOs = { macOsInfo ->
+        // uses the macOS information retrieved
+        Text(
+            text = macOsInfo.hardware.computerSystem.model // hardware information
+        )
+        Text(
+            text = macOsInfo.operatingSystem.operatingSystemVersion.codeName.orEmpty() // operating system information
+        )
+    },
     onWeb = { webInfo: WebInfo ->
         // uses the web information retrieved
         Text(
@@ -56,6 +65,11 @@ onPlatform(
         // uses the desktop information retrieved
         println(desktopInfo.hardware.computerSystem.model) // hardware information
         println(desktopInfo.operatingSystem.versionInfo.codeName) // operating system information
+    },
+    onMacOs = { macOsInfo ->
+        // uses the macOS information retrieved
+        println(macOsInfo.hardware.computerSystem.model) // hardware information
+        println(macOsInfo.operatingSystem.operatingSystemVersion.codeName) // operating system information
     },
     onWeb = { webInfo: WebInfo ->
         // uses the web information retrieved

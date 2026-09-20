@@ -8,29 +8,29 @@ On **desktop** target the available **operating system** information are the bel
 
 | **Category**         | **Property**            | **Description**                                                                            | **Source**                              |
 |----------------------|-------------------------|--------------------------------------------------------------------------------------------|-----------------------------------------|
-| **App Info**         | `name`                  | The name of the application                                                                | `OperatingSystem.queryInstalledApps`    |
-|                      | `version`               | The version of the application                                                             |                                         |
-|                      | `vendor`                | The vendor or publisher of the application                                                 |                                         |
-|                      | `timestamp`             | The installation or last modified timestamp of the application in milliseconds since epoch |                                         |
-|                      | `additionalInfo`        | A map containing additional application details                                            |                                         |
-| **OS Info**          | `family`                | The family or type of the operating system                                                 | `OperatingSystem.family`                |
-|                      | `manufacturer`          | The manufacturer of the operating system                                                   | `OperatingSystem.manufacturer`          |
-|                      | `versionInfo`           | The version information of the operating system                                            | `OperatingSystem.versionInfo`           |
-| **System Info**      | `bitness`               | The bitness of the operating system                                                        | `OperatingSystem.bitness`               |
-|                      | `systemUptime`          | The system uptime in milliseconds since the operating system started                       | `OperatingSystem.systemUptime`          |
-|                      | `systemBootTime`        | The time in milliseconds when the system was last booted (Unix timestamp)                  | `OperatingSystem.systemBootTime`        |
-|                      | `isElevated`            | A flag indicating whether the operating system is running with elevated privileges         | `OperatingSystem.isElevated`            |
-| **File System Info** | `fileSystem`            | The file system information of the operating system                                        | `OperatingSystem.fileSystem`            |
-| **Process Info**     | `processId`             | The process ID of the currently running operating system process                           | `OperatingSystem.processId`             |
-|                      | `currentProcess`        | The currently running process of the operating system                                      | `OperatingSystem.currentProcess`        |
-|                      | `processCount`          | The total number of processes running on the operating system                              | `OperatingSystem.processCount`          |
-| **Thread Info**      | `threadId`              | The thread ID of the currently running thread                                              | `OperatingSystem.threadId`              |
-|                      | `currentThread`         | The currently running thread of the operating system                                       | `OperatingSystem.currentThread`         |
-|                      | `threadCount`           | The total number of threads running on the operating system                                | `OperatingSystem.threadCount`           |
-| **Network Info**     | `internetProtocolStats` | The internet protocol statistics related to network connections                            | `OperatingSystem.internetProtocolStats` |
-| **Network Params**   | `networkParams`         | The network parameters of the operating system                                             | `OperatingSystem.networkParams`         |
-| **Service Info**     | `services`              | The list of services running on the operating system                                       | `OperatingSystem.services`              |
-| **Session Info**     | `sessions`              | The list of user sessions currently active on the operating system                         | `OperatingSystem.sessions`              |
+| **App Info**         | [`name`](application_info.md#name)                  | The name of the application                                                                | `OperatingSystem.queryInstalledApps`    |
+|                      | [`version`](application_info.md#version)               | The version of the application                                                             |                                         |
+|                      | [`vendor`](application_info.md#vendor)                | The vendor or publisher of the application                                                 |                                         |
+|                      | [`timestamp`](application_info.md#timestamp)             | The installation or last modified timestamp of the application in milliseconds since epoch |                                         |
+|                      | [`additionalInfo`](application_info.md#additionalinfo)        | A map containing additional application details                                            |                                         |
+| **OS Info**          | [`family`](#family)                | The family or type of the operating system                                                 | `OperatingSystem.family`                |
+|                      | [`manufacturer`](#manufacturer)          | The manufacturer of the operating system                                                   | `OperatingSystem.manufacturer`          |
+|                      | [`versionInfo`](os_version_info.md)           | The version information of the operating system                                            | `OperatingSystem.versionInfo`           |
+| **System Info**      | [`bitness`](#bitness)               | The bitness of the operating system                                                        | `OperatingSystem.bitness`               |
+|                      | [`systemUptime`](#systemuptime)          | The system uptime in milliseconds since the operating system started                       | `OperatingSystem.systemUptime`          |
+|                      | [`systemBootTime`](#systemboottime)        | The time in milliseconds when the system was last booted (Unix timestamp)                  | `OperatingSystem.systemBootTime`        |
+|                      | [`isElevated`](#iselevated)            | A flag indicating whether the operating system is running with elevated privileges         | `OperatingSystem.isElevated`            |
+| **File System Info** | [`fileSystem`](filesystem/file_system.md)            | The file system information of the operating system                                        | `OperatingSystem.fileSystem`            |
+| **Process Info**     | [`processId`](#processid)             | The process ID of the currently running operating system process                           | `OperatingSystem.processId`             |
+|                      | [`currentProcess`](os_process.md)        | The currently running process of the operating system                                      | `OperatingSystem.currentProcess`        |
+|                      | [`processCount`](#processcount)          | The total number of processes running on the operating system                              | `OperatingSystem.processCount`          |
+| **Thread Info**      | [`threadId`](#threadid)              | The thread ID of the currently running thread                                              | `OperatingSystem.threadId`              |
+|                      | [`currentThread`](os_thread.md)         | The currently running thread of the operating system                                       | `OperatingSystem.currentThread`         |
+|                      | [`threadCount`](#threadcount)           | The total number of threads running on the operating system                                | `OperatingSystem.threadCount`           |
+| **Network Info**     | [`internetProtocolStats`](internetprotocolstats/internet_protocol_stats.md) | The internet protocol statistics related to network connections                            | `OperatingSystem.internetProtocolStats` |
+| **Network Params**   | [`networkParams`](network_params.md)         | The network parameters of the operating system                                             | `OperatingSystem.networkParams`         |
+| **Service Info**     | [`services`](os_service.md)              | The list of services running on the operating system                                       | `OperatingSystem.services`              |
+| **Session Info**     | [`sessions`](os_session.md)              | The list of user sessions currently active on the operating system                         | `OperatingSystem.sessions`              |
 
 ## API source
 

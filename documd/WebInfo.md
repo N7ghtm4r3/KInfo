@@ -9,19 +9,19 @@ specially the [UAParser](https://docs.uaparser.dev/api/main/overview.html) infor
 
 | **Category**     | **Property**   | **Description**                                                        | **Source**                         |
 |------------------|----------------|------------------------------------------------------------------------|------------------------------------|
-| **Browser Info** | `name`         | The name of the browser                                                | `UAParser.result.browser`          |
-|                  | `version`      | The version of the browser                                             | `UAParser.result.browser.version`  |
-|                  | `major`        | The major version number of the browser                                | `UAParser.result.browser.major`    |
-|                  | `type`         | Type of current browser                                                | `UAParser.result.browser.type`     |
-| **OS Info**      | `name`         | The name of the operating system                                       | `UAParser.result.os.name`          |
-|                  | `version`      | The version of the operating system                                    | `UAParser.result.os.version`       |
-| **Device Info**  | `model`        | The model of the device                                                | `UAParser.result.device.model`     |
-|                  | `type`         | The type of the device                                                 | `UAParser.result.device.type`      |
-|                  | `vendor`       | The vendor of the device                                               | `UAParser.result.device.vendor`    |
-| **CPU Info**     | `architecture` | The CPU architecture of the device                                     | `UAParser.result.cpu.architecture` |
-| **Engine Info**  | `name`         | The name of the browser engine                                         | `UAParser.result.engine.name`      |
-|                  | `version`      | The version of the engine                                              | `UAParser.result.engine.version`   |
-| **Web Info**     | `userAgent`    | The user agent string representing the client's web browser and system | `window.navigator.userAgent`       |
+| **Browser Info** | [`name`](../docs/web/browser_info.md#name)         | The name of the browser                                                | `UAParser.result.browser`          |
+|                  | [`version`](../docs/web/browser_info.md#version)      | The version of the browser                                             | `UAParser.result.browser.version`  |
+|                  | [`major`](../docs/web/browser_info.md#major)        | The major version number of the browser                                | `UAParser.result.browser.major`    |
+|                  | [`type`](../docs/web/browser_info.md#type)         | Type of current browser                                                | `UAParser.result.browser.type`     |
+| **OS Info**      | [`name`](../docs/web/os_info.md#name)         | The name of the operating system                                       | `UAParser.result.os.name`          |
+|                  | [`version`](../docs/web/os_info.md#version)      | The version of the operating system                                    | `UAParser.result.os.version`       |
+| **Device Info**  | [`model`](../docs/web/device_info.md#model)        | The model of the device                                                | `UAParser.result.device.model`     |
+|                  | [`type`](../docs/web/device_info.md#type)         | The type of the device                                                 | `UAParser.result.device.type`      |
+|                  | [`vendor`](../docs/web/device_info.md)       | The vendor of the device                                               | `UAParser.result.device.vendor`    |
+| **CPU Info**     | [`architecture`](../docs/web/cpu_info.md#architecture) | The CPU architecture of the device                                     | `UAParser.result.cpu.architecture` |
+| **Engine Info**  | [`name`](../docs/web/engine_info.md#name)         | The name of the browser engine                                         | `UAParser.result.engine.name`      |
+|                  | [`version`](../docs/web/engine_info.md#version)      | The version of the engine                                              | `UAParser.result.engine.version`   |
+| **Web Info**     | [`userAgent`](../docs/web/web_info.md#useragent)    | The user agent string representing the client's web browser and system | `window.navigator.userAgent`       |
 
 ## Support
 

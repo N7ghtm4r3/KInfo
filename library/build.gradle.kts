@@ -159,6 +159,5 @@ mavenPublishing {
         }
     }
     publishToMavenCentral()
-    // TODO: REINSERT BEFORE PUBLISH
-    //signAllPublications()
+    signAllPublications()
 }
