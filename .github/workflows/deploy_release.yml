@@ -3,13 +3,13 @@ name: Deploy Release
 on:
   push:
     branches:
-      - main
+      - master
 
 permissions:
   contents: read
 
 concurrency:
-  group: main-release
+  group: master-release
   cancel-in-progress: false
 
 jobs:
