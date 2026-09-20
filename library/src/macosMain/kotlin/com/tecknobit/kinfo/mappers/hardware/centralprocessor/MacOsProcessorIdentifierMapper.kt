@@ -25,7 +25,8 @@ class MacOsProcessorIdentifierMapper : MacOsSplitHardwareMapper<MacOsProcessorId
      *
      * The commercial chip name is used for both the name and model, and stepping is reported as [UNKNOWN]
      * The processor ID combines the CPU type and family as two hexadecimal blocks
-     * The frequency is decoded from the final performance-core voltage-state record
+     * The vendor frequency is the maximum nominal value from the legacy `voltage-states5-sram` table, in hertz
+     * An absent, empty, or malformed frequency table produces zero
      *
      * @return the mapped Apple Silicon processor identification as [MacOsProcessorIdentifierImpl]
      * @throws IllegalStateException If the platform expert service cannot be loaded
@@ -174,26 +175,21 @@ class MacOsProcessorIdentifierMapper : MacOsSplitHardwareMapper<MacOsProcessorId
     }
 
     /**
-     * Method used to decode the frequency from the final eight-byte voltage-state record
+     * Method used to resolve the maximum nominal frequency from the performance-core voltage-state table
      *
-     * The first four bytes of the final record are interpreted as an unsigned little-endian frequency in hertz
-     * The final record is assumed to contain the maximum frequency without scanning the preceding records
+     * All frequency records are decoded and normalized to hertz through [resolveCpuTableFrequency]
+     * The result describes the nominal table maximum rather than a sampled operating frequency
      *
      * @param cpuFreqRaw The raw performance-core voltage-state table read from the registry
      *
-     * @return the decoded frequency, or zero when fewer than eight bytes are available, as [Long]
+     * @return the maximum frequency in hertz, or zero for an empty or malformed table, as [Long]
      */
     @Resolver
     private fun resolveCpuFreq(
         cpuFreqRaw: ByteArray
     ): Long {
-        if (cpuFreqRaw.size < 8)
-            return 0L
-
-        return resolveFreq(
-            rawFreq = cpuFreqRaw,
-            offset = cpuFreqRaw.size - 8,
-            range = 0 until 4
+        return resolveCpuTableFrequency(
+            rawFrequency = cpuFreqRaw
         )
     }
 
